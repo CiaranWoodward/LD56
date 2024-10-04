@@ -39,17 +39,11 @@ These files and directories are essential for managing and developing your Godot
 
 Semantic versioning is enabled in the CI for this repository.
 
-This repository follows a branching model with three main branches: `main`, `alpha`, and `beta`. Here's how to use them:
-
-> ⚠️ **IMPORTANT**: Avoid **force pushing** to these branches as it may **BREAK** the semantic release process. ⚠️
+> ⚠️ **IMPORTANT**: Avoid **force pushing** to the `main` branch, this may **BREAK** the semantic release process. ⚠️
 
 - `main` branch: This branch represents the stable version of the project. It should only contain production-ready code. Pull requests should be opened against this branch for bug fixes and new features that are ready for release.
 
-- `alpha` branch: This branch is used for early-stage development and testing. Pull requests should be opened against this branch for new features that are still in progress and need further testing.
-
-- `beta` branch: This branch is used for feature freeze and final testing before a release. Pull requests should be opened against this branch for bug fixes and finalizing features.
-
-When opening a pull request, make sure to select the appropriate target branch (`main`, `alpha`, or `beta`). Once the pull request is approved and passes all tests, it can be merged into the target branch.
+When opening a pull request, make sure to select the appropriate target branch `main`. Once the pull request is approved and passes all tests, it can be merged into the target branch.
 
 Remember to follow the [conventional commits](https://www.conventionalcommits.org) format when writing commit messages to ensure accurate versioning and release tagging.
 
