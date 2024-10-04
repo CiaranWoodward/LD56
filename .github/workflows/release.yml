@@ -26,11 +26,9 @@ jobs:
         with:
           node-version: 20
 
-      # Build, and test Project.
+      # Build Project.
       - name: Build
         uses: ./.github/actions/build
-      - name: Test
-        uses: ./.github/actions/test
 
       # Run semantic-release. Refer to .releaserc.json for more details.
       - name: Semantic Release

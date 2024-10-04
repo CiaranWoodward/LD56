@@ -28,7 +28,6 @@ Here are the important files and directories you'll find in this project:
 - [CHANGELOG.md](CHANGELOG.md): This file is automatically updated with release notes every time a new version is released. It helps you keep track of the changes made to your project over time.
 - [.releaserc.json](.releaserc.json): This file contains the configuration for [semantic-release](https://github.com/semantic-release/semantic-release). Semantic release automates the versioning and release process based on your commit messages.
 - [zip-exports.sh](zip-exports.sh)L This file is executed by `.releaserc.json` to zip the build exports into a single zip file.
-- [test/ci/test_example.gd](test/ci/test_example.gd): This is an example test written using GdUnit4. Tests located under the `test/ci` directory will be executed in GitHub Actions. GdUnit4 is a testing framework for Godot that helps you ensure the quality of your code.
 - [Scenes/Main/Main.tscn](Scenes/Main/Main.tscn): This is an example scene that renders the current version of your game. You can use this as a starting point to build your game's main scene.
 - [.github/](.github/): This directory contains all the GitHub Actions workflows for your project. GitHub Actions allow you to automate various tasks and workflows in your development process.
 
@@ -43,7 +42,7 @@ Semantic versioning is enabled in the CI for this repository.
 
 - `main` branch: This branch represents the stable version of the project. It should only contain production-ready code. Pull requests should be opened against this branch for bug fixes and new features that are ready for release.
 
-When opening a pull request, make sure to select the appropriate target branch `main`. Once the pull request is approved and passes all tests, it can be merged into the target branch.
+When opening a pull request, make sure to select the appropriate target branch `main`. Once the pull request is approved and passes all checks, it can be merged into the target branch.
 
 Remember to follow the [conventional commits](https://www.conventionalcommits.org) format when writing commit messages to ensure accurate versioning and release tagging.
 
@@ -85,15 +84,8 @@ godot --headless -s plug.gd install
 ```
 
 5. Open the project in Godot.
-6. Run the unit tests using one of the following methods:
-    a. Use [GdUnit4](https://mikeschulze.github.io/gdUnit4/) for a visual test runner.
-    b. Run the following command from the command line:
 
-```bash
-godot -s --headless res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a test/ci --ignoreHeadlessMode
-```
-
-7. To export the game (to web for example), run the following:
+6. To export the game (to web for example), run the following:
 
 ```bash
 mkdir -p build
