@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 @export var MAX_SPEED = 800
 
@@ -22,6 +22,8 @@ var speed = 20
 var on_floor = false
 var quarter_pipe_direction = 0
 var temp_ignore_bodies : Array = []
+var gravity_disabled : bool = false
+var jump_over_timeout : Tween
 
 #QTE variables:
 var qte_keys = ["W","A","S","D"]
@@ -29,12 +31,16 @@ var current_key : String
 var prev_key    : String
 var qte_active  : int = 0
 
+func _ready() -> void:
+	jump_over_timeout = get_tree().create_tween()
+
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
 	acceleration = 0
 	
 	if player_state == PLAYER_STATE.IN_AIR:
-		gravity_effect += get_gravity() * delta
+		if !gravity_disabled:
+			gravity_effect += get_gravity() * delta
 	else:
 		gravity_effect = Vector2.ZERO
 	
@@ -83,9 +89,29 @@ func _physics_process(delta: float) -> void:
 		speed = MAX_SPEED
 	speed = speed + acceleration
 	
+	if player_state == PLAYER_STATE.ON_FLOOR:
+		if Input.is_action_just_pressed("jump"):
+			force_leave()
+			temp_ignore_bodies = overlaps
+			gravity_effect.y = JUMP_VELOCITY
+			gravity_disabled = true
+			jump_over_timeout = get_tree().create_tween()
+			jump_over_timeout.tween_property(self, "gravity_disabled", false, 0.5)
+	
+	if Input.is_action_just_released("jump"):
+		cancel_jump()
+	
+	var prev_velocity = velocity
 	velocity = direction * speed + gravity_effect
+	if player_state == PLAYER_STATE.IN_AIR && (sign(prev_velocity.y) < sign(velocity.y)):
+		temp_ignore_bodies.clear()
 	
 	position = position + velocity * delta
+
+func cancel_jump():
+	if gravity_disabled:
+		jump_over_timeout.stop()
+		gravity_disabled = false
 
 func current_movement_direction():
 	return velocity.normalized()
@@ -97,7 +123,7 @@ func force_leave():
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			leave_quarter_pipe()
 		PLAYER_STATE.IN_AIR:
-			pass
+			cancel_jump()
 		_:
 			print(PLAYER_STATE.keys()[player_state] + ": Cannot leave!!!")
 

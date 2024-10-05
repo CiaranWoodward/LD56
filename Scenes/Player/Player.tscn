@@ -1141,13 +1141,13 @@ tree_root = SubResource("AnimationNodeStateMachine_miva2")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(6, -30)
 shape = SubResource("CapsuleShape2D_svxcg")
 
 [node name="AreaOfEffect" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
+position = Vector2(6, -34)
 shape = SubResource("CircleShape2D_pjjvf")
