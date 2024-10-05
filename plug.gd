@@ -6,4 +6,10 @@ func _plugging():
 	# plug("imjp94/gd-YAFSM") # By default, gd-plug will only install anything from "addons/" directory
 	# Or you can explicitly specify which file/directory to include
 	# plug("imjp94/gd-YAFSM", {"include": ["addons/"]}) # By default, gd-plug will only install anything from "addons/" directory
+	
+	# Dev Dependencies
 	plug("imjp94/gd-plug-ui", {"dev": true})
+	
+	# Prod Dependencies
+	plug("Mickeon/Godot-Texture-Font")
+	
