@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/CiaranWoodward/LD56/compare/v1.2.0...v1.2.1) (2024-10-05)
+
+
+### Bug Fixes
+
+* camera jitter ([d08461d](https://github.com/CiaranWoodward/LD56/commit/d08461dd59670a8b47a02d78f6ba01dd504103ed))
+
 # [1.2.0](https://github.com/CiaranWoodward/LD56/compare/v1.1.0...v1.2.0) (2024-10-05)
 
 
