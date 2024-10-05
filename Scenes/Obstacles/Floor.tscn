@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://8xk1d2ggg018"]
 
-[ext_resource type="Script" path="res://Scenes/Obstacles/Floor.gd" id="1_la34k"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_qip1h"]
+[ext_resource type="Texture2D" uid="uid://be5a5cdgmln0" path="res://icon.svg" id="1_qip1h"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/Floor.gd" id="1_wi23j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0451"]
 size = Vector2(128, 20)
 
 [node name="Floor" type="StaticBody2D"]
 collision_layer = 2
-script = ExtResource("1_la34k")
+script = ExtResource("1_wi23j")
 
 [node name="Visuals" type="Node2D" parent="."]
 

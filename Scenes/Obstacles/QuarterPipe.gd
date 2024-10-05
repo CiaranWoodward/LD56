@@ -11,6 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func get_max_bounds() -> Area2D:
+	return $MaxBounds
+
 func get_pipe_centre()-> Vector2:
 	return centre_node.global_position
 

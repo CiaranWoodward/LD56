@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgbwowpvn0w7t"]
+
+[ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_cn6yf"]
+[ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="3_7626f"]
+[ext_resource type="Script" path="res://Scenes/Menu/change_scene_button.gd" id="3_k6wa7"]
+[ext_resource type="PackedScene" uid="uid://djqaavqkcuae6" path="res://Scenes/Main/Main.tscn" id="4_fmoag"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_cn6yf")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -88.0
+offset_right = 420.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 40
+text = "Tiny Hawk Pro-Skater"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Start Game"
+script = ExtResource("3_k6wa7")
+current_scene = "Menu"
+target_scene = ExtResource("4_fmoag")
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Settings"
+script = ExtResource("3_7626f")
+current_page = "Start"
+target_page = "Settings"
