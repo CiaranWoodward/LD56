@@ -1,18 +1,18 @@
 [gd_scene load_steps=38 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
-[ext_resource type="Texture2D" uid="uid://cqft822ylqfna" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
-[ext_resource type="Texture2D" uid="uid://bpi1ahmegop3n" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
-[ext_resource type="Texture2D" uid="uid://cj4kjbn7tcw4w" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
+[ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
+[ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
+[ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
 [ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
-[ext_resource type="Texture2D" uid="uid://bnllxfowt5bfj" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
-[ext_resource type="Texture2D" uid="uid://bkwsqnr88wsbp" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
-[ext_resource type="Texture2D" uid="uid://beuros2n6ac54" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
-[ext_resource type="Texture2D" uid="uid://datv3ieykq51i" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
-[ext_resource type="Texture2D" uid="uid://dhms3n0q00edb" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
-[ext_resource type="Texture2D" uid="uid://clqb88nuyax2m" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
-[ext_resource type="Texture2D" uid="uid://bqs0s2ekswbxt" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
-[ext_resource type="Texture2D" uid="uid://wivdqkxvvmu4" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
+[ext_resource type="Texture2D" uid="uid://m5wsmgxswx7n" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
+[ext_resource type="Texture2D" uid="uid://da67hm031qskw" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
+[ext_resource type="Texture2D" uid="uid://dr7o4v01o4dod" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
+[ext_resource type="Texture2D" uid="uid://2uxxvj88q8vy" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
+[ext_resource type="Texture2D" uid="uid://bwsj4rb6fobsk" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
+[ext_resource type="Texture2D" uid="uid://gfgmy2ref0dt" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
+[ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
+[ext_resource type="Texture2D" uid="uid://d1xdpks62ylp2" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
 
 [sub_resource type="Animation" id="Animation_yyoq3"]
 resource_name = "Fall"
@@ -1143,14 +1143,16 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
 
+[node name="QTE2" parent="Visual" instance=ExtResource("3_ie8ce")]
+
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(6, -30)
 shape = SubResource("CapsuleShape2D_svxcg")
 
 [node name="AreaOfEffect" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
+position = Vector2(6, -34)
 shape = SubResource("CircleShape2D_pjjvf")
