@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://gxnf4sc5fv02"]
+
+[ext_resource type="FontFile" uid="uid://buoxrdmts8jv3" path="res://Theme/CoolFont.tres" id="1_55q8n"]
+
+[resource]
+default_font = ExtResource("1_55q8n")
+default_font_size = 18
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5

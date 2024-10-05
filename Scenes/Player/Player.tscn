@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cthymyo21gwdv"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_73yh8"]
-[ext_resource type="Texture2D" uid="uid://bpctf2agivc4v" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_73yh8"]
+[ext_resource type="Texture2D" uid="uid://crnb7percwfp3" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxcg"]
 radius = 19.0
@@ -11,10 +11,10 @@ height = 60.0
 radius = 37.054
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
 script = ExtResource("1_73yh8")
 
 [node name="Visual" type="Node2D" parent="."]
+position = Vector2(7, -36)
 
 [node name="PlayerBody" type="Node2D" parent="Visual"]
 
@@ -22,13 +22,14 @@ script = ExtResource("1_73yh8")
 texture = ExtResource("1_x8w3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 12)
+position = Vector2(0, -31)
 shape = SubResource("CapsuleShape2D_svxcg")
 
 [node name="AreaOfEffect" type="Area2D" parent="."]
+position = Vector2(5, -39)
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
-position = Vector2(-7, 10)
+position = Vector2(-5, 9)
 shape = SubResource("CircleShape2D_pjjvf")
