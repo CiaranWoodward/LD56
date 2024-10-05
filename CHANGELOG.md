@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/CiaranWoodward/LD56/compare/v1.2.2...v1.2.3) (2024-10-05)
+
+
+### Bug Fixes
+
+* idk the import was broken until I did this ([634f378](https://github.com/CiaranWoodward/LD56/commit/634f3786a3dba706eebd22247f3e94bba905ee76))
+* the janky code: It is now a state machine which hopefully makes life easier ([a3516e9](https://github.com/CiaranWoodward/LD56/commit/a3516e9840fb1f23c2ed54aa82256b42b163f83b))
+
 ## [1.2.2](https://github.com/CiaranWoodward/LD56/compare/v1.2.1...v1.2.2) (2024-10-05)
 
 

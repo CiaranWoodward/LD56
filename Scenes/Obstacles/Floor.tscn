@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8xk1d2ggg018"]
 
-[ext_resource type="Script" path="res://Scenes/Obstacles/floor.gd" id="1_la34k"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/Floor.gd" id="1_la34k"]
 [ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_qip1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0451"]
