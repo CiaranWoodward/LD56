@@ -145,12 +145,3 @@ func decelerate(deceleration_factor : int, acceleration_penalty : float, acceler
 	
 	self.acceleration_penalty = acceleration_penalty
 	self.acceleration_penalty_time = acceleration_penalty_time
-
-#Prompt user for key, start countdown, enable checking for input
-func start_qte(key : String, time : float) :
-	
-	qte_active = 1
-	print("Press " + key + "!")
-	$TimerQTE.start(time)
-	
-	
