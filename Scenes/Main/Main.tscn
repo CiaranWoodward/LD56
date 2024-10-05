@@ -18,27 +18,7 @@ position = Vector2(1516, 486)
 rotation = -1.5708
 
 [node name="Floor" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(359, 623)
-
-[node name="Floor2" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(485, 623)
-
-[node name="Floor3" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(613, 623)
-
-[node name="Floor4" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(740, 623)
-
-[node name="Floor5" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(867, 623)
-
-[node name="Floor6" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(993, 623)
-
-[node name="Floor7" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(1121, 623)
-
-[node name="Floor8" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(1248, 623)
+position = Vector2(806, 625)
+scale = Vector2(8, 1)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]

@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 const JUMP_VELOCITY = -300.0
 
-@export var MAX_SPEED = 800
+@export var MAX_SPEED = 1200
+@export var JUMP_TIME = 0.6
 
 @onready var aoe = $AreaOfEffect
 
@@ -47,6 +48,9 @@ func _physics_process(delta: float) -> void:
 		var pipe_centre = current_scenery.get_pipe_centre()
 		global_position = (global_position - pipe_centre).normalized() * current_scenery.get_radius() + pipe_centre
 		var exit_vec : Vector2 = current_scenery.get_exit_vector(quarter_pipe_direction, current_movement_direction())
+		$Visual.rotation = direction.angle()
+		$Visual.scale.x = 1
+		$Visual.scale.y = -quarter_pipe_direction
 		if ! exit_vec.is_zero_approx():
 			direction = exit_vec
 			force_leave()
@@ -58,6 +62,9 @@ func _physics_process(delta: float) -> void:
 			direction.y = 0
 			direction.x = sign(direction.x)
 			set_global_position(Vector2(global_position.x, current_scenery.floor_y()))
+			$Visual.rotation = 0
+			$Visual.scale.y = 1
+			$Visual.scale.x = sign(direction.x)
 		else:
 			force_leave()
 
@@ -90,7 +97,7 @@ func _physics_process(delta: float) -> void:
 			gravity_effect.y = JUMP_VELOCITY
 			gravity_disabled = true
 			jump_over_timeout = get_tree().create_tween()
-			jump_over_timeout.tween_property(self, "gravity_disabled", false, 0.5)
+			jump_over_timeout.tween_property(self, "gravity_disabled", false, JUMP_TIME)
 	
 	if Input.is_action_just_released("jump"):
 		cancel_jump()
