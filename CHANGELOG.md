@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/CiaranWoodward/LD56/compare/v1.1.0...v1.2.0) (2024-10-05)
+
+
+### Features
+
+* follow cam and initial QTE functions ([139d2b2](https://github.com/CiaranWoodward/LD56/commit/139d2b27a51455da38e8f7d299afb991b4cfa003))
+
 # [1.1.0](https://github.com/CiaranWoodward/LD56/compare/v1.0.0...v1.1.0) (2024-10-05)
 
 
