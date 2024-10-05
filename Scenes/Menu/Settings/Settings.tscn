@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c42m3q6imvryx"]
+[gd_scene load_steps=5 format=3 uid="uid://c42m3q6imvryx"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_yoess"]
 [ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="2_cuo8u"]
+[ext_resource type="Script" path="res://Scenes/Menu/Settings/mute_switch.gd" id="2_rxao2"]
 [ext_resource type="Script" path="res://Scenes/Menu/Settings/sound_bus_control.gd" id="2_vy60x"]
 
 [node name="Settings" type="Control"]
@@ -37,6 +38,22 @@ theme_override_font_sizes/normal_font_size = 13
 text = "Music"
 fit_content = true
 
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel4"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("2_rxao2")
+bus_name = "Music"
+
 [node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
@@ -47,6 +64,22 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Voice"
 fit_content = true
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel5"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("2_rxao2")
+bus_name = "Voice"
 
 [node name="VoiceVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
@@ -59,6 +92,22 @@ theme_override_font_sizes/normal_font_size = 13
 text = "Effects"
 fit_content = true
 
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("2_rxao2")
+bus_name = "Effects"
+
 [node name="EffectsVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
@@ -69,6 +118,22 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "UI"
 fit_content = true
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+focus_mode = 0
+script = ExtResource("2_rxao2")
+bus_name = "UI"
 
 [node name="UIVolume" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
