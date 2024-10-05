@@ -4,6 +4,6 @@
 
 [node name="PlayerCam" type="Camera2D" groups=["Camera"]]
 ignore_rotation = false
-position_smoothing_enabled = true
+process_callback = 0
 position_smoothing_speed = 100.0
 script = ExtResource("1_wpg5p")

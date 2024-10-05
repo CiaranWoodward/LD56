@@ -7,6 +7,7 @@ extends Camera2D
 @export var smooth_x : float = 0.3
 @export var smooth_y : float = 0.2
 
+func _physics_process(delta: float) -> void:
 #Linear interpolation in 2 dimensions to smooth camera movement:
 func _process(_delta: float) -> void:
 	position = Vector2(lerp(position.x, player.position.x, smooth_x), lerp(position.y, player.position.y, smooth_y))
