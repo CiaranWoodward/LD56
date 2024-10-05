@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_73yh8"]
-[ext_resource type="Texture2D" uid="uid://crnb7percwfp3" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
+[ext_resource type="Texture2D" uid="uid://bpctf2agivc4v" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxcg"]
 radius = 19.0
