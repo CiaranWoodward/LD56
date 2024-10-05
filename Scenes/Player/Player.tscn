@@ -1,7 +1,1050 @@
-[gd_scene load_steps=5 format=3 uid="uid://cthymyo21gwdv"]
+[gd_scene load_steps=37 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_73yh8"]
-[ext_resource type="Texture2D" uid="uid://crnb7percwfp3" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
+[ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
+[ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
+[ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
+[ext_resource type="Texture2D" uid="uid://m5wsmgxswx7n" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
+[ext_resource type="Texture2D" uid="uid://da67hm031qskw" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
+[ext_resource type="Texture2D" uid="uid://dr7o4v01o4dod" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
+[ext_resource type="Texture2D" uid="uid://2uxxvj88q8vy" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
+[ext_resource type="Texture2D" uid="uid://bwsj4rb6fobsk" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
+[ext_resource type="Texture2D" uid="uid://gfgmy2ref0dt" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
+[ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
+[ext_resource type="Texture2D" uid="uid://d1xdpks62ylp2" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
+
+[sub_resource type="Animation" id="Animation_yyoq3"]
+resource_name = "Fall"
+length = 0.6
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-27.2727, 68.1818), Vector2(-27.273, 73.182)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.63728, 1.68179),
+"update": 0,
+"values": [0.38217, 0.38217]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27.2727, 68.1818), Vector2(27.273, 73.182)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.659),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [-0.0964422, 0.567266]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1.89538, 1),
+"update": 0,
+"values": [0.0, -0.880048]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.659),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.535887, 1.86607),
+"update": 0,
+"values": [0.0, -0.311437]
+}
+
+[sub_resource type="Animation" id="Animation_5fhau"]
+resource_name = "Falling"
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1.08), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-27.2728, 69.2619), Vector2(-27.273, 73.182)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.38217, 0.38217]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27.2728, 69.2619), Vector2(27.273, 73.182)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182), Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9999, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0469187, 0.0469187, 0.567266]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909), Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.9999, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.19009, -0.19009, -0.880048]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.9999, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.113668, -0.113668, -0.311437]
+}
+
+[sub_resource type="Animation" id="Animation_iaa15"]
+resource_name = "Grind"
+length = 0.8
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1.08), Vector2(0, -1.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-27.2728, 69.2619), Vector2(-27.2728, 69.2619)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2664, 0.7992),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.38217, 0.409292, 0.38217]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27.2728, 69.2619), Vector2(27.2728, 69.2619)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2664, 0.7992),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0524902, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182), Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1665, 0.566667, 0.7992),
+"transitions": PackedFloat32Array(1, 0.732043, 1.23114, 1),
+"update": 0,
+"values": [0.0469187, 0.198111, -0.0267612, 0.0469187]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909), Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1998, 0.5661, 0.7992),
+"transitions": PackedFloat32Array(0.615572, 1.18921, 0.870551, 1),
+"update": 0,
+"values": [-0.19009, 0.0023552, -0.479858, -0.19009]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2664, 0.5328, 0.7992),
+"transitions": PackedFloat32Array(0.329877, 1.10957, 0.68302, 1),
+"update": 0,
+"values": [0.0, -0.0206714, 0.0116805, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.366667, 0.7992),
+"transitions": PackedFloat32Array(1.36604, 0.87055, 0.732043, 1),
+"update": 0,
+"values": [-0.113668, -0.10472, 0.0244346, -0.113668]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.466667, 0.666, 0.7992),
+"transitions": PackedFloat32Array(1.86607, 0.659754, 1.27456, 2.54912, 1.27456, 1),
+"update": 0,
+"values": [0.0, 0.020944, -0.0307956, 0.0244346, -0.0307956, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1j28k"]
+resource_name = "JumpUp"
+length = 0.8
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 23), Vector2(0, -5), Vector2(0, -1.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-27.2727, 68.1818), Vector2(-27.273, 43.182), Vector2(-27.273, 73.182), Vector2(-27.2728, 69.2619)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.7992),
+"transitions": PackedFloat32Array(0.63728, 0.63728, 1),
+"update": 0,
+"values": [0.0, 0.38217, 0.38217]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(27.2727, 68.1818), Vector2(27.273, 43.182), Vector2(27.273, 73.182), Vector2(27.2728, 69.2619)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(0.659, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182), Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(1.68179, 1.68179, 1.68179, 1, 1),
+"update": 0,
+"values": [-0.0964422, -0.605922, -0.605922, 0.567266, 0.0469187]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909), Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(1.89538, 1.89538, 1.89538, 1, 1),
+"update": 0,
+"values": [0.0, 0.929788, 0.929788, -0.880048, -0.19009]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.7992),
+"transitions": PackedFloat32Array(0.659, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333, 0.7992),
+"transitions": PackedFloat32Array(0.535887, 1.27456, 1.86607, 1),
+"update": 0,
+"values": [0.0, 0.0963134, -0.311437, -0.113668]
+}
+
+[sub_resource type="Animation" id="Animation_6scgr"]
+resource_name = "Land"
+length = 0.6
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, -5), Vector2(0, 23), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-27.273, 73.182), Vector2(-27.273, 73.182), Vector2(-27.273, 43.182), Vector2(-27.2727, 68.1818)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1.68179, 0.63728),
+"update": 0,
+"values": [0.38217, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(27.273, 73.182), Vector2(27.273, 73.182), Vector2(27.273, 43.182), Vector2(27.2727, 68.1818)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(0.659),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.366667, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1.68179, 1.68179, 1.68179),
+"update": 0,
+"values": [0.567266, 0.567266, -0.605922, -0.605922, -0.0964422]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.366667, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1.89538, 1.89538, 1.89538),
+"update": 0,
+"values": [-0.880048, -0.880048, 0.929788, 0.929788, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(0.659),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.133133, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1.86607, 1.86607, 1.27456, 0.535887),
+"update": 0,
+"values": [-0.311437, -0.311437, 0.0963134, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5me7l"]
+resource_name = "Push"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.535887, 0.68302, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.78814e-07, 40.9091), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-27.2727, 68.1818), Vector2(-27.2727, 68.1818)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(0.63728, 1.18921, 0.707107, 1),
+"update": 0,
+"values": [0.0, -0.199259, 0.541638, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.535, 0.683, 1),
+"update": 0,
+"values": [Vector2(27.2727, 68.1818), Vector2(27.273, 27.273), Vector2(27.2727, 68.1818)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(0.659, 1, 1),
+"update": 0,
+"values": [0.0, -0.0698512, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182), Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1.68179, 0.392292, 1.46409, 1),
+"update": 0,
+"values": [-0.0964422, 0.20499, -1.35614, -0.0964422]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909), Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1.89538, 0.901251, 1.27456, 1),
+"update": 0,
+"values": [0.0, -0.304779, 1.78644, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(0.659, 1, 1),
+"update": 0,
+"values": [0.0, 0.0752741, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0j8dk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TinyHawk/Shirt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TinyHawk/Shirt/LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27.273, 68.182)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TinyHawk/Shirt/LeftLeg:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TinyHawk/Shirt/RightLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TinyHawk/Shirt/RightLeg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(27.2727, 68.1818)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TinyHawk/Shirt/LeftWing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40.9091, -31.8182)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TinyHawk/Shirt/LeftWing:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0964422]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TinyHawk/Shirt/RightArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.0909, -29.0909)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TinyHawk/Shirt/RightArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TinyHawk/Shirt:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TinyHawk/Shirt/Head:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygkv0"]
+_data = {
+"Fall": SubResource("Animation_yyoq3"),
+"Falling": SubResource("Animation_5fhau"),
+"Grind": SubResource("Animation_iaa15"),
+"JumpUp": SubResource("Animation_1j28k"),
+"Land": SubResource("Animation_6scgr"),
+"Push": SubResource("Animation_5me7l"),
+"RESET": SubResource("Animation_0j8dk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tedt"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qxfhg"]
+animation = &"Grind"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kck13"]
+animation = &"JumpUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gmgdf"]
+animation = &"Land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_33m8a"]
+animation = &"Push"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t4xrf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpg3p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwphy"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l78mv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_spd34"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5fxyu"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o3fwp"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a61pw"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_miva2"]
+states/End/position = Vector2(707, 79)
+states/Falling/node = SubResource("AnimationNodeAnimation_3tedt")
+states/Falling/position = Vector2(467, -83)
+states/Grind/node = SubResource("AnimationNodeAnimation_qxfhg")
+states/Grind/position = Vector2(467, -239)
+states/JumpUp/node = SubResource("AnimationNodeAnimation_kck13")
+states/JumpUp/position = Vector2(277, -83)
+states/Land/node = SubResource("AnimationNodeAnimation_gmgdf")
+states/Land/position = Vector2(623, -83)
+states/Push/node = SubResource("AnimationNodeAnimation_33m8a")
+states/Push/position = Vector2(467, 79)
+states/Start/position = Vector2(221, 79)
+transitions = ["Start", "Push", SubResource("AnimationNodeStateMachineTransition_t4xrf"), "Push", "End", SubResource("AnimationNodeStateMachineTransition_mpg3p"), "Push", "JumpUp", SubResource("AnimationNodeStateMachineTransition_uwphy"), "Land", "Push", SubResource("AnimationNodeStateMachineTransition_l78mv"), "Grind", "Falling", SubResource("AnimationNodeStateMachineTransition_spd34"), "JumpUp", "Grind", SubResource("AnimationNodeStateMachineTransition_5fxyu"), "JumpUp", "Falling", SubResource("AnimationNodeStateMachineTransition_o3fwp"), "Falling", "Land", SubResource("AnimationNodeStateMachineTransition_a61pw")]
+graph_offset = Vector2(-189, -353)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxcg"]
 radius = 19.0
@@ -18,18 +1061,93 @@ position = Vector2(7, -36)
 
 [node name="PlayerBody" type="Node2D" parent="Visual"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visual/PlayerBody"]
-texture = ExtResource("1_x8w3t")
+[node name="Board" type="Sprite2D" parent="Visual/PlayerBody"]
+self_modulate = Color(0.601867, 0.407257, 0.664063, 1)
+position = Vector2(-2, 32)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_y4v5e")
+offset = Vector2(9.09091, -127.273)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -31)
+[node name="RightWheel" type="Sprite2D" parent="Visual/PlayerBody/Board"]
+self_modulate = Color(0.467148, 0.706487, 0.761719, 1)
+position = Vector2(71.0455, 21.4546)
+texture = ExtResource("3_l34b2")
+offset = Vector2(-68.1818, -150)
+
+[node name="LeftWheel" type="Sprite2D" parent="Visual/PlayerBody/Board"]
+self_modulate = Color(0.467148, 0.706487, 0.761719, 1)
+position = Vector2(-78.9545, 21.4546)
+texture = ExtResource("3_l34b2")
+offset = Vector2(-68.1818, -150)
+
+[node name="TinyHawk" type="Sprite2D" parent="Visual/PlayerBody"]
+scale = Vector2(0.22, 0.22)
+
+[node name="Shirt" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk"]
+self_modulate = Color(0.355328, 0.707031, 0.256851, 1)
+texture = ExtResource("9_rwgw3")
+
+[node name="LeftWing" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+position = Vector2(-40.9091, -31.8182)
+rotation = -0.0964422
+texture = ExtResource("6_mwdom")
+offset = Vector2(34.5034, 39.4441)
+
+[node name="Head" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+position = Vector2(9.09091, -45.4545)
+texture = ExtResource("4_0go60")
+offset = Vector2(-9.09091, 45.4545)
+
+[node name="Eye" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt/Head"]
+position = Vector2(-15.3182, 53.2727)
+texture = ExtResource("9_1tw7h")
+
+[node name="Beak" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt/Head"]
+self_modulate = Color(0.878906, 0.761962, 0.130463, 1)
+position = Vector2(-15.3182, 53.2727)
+texture = ExtResource("2_bbahd")
+
+[node name="Body" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+show_behind_parent = true
+texture = ExtResource("3_fcdm5")
+
+[node name="RightArm" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+show_behind_parent = true
+position = Vector2(59.0909, -29.0909)
+texture = ExtResource("7_6mrfx")
+offset = Vector2(-60.8493, 40.3178)
+
+[node name="RightLeg" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+show_behind_parent = true
+position = Vector2(27.2727, 68.1818)
+texture = ExtResource("8_7erjc")
+offset = Vector2(-27.2727, -68.1818)
+
+[node name="LeftLeg" type="Sprite2D" parent="Visual/PlayerBody/TinyHawk/Shirt"]
+show_behind_parent = true
+position = Vector2(-27.273, 68.182)
+texture = ExtResource("5_xpjx7")
+offset = Vector2(27.2727, -68.1818)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual/PlayerBody"]
+libraries = {
+"": SubResource("AnimationLibrary_ygkv0")
+}
+autoplay = "Push"
+
+[node name="AnimationTree" type="AnimationTree" parent="Visual/PlayerBody"]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_miva2")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_svxcg")
 
 [node name="AreaOfEffect" type="Area2D" parent="."]
-position = Vector2(5, -39)
+visible = false
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
-position = Vector2(-5, 9)
 shape = SubResource("CircleShape2D_pjjvf")
