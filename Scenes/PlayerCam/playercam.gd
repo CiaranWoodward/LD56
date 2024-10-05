@@ -10,19 +10,18 @@ extends Camera2D
 #Linear interpolation in 2 dimensions to smooth camera movement:
 func _physics_process(delta: float) -> void:
 	position = Vector2(lerp(position.x, player.position.x, smooth_x), lerp(position.y, player.position.y, smooth_y))
-	
+
 #Update smoothing coefficients:
 func cam_smooth(x: float, y: float) :
 	smooth_x = x
 	smooth_y = y
-	
+
 #Gradual change of zoom:
 func cam_zoom(x: float, y: float, rate: float) :
 	var tween = create_tween()
 	tween.tween_property($".","zoom",Vector2(x,y),rate).from(zoom)
-	
+
 #Gradual change of camera angle in degrees
 func cam_rotate(angle_degrees: float, rate: float) :
 	var tween = create_tween()
 	tween.tween_property($".","rotation_degrees",angle_degrees, rate).from(rotation_degrees)
-	

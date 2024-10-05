@@ -17,6 +17,14 @@ position = Vector2(233, 623)
 position = Vector2(1516, 486)
 rotation = -1.5708
 
+[node name="QuarterPipe3" parent="." instance=ExtResource("3_n8x0d")]
+position = Vector2(1379, 195)
+rotation = -3.14159
+
+[node name="QuarterPipe4" parent="." instance=ExtResource("3_n8x0d")]
+position = Vector2(1078, 296)
+rotation = -4.56982
+
 [node name="Floor" parent="." instance=ExtResource("4_ggnet")]
 position = Vector2(806, 625)
 scale = Vector2(8, 1)

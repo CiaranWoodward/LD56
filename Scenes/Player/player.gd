@@ -51,8 +51,12 @@ func _physics_process(delta: float) -> void:
 		$Visual.rotation = direction.angle()
 		$Visual.scale.x = 1
 		$Visual.scale.y = -quarter_pipe_direction
+		var max_bounds : Area2D = current_scenery.get_max_bounds()
 		if ! exit_vec.is_zero_approx():
 			direction = exit_vec
+			force_leave()
+		elif max_bounds not in aoe.get_overlapping_areas():
+			direction = current_movement_direction()
 			force_leave()
 	
 	if player_state == PLAYER_STATE.ON_FLOOR:
