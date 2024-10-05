@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cthymyo21gwdv"]
+[gd_scene load_steps=6 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_73yh8"]
 [ext_resource type="Texture2D" uid="uid://grm0e1ba0rvw" path="res://Graphics/Player/proto-tiny-hawk.png" id="1_x8w3t"]
+[ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxcg"]
 radius = 19.0
@@ -20,6 +21,8 @@ script = ExtResource("1_73yh8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visual/PlayerBody"]
 texture = ExtResource("1_x8w3t")
+
+[node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, 12)

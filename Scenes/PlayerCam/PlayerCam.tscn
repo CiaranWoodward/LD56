@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/PlayerCam/playercam.gd" id="1_wpg5p"]
 
-[node name="PlayerCam" type="Camera2D"]
+[node name="PlayerCam" type="Camera2D" groups=["Camera"]]
+ignore_rotation = false
 position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 script = ExtResource("1_wpg5p")

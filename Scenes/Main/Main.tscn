@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://djqaavqkcuae6"]
+[gd_scene load_steps=5 format=3 uid="uid://djqaavqkcuae6"]
 
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="2_ojcph"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="3_n8x0d"]
@@ -42,3 +42,4 @@ position = Vector2(1121, 623)
 position = Vector2(1248, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
+process_callback = 0

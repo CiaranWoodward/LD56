@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqxk0ofyop626"]
+
+[ext_resource type="Script" path="res://Scenes/QTE/qte.gd" id="1_xpnk6"]
+
+[node name="QTE" type="Node2D" groups=["QTE"]]
+script = ExtResource("1_xpnk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="TimerQTE" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerQTE" to="." method="_on_timer_qte_timeout"]
