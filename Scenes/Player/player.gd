@@ -81,6 +81,9 @@ func _physics_process(delta: float) -> void:
 	
 	position = position + velocity * delta
 	
+	if position[1] < 200 : 
+		get_tree().call_group('QTE',"start_qte",2)
+	
 func current_movement_direction():
 	return velocity.normalized()
 
@@ -93,7 +96,7 @@ func force_leave():
 		PLAYER_STATE.IN_AIR:
 			pass
 		_:
-			print(PLAYER_STATE.keys()[player_state] + ": Cannot leave!!!")
+			pass#print(PLAYER_STATE.keys()[player_state] + ": Cannot leave!!!")
 
 func can_change_player_state(new_state: PLAYER_STATE) -> bool:
 	if new_state == player_state:
@@ -108,7 +111,7 @@ func can_change_player_state(new_state: PLAYER_STATE) -> bool:
 	return true
 
 func change_player_state(new_state: PLAYER_STATE):
-	print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	player_state = new_state
 
 func leave_quarter_pipe():
