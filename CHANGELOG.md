@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/CiaranWoodward/LD56/compare/v1.4.0...v1.4.1) (2024-10-05)
+
+
+### Bug Fixes
+
+* Eternal loop-de-looping occasionally off single quarter-pipe ([b8243c7](https://github.com/CiaranWoodward/LD56/commit/b8243c7c5709a76790b4afcc3941c9691f81e88f))
+
 # [1.4.0](https://github.com/CiaranWoodward/LD56/compare/v1.3.0...v1.4.0) (2024-10-05)
 
 
