@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfuyy8rwyohaq"]
+
+[ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="1_dxhsa"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="2_4m4oa"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="3_lssys"]
+[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="4_xxkw2"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dxhsa")]
+position = Vector2(514, 446)
+
+[node name="QuarterPipe" parent="." instance=ExtResource("2_4m4oa")]
+position = Vector2(233, 623)
+
+[node name="QuarterPipe2" parent="." instance=ExtResource("2_4m4oa")]
+position = Vector2(1516, 486)
+rotation = -1.5708
+
+[node name="Floor" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(359, 623)
+
+[node name="Floor2" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(485, 623)
+
+[node name="Floor3" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(613, 623)
+
+[node name="Floor4" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(740, 623)
+
+[node name="Floor5" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(867, 623)
+
+[node name="Floor6" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(993, 623)
+
+[node name="Floor7" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(1121, 623)
+
+[node name="Floor8" parent="." instance=ExtResource("3_lssys")]
+position = Vector2(1248, 623)
+
+[node name="PlayerCam" parent="." instance=ExtResource("4_xxkw2")]
