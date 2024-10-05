@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://qgmebguylhpu"]
+
+[ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_18511"]
+[ext_resource type="Script" path="res://Scenes/Menu/Version.gd" id="2_85kr8"]
+[ext_resource type="PackedScene" uid="uid://bgbwowpvn0w7t" path="res://Scenes/Menu/Start/Start.tscn" id="3_508qk"]
+[ext_resource type="PackedScene" uid="uid://c42m3q6imvryx" path="res://Scenes/Menu/Settings/Settings.tscn" id="4_4qbuv"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_18511")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_18511")
+
+[node name="Version" type="RichTextLabel" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Version: 0.0.0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("2_85kr8")
+
+[node name="Start" parent="CanvasLayer/MarginContainer" instance=ExtResource("3_508qk")]
+layout_mode = 2
+
+[node name="Settings" parent="CanvasLayer/MarginContainer" instance=ExtResource("4_4qbuv")]
+visible = false
+layout_mode = 2

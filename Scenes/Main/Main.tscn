@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djqaavqkcuae6"]
+[gd_scene load_steps=6 format=3 uid="uid://djqaavqkcuae6"]
 
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="2_ojcph"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="3_n8x0d"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="4_ggnet"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="5_bec8c"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="5_dd7cr"]
 
 [node name="Level1" type="Node2D"]
@@ -17,28 +18,19 @@ position = Vector2(233, 623)
 position = Vector2(1516, 486)
 rotation = -1.5708
 
+[node name="QuarterPipe3" parent="." instance=ExtResource("3_n8x0d")]
+position = Vector2(1379, 195)
+rotation = -3.14159
+
+[node name="QuarterPipe4" parent="." instance=ExtResource("3_n8x0d")]
+position = Vector2(1078, 296)
+rotation = -4.56982
+
 [node name="Floor" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(359, 623)
+position = Vector2(806, 625)
+scale = Vector2(8, 1)
 
-[node name="Floor2" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(485, 623)
-
-[node name="Floor3" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(613, 623)
-
-[node name="Floor4" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(740, 623)
-
-[node name="Floor5" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(867, 623)
-
-[node name="Floor6" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(993, 623)
-
-[node name="Floor7" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(1121, 623)
-
-[node name="Floor8" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(1248, 623)
+[node name="Crate" parent="." instance=ExtResource("5_bec8c")]
+position = Vector2(906, 583)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]

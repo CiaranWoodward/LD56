@@ -1,3 +1,24 @@
+## [1.4.1](https://github.com/CiaranWoodward/LD56/compare/v1.4.0...v1.4.1) (2024-10-05)
+
+
+### Bug Fixes
+
+* Eternal loop-de-looping occasionally off single quarter-pipe ([b8243c7](https://github.com/CiaranWoodward/LD56/commit/b8243c7c5709a76790b4afcc3941c9691f81e88f))
+
+# [1.4.0](https://github.com/CiaranWoodward/LD56/compare/v1.3.0...v1.4.0) (2024-10-05)
+
+
+### Features
+
+* mute cound channels ([2fe982a](https://github.com/CiaranWoodward/LD56/commit/2fe982a3c7325c069fb1eb76344a9b6f5b453ce9))
+
+# [1.3.0](https://github.com/CiaranWoodward/LD56/compare/v1.2.3...v1.3.0) (2024-10-05)
+
+
+### Features
+
+* sound and volume slider settings ([9c0b6c1](https://github.com/CiaranWoodward/LD56/commit/9c0b6c1995a3881050086e01fdc2cf88807e0a78))
+
 ## [1.2.3](https://github.com/CiaranWoodward/LD56/compare/v1.2.2...v1.2.3) (2024-10-05)
 
 

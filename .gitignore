@@ -4,6 +4,7 @@
 # Godot-specific ignores
 .import/
 *.import
+.DS_Store
 export.cfg
 # export_presets.cfg # we want to keep this one
 
@@ -26,3 +27,5 @@ addons/*
 
 # Export
 /build/
+
+*.tmp
