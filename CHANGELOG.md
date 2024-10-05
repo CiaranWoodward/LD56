@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/CiaranWoodward/LD56/compare/v1.2.1...v1.2.2) (2024-10-05)
+
+
+### Bug Fixes
+
+* ui theme spacing ([44141ec](https://github.com/CiaranWoodward/LD56/commit/44141ec59182aa9bbb7320ba2d57bfc1e3e7df26))
+
 ## [1.2.1](https://github.com/CiaranWoodward/LD56/compare/v1.2.0...v1.2.1) (2024-10-05)
 
 
