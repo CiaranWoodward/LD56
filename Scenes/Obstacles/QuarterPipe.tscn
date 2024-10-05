@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcayb63x24w31"]
+
+[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_vmmvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2tgy"]
+size = Vector2(128, 44)
+
+[node name="QuarterPipe" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
+position = Vector2(-96, -42)
+rotation = 0.785398
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
+position = Vector2(-136, -141)
+rotation = 1.5708
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-90, -51)
+rotation = 0.837758
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-126, -141)
+rotation = 1.57393
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="Centre" type="Marker2D" parent="."]
+position = Vector2(65, -201)
