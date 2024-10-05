@@ -20,7 +20,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "./zip-exports.sh build builds.zip"
+        "prepareCmd": "chmod +x zip-exports.sh && ./zip-exports.sh build builds.zip"
       }
     ],
     [
