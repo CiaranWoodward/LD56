@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://cthymyo21gwdv"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_wutsr"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
 [ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
 [ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
 [ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
@@ -1142,6 +1142,8 @@ tree_root = SubResource("AnimationNodeStateMachine_miva2")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
+
+[node name="QTE2" parent="Visual" instance=ExtResource("3_ie8ce")]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(6, -30)
