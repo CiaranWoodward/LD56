@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/CiaranWoodward/LD56/compare/v1.2.3...v1.3.0) (2024-10-05)
+
+
+### Features
+
+* sound and volume slider settings ([9c0b6c1](https://github.com/CiaranWoodward/LD56/commit/9c0b6c1995a3881050086e01fdc2cf88807e0a78))
+
 ## [1.2.3](https://github.com/CiaranWoodward/LD56/compare/v1.2.2...v1.2.3) (2024-10-05)
 
 
