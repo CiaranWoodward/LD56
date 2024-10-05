@@ -13,6 +13,12 @@ var speed = 1
 var on_floor = false
 var quarter_pipe_direction = 0
 
+#QTE variables:
+var qte_keys = ["W","A","S","D"]
+var current_key : String
+var prev_key    : String
+var qte_active  : int = 0
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not on_floor:
@@ -63,3 +69,35 @@ func _physics_process(delta: float) -> void:
 		speed = MAX_SPEED
 	
 	position = position + velocity * delta
+
+#Prompt user for key, start countdown, enable checking for input
+func start_qte(key : String, time : float) :
+	
+	qte_active = 1
+	print("Press " + key + "!")
+	$TimerQTE.start(time)
+	
+	
+#Disable checking for input and signal result:
+func end_qte(passed: bool = false) :
+	
+	qte_active = 0
+	
+	if passed :
+		emit_signal("qte_passed")
+		print("QTE PASSED!\n")
+	else :
+		emit_signal("qte_failed")
+		print("QTE FAILED\n")
+	
+#End QTE on timeout:
+func _on_timer_qte_timeout() -> void:
+	end_qte()
+	
+#End QTE on input, check result:
+func _input(event) :
+	if qte_active ==1 and Input.is_anything_pressed() :
+		if event.is_action_pressed(current_key) :
+			end_qte(true)
+		else :
+			end_qte()

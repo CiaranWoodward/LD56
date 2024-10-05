@@ -1,11 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://djqaavqkcuae6"]
 
+[ext_resource type="Script" path="res://Scenes/Main/Version.gd" id="1_unwcj"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="2_ojcph"]
+[ext_resource type="Script" path="res://Scenes/Main/camera_Level1.gd" id="2_u3p0y"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="3_n8x0d"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="4_ggnet"]
-[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="5_dd7cr"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Version" type="RichTextLabel" parent="."]
+offset_right = 112.0
+offset_bottom = 40.0
+script = ExtResource("1_unwcj")
+
+[node name="Camera2D" type="Camera2D" parent="Version"]
+script = ExtResource("2_u3p0y")
 
 [node name="Player" parent="." instance=ExtResource("2_ojcph")]
 position = Vector2(514, 446)
@@ -40,5 +49,3 @@ position = Vector2(1121, 623)
 
 [node name="Floor8" parent="." instance=ExtResource("4_ggnet")]
 position = Vector2(1248, 623)
-
-[node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
