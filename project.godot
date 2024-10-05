@@ -12,9 +12,13 @@ config_version=5
 
 config/name="godot-with-actions-starter"
 config/version="1.2.3"
-run/main_scene="res://Scenes/StartMenu/StartMenu.tscn"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Radio="*res://Scenes/Radio/Radio.tscn"
 
 [editor_plugins]
 
