@@ -42,4 +42,3 @@ position = Vector2(1121, 623)
 position = Vector2(1248, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
-process_callback = 0
