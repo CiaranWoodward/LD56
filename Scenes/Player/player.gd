@@ -1,3 +1,5 @@
+class_name Player
+
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -400.0
@@ -18,6 +20,8 @@ var player_state : PLAYER_STATE = PLAYER_STATE.IN_AIR
 var gravity_effect : Vector2 = Vector2.ZERO
 var direction : Vector2 = Vector2(-1, 0);
 var acceleration = 0
+var acceleration_penalty = 0
+var acceleration_penalty_time = 0
 var speed = 20
 var on_floor = false
 var quarter_pipe_direction = 0
@@ -53,7 +57,12 @@ func _physics_process(delta: float) -> void:
 	
 	if player_state == PLAYER_STATE.ON_FLOOR:
 		if current_scenery in overlaps:
-			acceleration = current_scenery.acceleration_factor
+			if (acceleration_penalty_time > 0):
+				acceleration_penalty_time -= 1
+			else:
+				acceleration_penalty = 1
+				
+			acceleration = acceleration_penalty * current_scenery.acceleration_factor
 			velocity.y = 0
 			direction.y = 0
 			direction.x = sign(direction.x)
@@ -134,6 +143,14 @@ func leave_floor():
 func join_floor(floor : Floor):
 	change_player_state(PLAYER_STATE.ON_FLOOR)
 	current_scenery = floor
+
+func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time):
+	if speed <= deceleration_factor:
+		speed = ceil(speed * 0.1)
+	else: speed -= deceleration_factor
+	
+	self.acceleration_penalty = acceleration_penalty
+	self.acceleration_penalty_time = acceleration_penalty_time
 
 #Prompt user for key, start countdown, enable checking for input
 func start_qte(key : String, time : float) :

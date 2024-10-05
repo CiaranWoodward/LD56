@@ -44,4 +44,5 @@ position = Vector2(1248, 623)
 
 [node name="Crate" parent="." instance=ExtResource("5_bec8c")]
 position = Vector2(906, 583)
+
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
