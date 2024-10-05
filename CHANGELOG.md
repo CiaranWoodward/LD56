@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/CiaranWoodward/LD56/compare/v1.0.0...v1.1.0) (2024-10-05)
+
+
+### Features
+
+* added title screen ([0763590](https://github.com/CiaranWoodward/LD56/commit/0763590ece255e6c072e0324a732b1f29e479354))
+
 # 1.0.0 (2024-10-05)
 
 
