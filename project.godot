@@ -16,6 +16,11 @@ run/main_scene="res://Scenes/Main/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+fish="*res://autoloads/Collectables.tscn"
+Collectables="*res://autoloads/Collectables.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray()

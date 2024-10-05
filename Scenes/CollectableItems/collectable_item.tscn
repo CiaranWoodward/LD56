@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://qbevpc7om715"]
+
+[ext_resource type="Script" path="res://Scenes/CollectableItems/collectable_item.gd" id="1_md4lm"]
+[ext_resource type="Texture2D" uid="uid://cwhdabknqyjhl" path="res://icon.svg" id="1_wepsr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnpok"]
+size = Vector2(38, 38)
+
+[node name="CollectableItem" type="Sprite2D"]
+script = ExtResource("1_md4lm")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="HatBody" type="Node2D" parent="Visual"]
+
+[node name="blue hat" type="Sprite2D" parent="Visual/HatBody"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wepsr")
+
+[node name="red hat" type="Sprite2D" parent="Visual/HatBody"]
+modulate = Color(1, 0.317647, 0.0352941, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wepsr")
+
+[node name="AreaOfEffect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
+shape = SubResource("RectangleShape2D_jnpok")
