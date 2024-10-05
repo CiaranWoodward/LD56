@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="godot-with-actions-starter"
-config/version="1.0.0"
-run/main_scene="res://Scenes/Main/Main.tscn"
+config/version="1.1.0"
+run/main_scene="res://Scenes/StartMenu/StartMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/gd-plug-ui/plugin.cfg", "res://addons/texture_fonts/plugin.cfg")
 
 [layer_names]
 
