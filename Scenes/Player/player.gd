@@ -20,8 +20,8 @@ var player_state : PLAYER_STATE = PLAYER_STATE.IN_AIR
 var gravity_effect : Vector2 = Vector2.ZERO
 var direction : Vector2 = Vector2(-1, 0);
 var acceleration = 0
-var acceleration_penalty = 0
-var acceleration_penalty_time = 0
+var acceleration_penalty : float = 0
+var acceleration_penalty_time : float = 0
 var speed = 20
 var on_floor = false
 var quarter_pipe_direction = 0
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if player_state == PLAYER_STATE.ON_FLOOR:
 		if current_scenery in overlaps:
 			if (acceleration_penalty_time > 0):
-				acceleration_penalty_time -= 1
+				acceleration_penalty_time -= delta
 			else:
 				acceleration_penalty = 1
 				
@@ -138,7 +138,7 @@ func join_floor(floor : Floor):
 	change_player_state(PLAYER_STATE.ON_FLOOR)
 	current_scenery = floor
 
-func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time):
+func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:
 		speed = ceil(speed * 0.1)
 	else: speed -= deceleration_factor

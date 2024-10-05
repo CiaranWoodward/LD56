@@ -2,7 +2,7 @@ extends Node2D
 
 @export var deceleration_factor = 500
 @export var acceleration_penalty = 0.25
-@export var acceleration_penalty_time = 100
+@export var acceleration_penalty_time = 3
 
 @onready var particles = get_node("Visuals/DestructionParticles")
 # Called when the node enters the scene tree for the first time.
