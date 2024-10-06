@@ -1,23 +1,22 @@
-[gd_scene load_steps=20 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=19 format=3 uid="uid://ypgofh7wusvt"]
 
-[ext_resource type="Texture2D" uid="uid://crg2dmpvpv6hs" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
-[ext_resource type="Texture2D" uid="uid://ctnq0cqvth811" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
-[ext_resource type="Texture2D" uid="uid://c41pxcf64xv4n" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_dskby"]
-[ext_resource type="Texture2D" uid="uid://crb1c27006q1i" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_mn5yd"]
-[ext_resource type="Texture2D" uid="uid://bdkcjq3dmuvll" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_iq8ep"]
-[ext_resource type="Texture2D" uid="uid://ch3qqpou2wykr" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_lla7t"]
-[ext_resource type="Texture2D" uid="uid://cl4spxadff2df" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_80s6r"]
-[ext_resource type="Texture2D" uid="uid://b40f2uvtir4cm" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_271vp"]
-[ext_resource type="Texture2D" uid="uid://br0nvp0kqad11" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xjj2k"]
-[ext_resource type="Texture2D" uid="uid://beckf3usjnwlb" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_xhk87"]
+[ext_resource type="Texture2D" uid="uid://dwjylrxeyds55" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
+[ext_resource type="Texture2D" uid="uid://cp5yad5gjkyh0" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
+[ext_resource type="Texture2D" uid="uid://bmc37266wc8nv" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_dskby"]
+[ext_resource type="Texture2D" uid="uid://c3qeo78p2cmgb" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_mn5yd"]
+[ext_resource type="Texture2D" uid="uid://bp7u5ltp6vm72" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_iq8ep"]
+[ext_resource type="Texture2D" uid="uid://dynj3enwfhxjs" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_lla7t"]
+[ext_resource type="Texture2D" uid="uid://dogcn28i7ter0" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_80s6r"]
+[ext_resource type="Texture2D" uid="uid://cyt4mrqqhbvaw" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_271vp"]
+[ext_resource type="Texture2D" uid="uid://3ubh4a71t7qn" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xjj2k"]
+[ext_resource type="Texture2D" uid="uid://bg5xa2lirfhl" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_xhk87"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="11_wk11u"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="12_h8b6l"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_cqdl6"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="15_yqcn7"]
-[ext_resource type="Texture2D" uid="uid://bghivpw0lyrdy" path="res://icon.svg" id="16_t3fwn"]
+[ext_resource type="Texture2D" uid="uid://b1cmmvgmxv02d" path="res://icon.svg" id="16_t3fwn"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
-[ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="18_ogh1h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -112,13 +111,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xhk87")
 
 [node name="Player" parent="." instance=ExtResource("11_wk11u")]
-position = Vector2(-2212, 471)
+position = Vector2(198, 449)
 JUMP_VELOCITY = -400.0
 MAX_SPEED = 900
 JUMP_TIME = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(-2431, 623)
+position = Vector2(-2461, 623)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("12_h8b6l")]
 position = Vector2(2811, 486)
@@ -185,31 +184,35 @@ position = Vector2(-268, 623)
 position = Vector2(-141, 623)
 
 [node name="Floor30" parent="." instance=ExtResource("13_cqdl6")]
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-15, 623)
+acceleration_factor = 40
 
 [node name="Floor31" parent="." instance=ExtResource("13_cqdl6")]
+modulate = Color(1, 0, 1, 1)
 position = Vector2(113, 623)
+acceleration_factor = 40
 
 [node name="Floor32" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(240, 623)
 
 [node name="Floor33" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2303, 623)
+position = Vector2(-2333, 623)
 
 [node name="Floor34" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2177, 623)
+position = Vector2(-2207, 623)
 
 [node name="Floor35" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2049, 623)
+position = Vector2(-2079, 623)
 
 [node name="Floor36" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1922, 623)
+position = Vector2(-1952, 623)
 
 [node name="Floor37" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1795, 623)
+position = Vector2(-1825, 623)
 
 [node name="Floor38" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1669, 623)
+position = Vector2(-1699, 623)
 
 [node name="Floor39" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-905, 623)
@@ -335,12 +338,6 @@ position = Vector2(-235, 752)
 [node name="Crate3" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-238, 689)
 
-[node name="Crate4" parent="." instance=ExtResource("15_yqcn7")]
-position = Vector2(-146, 569)
-
-[node name="Crate5" parent="." instance=ExtResource("15_yqcn7")]
-position = Vector2(197, 563)
-
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(5.53504e-06, 0.745541, 0.367021, 1)
 position = Vector2(23, 587.5)
@@ -371,66 +368,87 @@ position = Vector2(1247, -171)
 [node name="Floor62" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1374, -171)
 
-[node name="Icon2" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0.027451, 1)
-position = Vector2(330.5, -348)
-scale = Vector2(8.39844, 1)
-texture = ExtResource("16_t3fwn")
-
 [node name="Icon3" type="Sprite2D" parent="."]
 modulate = Color(0.0156863, 0, 1, 1)
 position = Vector2(359, -545)
 texture = ExtResource("16_t3fwn")
 
+[node name="Floor78" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1055, 623)
+
+[node name="Floor80" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1692, 488)
+
+[node name="Floor79" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1183, 623)
+
 [node name="Crate9" parent="." instance=ExtResource("15_yqcn7")]
-position = Vector2(-1407, 575)
+position = Vector2(-1438, 575)
 
 [node name="Floor69" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(-135, 48)
+position = Vector2(-126, 48)
 
 [node name="Floor70" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(-9, 48)
+position = Vector2(0, 48)
 
 [node name="Floor71" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(119, 48)
-
-[node name="Floor72" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(246, 48)
-
-[node name="Floor73" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(373, 48)
+position = Vector2(128, 48)
 
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1496, 1060)
-points = PackedVector2Array(38, 22, -34, -29, -85, -112, -123, -222, -133, -332, -139, -586)
+points = PackedVector2Array(40, 26, -34, -29, -85, -112, -123, -222, -133, -332, -136, -583)
 
 [node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-404, 1278)
 
 [node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-402, 1273)
-points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -73, -180)
+points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -77, -189)
 
 [node name="GrindRail4" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(624, 1281)
-points = PackedVector2Array(-39, 25, 40, -2, 115, -52, 155, -113, 179, -164, 202, -192)
+points = PackedVector2Array(-39, 25, 40, -2, 104, -49, 146, -113, 173, -163, 182, -201)
 
 [node name="GrindRail5" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(1808, 1071)
-points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 301, -454, 307, -545)
+points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 295, -450, 307, -528)
 
 [node name="GrindRail6" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(407, 586)
 points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269, -396)
 
-[node name="Ramp" parent="." instance=ExtResource("18_ogh1h")]
-position = Vector2(-676, 583)
-rotation = 0.261799
-
 [node name="GrindRail7" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(-1819, 598)
-points = PackedVector2Array(-21, 25, 77, -24, 143, -81, 176, -128)
+position = Vector2(-1922, 602)
+points = PackedVector2Array(-21, 25, 77, -24, 143, -81, 169, -121)
 
 [node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(2213, 562)
-points = PackedVector2Array(28, 55, -35, 10, -94, -36)
+position = Vector2(2320, 562)
+points = PackedVector2Array(28, 55, -29, 20, -77, -15)
+
+[node name="Floor69" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(2178, 549)
+
+[node name="Floor71" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-929, 623)
+
+[node name="GrindRail9" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(-587, -317)
+points = PackedVector2Array(128, 56, 321, -16, 492, -40, 682, -60, 870, -70, 1036, -64, 1196, -53, 1339, -25, 1460, 4, 1544, 24, 1655, 71)
+
+[node name="Floor72" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1121, 623)
+
+[node name="Floor73" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1249, 623)
+
+[node name="Floor74" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1376, 623)
+
+[node name="Floor75" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1503, 623)
+
+[node name="Floor76" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1629, 623)
+
+[node name="Floor77" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1757, 623)
