@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://np06hy4g0w3n"]
+[gd_scene load_steps=17 format=3 uid="uid://np06hy4g0w3n"]
 
 [ext_resource type="Texture2D" uid="uid://bf0xr3t2v0d4n" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
 [ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_kfcxw"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_j4p03"]
 [ext_resource type="Texture2D" uid="uid://b83nh5w1uib40" path="res://Graphics/Backgrounds/Lab/Jar40000.png" id="9_qv0yt"]
+[ext_resource type="Texture2D" uid="uid://d2godk0pjnr8w" path="res://Graphics/Backgrounds/Particles/Circle0000.png" id="10_77vyl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l76o0"]
 animations = [{
@@ -33,6 +34,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_sx1sj"]
+offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Beach" type="Node2D"]
 
@@ -126,28 +131,42 @@ texture = ExtResource("1_528hh")
 
 [node name="Jar" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.400146, 0.6875, 0.660561, 1)
-position = Vector2(-7.31301, -23.8332)
-scale = Vector2(0.033241, 0.461361)
+position = Vector2(-32.9086, -74.5829)
+scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Mid/Floor/Tabletop/Jar"]
+position = Vector2(-3.47827e-05, 36.3275)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
 
 [node name="Jar2" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.771945, 0.431671, 0.800781, 1)
-position = Vector2(-3.5457, -20.7575)
-scale = Vector2(0.033241, 0.461361)
+position = Vector2(-18.9474, -68.4314)
+scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 1
 
 [node name="Jar3" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.953125, 0.703907, 0.383484, 1)
-position = Vector2(1.10804, -30.7536)
-scale = Vector2(0.033241, 0.461361)
+position = Vector2(-3.76732, -103.802)
+scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 2
 
 [node name="Jar4" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.287464, 0.882813, 0.282776, 1)
-position = Vector2(7.42382, -28.4468)
-scale = Vector2(0.033241, 0.461361)
+position = Vector2(10.6371, -89.9616)
+scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 3
 

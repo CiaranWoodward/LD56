@@ -1,18 +1,27 @@
-[gd_scene load_steps=42 format=3 uid="uid://cthymyo21gwdv"]
+[gd_scene load_steps=45 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
-[ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
-[ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
-[ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
+[ext_resource type="Texture2D" uid="uid://d0vvmkjkto00y" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
+[ext_resource type="Texture2D" uid="uid://23x6my358dev" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
+[ext_resource type="Texture2D" uid="uid://ddi5vj8652pmc" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
 [ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
-[ext_resource type="Texture2D" uid="uid://m5wsmgxswx7n" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
-[ext_resource type="Texture2D" uid="uid://da67hm031qskw" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
-[ext_resource type="Texture2D" uid="uid://dr7o4v01o4dod" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
-[ext_resource type="Texture2D" uid="uid://2uxxvj88q8vy" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
-[ext_resource type="Texture2D" uid="uid://bwsj4rb6fobsk" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
-[ext_resource type="Texture2D" uid="uid://gfgmy2ref0dt" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
-[ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
-[ext_resource type="Texture2D" uid="uid://d1xdpks62ylp2" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
+[ext_resource type="Texture2D" uid="uid://b1su50hg2hd5i" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
+[ext_resource type="Texture2D" uid="uid://imxg6k50w5py" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
+[ext_resource type="Texture2D" uid="uid://dlucwexi7vxg6" path="res://Graphics/Backgrounds/Particles/Spark0000.png" id="4_3q4at"]
+[ext_resource type="Texture2D" uid="uid://ccir5o6m4e1yi" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
+[ext_resource type="Texture2D" uid="uid://b3rscm41d2fwn" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
+[ext_resource type="Texture2D" uid="uid://bkf8qppkj2h4g" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
+[ext_resource type="Texture2D" uid="uid://xrbsno75dvfi" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
+[ext_resource type="Texture2D" uid="uid://c5ht28rq0rkd1" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
+[ext_resource type="Texture2D" uid="uid://4n6sb0yffifr" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
+
+[sub_resource type="Gradient" id="Gradient_ikqfk"]
+offsets = PackedFloat32Array(0, 0.133333, 0.786667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_1bdl4"]
+offsets = PackedFloat32Array(0, 0.273333, 0.713333, 1)
+colors = PackedColorArray(1, 0.890625, 0, 1, 0.958584, 0.680589, 0.151426, 1, 0.914063, 0.4548, 0.314209, 1, 0.941406, 0.220642, 0, 1)
 
 [sub_resource type="Animation" id="Animation_yyoq3"]
 resource_name = "Fall"
@@ -150,6 +159,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, -0.311437]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5fhau"]
 resource_name = "Falling"
@@ -286,6 +307,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-0.113668, -0.113668, -0.311437]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_iaa15"]
@@ -437,6 +470,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [0.0, 0.020944, -0.0307956, 0.0244346, -0.0307956, 0.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Board/Sparks:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_1j28k"]
 resource_name = "JumpUp"
@@ -573,6 +618,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(0.535887, 1.27456, 1.86607, 1),
 "update": 0,
 "values": [0.0, 0.0963134, -0.311437, -0.113668]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6scgr"]
@@ -711,6 +768,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [-0.311437, -0.311437, 0.0963134, 0.0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_5me7l"]
 resource_name = "Push"
@@ -834,6 +903,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(0.659, 1, 1),
 "update": 0,
 "values": [0.0, 0.0752741, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Board/Sparks:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0j8dk"]
@@ -981,6 +1062,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Board/Sparks:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygkv0"]
@@ -1348,6 +1441,28 @@ self_modulate = Color(0.467148, 0.706487, 0.761719, 1)
 position = Vector2(-78.9545, 21.4546)
 texture = ExtResource("3_l34b2")
 offset = Vector2(-68.1818, -150)
+
+[node name="Sparks" type="CPUParticles2D" parent="Visual/PlayerBody/Board"]
+position = Vector2(-68.1818, 9.09091)
+emitting = false
+amount = 10
+lifetime = 0.2
+lifetime_randomness = 0.1
+texture = ExtResource("4_3q4at")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 20)
+direction = Vector2(-20, -10)
+spread = 90.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+angle_min = -360.0
+angle_max = 360.0
+scale_amount_min = 0.4
+color_ramp = SubResource("Gradient_ikqfk")
+color_initial_ramp = SubResource("Gradient_1bdl4")
 
 [node name="TinyHawk" type="Sprite2D" parent="Visual/PlayerBody"]
 scale = Vector2(0.22, 0.22)
