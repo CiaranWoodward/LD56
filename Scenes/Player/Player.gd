@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var PUSH_ACCELERATION = 4
 
 @onready var aoe = $AreaOfEffect
+@onready var anim_sm : AnimationNodeStateMachinePlayback = $Visual/PlayerBody/MovementState["parameters/playback"]
 
 enum PLAYER_STATE {
 	IN_AIR,
@@ -148,9 +149,10 @@ func _physics_process(delta: float) -> void:
 		speed = MAX_SPEED
 	speed = speed + acceleration
 	
-	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL:
+	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL or player_state == PLAYER_STATE.ON_RAMP:
 		if Input.is_action_just_pressed("jump"):
 			force_leave()
+			anim_sm.start("JumpUp")
 			temp_ignore_bodies = overlaps
 			gravity_effect.y = JUMP_VELOCITY
 			gravity_disabled = true
@@ -262,6 +264,7 @@ func leave_grind_rail():
 	current_scenery = null
 
 func join_grind_rail(grb : GrindRailBody):
+	anim_sm.start("Grind")
 	change_player_state(PLAYER_STATE.ON_GRIND_RAIL)
 	current_scenery = grb
 
