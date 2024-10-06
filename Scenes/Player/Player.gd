@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
 @export var BOUNCINESS = 0.5
+@export var PUSH_MAX_SPEED = 400
+@export var PUSH_ACCELERATION = 4
 
 @onready var aoe = $AreaOfEffect
 
@@ -138,7 +140,10 @@ func _physics_process(delta: float) -> void:
 				join_ramp(overlap)
 			else:
 				maybe_bounce(delta)
-			
+				
+	if is_pushing():
+		acceleration = max(acceleration, PUSH_ACCELERATION)
+
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
 	speed = speed + acceleration
@@ -178,6 +183,15 @@ func cancel_jump():
 	if gravity_disabled:
 		jump_over_timeout.stop()
 		gravity_disabled = false
+
+func is_pushing() -> bool:
+	return speed < PUSH_MAX_SPEED && player_state != PLAYER_STATE.IN_AIR
+
+func is_grinding() -> bool:
+	return player_state == PLAYER_STATE.ON_GRIND_RAIL
+
+func is_in_air() -> bool:
+	return player_state == PLAYER_STATE.IN_AIR
 
 func current_movement_direction():
 	return velocity.normalized()
