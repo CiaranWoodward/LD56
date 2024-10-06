@@ -46,25 +46,37 @@ texture = ExtResource("1_dm26d")
 scroll_scale = Vector2(2, 1.4)
 
 [node name="Back" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(1.16, 1.08)
-scroll_offset = Vector2(-2, 119)
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
 
 [node name="Building" type="Sprite2D" parent="Background/Back"]
 self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
-position = Vector2(864, 340)
+position = Vector2(-115.833, -136.667)
 texture = ExtResource("1_bvapr")
 
 [node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building"]
 self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
 sprite_frames = SubResource("SpriteFrames_mjboo")
 
+[node name="Top" type="Sprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
+position = Vector2(0, -306.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building/Top"]
+self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+frame = 2
+
 [node name="Mid" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(1.14, 1.06)
-scroll_offset = Vector2(-2, 119)
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(866, 621)
 
 [node name="Building" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
-position = Vector2(716, 344)
+position = Vector2(-309.167, -141.667)
 texture = ExtResource("2_p63e7")
 
 [node name="Lights" type="Sprite2D" parent="Background/Mid/Building"]
@@ -72,11 +84,11 @@ self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
 texture = ExtResource("7_l744h")
 
 [node name="Fore" type="Parallax2D" parent="Background"]
-scroll_offset = Vector2(-2, 119)
+scroll_offset = Vector2(866, 621)
 
 [node name="Lamp" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
-position = Vector2(1123, 449)
+position = Vector2(152.5, -53)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_38wpo")
 
@@ -87,7 +99,7 @@ texture = ExtResource("9_iudv0")
 
 [node name="Bench" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
-position = Vector2(1057, 472)
+position = Vector2(86.5, -30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_2p4st")
 
