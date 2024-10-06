@@ -30,8 +30,10 @@ size_flags_vertical = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Audio"
 fit_content = true
+autowrap_mode = 0
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false

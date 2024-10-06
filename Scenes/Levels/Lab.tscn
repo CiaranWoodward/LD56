@@ -39,7 +39,7 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Beach" type="Node2D"]
+[node name="Lab" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 
