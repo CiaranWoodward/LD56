@@ -57,8 +57,11 @@ func _physics_process(delta: float) -> void:
 		$Visual.scale.y = -quarter_pipe_direction
 		var max_bounds : Area2D = current_scenery.get_max_bounds()
 		if ! exit_vec.is_zero_approx():
-			direction = exit_vec
-			force_leave()
+			if speed < 500 && exit_vec.y < -0.5:
+				quarter_pipe_direction *= -1
+			else:
+				direction = exit_vec
+				force_leave()
 		elif max_bounds not in aoe.get_overlapping_areas():
 			direction = current_movement_direction()
 			force_leave()
