@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="5_bec8c"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="5_dd7cr"]
 
-[node name="Level1" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_ojcph")]
 position = Vector2(514, 446)
@@ -19,11 +19,11 @@ position = Vector2(1516, 486)
 rotation = -1.5708
 
 [node name="QuarterPipe3" parent="." instance=ExtResource("3_n8x0d")]
-position = Vector2(1379, 195)
+position = Vector2(1891, 185)
 rotation = -3.14159
 
 [node name="QuarterPipe4" parent="." instance=ExtResource("3_n8x0d")]
-position = Vector2(1078, 296)
+position = Vector2(1590, 286)
 rotation = -4.56982
 
 [node name="Floor" parent="." instance=ExtResource("4_ggnet")]
@@ -34,3 +34,7 @@ scale = Vector2(8, 1)
 position = Vector2(906, 583)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
+
+[node name="Floor2" parent="." instance=ExtResource("4_ggnet")]
+position = Vector2(665, 501)
+scale = Vector2(2.8, 1)

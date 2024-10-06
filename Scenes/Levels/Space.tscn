@@ -1,18 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://re5m0rlasar4"]
+[gd_scene load_steps=17 format=3 uid="uid://re5m0rlasar4"]
 
-[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
-[ext_resource type="Texture2D" uid="uid://djus8iglm3q7i" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
-[ext_resource type="Texture2D" uid="uid://1wvshbas3ohc" path="res://Graphics/Backgrounds/Space/Star20000.png" id="3_45c6g"]
-[ext_resource type="Texture2D" uid="uid://ba8mdugt1g7xa" path="res://Graphics/Backgrounds/Beach/PalmTrunk0000.png" id="3_st2be"]
-[ext_resource type="Texture2D" uid="uid://bjwrdmi6xhhpy" path="res://Graphics/Backgrounds/Space/Star30000.png" id="4_2wm04"]
-[ext_resource type="Texture2D" uid="uid://rwsh2mrgpehq" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="4_wjedg"]
-[ext_resource type="Texture2D" uid="uid://cbffc3fajfwbi" path="res://Graphics/Backgrounds/Space/Star40000.png" id="5_6eri6"]
-[ext_resource type="Texture2D" uid="uid://gur706pna6hr" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="5_887q6"]
-[ext_resource type="Texture2D" uid="uid://cw24dccpdyjg0" path="res://Graphics/Backgrounds/Space/Moon0000.png" id="6_kn3vc"]
+[ext_resource type="Texture2D" uid="uid://dwjylrxeyds55" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
+[ext_resource type="Texture2D" uid="uid://cusyxmf6lha31" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
+[ext_resource type="Texture2D" uid="uid://bwpouyio8y5yr" path="res://Graphics/Backgrounds/Space/Star20000.png" id="3_45c6g"]
+[ext_resource type="Texture2D" uid="uid://b2avqe2qdsqfg" path="res://Graphics/Backgrounds/Beach/PalmTrunk0000.png" id="3_st2be"]
+[ext_resource type="Texture2D" uid="uid://wparbsr6wq6e" path="res://Graphics/Backgrounds/Space/Star30000.png" id="4_2wm04"]
+[ext_resource type="Texture2D" uid="uid://m6hjtjdx35pc" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="4_wjedg"]
+[ext_resource type="Texture2D" uid="uid://b86whjm8h0bo3" path="res://Graphics/Backgrounds/Space/Star40000.png" id="5_6eri6"]
+[ext_resource type="Texture2D" uid="uid://bg5xa2lirfhl" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="5_887q6"]
+[ext_resource type="Texture2D" uid="uid://ivx0t2do6vf" path="res://Graphics/Backgrounds/Space/Moon0000.png" id="6_kn3vc"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_r5cvl"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="7_kqimf"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_t6xko"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_hkaia"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="14_qs5ab"]
+[ext_resource type="Texture2D" uid="uid://b1cmmvgmxv02d" path="res://icon.svg" id="15_4jl8s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
 animations = [{
@@ -326,20 +328,44 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_887q6")
 
 [node name="Player" parent="." instance=ExtResource("6_r5cvl")]
-position = Vector2(514, 446)
+position = Vector2(716, 390)
+JUMP_VELOCITY = -400.0
+MAX_SPEED = 800
+JUMP_TIME = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("7_kqimf")]
-position = Vector2(233, 623)
+position = Vector2(-1046, 623)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("7_kqimf")]
 position = Vector2(1516, 486)
 rotation = -1.5708
 
 [node name="Floor" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(359, 623)
+position = Vector2(-154, 685)
 
 [node name="Floor2" parent="." instance=ExtResource("8_t6xko")]
 position = Vector2(485, 623)
+
+[node name="Floor" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-1403, 0)
+
+[node name="Floor2" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-764, 62)
+
+[node name="Floor9" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-1275, 0)
+
+[node name="Floor10" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-1146, 0)
+
+[node name="Floor11" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-1018, 0)
+
+[node name="Floor12" parent="Floor2" instance=ExtResource("8_t6xko")]
+position = Vector2(-890, 62)
+
+[node name="Crate" parent="Floor2" instance=ExtResource("14_qs5ab")]
+position = Vector2(-511, -133)
 
 [node name="Floor3" parent="." instance=ExtResource("8_t6xko")]
 position = Vector2(613, 623)
@@ -360,3 +386,45 @@ position = Vector2(1121, 623)
 position = Vector2(1248, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("9_hkaia")]
+
+[node name="Crate" parent="." instance=ExtResource("14_qs5ab")]
+position = Vector2(993, 583)
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(721.5, 439.5)
+scale = Vector2(0.773438, 0.773438)
+texture = ExtResource("15_4jl8s")
+
+[node name="Floor9" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(-26, 685)
+
+[node name="Floor10" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(103, 685)
+
+[node name="Floor11" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(231, 623)
+
+[node name="Floor12" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(359, 623)
+
+[node name="Floor13" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(-306, 526)
+
+[node name="Floor14" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(-174, 526)
+
+[node name="Floor13" parent="Floor14" instance=ExtResource("8_t6xko")]
+position = Vector2(697, -128)
+
+[node name="Floor14" parent="Floor14" instance=ExtResource("8_t6xko")]
+position = Vector2(306, -128)
+
+[node name="Floor15" parent="Floor14" instance=ExtResource("8_t6xko")]
+position = Vector2(132, 0)
+
+[node name="Floor13" parent="Floor14/Floor15" instance=ExtResource("8_t6xko")]
+position = Vector2(437, -129)
+
+[node name="Floor14" parent="Floor14/Floor15" instance=ExtResource("8_t6xko")]
+position = Vector2(306, -128)

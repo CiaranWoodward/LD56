@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://qgmebguylhpu"]
+[gd_scene load_steps=10 format=3 uid="uid://qgmebguylhpu"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_18511"]
 [ext_resource type="Script" path="res://Scenes/Menu/Version.gd" id="2_85kr8"]
 [ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="2_nixsr"]
 [ext_resource type="PackedScene" uid="uid://bgbwowpvn0w7t" path="res://Scenes/Menu/Start/Start.tscn" id="3_508qk"]
+[ext_resource type="PackedScene" uid="uid://cyahl5jeqxd7l" path="res://Scenes/HUD/HUD.tscn" id="3_o3fk2"]
 [ext_resource type="PackedScene" uid="uid://c42m3q6imvryx" path="res://Scenes/Menu/Settings/Settings.tscn" id="4_4qbuv"]
 [ext_resource type="PackedScene" uid="uid://cb14y08bh4op5" path="res://Scenes/Menu/Controls/Controls.tscn" id="6_6ywtm"]
 [ext_resource type="PackedScene" uid="uid://cfnilrh1eyswk" path="res://Scenes/Menu/Credits/Credits.tscn" id="7_wohn0"]
+[ext_resource type="PackedScene" uid="uid://dw3lbtajd77ta" path="res://Scenes/Menu/NextLevel/NextLevel.tscn" id="9_37ada"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("views")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("views", "canvas")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +20,8 @@ grow_vertical = 2
 theme = ExtResource("1_18511")
 script = ExtResource("2_nixsr")
 views = [NodePath("Canvas/Panel/MenuContainer/Start"), NodePath("Canvas/Panel/MenuContainer/Settings"), NodePath("Canvas/Panel/MenuContainer/Controls"), NodePath("Canvas/Panel/MenuContainer/Credits")]
+hud_scene = ExtResource("3_o3fk2")
+canvas = NodePath("Canvas")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -27,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_18511")
 
 [node name="MenuContainer" type="MarginContainer" parent="Canvas/Panel"]
 layout_mode = 1
@@ -59,5 +64,9 @@ visible = false
 layout_mode = 2
 
 [node name="Credits" parent="Canvas/Panel/MenuContainer" instance=ExtResource("7_wohn0")]
+visible = false
+layout_mode = 2
+
+[node name="NextLevel" parent="Canvas/Panel/MenuContainer" instance=ExtResource("9_37ada")]
 visible = false
 layout_mode = 2

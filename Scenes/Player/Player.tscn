@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
 [ext_resource type="Texture2D" uid="uid://d0vvmkjkto00y" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
+[ext_resource type="Script" path="res://Scenes/Player/player_body.gd" id="2_keoul"]
 [ext_resource type="Texture2D" uid="uid://23x6my358dev" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
 [ext_resource type="Texture2D" uid="uid://ddi5vj8652pmc" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
 [ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
@@ -1410,18 +1411,20 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxcg"]
 radius = 19.0
-height = 60.0
+height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjjvf"]
 radius = 37.054
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_wutsr")
 
 [node name="Visual" type="Node2D" parent="."]
 position = Vector2(7, -36)
 
-[node name="PlayerBody" type="Node2D" parent="Visual"]
+[node name="PlayerBody" type="Node2D" parent="Visual" groups=["Animation"]]
+script = ExtResource("2_keoul")
 
 [node name="Board" type="Sprite2D" parent="Visual/PlayerBody"]
 self_modulate = Color(0.601867, 0.407257, 0.664063, 1)
@@ -1524,22 +1527,30 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_miva2")
 anim_player = NodePath("../Movement")
 
-[node name="Tricks" type="AnimationPlayer" parent="Visual/PlayerBody"]
+[node name="Tricks" type="AnimationPlayer" parent="Visual/PlayerBody" groups=["Animation"]]
 root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_drlsj")
 }
 
-[node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
+[node name="QTE" parent="." instance=ExtResource("3_ie8ce")]
+position = Vector2(7, -36)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(6, -30)
+position = Vector2(7, -36)
 shape = SubResource("CapsuleShape2D_svxcg")
 
+[node name="CollisionBottom" type="Marker2D" parent="."]
+position = Vector2(7, -15)
+
 [node name="AreaOfEffect" type="Area2D" parent="."]
+position = Vector2(1, 22)
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
-position = Vector2(6, -34)
+position = Vector2(5, -55)
 shape = SubResource("CircleShape2D_pjjvf")
+
+[connection signal="landed" from="." to="QTE" method="_on_player_landed"]
+[connection signal="animation_finished" from="Visual/PlayerBody/Tricks" to="QTE" method="_on_tricks_animation_finished"]
