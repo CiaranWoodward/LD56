@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/CiaranWoodward/LD56/compare/v1.9.0...v1.10.0) (2024-10-06)
+
+
+### Features
+
+* new game plus and scoreboard ([4690199](https://github.com/CiaranWoodward/LD56/commit/469019936031ecc6e891122516aa81d30cec6924))
+
 # [1.9.0](https://github.com/CiaranWoodward/LD56/compare/v1.8.0...v1.9.0) (2024-10-06)
 
 
