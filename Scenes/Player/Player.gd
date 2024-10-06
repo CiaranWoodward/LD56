@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -300.0
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
+@export var BOUNCINESS = 0.5
 
 @onready var aoe = $AreaOfEffect
 
@@ -99,8 +100,18 @@ func _physics_process(delta: float) -> void:
 			force_leave()
 			join_quarter_pipe(overlap)
 		elif overlap is Floor && can_change_player_state(PLAYER_STATE.ON_FLOOR):
-			force_leave()
-			join_floor(overlap) 
+			if overlap.is_in_landing_plane($CollisionBottom.global_position):
+				force_leave()
+				join_floor(overlap)
+			else:
+				var collision = move_and_collide(velocity * delta, true)
+				if collision:
+					var normal = collision.get_normal()
+					direction = direction.bounce(normal)
+					speed *= BOUNCINESS
+					if normal.y > 0:
+						gravity_effect.y -= gravity_effect.y * abs(normal.y) * 1.5
+					print("bounce")
 	
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
@@ -124,6 +135,7 @@ func _physics_process(delta: float) -> void:
 		temp_ignore_bodies.clear()
 	
 	position = position + velocity * delta
+	#move_and_collide(velocity * delta, false)
 	
 func cancel_jump():
 	if gravity_disabled:

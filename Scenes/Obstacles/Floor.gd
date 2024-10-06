@@ -13,3 +13,9 @@ func _process(delta: float) -> void:
 
 func floor_y() -> float:
 	return $Top.global_position.y
+
+func is_in_landing_plane(point: Vector2) -> bool:
+	var up_vector = Vector2.from_angle($Top.global_rotation)
+	var line_position = $Top.global_position
+	var is_point_above_line : bool = (point - line_position).dot(up_vector) > 0
+	return is_point_above_line
