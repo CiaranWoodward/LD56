@@ -1,0 +1,210 @@
+[gd_scene load_steps=17 format=3 uid="uid://np06hy4g0w3n"]
+
+[ext_resource type="Texture2D" uid="uid://bf0xr3t2v0d4n" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
+[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
+[ext_resource type="Texture2D" uid="uid://c4lon20cfa6id" path="res://Graphics/Backgrounds/Lab/WallLine0000.png" id="2_q2xds"]
+[ext_resource type="Texture2D" uid="uid://4wmrin2cr41a" path="res://Graphics/Backgrounds/Lab/Blue10000.png" id="3_o2xwc"]
+[ext_resource type="Texture2D" uid="uid://5aj3pfbha2il" path="res://Graphics/Backgrounds/Lab/Blue20000.png" id="4_q1t5g"]
+[ext_resource type="Texture2D" uid="uid://cs1d7gp0a7vb4" path="res://Graphics/Backgrounds/Lab/Jar10000.png" id="6_dnkhh"]
+[ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_om1mj"]
+[ext_resource type="Texture2D" uid="uid://bp26074x3pucc" path="res://Graphics/Backgrounds/Lab/Jar20000.png" id="7_35j14"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="7_u3a6o"]
+[ext_resource type="Texture2D" uid="uid://bgnh1ck3bugvo" path="res://Graphics/Backgrounds/Lab/Jar30000.png" id="8_2ra4m"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_kfcxw"]
+[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_j4p03"]
+[ext_resource type="Texture2D" uid="uid://b83nh5w1uib40" path="res://Graphics/Backgrounds/Lab/Jar40000.png" id="9_qv0yt"]
+[ext_resource type="Texture2D" uid="uid://d2godk0pjnr8w" path="res://Graphics/Backgrounds/Particles/Circle0000.png" id="10_77vyl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l76o0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_dnkhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_35j14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2ra4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qv0yt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_sx1sj"]
+offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Beach" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Wall" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(2, 1.4)
+
+[node name="TextureRect" type="TextureRect" parent="Background/Wall"]
+self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
+offset_left = -687.0
+offset_top = -292.0
+offset_right = 2750.0
+offset_bottom = 1099.0
+texture = ExtResource("1_8jwel")
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Background/Wall"]
+self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
+offset_left = -687.0
+offset_top = -292.0
+offset_right = 2750.0
+offset_bottom = 1099.0
+texture = ExtResource("1_8jwel")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background/Wall"]
+self_modulate = Color(0.855469, 0.855469, 0.855469, 1)
+offset_left = -690.0
+offset_top = -296.0
+offset_right = 2747.0
+offset_bottom = 1095.0
+texture = ExtResource("2_q2xds")
+stretch_mode = 1
+
+[node name="Blue10000" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(561, 16)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10001" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(46, 351)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10002" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(1403, 621)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20000" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(964, 518)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20001" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(1443, 46)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20002" type="Sprite2D" parent="Background/Wall"]
+position = Vector2(-465, 478)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(866, 621)
+
+[node name="Floor" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
+position = Vector2(181.667, 60)
+scale = Vector2(292.5, 10.67)
+texture = ExtResource("1_528hh")
+
+[node name="Table" type="Sprite2D" parent="Background/Mid/Floor"]
+self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
+position = Vector2(-1.37251, -13.8238)
+scale = Vector2(0.0513533, 0.382693)
+texture = ExtResource("1_528hh")
+
+[node name="Tabletop" type="Sprite2D" parent="Background/Mid/Floor"]
+self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
+position = Vector2(-1.37322, -16.792)
+scale = Vector2(0.0514245, 0.10157)
+texture = ExtResource("1_528hh")
+
+[node name="Jar" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
+self_modulate = Color(0.400146, 0.6875, 0.660561, 1)
+position = Vector2(-32.9086, -74.5829)
+scale = Vector2(0.1, 1.397)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Mid/Floor/Tabletop/Jar"]
+position = Vector2(-3.47827e-05, 36.3275)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="Jar2" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
+self_modulate = Color(0.771945, 0.431671, 0.800781, 1)
+position = Vector2(-18.9474, -68.4314)
+scale = Vector2(0.1, 1.397)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 1
+
+[node name="Jar3" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
+self_modulate = Color(0.953125, 0.703907, 0.383484, 1)
+position = Vector2(-3.76732, -103.802)
+scale = Vector2(0.1, 1.397)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 2
+
+[node name="Jar4" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
+self_modulate = Color(0.287464, 0.882813, 0.282776, 1)
+position = Vector2(10.6371, -89.9616)
+scale = Vector2(0.1, 1.397)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 3
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(866, 621)
+
+[node name="Player" parent="." instance=ExtResource("6_om1mj")]
+position = Vector2(514, 446)
+
+[node name="QuarterPipe" parent="." instance=ExtResource("7_u3a6o")]
+position = Vector2(233, 623)
+
+[node name="QuarterPipe2" parent="." instance=ExtResource("7_u3a6o")]
+position = Vector2(1516, 486)
+rotation = -1.5708
+
+[node name="Floor" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(359, 623)
+
+[node name="Floor2" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(485, 623)
+
+[node name="Floor3" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(613, 623)
+
+[node name="Floor4" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(740, 623)
+
+[node name="Floor5" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(867, 623)
+
+[node name="Floor6" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(993, 623)
+
+[node name="Floor7" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1121, 623)
+
+[node name="Floor8" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1248, 623)
+
+[node name="PlayerCam" parent="." instance=ExtResource("9_j4p03")]

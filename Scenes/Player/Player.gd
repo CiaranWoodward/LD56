@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -300.0
+@export var JUMP_VELOCITY = -300.0
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
@@ -16,6 +16,7 @@ enum PLAYER_STATE {
 	ON_FLOOR,
 	ON_QUARTER_PIPE,
 	ON_GRIND_RAIL,
+	ON_RAMP
 }
 
 var current_scenery = null
@@ -32,6 +33,8 @@ var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
 
+signal landed
+
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
 
@@ -40,6 +43,8 @@ func _physics_process(delta: float) -> void:
 	acceleration = 0
 	
 	if player_state == PLAYER_STATE.IN_AIR:
+		if Input.is_action_just_pressed("jump"):
+			get_tree().call_group('QTE',"start_qte",1)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
 	else:
@@ -58,6 +63,7 @@ func _physics_process(delta: float) -> void:
 		$Visual.scale.x = 1
 		$Visual.scale.y = -quarter_pipe_direction
 		var max_bounds : Area2D = current_scenery.get_max_bounds()
+		
 		if ! exit_vec.is_zero_approx():
 			if speed < 500 && exit_vec.y < -0.5:
 				quarter_pipe_direction *= -1
@@ -99,6 +105,9 @@ func _physics_process(delta: float) -> void:
 			$Visual.scale.x = sign(direction.x)
 		else:
 			force_leave()
+			
+	if player_state == PLAYER_STATE.ON_RAMP:
+		handle_on_ramp_player_state(overlaps)
 
 	# Handle the temporary ignores list, which stop you immediately snapping back onto the same
 	# scenery
@@ -123,7 +132,13 @@ func _physics_process(delta: float) -> void:
 				join_floor(overlap)
 			else:
 				maybe_bounce(delta)
-	
+		elif overlap is Ramp && can_change_player_state(PLAYER_STATE.ON_RAMP, overlap):
+			if overlap.is_in_landing_plane($CollisionBottom.global_position):
+				force_leave()
+				join_ramp(overlap)
+			else:
+				maybe_bounce(delta)
+			
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
 	speed = speed + acceleration
@@ -148,8 +163,6 @@ func _physics_process(delta: float) -> void:
 	position = position + velocity * delta
 	#move_and_collide(velocity * delta, false)
 	
-	if position[1] < 200 :
-		get_tree().call_group('QTE',"start_qte",2)
 
 func maybe_bounce(delta : float):
 	var collision = move_and_collide(velocity * delta, true)
@@ -175,6 +188,8 @@ func force_leave():
 			leave_floor()
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			leave_quarter_pipe()
+		PLAYER_STATE.ON_RAMP:
+			leave_ramp()
 		PLAYER_STATE.IN_AIR:
 			cancel_jump()
 		PLAYER_STATE.ON_GRIND_RAIL:
@@ -195,11 +210,19 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 			return true
 		PLAYER_STATE.IN_AIR:
 			return true
+		PLAYER_STATE.ON_RAMP:
+			return true
 	return false
 
 func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	
+	#Fail any in-progress tricks on landing:
+	if player_state == PLAYER_STATE.IN_AIR :
+		landed.emit()
+		
 	player_state = new_state
+
 
 func leave_quarter_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -235,3 +258,47 @@ func decelerate(deceleration_factor : int, acceleration_penalty : float, acceler
 	
 	self.acceleration_penalty = acceleration_penalty
 	self.acceleration_penalty_time = acceleration_penalty_time
+
+#region Ramp
+
+func join_ramp(ramp : Ramp):
+	change_player_state(PLAYER_STATE.ON_RAMP)
+	current_scenery = ramp
+
+func leave_ramp():
+	change_player_state(PLAYER_STATE.IN_AIR)
+	temp_ignore_bodies.append(current_scenery)
+	current_scenery = null
+
+func handle_on_ramp_player_state(overlaps : Array):
+	if current_scenery not in overlaps:
+		force_leave()
+		return
+	
+	assert(current_scenery is Ramp)
+	
+	var ramp = current_scenery as Ramp
+	
+	var ramp_angle = ramp.global_rotation
+	var ramp_vector : Vector2 = Vector2.from_angle(ramp_angle)
+	
+	var cdir = current_movement_direction().normalized()
+	
+	var dot_product = ramp_vector.dot(cdir)
+	
+	# If 1, continue with direction of ramp, if zero
+	var direction_modifier = 1
+	if dot_product < 0:
+		direction_modifier = -1
+	
+	speed = abs(dot_product) * speed
+	
+	direction = Vector2.from_angle(ramp_angle)
+	direction = direction.normalized() * direction_modifier
+	
+	$Visual.rotation = ramp_angle
+	
+	if current_movement_direction().y > 0:
+		acceleration = ramp.acceleration_factor * (1 + direction.y)
+
+#endregion RAMP

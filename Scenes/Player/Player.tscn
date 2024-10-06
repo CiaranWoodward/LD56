@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cthymyo21gwdv"]
+[gd_scene load_steps=46 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
 [ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
@@ -8,12 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
 [ext_resource type="Texture2D" uid="uid://m5wsmgxswx7n" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
 [ext_resource type="Texture2D" uid="uid://da67hm031qskw" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
+[ext_resource type="Texture2D" uid="uid://bn338s71fmoww" path="res://Graphics/Backgrounds/Particles/Spark0000.png" id="4_3q4at"]
 [ext_resource type="Texture2D" uid="uid://dr7o4v01o4dod" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="5_xpjx7"]
 [ext_resource type="Texture2D" uid="uid://2uxxvj88q8vy" path="res://Graphics/TinyHawk/LeftWing0000.png" id="6_mwdom"]
 [ext_resource type="Texture2D" uid="uid://bwsj4rb6fobsk" path="res://Graphics/TinyHawk/RightArm0000.png" id="7_6mrfx"]
 [ext_resource type="Texture2D" uid="uid://gfgmy2ref0dt" path="res://Graphics/TinyHawk/RightLeg0000.png" id="8_7erjc"]
 [ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
 [ext_resource type="Texture2D" uid="uid://d1xdpks62ylp2" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
+
+[sub_resource type="Gradient" id="Gradient_ikqfk"]
+offsets = PackedFloat32Array(0, 0.133333, 0.786667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_1bdl4"]
+offsets = PackedFloat32Array(0, 0.273333, 0.713333, 1)
+colors = PackedColorArray(1, 0.890625, 0, 1, 0.958584, 0.680589, 0.151426, 1, 0.914063, 0.4548, 0.314209, 1, 0.941406, 0.220642, 0, 1)
 
 [sub_resource type="Animation" id="Animation_yyoq3"]
 resource_name = "Fall"
@@ -151,6 +160,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0, -0.311437]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_5fhau"]
 resource_name = "Falling"
@@ -287,6 +308,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-0.113668, -0.113668, -0.311437]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_iaa15"]
@@ -438,6 +471,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [0.0, 0.020944, -0.0307956, 0.0244346, -0.0307956, 0.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Board/Sparks:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_1j28k"]
 resource_name = "JumpUp"
@@ -574,6 +619,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(0.535887, 1.27456, 1.86607, 1),
 "update": 0,
 "values": [0.0, 0.0963134, -0.311437, -0.113668]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6scgr"]
@@ -712,6 +769,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [-0.311437, -0.311437, 0.0963134, 0.0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Board/Sparks:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_5me7l"]
 resource_name = "Push"
@@ -835,6 +904,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(0.659, 1, 1),
 "update": 0,
 "values": [0.0, 0.0752741, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Board/Sparks:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0j8dk"]
@@ -982,6 +1063,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Board/Sparks:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygkv0"]
@@ -1352,6 +1445,28 @@ position = Vector2(-78.9545, 21.4546)
 texture = ExtResource("3_l34b2")
 offset = Vector2(-68.1818, -150)
 
+[node name="Sparks" type="CPUParticles2D" parent="Visual/PlayerBody/Board"]
+position = Vector2(-68.1818, 9.09091)
+emitting = false
+amount = 10
+lifetime = 0.2
+lifetime_randomness = 0.1
+texture = ExtResource("4_3q4at")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 20)
+direction = Vector2(-20, -10)
+spread = 90.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+angle_min = -360.0
+angle_max = 360.0
+scale_amount_min = 0.4
+color_ramp = SubResource("Gradient_ikqfk")
+color_initial_ramp = SubResource("Gradient_1bdl4")
+
 [node name="TinyHawk" type="Sprite2D" parent="Visual/PlayerBody"]
 scale = Vector2(0.22, 0.22)
 
@@ -1418,7 +1533,8 @@ libraries = {
 "": SubResource("AnimationLibrary_drlsj")
 }
 
-[node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
+[node name="QTE" parent="." instance=ExtResource("3_ie8ce")]
+position = Vector2(7, -36)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(7, -36)
@@ -1435,3 +1551,6 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
 position = Vector2(5, -55)
 shape = SubResource("CircleShape2D_pjjvf")
+
+[connection signal="landed" from="." to="QTE" method="_on_player_landed"]
+[connection signal="animation_finished" from="Visual/PlayerBody/Tricks" to="QTE" method="_on_tricks_animation_finished"]
