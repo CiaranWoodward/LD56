@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/CiaranWoodward/LD56/compare/v1.11.0...v1.11.1) (2024-10-06)
+
+
+### Bug Fixes
+
+* hide debug menu on prod build ([bfc32fd](https://github.com/CiaranWoodward/LD56/commit/bfc32fd8ba073b878514fea8a8d7f41380d71ccd))
+
 # [1.11.0](https://github.com/CiaranWoodward/LD56/compare/v1.10.0...v1.11.0) (2024-10-06)
 
 
