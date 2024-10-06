@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l50om6l5tiiw"]
 
-[ext_resource type="AudioStream" uid="uid://croym7euajlu8" path="res://Audio/Music/bacground-rock.mp3" id="1_pevkm"]
+[ext_resource type="AudioStream" uid="uid://bksvm55bl3hbv" path="res://Audio/Music/bacground-rock.mp3" id="1_pevkm"]
 
 [node name="Radio" type="Node2D"]
 
