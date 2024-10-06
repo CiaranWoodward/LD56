@@ -35,11 +35,13 @@ var quarter_pipe_direction = 0
 var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
+var grind_rotation_tween : Tween
 
 signal landed
 
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
+	grind_rotation_tween = get_tree().create_tween()
 
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
@@ -83,6 +85,9 @@ func _physics_process(delta: float) -> void:
 			var newparams = grail.get_current_direction_and_position(global_position, direction)
 			var newdir = newparams[0]
 			var newpos = newparams[1]
+			rotate_to(direction.angle())
+			$Visual.scale.x = 1
+			$Visual.scale.y = sign(direction.x)
 			if newdir == Vector2.ZERO:
 				force_leave()
 			else:
@@ -172,6 +177,10 @@ func _physics_process(delta: float) -> void:
 	
 	#position = position + velocity * delta
 	move_and_collide(velocity * delta, false)
+
+func rotate_to(rot):
+	grind_rotation_tween = get_tree().create_tween()
+	grind_rotation_tween.tween_property($Visual, "rotation", rot, 0.1)
 
 func _find_closest_floor(overlaps : Array):
 	var best_distance_sq = INF
@@ -283,6 +292,7 @@ func leave_grind_rail():
 	current_scenery = null
 	self.collision_layer = 1
 	self.collision_mask = 2
+	grind_rotation_tween.kill()
 
 func join_grind_rail(grb : GrindRailBody):
 	anim_sm.start("Grind")
