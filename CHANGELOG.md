@@ -1,3 +1,22 @@
+# [1.11.0](https://github.com/CiaranWoodward/LD56/compare/v1.10.0...v1.11.0) (2024-10-06)
+
+
+### Bug Fixes
+
+* new game plus bugfix ([2e9d6b0](https://github.com/CiaranWoodward/LD56/commit/2e9d6b096e923548296c38118a0fb275d79777db))
+
+
+### Features
+
+* music select and radio+cassets control ([df3cfa4](https://github.com/CiaranWoodward/LD56/commit/df3cfa436d72f22cfc1ce1ba9e00e81a461ae496))
+
+# [1.10.0](https://github.com/CiaranWoodward/LD56/compare/v1.9.0...v1.10.0) (2024-10-06)
+
+
+### Features
+
+* new game plus and scoreboard ([4690199](https://github.com/CiaranWoodward/LD56/commit/469019936031ecc6e891122516aa81d30cec6924))
+
 # [1.9.0](https://github.com/CiaranWoodward/LD56/compare/v1.8.0...v1.9.0) (2024-10-06)
 
 
