@@ -1,7 +1,7 @@
 class_name LevelButton
 extends FxButton
 
-@export var level: PackedScene = null
+@export var level: int
 
 var _menu: Menu
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # Called when the button is pressed
 func _on_level_pressed() -> void:
-	if is_instance_valid(level):
+	if level >= 0:
 		_menu.play_level(level)
 	else:
 		_menu.change_view("")
