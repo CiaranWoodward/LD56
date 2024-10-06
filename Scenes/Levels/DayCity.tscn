@@ -1,19 +1,21 @@
-[gd_scene load_steps=16 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=18 format=3 uid="uid://ypgofh7wusvt"]
 
-[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
-[ext_resource type="Texture2D" uid="uid://c2r3llwlk5b4n" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
-[ext_resource type="Texture2D" uid="uid://bnnl3hv8trdgo" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_dskby"]
-[ext_resource type="Texture2D" uid="uid://cimgk2oqquup5" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_mn5yd"]
-[ext_resource type="Texture2D" uid="uid://jcadalqyiesh" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_iq8ep"]
-[ext_resource type="Texture2D" uid="uid://c1fa1soy10hsn" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_lla7t"]
-[ext_resource type="Texture2D" uid="uid://cmkt6tbkriaot" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_80s6r"]
-[ext_resource type="Texture2D" uid="uid://n0klk2036dad" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_271vp"]
-[ext_resource type="Texture2D" uid="uid://bjm6ocews6kqn" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xjj2k"]
-[ext_resource type="Texture2D" uid="uid://gur706pna6hr" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_xhk87"]
+[ext_resource type="Texture2D" uid="uid://dwjylrxeyds55" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
+[ext_resource type="Texture2D" uid="uid://cp5yad5gjkyh0" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
+[ext_resource type="Texture2D" uid="uid://bmc37266wc8nv" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_dskby"]
+[ext_resource type="Texture2D" uid="uid://c3qeo78p2cmgb" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_mn5yd"]
+[ext_resource type="Texture2D" uid="uid://bp7u5ltp6vm72" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_iq8ep"]
+[ext_resource type="Texture2D" uid="uid://dynj3enwfhxjs" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_lla7t"]
+[ext_resource type="Texture2D" uid="uid://dogcn28i7ter0" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_80s6r"]
+[ext_resource type="Texture2D" uid="uid://cyt4mrqqhbvaw" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_271vp"]
+[ext_resource type="Texture2D" uid="uid://3ubh4a71t7qn" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xjj2k"]
+[ext_resource type="Texture2D" uid="uid://bg5xa2lirfhl" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_xhk87"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="11_wk11u"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="12_h8b6l"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="13_cqdl6"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="15_yqcn7"]
+[ext_resource type="Texture2D" uid="uid://b1cmmvgmxv02d" path="res://icon.svg" id="16_t3fwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -38,8 +40,8 @@ animations = [{
 
 [node name="Colour" type="Sprite2D" parent="Background"]
 self_modulate = Color(0.556641, 0.781036, 0.890625, 1)
-position = Vector2(764.5, 168)
-scale = Vector2(177.45, 98.6)
+position = Vector2(125.25, 685.5)
+scale = Vector2(562.675, 265.15)
 texture = ExtResource("1_4b74k")
 
 [node name="Sky" type="Parallax2D" parent="Background"]
@@ -105,12 +107,15 @@ texture = ExtResource("10_xhk87")
 
 [node name="Player" parent="." instance=ExtResource("11_wk11u")]
 position = Vector2(514, 446)
+JUMP_VELOCITY = -400.0
+MAX_SPEED = 900
+JUMP_TIME = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(233, 623)
+position = Vector2(-2460, 623)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(1516, 486)
+position = Vector2(2811, 486)
 rotation = -1.5708
 
 [node name="Floor" parent="." instance=ExtResource("13_cqdl6")]
@@ -131,10 +136,246 @@ position = Vector2(867, 623)
 [node name="Floor6" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(993, 623)
 
+[node name="Floor55" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(2163, 623)
+
+[node name="Floor56" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(2290, 623)
+
+[node name="Floor59" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(804, 172)
+
+[node name="Floor60" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(931, 172)
+
+[node name="Floor57" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1057, 243)
+
+[node name="Floor57" parent="Floor57" instance=ExtResource("13_cqdl6")]
+position = Vector2(254, 98)
+
+[node name="Floor58" parent="Floor57" instance=ExtResource("13_cqdl6")]
+position = Vector2(381, 98)
+
+[node name="Floor58" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1184, 243)
+
 [node name="Floor7" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1121, 623)
+position = Vector2(2416, 623)
+
+[node name="Floor25" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-649, 623)
+
+[node name="Floor26" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-523, 623)
+
+[node name="Floor27" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-395, 623)
+
+[node name="Floor28" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-268, 623)
+
+[node name="Floor29" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-141, 623)
+
+[node name="Floor30" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-15, 623)
+
+[node name="Floor31" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(113, 623)
+
+[node name="Floor32" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(240, 623)
+
+[node name="Floor33" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-2332, 623)
+
+[node name="Floor34" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-2206, 623)
+
+[node name="Floor35" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-2078, 623)
+
+[node name="Floor36" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1951, 623)
+
+[node name="Floor37" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1824, 623)
+
+[node name="Floor38" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1698, 623)
+
+[node name="Floor39" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-905, 623)
+
+[node name="Floor40" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-778, 623)
 
 [node name="Floor8" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1248, 623)
+position = Vector2(2543, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("14_7rrp2")]
+
+[node name="Floor9" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1423, 1093)
+
+[node name="Floor10" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1297, 1093)
+
+[node name="Floor41" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-205, 860)
+
+[node name="Floor42" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-79, 860)
+
+[node name="Floor43" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(49, 860)
+
+[node name="Floor44" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(176, 860)
+
+[node name="Floor45" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(303, 860)
+
+[node name="Floor46" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(431, 860)
+
+[node name="Floor47" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-331, 1313)
+
+[node name="Floor48" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-205, 1313)
+
+[node name="Floor49" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-77, 1313)
+
+[node name="Floor50" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(50, 1313)
+
+[node name="Floor51" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(177, 1313)
+
+[node name="Floor52" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(303, 1313)
+
+[node name="Floor53" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(431, 1313)
+
+[node name="Floor54" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(558, 1313)
+
+[node name="Floor11" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1169, 1093)
+
+[node name="Floor12" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1042, 1093)
+
+[node name="Floor13" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-915, 1093)
+
+[node name="Floor14" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-789, 1093)
+
+[node name="Floor15" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-661, 1093)
+
+[node name="Floor16" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-534, 1093)
+
+[node name="Floor17" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(866, 1093)
+
+[node name="Floor18" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(992, 1093)
+
+[node name="Floor19" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1120, 1093)
+
+[node name="Floor20" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1247, 1093)
+
+[node name="Floor21" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1374, 1093)
+
+[node name="Floor22" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1500, 1093)
+
+[node name="Floor23" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1628, 1093)
+
+[node name="Floor24" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1755, 1093)
+
+[node name="Crate6" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(453, 817)
+
+[node name="Crate7" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(453, 752)
+
+[node name="Crate8" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(450, 689)
+
+[node name="Crate" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(-235, 817)
+
+[node name="Icon" type="Sprite2D" parent="Crate"]
+modulate = Color(0.0156863, 0, 1, 1)
+position = Vector2(349, -65)
+texture = ExtResource("16_t3fwn")
+
+[node name="Crate2" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(-235, 752)
+
+[node name="Crate3" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(-238, 689)
+
+[node name="Crate4" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(-146, 569)
+
+[node name="Crate5" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(197, 563)
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(5.53504e-06, 0.745541, 0.367021, 1)
+position = Vector2(23, 587.5)
+scale = Vector2(1, 0.289063)
+texture = ExtResource("16_t3fwn")
+
+[node name="Floor63" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1501, -73)
+
+[node name="Floor64" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1628, -73)
+
+[node name="Floor65" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-778, -171)
+
+[node name="Floor66" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-651, -171)
+
+[node name="Floor67" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-1106, 0)
+
+[node name="Floor68" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(-979, 0)
+
+[node name="Floor61" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1247, -171)
+
+[node name="Floor62" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1374, -171)
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.027451, 1)
+position = Vector2(330.5, -348)
+scale = Vector2(8.39844, 1)
+texture = ExtResource("16_t3fwn")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+modulate = Color(0.0156863, 0, 1, 1)
+position = Vector2(359, -545)
+texture = ExtResource("16_t3fwn")
+
+[node name="QuarterPipe3" parent="." instance=ExtResource("12_h8b6l")]
+position = Vector2(729, 490)
+rotation = -1.5708

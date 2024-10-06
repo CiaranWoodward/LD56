@@ -1,0 +1,188 @@
+[gd_scene load_steps=17 format=3 uid="uid://clbmxxmrtg4r2"]
+
+[ext_resource type="Texture2D" uid="uid://dwjylrxeyds55" path="res://Graphics/Backgrounds/White0000.png" id="1_1jhsu"]
+[ext_resource type="Texture2D" uid="uid://cp5yad5gjkyh0" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_whpvu"]
+[ext_resource type="Texture2D" uid="uid://bmc37266wc8nv" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_xukx0"]
+[ext_resource type="Texture2D" uid="uid://c3qeo78p2cmgb" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_o4udm"]
+[ext_resource type="Texture2D" uid="uid://bp7u5ltp6vm72" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_y05mb"]
+[ext_resource type="Texture2D" uid="uid://dynj3enwfhxjs" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_0r3ao"]
+[ext_resource type="Texture2D" uid="uid://dogcn28i7ter0" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_iggfg"]
+[ext_resource type="Texture2D" uid="uid://cyt4mrqqhbvaw" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_c10fm"]
+[ext_resource type="Texture2D" uid="uid://3ubh4a71t7qn" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xpqsl"]
+[ext_resource type="Texture2D" uid="uid://bg5xa2lirfhl" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_unxwg"]
+[ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="11_xbc4c"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="12_0cuvs"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="12_yknge"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="13_xcitn"]
+[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7hx2x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xukx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o4udm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y05mb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NightCity" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Colour" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.00732422, 0.056591, 0.1875, 1)
+position = Vector2(3925, 1017)
+scale = Vector2(177.45, 98.6)
+texture = ExtResource("1_1jhsu")
+
+[node name="Sky" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(2, 1.4)
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Back"]
+self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
+position = Vector2(-115.833, -136.667)
+texture = ExtResource("2_whpvu")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+
+[node name="Top" type="Sprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
+position = Vector2(0, -306.667)
+texture = ExtResource("2_whpvu")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building/Top"]
+self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+frame = 2
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-309.167, -141.667)
+texture = ExtResource("6_0r3ao")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_iggfg")
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(866, 621)
+
+[node name="Lamp" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
+position = Vector2(152.5, -53)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_c10fm")
+
+[node name="Light" type="Sprite2D" parent="Background/Fore/Lamp"]
+self_modulate = Color(1, 0.792157, 0.0862745, 0.964706)
+show_behind_parent = true
+texture = ExtResource("9_xpqsl")
+
+[node name="Bench" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
+position = Vector2(86.5, -30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_unxwg")
+
+[node name="Player" parent="." instance=ExtResource("11_xbc4c")]
+position = Vector2(514, 446)
+
+[node name="QuarterPipe" parent="." instance=ExtResource("12_yknge")]
+position = Vector2(233, 623)
+
+[node name="QuarterPipe2" parent="." instance=ExtResource("12_yknge")]
+position = Vector2(1516, 486)
+rotation = -1.5708
+
+[node name="Crate" parent="." instance=ExtResource("12_0cuvs")]
+position = Vector2(163, 87)
+
+[node name="Floor" parent="Crate" instance=ExtResource("13_xcitn")]
+position = Vector2(196, 536)
+
+[node name="Floor2" parent="Crate" instance=ExtResource("13_xcitn")]
+position = Vector2(322, 536)
+
+[node name="QuarterPipe3" parent="." instance=ExtResource("12_yknge")]
+position = Vector2(1501, 820)
+rotation = -1.5708
+
+[node name="QuarterPipe4" parent="." instance=ExtResource("12_yknge")]
+position = Vector2(216, 957)
+
+[node name="Floor3" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(613, 623)
+
+[node name="Floor4" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(740, 623)
+
+[node name="Floor5" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(867, 623)
+
+[node name="Floor6" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(993, 623)
+
+[node name="Floor7" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(1121, 623)
+
+[node name="Floor8" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(1248, 623)
+
+[node name="PlayerCam" parent="." instance=ExtResource("14_7hx2x")]
+
+[node name="Back" type="Parallax2D" parent="."]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(852, 955)
+
+[node name="Mid" type="Parallax2D" parent="."]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(852, 955)
+
+[node name="Fore" type="Parallax2D" parent="."]
+scroll_offset = Vector2(852, 955)
+
+[node name="Floor9" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(345, 957)
+
+[node name="Floor10" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(471, 957)
+
+[node name="Floor11" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(599, 957)
+
+[node name="Floor12" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(726, 957)
+
+[node name="Floor13" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(853, 957)
+
+[node name="Floor14" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(979, 957)
+
+[node name="Floor15" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(1107, 957)
+
+[node name="Floor16" parent="." instance=ExtResource("13_xcitn")]
+position = Vector2(1234, 957)

@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -300.0
+@export var JUMP_VELOCITY = -300.0
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
