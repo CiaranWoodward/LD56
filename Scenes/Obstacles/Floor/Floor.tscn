@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8xk1d2ggg018"]
 
 [ext_resource type="Texture2D" uid="uid://be5a5cdgmln0" path="res://icon.svg" id="1_qip1h"]
-[ext_resource type="Script" path="res://Scenes/Obstacles/Floor.gd" id="1_wi23j"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/Floor/Floor.gd" id="1_wi23j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0451"]
 size = Vector2(128, 20)
