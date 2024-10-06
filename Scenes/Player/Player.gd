@@ -115,11 +115,13 @@ func _physics_process(delta: float) -> void:
 			continue
 		
 		if overlap is Ramp && can_change_player_state(PLAYER_STATE.ON_RAMP):
-			force_leave()
-			join_ramp(overlap)
+			if overlap.is_in_landing_plane($CollisionBottom.global_position):
+				force_leave()
+				join_ramp(overlap)
+			else:
+				maybe_bounce(delta)
 			continue
 			
-	
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
 	speed = speed + acceleration
@@ -222,14 +224,6 @@ func decelerate(deceleration_factor : int, acceleration_penalty : float, acceler
 	
 	self.acceleration_penalty = acceleration_penalty
 	self.acceleration_penalty_time = acceleration_penalty_time
-
-func exit_area(exit_vector : Vector2, max_bounds : Area2D):
-	if ! exit_vector.is_zero_approx():
-		direction = exit_vector
-		force_leave()
-	elif max_bounds not in aoe.get_overlapping_areas():
-		direction = current_movement_direction()
-		force_leave()
 
 #region Ramp
 

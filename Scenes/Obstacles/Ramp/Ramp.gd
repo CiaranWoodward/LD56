@@ -15,3 +15,9 @@ func _process(delta: float) -> void:
 
 func get_ramp_centre() -> Vector2:
 	return centre_node.global_position
+
+func is_in_landing_plane(point: Vector2) -> bool:
+	var up_vector = Vector2.from_angle($MiddleTop.global_rotation)
+	var line_position = $MiddleTop.global_position
+	var is_point_above_line : bool = (point - line_position).dot(up_vector) > 0
+	return is_point_above_line

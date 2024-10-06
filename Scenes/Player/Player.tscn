@@ -1,10 +1,10 @@
 [gd_scene load_steps=43 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
-[ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
+[ext_resource type="Texture2D" uid="uid://cqft822ylqfna" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
 [ext_resource type="Script" path="res://Scenes/Player/player_body.gd" id="2_keoul"]
-[ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
-[ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
+[ext_resource type="Texture2D" uid="uid://bpi1ahmegop3n" path="res://Graphics/TinyHawk/Board0000.png" id="2_y4v5e"]
+[ext_resource type="Texture2D" uid="uid://cj4kjbn7tcw4w" path="res://Graphics/TinyHawk/Body0000.png" id="3_fcdm5"]
 [ext_resource type="PackedScene" uid="uid://bqxk0ofyop626" path="res://Scenes/QTE/qte.tscn" id="3_ie8ce"]
 [ext_resource type="Texture2D" uid="uid://bnllxfowt5bfj" path="res://Graphics/TinyHawk/Wheel0000.png" id="3_l34b2"]
 [ext_resource type="Texture2D" uid="uid://bkwsqnr88wsbp" path="res://Graphics/TinyHawk/Head0000.png" id="4_0go60"]
