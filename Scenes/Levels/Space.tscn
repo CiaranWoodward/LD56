@@ -34,7 +34,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="NightCity" type="Node2D"]
+[node name="Space" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 

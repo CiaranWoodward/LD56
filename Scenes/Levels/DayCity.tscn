@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=3 uid="uid://ypgofh7wusvt"]
+
+[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
+[ext_resource type="Texture2D" uid="uid://c2r3llwlk5b4n" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
+[ext_resource type="Texture2D" uid="uid://bnnl3hv8trdgo" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_dskby"]
+[ext_resource type="Texture2D" uid="uid://cimgk2oqquup5" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_mn5yd"]
+[ext_resource type="Texture2D" uid="uid://jcadalqyiesh" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_iq8ep"]
+[ext_resource type="Texture2D" uid="uid://c1fa1soy10hsn" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="6_lla7t"]
+[ext_resource type="Texture2D" uid="uid://cmkt6tbkriaot" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_80s6r"]
+[ext_resource type="Texture2D" uid="uid://n0klk2036dad" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="8_271vp"]
+[ext_resource type="Texture2D" uid="uid://bjm6ocews6kqn" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_xjj2k"]
+[ext_resource type="Texture2D" uid="uid://gur706pna6hr" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_xhk87"]
+[ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="11_wk11u"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="12_h8b6l"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="13_cqdl6"]
+[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dskby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mn5yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iq8ep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DayCity" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Colour" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.556641, 0.781036, 0.890625, 1)
+position = Vector2(764.5, 168)
+scale = Vector2(177.45, 98.6)
+texture = ExtResource("1_4b74k")
+
+[node name="Sky" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(2, 1.4)
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Back"]
+self_modulate = Color(0.585938, 0.585938, 0.585938, 1)
+position = Vector2(-115.833, -136.667)
+texture = ExtResource("2_q3b23")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.371094, 0.367137, 0.353699, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+
+[node name="Top" type="Sprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.584314, 0.584314, 0.584314, 1)
+position = Vector2(0, -306.667)
+texture = ExtResource("2_q3b23")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building/Top"]
+self_modulate = Color(0.371094, 0.367137, 0.353699, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+frame = 2
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.507813, 0.507813, 0.507813, 1)
+position = Vector2(-309.167, -141.667)
+texture = ExtResource("6_lla7t")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building"]
+self_modulate = Color(0.339844, 0.339844, 0.339844, 1)
+texture = ExtResource("7_80s6r")
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(866, 621)
+
+[node name="Lamp" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
+position = Vector2(152.5, -53)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_271vp")
+
+[node name="Light" type="Sprite2D" parent="Background/Fore/Lamp"]
+self_modulate = Color(0.625, 0.625, 0.625, 0.564706)
+show_behind_parent = true
+texture = ExtResource("9_xjj2k")
+
+[node name="Bench" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.84375, 0.672157, 0.451538, 1)
+position = Vector2(86.5, -30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_xhk87")
+
+[node name="Player" parent="." instance=ExtResource("11_wk11u")]
+position = Vector2(514, 446)
+
+[node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
+position = Vector2(233, 623)
+
+[node name="QuarterPipe2" parent="." instance=ExtResource("12_h8b6l")]
+position = Vector2(1516, 486)
+rotation = -1.5708
+
+[node name="Floor" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(359, 623)
+
+[node name="Floor2" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(485, 623)
+
+[node name="Floor3" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(613, 623)
+
+[node name="Floor4" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(740, 623)
+
+[node name="Floor5" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(867, 623)
+
+[node name="Floor6" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(993, 623)
+
+[node name="Floor7" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1121, 623)
+
+[node name="Floor8" parent="." instance=ExtResource("13_cqdl6")]
+position = Vector2(1248, 623)
+
+[node name="PlayerCam" parent="." instance=ExtResource("14_7rrp2")]

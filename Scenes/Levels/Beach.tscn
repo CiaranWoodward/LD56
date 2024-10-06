@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="13_3wwe0"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_cws6f"]
 
-[node name="NightCity" type="Node2D"]
+[node name="Beach" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 
