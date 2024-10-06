@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgbwowpvn0w7t"]
+[gd_scene load_steps=7 format=3 uid="uid://bgbwowpvn0w7t"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_cn6yf"]
+[ext_resource type="Script" path="res://Scenes/Menu/Start/start_button.gd" id="2_b570g"]
 [ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="3_7626f"]
-[ext_resource type="Script" path="res://Scenes/Menu/change_scene_button.gd" id="3_k6wa7"]
+[ext_resource type="Script" path="res://Scenes/Menu/Start/resume_button.gd" id="4_104ak"]
 [ext_resource type="PackedScene" uid="uid://djqaavqkcuae6" path="res://Scenes/Main/Main.tscn" id="4_fmoag"]
+[ext_resource type="Script" path="res://Scenes/Menu/Start/quit.gd" id="6_roabl"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -43,15 +45,42 @@ autowrap_mode = 0
 [node name="StartButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "Start Game"
-script = ExtResource("3_k6wa7")
-current_scene = "Menu"
-target_scene = ExtResource("4_fmoag")
+text = "Start"
+script = ExtResource("2_b570g")
+level = ExtResource("4_fmoag")
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Resume"
+script = ExtResource("4_104ak")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Credits"
+script = ExtResource("3_7626f")
+target_view = "Credits"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Controls"
+script = ExtResource("3_7626f")
+target_view = "Controls"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("3_7626f")
-current_page = "Start"
-target_page = "Settings"
+target_view = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Quit"
+script = ExtResource("6_roabl")

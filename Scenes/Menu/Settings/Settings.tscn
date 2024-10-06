@@ -140,9 +140,11 @@ layout_mode = 2
 script = ExtResource("2_vy60x")
 bus_name = "UI"
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="Back" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Back"
 script = ExtResource("2_cuo8u")
-current_page = "Settings"
-target_page = "Start"
+target_view = "Start"

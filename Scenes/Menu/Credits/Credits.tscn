@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfnilrh1eyswk"]
+
+[ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_j4e87"]
+[ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="2_22ul2"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j4e87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -93.0
+offset_right = 206.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Art"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "teto"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Story"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "jupton"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "naynay116"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "delta"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Software"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "ciaranw"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "jedontrack"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "scorchawk"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "rebaccaneer"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 14
+text = "joesturge"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("2_22ul2")
+target_view = "Start"
