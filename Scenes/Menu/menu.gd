@@ -174,5 +174,9 @@ func is_game_complete():
 	
 func complete_game():
 	_handle_esc()
+	_level = 0
+	_active_scene = null
+	_active_level = null
+	restart_level()
 	change_view("EndGameScreen")
 	

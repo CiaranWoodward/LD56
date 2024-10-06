@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c42m3q6imvryx"]
+[gd_scene load_steps=6 format=3 uid="uid://c42m3q6imvryx"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_yoess"]
 [ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="2_cuo8u"]
 [ext_resource type="Script" path="res://Scenes/Menu/Settings/mute_switch.gd" id="2_rxao2"]
+[ext_resource type="Script" path="res://Scenes/Menu/Settings/music_select.gd" id="2_vjgai"]
 [ext_resource type="Script" path="res://Scenes/Menu/Settings/sound_bus_control.gd" id="2_vy60x"]
 
 [node name="Settings" type="Control"]
@@ -34,6 +35,27 @@ size_flags_horizontal = 4
 text = "Audio"
 fit_content = true
 autowrap_mode = 0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 13
+text = "Track"
+fit_content = true
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+selected = 0
+item_count = 4
+popup/item_0/text = "Rock"
+popup/item_1/text = "LoFi"
+popup/item_1/id = 1
+popup/item_2/text = "Sad"
+popup/item_2/id = 2
+popup/item_3/text = "Ambient"
+popup/item_3/id = 3
+script = ExtResource("2_vjgai")
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
