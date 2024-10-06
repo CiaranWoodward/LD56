@@ -164,6 +164,7 @@ func leave_quarter_pipe():
 
 func join_quarter_pipe(qpipe : QuarterPipe):
 	quarter_pipe_direction = qpipe.get_direction(global_position, current_movement_direction())
+	speed *= qpipe.get_speed_component_at_entrance(global_position, current_movement_direction())
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
 
