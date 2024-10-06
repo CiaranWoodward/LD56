@@ -9,7 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_ojcph")]
-position = Vector2(-78, -347)
+position = Vector2(172, -309)
 
 [node name="QuarterPipe" parent="." instance=ExtResource("3_n8x0d")]
 position = Vector2(233, 623)
@@ -33,11 +33,16 @@ scale = Vector2(8, 1)
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
 
 [node name="Ramp2" parent="." instance=ExtResource("6_by7xd")]
-position = Vector2(79, -107)
-rotation = 0.336411
-scale = Vector2(0.845961, 0.338389)
+position = Vector2(735, 578)
+rotation = -0.537767
+scale = Vector2(0.382641, 0.367334)
 
 [node name="Ramp" parent="." instance=ExtResource("6_by7xd")]
-position = Vector2(461, 248)
-rotation = 0.980662
-scale = Vector2(1.26661, 0.83672)
+position = Vector2(938, 590)
+rotation = 0.615719
+scale = Vector2(0.300993, 0.232086)
+
+[node name="Ramp3" parent="." instance=ExtResource("6_by7xd")]
+position = Vector2(184, 10)
+rotation = 1.27584
+scale = Vector2(1.38914, 0.700315)

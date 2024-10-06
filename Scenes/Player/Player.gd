@@ -252,18 +252,27 @@ func handle_on_ramp_player_state(overlaps : Array):
 	assert(current_scenery is Ramp)
 	
 	var ramp = current_scenery as Ramp
-	var ramp_angle = ramp.global_rotation
 	
-	direction.x = cos(ramp_angle)
-	direction.y = sin(ramp_angle)
-	var x_direction = sign(direction.x)
-	direction = direction.normalized() * x_direction
+	var ramp_angle = ramp.global_rotation
+	var ramp_vector : Vector2 = Vector2.from_angle(ramp_angle)
+	
+	var cdir = current_movement_direction().normalized()
+	
+	var dot_product = ramp_vector.dot(cdir)
+	
+	# If 1, continue with direction of ramp, if zero
+	var direction_modifier = 1
+	if dot_product < 0:
+		direction_modifier = -1
+	
+	speed = abs(dot_product) * speed
+	
+	direction = Vector2.from_angle(ramp_angle)
+	direction = direction.normalized() * direction_modifier
 	
 	$Visual.rotation = ramp_angle
 	
 	if current_movement_direction().y > 0:
 		acceleration = ramp.acceleration_factor * (1 + direction.y)
-
-
 
 #endregion RAMP

@@ -3,7 +3,7 @@ extends Node2D
 
 @export var acceleration_factor = 4
 
-@onready var centre_node = $Centre
+@onready var centre_node = $MiddleTop
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
