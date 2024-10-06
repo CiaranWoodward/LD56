@@ -27,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 text = "Controls"
 fit_content = true
@@ -39,6 +40,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
@@ -47,6 +49,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
@@ -55,6 +58,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
@@ -69,6 +73,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -78,6 +83,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -87,6 +93,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4

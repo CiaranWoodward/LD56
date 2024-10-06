@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
+@export var BOUNCINESS = 0.5
 
 @onready var aoe = $AreaOfEffect
 
@@ -30,6 +31,8 @@ var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
 
+signal landed
+
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
 
@@ -38,6 +41,8 @@ func _physics_process(delta: float) -> void:
 	acceleration = 0
 	
 	if player_state == PLAYER_STATE.IN_AIR:
+		if Input.is_action_just_pressed("jump"):
+			get_tree().call_group('QTE',"start_qte",1)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
 	else:
@@ -57,8 +62,11 @@ func _physics_process(delta: float) -> void:
 		$Visual.scale.y = -quarter_pipe_direction
 		var max_bounds : Area2D = current_scenery.get_max_bounds()
 		if ! exit_vec.is_zero_approx():
-			direction = exit_vec
-			force_leave()
+			if speed < 500 && exit_vec.y < -0.5:
+				quarter_pipe_direction *= -1
+			else:
+				direction = exit_vec
+				force_leave()
 		elif max_bounds not in aoe.get_overlapping_areas():
 			direction = current_movement_direction()
 			force_leave()
@@ -96,8 +104,11 @@ func _physics_process(delta: float) -> void:
 			force_leave()
 			join_quarter_pipe(overlap)
 		elif overlap is Floor && can_change_player_state(PLAYER_STATE.ON_FLOOR):
-			force_leave()
-			join_floor(overlap) 
+			if overlap.is_in_landing_plane($CollisionBottom.global_position):
+				force_leave()
+				join_floor(overlap)
+			else:
+				maybe_bounce(delta)
 	
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
@@ -121,7 +132,19 @@ func _physics_process(delta: float) -> void:
 		temp_ignore_bodies.clear()
 	
 	position = position + velocity * delta
+	#move_and_collide(velocity * delta, false)
 	
+
+func maybe_bounce(delta : float):
+	var collision = move_and_collide(velocity * delta, true)
+	if collision:
+		var normal = collision.get_normal()
+		direction = direction.bounce(normal)
+		speed *= BOUNCINESS
+		if normal.y > 0:
+			gravity_effect.y -= gravity_effect.y * abs(normal.y) * 1.5
+		print("bounce")
+
 func cancel_jump():
 	if gravity_disabled:
 		jump_over_timeout.stop()
@@ -155,7 +178,13 @@ func can_change_player_state(new_state: PLAYER_STATE) -> bool:
 
 func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	
+	#Fail any in-progress tricks on landing:
+	if player_state == PLAYER_STATE.IN_AIR :
+		landed.emit()
+		
 	player_state = new_state
+
 
 func leave_quarter_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -164,6 +193,7 @@ func leave_quarter_pipe():
 
 func join_quarter_pipe(qpipe : QuarterPipe):
 	quarter_pipe_direction = qpipe.get_direction(global_position, current_movement_direction())
+	speed *= qpipe.get_speed_component_at_entrance(global_position, current_movement_direction())
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
 
