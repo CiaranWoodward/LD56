@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/CiaranWoodward/LD56/compare/v1.8.0...v1.9.0) (2024-10-06)
+
+
+### Features
+
+* debug mode and level screen ([39a8648](https://github.com/CiaranWoodward/LD56/commit/39a86483c053193e34305c5014a93c97aef0db23))
+
 # [1.8.0](https://github.com/CiaranWoodward/LD56/compare/v1.7.0...v1.8.0) (2024-10-06)
 
 
