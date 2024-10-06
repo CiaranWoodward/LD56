@@ -104,14 +104,7 @@ func _physics_process(delta: float) -> void:
 				force_leave()
 				join_floor(overlap)
 			else:
-				var collision = move_and_collide(velocity * delta, true)
-				if collision:
-					var normal = collision.get_normal()
-					direction = direction.bounce(normal)
-					speed *= BOUNCINESS
-					if normal.y > 0:
-						gravity_effect.y -= gravity_effect.y * abs(normal.y) * 1.5
-					print("bounce")
+				maybe_bounce(delta)
 	
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
@@ -139,7 +132,17 @@ func _physics_process(delta: float) -> void:
 	
 	if position[1] < 200 :
 		get_tree().call_group('QTE',"start_qte",2)
-	
+
+func maybe_bounce(delta : float):
+	var collision = move_and_collide(velocity * delta, true)
+	if collision:
+		var normal = collision.get_normal()
+		direction = direction.bounce(normal)
+		speed *= BOUNCINESS
+		if normal.y > 0:
+			gravity_effect.y -= gravity_effect.y * abs(normal.y) * 1.5
+		print("bounce")
+
 func cancel_jump():
 	if gravity_disabled:
 		jump_over_timeout.stop()
