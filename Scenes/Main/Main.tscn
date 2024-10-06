@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djqaavqkcuae6"]
+[gd_scene load_steps=7 format=3 uid="uid://djqaavqkcuae6"]
 
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="2_ojcph"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="3_n8x0d"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="4_ggnet"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="5_dd7cr"]
+[ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="6_a3kim"]
 [ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="6_by7xd"]
 
 [node name="Main" type="Node2D"]
@@ -41,6 +42,9 @@ scale = Vector2(0.382641, 0.367334)
 position = Vector2(938, 590)
 rotation = 0.615719
 scale = Vector2(0.300993, 0.232086)
+
+[node name="GrindRail" parent="." instance=ExtResource("6_a3kim")]
+points = PackedVector2Array(887, 508, 1039, 422, 1180, 418, 1326, 347, 1359, 219, 1292, 84, 1095, 36, 896, 66, 811, 125, 746, 217)
 
 [node name="Ramp3" parent="." instance=ExtResource("6_by7xd")]
 position = Vector2(184, 10)
