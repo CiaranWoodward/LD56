@@ -9,7 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_ojcph")]
-position = Vector2(-78, -256)
+position = Vector2(-78, -347)
 
 [node name="QuarterPipe" parent="." instance=ExtResource("3_n8x0d")]
 position = Vector2(233, 623)

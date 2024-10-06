@@ -21,7 +21,7 @@ enum PLAYER_STATE {
 var current_scenery = null
 var player_state : PLAYER_STATE = PLAYER_STATE.IN_AIR
 var gravity_effect : Vector2 = Vector2.ZERO
-var direction : Vector2 = Vector2(1, 1);
+var direction : Vector2 = Vector2(-1, 0);
 var acceleration = 0
 var acceleration_penalty : float = 0
 var acceleration_penalty_time : float = 0
@@ -252,18 +252,16 @@ func handle_on_ramp_player_state(overlaps : Array):
 	assert(current_scenery is Ramp)
 	
 	var ramp = current_scenery as Ramp
-	var ramp_normal_angle = ramp.global_rotation
-	
-	var x_direction = sign(direction.x)
-	var ramp_angle = ramp_normal_angle;
+	var ramp_angle = ramp.global_rotation
 	
 	direction.x = cos(ramp_angle)
 	direction.y = sin(ramp_angle)
+	var x_direction = sign(direction.x)
 	direction = direction.normalized() * x_direction
 	
 	$Visual.rotation = ramp_angle
 	
-	if direction.y > 0:
+	if current_movement_direction().y > 0:
 		acceleration = ramp.acceleration_factor * (1 + direction.y)
 
 
