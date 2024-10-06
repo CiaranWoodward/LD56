@@ -92,6 +92,9 @@ func _physics_process(delta: float) -> void:
 			force_leave()
 	
 	if player_state == PLAYER_STATE.ON_FLOOR:
+		var best_floor = _find_closest_floor(overlaps)
+		if is_instance_valid(best_floor):
+			current_scenery = best_floor
 		if current_scenery in overlaps:
 			if (acceleration_penalty_time > 0):
 				acceleration_penalty_time -= delta
@@ -169,7 +172,19 @@ func _physics_process(delta: float) -> void:
 	
 	position = position + velocity * delta
 	#move_and_collide(velocity * delta, false)
-	
+
+func _find_closest_floor(overlaps : Array):
+	var best_distance_sq = INF
+	var best_floor = null
+	for overlap in overlaps:
+		if overlap is Floor:
+			if overlap.floor_y() < global_position.y:
+				continue
+			var dsq = global_position.distance_squared_to(overlap.global_position)
+			if dsq < best_distance_sq:
+				best_distance_sq = dsq
+				best_floor = overlap
+	return best_floor
 
 func maybe_bounce(delta : float):
 	var collision = move_and_collide(velocity * delta, true)
@@ -232,7 +247,7 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 	return false
 
 func change_player_state(new_state: PLAYER_STATE):
-	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	
 	#Fail any in-progress tricks on landing:
 	if player_state == PLAYER_STATE.IN_AIR :
