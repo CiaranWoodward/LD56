@@ -15,6 +15,8 @@ enum PLAYER_STATE {
 	IN_QPIPE_AIR_TRICKS,
 	ON_FLOOR,
 	ON_QUARTER_PIPE,
+	ON_GRIND_RAIL,
+	ON_RAMP
 }
 
 var current_scenery = null
@@ -61,6 +63,7 @@ func _physics_process(delta: float) -> void:
 		$Visual.scale.x = 1
 		$Visual.scale.y = -quarter_pipe_direction
 		var max_bounds : Area2D = current_scenery.get_max_bounds()
+		
 		if ! exit_vec.is_zero_approx():
 			if speed < 500 && exit_vec.y < -0.5:
 				quarter_pipe_direction *= -1
@@ -69,6 +72,20 @@ func _physics_process(delta: float) -> void:
 				force_leave()
 		elif max_bounds not in aoe.get_overlapping_areas():
 			direction = current_movement_direction()
+			force_leave()
+	
+	if player_state == PLAYER_STATE.ON_GRIND_RAIL:
+		if current_scenery in overlaps:
+			var grail : GrindRail = current_scenery.get_parent()
+			var newparams = grail.get_current_direction_and_position(global_position, direction)
+			var newdir = newparams[0]
+			var newpos = newparams[1]
+			if newdir == Vector2.ZERO:
+				force_leave()
+			else:
+				direction = newdir
+				global_position = newpos
+		else:
 			force_leave()
 	
 	if player_state == PLAYER_STATE.ON_FLOOR:
@@ -88,6 +105,9 @@ func _physics_process(delta: float) -> void:
 			$Visual.scale.x = sign(direction.x)
 		else:
 			force_leave()
+			
+	if player_state == PLAYER_STATE.ON_RAMP:
+		handle_on_ramp_player_state(overlaps)
 
 	# Handle the temporary ignores list, which stop you immediately snapping back onto the same
 	# scenery
@@ -100,21 +120,30 @@ func _physics_process(delta: float) -> void:
 	
 	# Change behaviour based on floor
 	for overlap in overlaps:
-		if overlap is QuarterPipe && can_change_player_state(PLAYER_STATE.ON_QUARTER_PIPE):
+		if overlap is QuarterPipe && can_change_player_state(PLAYER_STATE.ON_QUARTER_PIPE, overlap):
 			force_leave()
 			join_quarter_pipe(overlap)
-		elif overlap is Floor && can_change_player_state(PLAYER_STATE.ON_FLOOR):
+		elif overlap is GrindRailBody && can_change_player_state(PLAYER_STATE.ON_GRIND_RAIL, overlap):
+				force_leave()
+				join_grind_rail(overlap)
+		elif overlap is Floor && can_change_player_state(PLAYER_STATE.ON_FLOOR, overlap):
 			if overlap.is_in_landing_plane($CollisionBottom.global_position):
 				force_leave()
 				join_floor(overlap)
 			else:
 				maybe_bounce(delta)
-	
+		elif overlap is Ramp && can_change_player_state(PLAYER_STATE.ON_RAMP, overlap):
+			if overlap.is_in_landing_plane($CollisionBottom.global_position):
+				force_leave()
+				join_ramp(overlap)
+			else:
+				maybe_bounce(delta)
+			
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
 	speed = speed + acceleration
 	
-	if player_state == PLAYER_STATE.ON_FLOOR:
+	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL:
 		if Input.is_action_just_pressed("jump"):
 			force_leave()
 			temp_ignore_bodies = overlaps
@@ -159,22 +188,31 @@ func force_leave():
 			leave_floor()
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			leave_quarter_pipe()
+		PLAYER_STATE.ON_RAMP:
+			leave_ramp()
 		PLAYER_STATE.IN_AIR:
 			cancel_jump()
+		PLAYER_STATE.ON_GRIND_RAIL:
+			leave_grind_rail()
 		_:
-			pass#print(PLAYER_STATE.keys()[player_state] + ": Cannot leave!!!")
+			print(PLAYER_STATE.keys()[player_state] + ": Cannot leave!!!")
 
-func can_change_player_state(new_state: PLAYER_STATE) -> bool:
+func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 	if new_state == player_state:
 		return false
 	match (new_state):
 		PLAYER_STATE.ON_FLOOR:
 			return player_state == PLAYER_STATE.IN_AIR
+		PLAYER_STATE.ON_GRIND_RAIL:
+			if player_state == PLAYER_STATE.IN_AIR:
+				return overlap.get_parent().get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			return true
 		PLAYER_STATE.IN_AIR:
 			return true
-	return true
+		PLAYER_STATE.ON_RAMP:
+			return true
+	return false
 
 func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
@@ -205,6 +243,14 @@ func join_floor(floor : Floor):
 	change_player_state(PLAYER_STATE.ON_FLOOR)
 	current_scenery = floor
 
+func leave_grind_rail():
+	change_player_state(PLAYER_STATE.IN_AIR)
+	current_scenery = null
+
+func join_grind_rail(grb : GrindRailBody):
+	change_player_state(PLAYER_STATE.ON_GRIND_RAIL)
+	current_scenery = grb
+
 func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:
 		speed = ceil(speed * 0.1)
@@ -212,3 +258,47 @@ func decelerate(deceleration_factor : int, acceleration_penalty : float, acceler
 	
 	self.acceleration_penalty = acceleration_penalty
 	self.acceleration_penalty_time = acceleration_penalty_time
+
+#region Ramp
+
+func join_ramp(ramp : Ramp):
+	change_player_state(PLAYER_STATE.ON_RAMP)
+	current_scenery = ramp
+
+func leave_ramp():
+	change_player_state(PLAYER_STATE.IN_AIR)
+	temp_ignore_bodies.append(current_scenery)
+	current_scenery = null
+
+func handle_on_ramp_player_state(overlaps : Array):
+	if current_scenery not in overlaps:
+		force_leave()
+		return
+	
+	assert(current_scenery is Ramp)
+	
+	var ramp = current_scenery as Ramp
+	
+	var ramp_angle = ramp.global_rotation
+	var ramp_vector : Vector2 = Vector2.from_angle(ramp_angle)
+	
+	var cdir = current_movement_direction().normalized()
+	
+	var dot_product = ramp_vector.dot(cdir)
+	
+	# If 1, continue with direction of ramp, if zero
+	var direction_modifier = 1
+	if dot_product < 0:
+		direction_modifier = -1
+	
+	speed = abs(dot_product) * speed
+	
+	direction = Vector2.from_angle(ramp_angle)
+	direction = direction.normalized() * direction_modifier
+	
+	$Visual.rotation = ramp_angle
+	
+	if current_movement_direction().y > 0:
+		acceleration = ramp.acceleration_factor * (1 + direction.y)
+
+#endregion RAMP

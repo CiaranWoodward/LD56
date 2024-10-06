@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bcayb63x24w31"]
 
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_vmmvv"]
-[ext_resource type="Script" path="res://Scenes/Obstacles/QuarterPipe.gd" id="1_w0m7h"]
+[ext_resource type="Texture2D" uid="uid://be5a5cdgmln0" path="res://icon.svg" id="1_vmmvv"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.gd" id="1_w0m7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2tgy"]
 size = Vector2(128, 40.8701)
