@@ -1,9 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://wux6mw25ik3a"]
+[gd_scene load_steps=14 format=3 uid="uid://wux6mw25ik3a"]
 
 [ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_2afxr"]
 [ext_resource type="Script" path="res://Scenes/Obstacles/crate.gd" id="1_bbwor"]
 [ext_resource type="Texture2D" uid="uid://cpb4liwqu2xgp" path="res://Graphics/EnvironmentEffects/SmokeParticle.png" id="3_aamy5"]
 [ext_resource type="Texture2D" uid="uid://tac0wp4khas0" path="res://Graphics/EnvironmentEffects/FireParticle.png" id="4_vbpcf"]
+
+[sub_resource type="Curve" id="Curve_qdg24"]
+_data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(0.196617, 1), 0.0, 0.0, 0, 0, Vector2(0.43129, 0.932558), 0.0, 0.0, 0, 0, Vector2(0.642706, 0.793023), 0.0, 0.0, 0, 0, Vector2(0.968288, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_i735v"]
+curve = SubResource("Curve_qdg24")
 
 [sub_resource type="Gradient" id="Gradient_1alfg"]
 colors = PackedColorArray(0.158472, 0.158472, 0.158472, 1, 1, 1, 1, 1)
@@ -17,45 +24,6 @@ point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_gfid1"]
 curve = SubResource("Curve_opl6k")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pyqt1"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(10, 10, 1)
-emission_shape = 3
-emission_box_extents = Vector3(10, 10, 1)
-angle_min = -45.0
-angle_max = 45.0
-spread = 90.0
-angular_velocity_min = -200.0
-angular_velocity_max = 200.0
-orbit_velocity_min = 9.49949e-08
-orbit_velocity_max = 9.49949e-08
-radial_velocity_min = 25.0
-radial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = -2.23517e-06
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-tangential_accel_min = -2.23517e-06
-tangential_accel_max = -2.23517e-06
-scale_min = 0.5
-scale_max = 4.0
-scale_curve = SubResource("CurveTexture_gfid1")
-color_ramp = SubResource("GradientTexture1D_y0162")
-hue_variation_min = -2.23517e-08
-hue_variation_max = -2.23517e-08
-turbulence_noise_strength = 4.35
-turbulence_noise_scale = 11.0
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_uwf7s"]
-
-[sub_resource type="Curve" id="Curve_qdg24"]
-_data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(0.196617, 1), 0.0, 0.0, 0, 0, Vector2(0.43129, 0.932558), 0.0, 0.0, 0, 0, Vector2(0.642706, 0.793023), 0.0, 0.0, 0, 0, Vector2(0.968288, 0), 0.0, 0.0, 0, 0]
-point_count = 5
-
-[sub_resource type="CurveTexture" id="CurveTexture_i735v"]
-curve = SubResource("Curve_qdg24")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7iel1"]
 particle_flag_disable_z = true
@@ -78,8 +46,7 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = -2.23517e-06
-scale_min = 0.5
-scale_max = 4.0
+scale_max = 2.5
 scale_curve = SubResource("CurveTexture_gfid1")
 color_ramp = SubResource("GradientTexture1D_y0162")
 alpha_curve = SubResource("CurveTexture_i735v")
@@ -88,7 +55,7 @@ hue_variation_max = -2.23517e-08
 turbulence_noise_strength = 4.35
 turbulence_noise_scale = 11.0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ushs0"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gr7mf"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(10, 10, 1)
 emission_shape = 3
@@ -109,9 +76,12 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = -2.23517e-06
-scale_min = 0.5
-scale_max = 4.0
+scale_max = 2.5
 scale_curve = SubResource("CurveTexture_gfid1")
+color_ramp = SubResource("GradientTexture1D_y0162")
+alpha_curve = SubResource("CurveTexture_i735v")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
 turbulence_noise_strength = 4.35
 turbulence_noise_scale = 11.0
 
@@ -130,29 +100,25 @@ texture = ExtResource("1_2afxr")
 
 [node name="Particles" type="Node2D" parent="Visuals"]
 
-[node name="TraceParticles" type="GPUParticles2D" parent="Visuals/Particles"]
-emitting = false
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_pyqt1")
-texture = SubResource("CanvasTexture_uwf7s")
-one_shot = true
-trail_enabled = true
-trail_lifetime = 0.1
-
 [node name="SmokeParticles" type="GPUParticles2D" parent="Visuals/Particles"]
 emitting = false
-amount = 60
+amount = 25
 process_material = SubResource("ParticleProcessMaterial_7iel1")
 texture = ExtResource("3_aamy5")
+lifetime = 0.4
 one_shot = true
+explosiveness = 0.5
 trail_lifetime = 0.1
 
 [node name="FireParticles" type="GPUParticles2D" parent="Visuals/Particles"]
 emitting = false
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_ushs0")
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_gr7mf")
 texture = ExtResource("4_vbpcf")
+lifetime = 0.4
 one_shot = true
+explosiveness = 1.0
+trail_lifetime = 0.1
 
 [node name="Centre" type="Marker2D" parent="."]
 

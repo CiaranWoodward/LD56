@@ -37,6 +37,7 @@ func start_qte(time : float) :
 		prev_key = current_key
 			
 		$Sprite2D.texture = load("res://icon.svg")
+		$Sprite2D.visible = true
 		
 		#Prompt user for key, start countdown, enable checking for input
 		qte_active = true
@@ -46,19 +47,19 @@ func start_qte(time : float) :
 	
 #Disable checking for input and signal result:
 func end_qte(passed: bool = false) :
-	
-	
+		
 	if qte_active :
 		if passed :
 			#emit_signal("qte_passed")
 			print("QTE PASSED!\n")
+			get_tree().call_group('Animation',"play_random_trick")
 		else :
 			#emit_signal("qte_failed")
 			print("QTE FAILED\n")
 		qte_active = false
 		
 	#Clear Texture
-	$Sprite2D.texture = load("null")
+	$Sprite2D.visible = false
 		
 	
 	

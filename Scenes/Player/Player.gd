@@ -137,6 +137,9 @@ func _physics_process(delta: float) -> void:
 	position = position + velocity * delta
 	#move_and_collide(velocity * delta, false)
 	
+	if position[1] < 200 :
+		get_tree().call_group('QTE',"start_qte",2)
+	
 func cancel_jump():
 	if gravity_disabled:
 		jump_over_timeout.stop()

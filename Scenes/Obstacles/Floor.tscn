@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8xk1d2ggg018"]
 
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_qip1h"]
 [ext_resource type="Script" path="res://Scenes/Obstacles/Floor.gd" id="1_wi23j"]
+[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="2_am7xm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0451"]
 size = Vector2(128, 20)
@@ -13,8 +13,8 @@ script = ExtResource("1_wi23j")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-scale = Vector2(1, 0.167969)
-texture = ExtResource("1_qip1h")
+scale = Vector2(6.39716, 0.96558)
+texture = ExtResource("2_am7xm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p0451")

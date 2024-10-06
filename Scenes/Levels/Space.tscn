@@ -1,0 +1,362 @@
+[gd_scene load_steps=15 format=3 uid="uid://re5m0rlasar4"]
+
+[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
+[ext_resource type="Texture2D" uid="uid://djus8iglm3q7i" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
+[ext_resource type="Texture2D" uid="uid://1wvshbas3ohc" path="res://Graphics/Backgrounds/Space/Star20000.png" id="3_45c6g"]
+[ext_resource type="Texture2D" uid="uid://ba8mdugt1g7xa" path="res://Graphics/Backgrounds/Beach/PalmTrunk0000.png" id="3_st2be"]
+[ext_resource type="Texture2D" uid="uid://bjwrdmi6xhhpy" path="res://Graphics/Backgrounds/Space/Star30000.png" id="4_2wm04"]
+[ext_resource type="Texture2D" uid="uid://rwsh2mrgpehq" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="4_wjedg"]
+[ext_resource type="Texture2D" uid="uid://cbffc3fajfwbi" path="res://Graphics/Backgrounds/Space/Star40000.png" id="5_6eri6"]
+[ext_resource type="Texture2D" uid="uid://gur706pna6hr" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="5_887q6"]
+[ext_resource type="Texture2D" uid="uid://cw24dccpdyjg0" path="res://Graphics/Backgrounds/Space/Moon0000.png" id="6_kn3vc"]
+[ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_r5cvl"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="7_kqimf"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_t6xko"]
+[ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_hkaia"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b3uuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_45c6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wm04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6eri6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Space" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Colour" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.0389557, 0.0479625, 0.269531, 1)
+position = Vector2(764.5, 168)
+scale = Vector2(177.45, 98.6)
+texture = ExtResource("1_5f2ok")
+
+[node name="Sky" type="Parallax2D" parent="Background"]
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(1.2, 1.12)
+scroll_offset = Vector2(566, 137)
+
+[node name="Star6" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(-132, 526)
+rotation = -0.194518
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star7" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(3144.59, 506.594)
+rotation = 0.635958
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star8" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1978.59, 26.5943)
+rotation = -0.694985
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star9" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(618, -152)
+rotation = 0.501172
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star10" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(2066, 476)
+rotation = -3.12238
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star11" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(662, 416)
+rotation = -2.2919
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star12" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1862, 926)
+rotation = -3.62284
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star13" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(-390, 1044)
+rotation = -2.42669
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star14" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(-720.317, -158.364)
+rotation = 0.482802
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star15" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(2556.28, -177.77)
+rotation = 1.31328
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star16" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1390.28, -657.77)
+rotation = -0.0176654
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star17" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(29.6832, -836.364)
+rotation = 1.17849
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star18" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1477.68, -208.364)
+rotation = -2.44506
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star19" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(73.6827, -268.364)
+rotation = -1.61458
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star20" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1273.68, 241.636)
+rotation = -2.94552
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star21" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(-978.317, 359.636)
+rotation = -1.74937
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star22" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1583.68, -314.364)
+rotation = 0.482802
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star23" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(3606, 160)
+rotation = 1.31328
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star24" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(3110, -476)
+rotation = -0.0176654
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star25" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1870, -610)
+rotation = 1.17849
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star26" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(3005.87, -132.858)
+rotation = -2.44506
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star27" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(2377.68, -424.364)
+rotation = -1.61458
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star28" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(3462, 696)
+rotation = -2.94552
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star29" type="AnimatedSprite2D" parent="Background/Sky"]
+position = Vector2(1325.68, 203.636)
+rotation = -1.74937
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
+
+[node name="Star" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-1247.34, -972.343)
+rotation = 0.0847506
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star2" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(575.991, -852.343)
+rotation = 0.270786
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star3" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-172.343, -1022.34)
+rotation = -0.543997
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star4" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(1255.99, -205.676)
+rotation = -0.232239
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star5" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-309.009, -464.009)
+rotation = 0.67182
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star6" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-2305, -1170)
+rotation = 2.08817
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Star7" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(1756.67, -398.333)
+rotation = 2.2742
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 1
+
+[node name="Star8" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-1978.33, -421.667)
+rotation = 1.45942
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 2
+
+[node name="Star9" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(33.3335, -680)
+rotation = 1.77118
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+frame = 3
+
+[node name="Star10" type="AnimatedSprite2D" parent="Background/Back"]
+position = Vector2(-990, -918.333)
+rotation = 2.67524
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_w46wd")
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.1, 1.01)
+scroll_offset = Vector2(866, 621)
+
+[node name="Moon" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-1360, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon2" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-995, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon3" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(118.333, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon4" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(1283.33, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(866, 621)
+
+[node name="PalmTrunk" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
+position = Vector2(171, -70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_st2be")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Fore/PalmTrunk"]
+self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
+texture = ExtResource("4_wjedg")
+
+[node name="Bench" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.65625, 0.41288, 0.0999756, 1)
+position = Vector2(-268, -26)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_887q6")
+
+[node name="Player" parent="." instance=ExtResource("6_r5cvl")]
+position = Vector2(514, 446)
+
+[node name="QuarterPipe" parent="." instance=ExtResource("7_kqimf")]
+position = Vector2(233, 623)
+
+[node name="QuarterPipe2" parent="." instance=ExtResource("7_kqimf")]
+position = Vector2(1516, 486)
+rotation = -1.5708
+
+[node name="Floor" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(359, 623)
+
+[node name="Floor2" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(485, 623)
+
+[node name="Floor3" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(613, 623)
+
+[node name="Floor4" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(740, 623)
+
+[node name="Floor5" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(867, 623)
+
+[node name="Floor6" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(993, 623)
+
+[node name="Floor7" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(1121, 623)
+
+[node name="Floor8" parent="." instance=ExtResource("8_t6xko")]
+position = Vector2(1248, 623)
+
+[node name="PlayerCam" parent="." instance=ExtResource("9_hkaia")]
