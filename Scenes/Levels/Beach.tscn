@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ce5y7ifxn77sh" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="10_6fo6m"]
 [ext_resource type="Texture2D" uid="uid://beckf3usjnwlb" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_ikby1"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="11_bc2k6"]
-[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="12_tr2xt"]
-[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="13_3wwe0"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="12_tr2xt"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_3wwe0"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_cws6f"]
 
 [node name="Beach" type="Node2D"]
