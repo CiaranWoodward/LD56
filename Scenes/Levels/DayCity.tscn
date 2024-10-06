@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=20 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://crg2dmpvpv6hs" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://ctnq0cqvth811" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="15_yqcn7"]
 [ext_resource type="Texture2D" uid="uid://bghivpw0lyrdy" path="res://icon.svg" id="16_t3fwn"]
+[ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
+[ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="18_ogh1h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -43,6 +45,7 @@ self_modulate = Color(0.556641, 0.781036, 0.890625, 1)
 position = Vector2(125.25, 685.5)
 scale = Vector2(562.675, 265.15)
 texture = ExtResource("1_4b74k")
+metadata/_edit_lock_ = true
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(2, 1.4)
@@ -51,6 +54,7 @@ scroll_scale = Vector2(2, 1.4)
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.16, 1.06)
 scroll_offset = Vector2(866, 621)
+metadata/_edit_lock_ = true
 
 [node name="Building" type="Sprite2D" parent="Background/Back"]
 self_modulate = Color(0.585938, 0.585938, 0.585938, 1)
@@ -75,6 +79,7 @@ frame = 2
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.14, 1.04)
 scroll_offset = Vector2(866, 621)
+metadata/_edit_lock_ = true
 
 [node name="Building" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.507813, 0.507813, 0.507813, 1)
@@ -87,6 +92,7 @@ texture = ExtResource("7_80s6r")
 
 [node name="Fore" type="Parallax2D" parent="Background"]
 scroll_offset = Vector2(866, 621)
+metadata/_edit_lock_ = true
 
 [node name="Lamp" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
@@ -106,13 +112,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xhk87")
 
 [node name="Player" parent="." instance=ExtResource("11_wk11u")]
-position = Vector2(372, 580)
+position = Vector2(-2212, 471)
 JUMP_VELOCITY = -400.0
 MAX_SPEED = 900
 JUMP_TIME = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(-2460, 623)
+position = Vector2(-2431, 623)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("12_h8b6l")]
 position = Vector2(2811, 486)
@@ -188,22 +194,22 @@ position = Vector2(113, 623)
 position = Vector2(240, 623)
 
 [node name="Floor33" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2332, 623)
+position = Vector2(-2303, 623)
 
 [node name="Floor34" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2206, 623)
+position = Vector2(-2177, 623)
 
 [node name="Floor35" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-2078, 623)
+position = Vector2(-2049, 623)
 
 [node name="Floor36" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1951, 623)
+position = Vector2(-1922, 623)
 
 [node name="Floor37" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1824, 623)
+position = Vector2(-1795, 623)
 
 [node name="Floor38" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1698, 623)
+position = Vector2(-1669, 623)
 
 [node name="Floor39" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-905, 623)
@@ -376,6 +382,55 @@ modulate = Color(0.0156863, 0, 1, 1)
 position = Vector2(359, -545)
 texture = ExtResource("16_t3fwn")
 
-[node name="QuarterPipe3" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(729, 490)
-rotation = -1.5708
+[node name="Crate9" parent="." instance=ExtResource("15_yqcn7")]
+position = Vector2(-1407, 575)
+
+[node name="Floor69" parent="Crate9" instance=ExtResource("13_cqdl6")]
+position = Vector2(-135, 48)
+
+[node name="Floor70" parent="Crate9" instance=ExtResource("13_cqdl6")]
+position = Vector2(-9, 48)
+
+[node name="Floor71" parent="Crate9" instance=ExtResource("13_cqdl6")]
+position = Vector2(119, 48)
+
+[node name="Floor72" parent="Crate9" instance=ExtResource("13_cqdl6")]
+position = Vector2(246, 48)
+
+[node name="Floor73" parent="Crate9" instance=ExtResource("13_cqdl6")]
+position = Vector2(373, 48)
+
+[node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(-1496, 1060)
+points = PackedVector2Array(38, 22, -34, -29, -85, -112, -123, -222, -133, -332, -139, -586)
+
+[node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(-404, 1278)
+
+[node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(-402, 1273)
+points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -73, -180)
+
+[node name="GrindRail4" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(624, 1281)
+points = PackedVector2Array(-39, 25, 40, -2, 115, -52, 155, -113, 179, -164, 202, -192)
+
+[node name="GrindRail5" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(1808, 1071)
+points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 301, -454, 307, -545)
+
+[node name="GrindRail6" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(407, 586)
+points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269, -396)
+
+[node name="Ramp" parent="." instance=ExtResource("18_ogh1h")]
+position = Vector2(-676, 583)
+rotation = 0.261799
+
+[node name="GrindRail7" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(-1819, 598)
+points = PackedVector2Array(-21, 25, 77, -24, 143, -81, 176, -128)
+
+[node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
+position = Vector2(2213, 562)
+points = PackedVector2Array(28, 55, -35, 10, -94, -36)

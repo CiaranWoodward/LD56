@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/texture_fonts/Classes/TextureFontSettings.gd" id="2_b58ri"]
 [ext_resource type="Script" path="res://addons/texture_fonts/Classes/TextureFont.gd" id="3_6ioyx"]
 [ext_resource type="Script" path="res://addons/texture_fonts/Classes/TextureFontMapping.gd" id="4_wk41o"]
-[ext_resource type="Texture2D" uid="uid://bvmttir0upl1c" path="res://Graphics/Font/ColorfulBlockFont.png" id="5_ot65p"]
+[ext_resource type="Texture2D" uid="uid://ch8buuf0epby2" path="res://Graphics/Font/ColorfulBlockFont.png" id="5_ot65p"]
 
 [sub_resource type="Resource" id="Resource_o8tgb"]
 script = ExtResource("2_b58ri")
