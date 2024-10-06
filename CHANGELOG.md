@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/CiaranWoodward/LD56/compare/v1.7.0...v1.8.0) (2024-10-06)
+
+
+### Features
+
+* Add grind rails ([6cb9380](https://github.com/CiaranWoodward/LD56/commit/6cb9380c5b7ac1b958c3c9c2ddaa2f987349787c))
+
 # [1.7.0](https://github.com/CiaranWoodward/LD56/compare/v1.6.0...v1.7.0) (2024-10-06)
 
 
