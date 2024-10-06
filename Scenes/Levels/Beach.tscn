@@ -29,7 +29,7 @@ scroll_scale = Vector2(2, 1.4)
 
 [node name="Back" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.16, 1.06)
+scroll_scale = Vector2(1.2, 1.097)
 scroll_offset = Vector2(928, 760)
 
 [node name="Sea" type="Sprite2D" parent="Background/Back"]

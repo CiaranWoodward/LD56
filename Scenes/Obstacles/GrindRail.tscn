@@ -7,5 +7,5 @@
 script = ExtResource("1_edyra")
 
 [node name="GrindRailBody" type="StaticBody2D" parent="."]
-collision_layer = 6
+collision_layer = 4
 script = ExtResource("2_inxqj")

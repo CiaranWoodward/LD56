@@ -170,8 +170,8 @@ func _physics_process(delta: float) -> void:
 	if player_state == PLAYER_STATE.IN_AIR && (sign(prev_velocity.y) < sign(velocity.y)):
 		temp_ignore_bodies.clear()
 	
-	position = position + velocity * delta
-	#move_and_collide(velocity * delta, false)
+	#position = position + velocity * delta
+	move_and_collide(velocity * delta, false)
 
 func _find_closest_floor(overlaps : Array):
 	var best_distance_sq = INF
@@ -257,6 +257,8 @@ func change_player_state(new_state: PLAYER_STATE):
 
 
 func leave_quarter_pipe():
+	var qpipe : QuarterPipe = current_scenery
+	#qpipe.remove_collision_exception_with(self)
 	change_player_state(PLAYER_STATE.IN_AIR)
 	temp_ignore_bodies.append(current_scenery)
 	current_scenery = null
@@ -266,6 +268,7 @@ func join_quarter_pipe(qpipe : QuarterPipe):
 	speed *= qpipe.get_speed_component_at_entrance(global_position, current_movement_direction())
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
+	qpipe.add_collision_exception_with(self)
 
 func leave_floor():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -278,11 +281,15 @@ func join_floor(floor : Floor):
 func leave_grind_rail():
 	change_player_state(PLAYER_STATE.IN_AIR)
 	current_scenery = null
+	self.collision_layer = 1
+	self.collision_mask = 2
 
 func join_grind_rail(grb : GrindRailBody):
 	anim_sm.start("Grind")
 	change_player_state(PLAYER_STATE.ON_GRIND_RAIL)
 	current_scenery = grb
+	self.collision_layer = 0
+	self.collision_mask = 0
 
 func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:

@@ -7,7 +7,7 @@
 size = Vector2(128, 20)
 
 [node name="Floor" type="StaticBody2D"]
-collision_layer = 2
+collision_layer = 6
 script = ExtResource("1_8y1np")
 
 [node name="Visuals" type="Node2D" parent="."]
