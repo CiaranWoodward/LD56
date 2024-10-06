@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/CiaranWoodward/LD56/compare/v1.4.1...v1.5.0) (2024-10-06)
+
+
+### Features
+
+* pause menu ([23c67f3](https://github.com/CiaranWoodward/LD56/commit/23c67f3368f7dcae4b87bbec7ba4393ce0da0c1a))
+
 ## [1.4.1](https://github.com/CiaranWoodward/LD56/compare/v1.4.0...v1.4.1) (2024-10-05)
 
 
