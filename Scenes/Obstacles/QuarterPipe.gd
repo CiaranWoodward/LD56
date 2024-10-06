@@ -38,5 +38,11 @@ func get_direction(global_pos: Vector2, global_dir: Vector2) -> int:
 		#print("Anticlock")
 		return 1   # Anticlockwise
 
+func get_speed_component_at_entrance(global_pos: Vector2, global_dir: Vector2) -> float:
+	var p1 = global_pos - get_pipe_centre()
+	var p2 = Vector2(p1.y, p1.x)
+	var dot = global_dir.dot(p2)
+	return abs(dot / p2.length())
+
 func get_radius() -> float:
 	return get_pipe_centre().distance_to($Exit2.global_position)
