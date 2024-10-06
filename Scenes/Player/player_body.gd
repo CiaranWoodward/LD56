@@ -15,4 +15,8 @@ func play_random_trick():
 	
 	#Play random trick:
 	$Tricks.play(trick_list[rng.randi_range(0,len(trick_list)-1)])
-			
+
+#Check whether animation is currently playing:			
+func animation_status() :
+	var status = $Tricks.is_playing()
+	return status

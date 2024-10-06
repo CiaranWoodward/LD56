@@ -8,9 +8,16 @@ extends Node2D
 
 #Possible keys required:
 var qte_keys = ["W","A","S","D"]
-var current_key : String
-var prev_key    : String
-var qte_active  : bool = false
+var current_key    : String
+var prev_key       : String
+var qte_active     : bool = false
+var anim_running   : bool = false
+var already_failed : bool = false
+var landed         : bool = true
+var score          : int  = 0
+
+signal trick_failed
+signal trick_passed(score)
 	
 #Set the prompt texture for the QTE key:
 func _on_player_prompt_set_texture(path) -> void:
@@ -22,7 +29,10 @@ func _on_timer_qte_timeout() -> void:
 
 #Start new QTE, pass in time to complete
 func start_qte(time : float) :
-	if !qte_active :
+	#Calculate score for success:
+	score = (2.1-time)*10
+	
+	if !qte_active and !anim_running and !already_failed :
 		var rng  := RandomNumberGenerator.new()
 		
 		#Position prompt randomly around player:
@@ -36,7 +46,8 @@ func start_qte(time : float) :
 			current_key = qte_keys[rng.randi_range(0,3)]
 		prev_key = current_key
 			
-		$Sprite2D.texture = load("res://icon.svg")
+		#Load prompt sprite:
+		$Sprite2D.texture = load("res://Graphics/Prompts/Prompt_" + current_key + ".png")
 		$Sprite2D.visible = true
 		
 		#Prompt user for key, start countdown, enable checking for input
@@ -50,18 +61,20 @@ func end_qte(passed: bool = false) :
 		
 	if qte_active :
 		if passed :
-			#emit_signal("qte_passed")
 			print("QTE PASSED!\n")
+			anim_running = true
 			get_tree().call_group('Animation',"play_random_trick")
 		else :
-			#emit_signal("qte_failed")
 			print("QTE FAILED\n")
+			already_failed = true
+			emit_signal("trick_failed")
+			print("Trick failed!")
+			
 		qte_active = false
-		
+				
 	#Clear Texture
 	$Sprite2D.visible = false
-		
-	
+
 	
 #End QTE on input, check result:
 func _input(event) :
@@ -70,3 +83,27 @@ func _input(event) :
 			end_qte(true)
 		else :
 			end_qte()
+
+
+func _on_tricks_animation_finished(anim_name: StringName) -> void:
+	#print("Animation finished!")
+	if anim_running ==  true :
+		anim_running = false
+		emit_signal("trick_passed",score)
+		print("Trick passed!")
+		
+
+
+func _on_player_landed() -> void:
+	#print("landed!")
+	landed = true
+	already_failed = false
+	if qte_active :
+		end_qte()
+		
+	if anim_running :
+		anim_running = false
+		emit_signal("trick_failed")
+		print("Trick failed!")
+		
+	

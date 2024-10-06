@@ -2,7 +2,7 @@ class_name Player
 
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -300.0
+@export var JUMP_VELOCITY = -300.0
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
@@ -32,6 +32,8 @@ var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
 
+signal landed
+
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
 
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 	acceleration = 0
 	
 	if player_state == PLAYER_STATE.IN_AIR:
+		if Input.is_action_just_pressed("jump"):
+			get_tree().call_group('QTE',"start_qte",1)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
 	else:
@@ -146,8 +150,6 @@ func _physics_process(delta: float) -> void:
 	position = position + velocity * delta
 	#move_and_collide(velocity * delta, false)
 	
-	if position[1] < 200 :
-		get_tree().call_group('QTE',"start_qte",2)
 
 func maybe_bounce(delta : float):
 	var collision = move_and_collide(velocity * delta, true)
@@ -196,7 +198,13 @@ func can_change_player_state(new_state: PLAYER_STATE) -> bool:
 
 func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	
+	#Fail any in-progress tricks on landing:
+	if player_state == PLAYER_STATE.IN_AIR :
+		landed.emit()
+		
 	player_state = new_state
+
 
 func leave_quarter_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
