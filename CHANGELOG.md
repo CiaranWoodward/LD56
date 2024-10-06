@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/CiaranWoodward/LD56/compare/v1.6.0...v1.7.0) (2024-10-06)
+
+
+### Features
+
+* implemented hud ([80d2692](https://github.com/CiaranWoodward/LD56/commit/80d2692dd4b430f4e226663ea1ce5c7fc0fdc9e5))
+
 # [1.6.0](https://github.com/CiaranWoodward/LD56/compare/v1.5.0...v1.6.0) (2024-10-06)
 
 
