@@ -430,6 +430,7 @@ rotation = 0.261799
 [node name="GrindRail7" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1819, 598)
 points = PackedVector2Array(-21, 25, 77, -24, 143, -81, 176, -128)
+snap_to_from_floor = true
 
 [node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(2213, 562)

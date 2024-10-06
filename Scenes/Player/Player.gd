@@ -220,8 +220,9 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 		PLAYER_STATE.ON_FLOOR:
 			return player_state == PLAYER_STATE.IN_AIR
 		PLAYER_STATE.ON_GRIND_RAIL:
-			if player_state == PLAYER_STATE.IN_AIR:
-				return overlap.get_parent().get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
+			var rail : GrindRail = overlap.get_parent()
+			if player_state == PLAYER_STATE.IN_AIR or (player_state == PLAYER_STATE.ON_FLOOR && rail.snap_to_from_floor):
+				return rail.get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			return true
 		PLAYER_STATE.IN_AIR:
