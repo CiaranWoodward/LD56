@@ -21,7 +21,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.decelerate(deceleration_factor, acceleration_penalty, acceleration_penalty_time)
 	
-	$Visuals/Particles/TraceParticles.emitting = true
 	$Visuals/Particles/SmokeParticles.emitting = true
 	$Visuals/Particles/FireParticles.emitting = true
 	
