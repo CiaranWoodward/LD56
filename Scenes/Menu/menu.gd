@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 
 func _handle_esc() -> void:
 	var current_view = _get_view()
-	if current_view == "NextLevel":
+	if current_view == "NextLevel" or current_view == "EndGameScreen":
 		return
 		
 	if current_view == "":
@@ -75,6 +75,9 @@ func un_pause():
 		change_view("")
 	
 func play_level(level: int) -> void:
+	# reset score on new game+
+	if level == 0:
+		_total_score = 0
 	_level = level
 	var scene = null
 	if _level >= 0:
@@ -101,7 +104,7 @@ func _get_view() -> String:
 	return ""
 	
 func is_in_game() -> bool:
-	return is_instance_valid(_active_level)
+	return is_instance_valid(_active_level) and not is_game_complete()
 	
 func change_view(name: String) -> void:
 	if name == "":
@@ -165,11 +168,11 @@ func complete_level():
 	_handle_esc()
 	change_view("NextLevel")
 	reset_multiplier()
-	pass
 	
 func is_game_complete():
 	return _level >= levels.size()
 	
 func complete_game():
-	get_tree().quit()
+	_handle_esc()
+	change_view("EndGameScreen")
 	

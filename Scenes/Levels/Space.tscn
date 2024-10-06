@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://beckf3usjnwlb" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="5_887q6"]
 [ext_resource type="Texture2D" uid="uid://dtwdx1bdbecca" path="res://Graphics/Backgrounds/Space/Moon0000.png" id="6_kn3vc"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_r5cvl"]
-[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="7_kqimf"]
-[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_t6xko"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_kqimf"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="8_t6xko"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_hkaia"]
-[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate.tscn" id="14_qs5ab"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="14_qs5ab"]
 [ext_resource type="Texture2D" uid="uid://bghivpw0lyrdy" path="res://icon.svg" id="15_4jl8s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
