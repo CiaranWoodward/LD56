@@ -1325,6 +1325,7 @@ radius = 37.054
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wutsr")
+JUMP_TIME = 2.0
 
 [node name="Visual" type="Node2D" parent="."]
 position = Vector2(7, -36)
@@ -1417,7 +1418,8 @@ libraries = {
 "": SubResource("AnimationLibrary_drlsj")
 }
 
-[node name="QTE" parent="Visual" instance=ExtResource("3_ie8ce")]
+[node name="QTE" parent="." instance=ExtResource("3_ie8ce")]
+position = Vector2(7, -36)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(6, -30)
@@ -1430,3 +1432,6 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
 position = Vector2(6, -34)
 shape = SubResource("CircleShape2D_pjjvf")
+
+[connection signal="landed" from="." to="QTE" method="_on_player_landed"]
+[connection signal="animation_finished" from="Visual/PlayerBody/Tricks" to="QTE" method="_on_tricks_animation_finished"]
