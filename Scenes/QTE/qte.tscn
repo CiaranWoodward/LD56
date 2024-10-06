@@ -6,6 +6,7 @@
 script = ExtResource("1_xpnk6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.42, 0.42)
 
 [node name="TimerQTE" type="Timer" parent="."]
 one_shot = true

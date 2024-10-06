@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyahl5jeqxd7l"]
+
+[ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_y8u6a"]
+[ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="2_i837b"]
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("speed", "level_name", "score", "multiplier", "canvas")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y8u6a")
+script = ExtResource("2_i837b")
+speed = NodePath("HUDCanvas/MarginContainer/Speed")
+level_name = NodePath("HUDCanvas/MarginContainer/LevelName")
+score = NodePath("HUDCanvas/MarginContainer/VBoxContainer/Score")
+multiplier = NodePath("HUDCanvas/MarginContainer/VBoxContainer/Multiplier")
+canvas = NodePath("HUDCanvas")
+
+[node name="HUDCanvas" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y8u6a")
+
+[node name="Speed" type="RichTextLabel" parent="HUDCanvas/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "123kph"
+fit_content = true
+autowrap_mode = 0
+
+[node name="LevelName" type="RichTextLabel" parent="HUDCanvas/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Night City"
+fit_content = true
+autowrap_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDCanvas/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Score" type="RichTextLabel" parent="HUDCanvas/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "123456 points"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Multiplier" type="RichTextLabel" parent="HUDCanvas/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "x1.5"
+fit_content = true
+autowrap_mode = 0

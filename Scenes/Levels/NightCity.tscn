@@ -1,11 +1,107 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfuyy8rwyohaq"]
+[gd_scene load_steps=16 format=3 uid="uid://dfuyy8rwyohaq"]
 
+[ext_resource type="Texture2D" uid="uid://ctnq0cqvth811" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="1_bvapr"]
+[ext_resource type="Texture2D" uid="uid://crg2dmpvpv6hs" path="res://Graphics/Backgrounds/White0000.png" id="1_dm26d"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="1_dxhsa"]
-[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="2_4m4oa"]
-[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="3_lssys"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="2_4m4oa"]
+[ext_resource type="Texture2D" uid="uid://b40f2uvtir4cm" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="2_38wpo"]
+[ext_resource type="Texture2D" uid="uid://ch3qqpou2wykr" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="2_p63e7"]
+[ext_resource type="Texture2D" uid="uid://c41pxcf64xv4n" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_daw2m"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="3_lssys"]
+[ext_resource type="Texture2D" uid="uid://crb1c27006q1i" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_ots6x"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="4_xxkw2"]
+[ext_resource type="Texture2D" uid="uid://bdkcjq3dmuvll" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_sg3aj"]
+[ext_resource type="Texture2D" uid="uid://cl4spxadff2df" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_l744h"]
+[ext_resource type="Texture2D" uid="uid://br0nvp0kqad11" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_iudv0"]
+[ext_resource type="Texture2D" uid="uid://beckf3usjnwlb" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_2p4st"]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_daw2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ots6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sg3aj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NightCity" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Colour" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.00732422, 0.056591, 0.1875, 1)
+position = Vector2(764.5, 168)
+scale = Vector2(177.45, 98.6)
+texture = ExtResource("1_dm26d")
+
+[node name="Sky" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(2, 1.4)
+
+[node name="Back" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.06)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Back"]
+self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
+position = Vector2(-115.833, -136.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+
+[node name="Top" type="Sprite2D" parent="Background/Back/Building"]
+self_modulate = Color(0.128906, 0.128906, 0.128906, 1)
+position = Vector2(0, -306.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="AnimatedSprite2D" parent="Background/Back/Building/Top"]
+self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
+sprite_frames = SubResource("SpriteFrames_mjboo")
+frame = 2
+
+[node name="Mid" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.14, 1.04)
+scroll_offset = Vector2(866, 621)
+
+[node name="Building" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-309.167, -141.667)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(866, 621)
+
+[node name="Lamp" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
+position = Vector2(152.5, -53)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_38wpo")
+
+[node name="Light" type="Sprite2D" parent="Background/Fore/Lamp"]
+self_modulate = Color(1, 0.792157, 0.0862745, 0.964706)
+show_behind_parent = true
+texture = ExtResource("9_iudv0")
+
+[node name="Bench" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
+position = Vector2(86.5, -30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_2p4st")
 
 [node name="Player" parent="." instance=ExtResource("1_dxhsa")]
 position = Vector2(514, 446)
