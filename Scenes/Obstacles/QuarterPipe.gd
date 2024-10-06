@@ -32,10 +32,10 @@ func get_direction(global_pos: Vector2, global_dir: Vector2) -> int:
 	var p2 = p1 + global_dir
 	var cross = p2.cross(p1)
 	if cross > 0:
-		print("Clock")
+		#print("Clock")
 		return -1
 	else:
-		print("Anticlock")
+		#print("Anticlock")
 		return 1   # Anticlockwise
 
 func get_radius() -> float:

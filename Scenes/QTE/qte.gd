@@ -1,10 +1,12 @@
 extends Node2D
 
+#Control where the prompt can spawn in relation to the player:
 @export var min_dist_x : int = 25
 @export var min_dist_y : int = 25
 @export var max_dist_x : int = 100
 @export var max_dist_y : int = 100
 
+#Possible keys required:
 var qte_keys = ["W","A","S","D"]
 var current_key : String
 var prev_key    : String
@@ -16,9 +18,9 @@ func _on_player_prompt_set_texture(path) -> void:
 	
 #End QTE on timeout:
 func _on_timer_qte_timeout() -> void:
-	get_tree().call_group('Player',"end_qte")
+	end_qte()
 
-#Start new QTE
+#Start new QTE, pass in time to complete
 func start_qte(time : float) :
 	if !qte_active :
 		var rng  := RandomNumberGenerator.new()
@@ -45,14 +47,15 @@ func start_qte(time : float) :
 #Disable checking for input and signal result:
 func end_qte(passed: bool = false) :
 	
-	qte_active = false
 	
-	if passed :
-		#emit_signal("qte_passed")
-		print("QTE PASSED!\n")
-	else :
-		#emit_signal("qte_failed")
-		print("QTE FAILED\n")
+	if qte_active :
+		if passed :
+			#emit_signal("qte_passed")
+			print("QTE PASSED!\n")
+		else :
+			#emit_signal("qte_failed")
+			print("QTE FAILED\n")
+		qte_active = false
 		
 	#Clear Texture
 	$Sprite2D.texture = load("null")
