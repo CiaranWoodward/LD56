@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/CiaranWoodward/LD56/compare/v1.5.0...v1.6.0) (2024-10-06)
+
+
+### Bug Fixes
+
+* crush speed if you faceplant the quarter-pipe wall ([8a0f92e](https://github.com/CiaranWoodward/LD56/commit/8a0f92efe132214a04a3c4bd16c2b2b897be6c80))
+
+
+### Features
+
+* Don't leap off quarter pipe if you don't have enough speed ([4881d29](https://github.com/CiaranWoodward/LD56/commit/4881d295410ff618716620cb3434541449427f7f))
+
 # [1.5.0](https://github.com/CiaranWoodward/LD56/compare/v1.4.1...v1.5.0) (2024-10-06)
 
 
