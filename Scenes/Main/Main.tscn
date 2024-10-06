@@ -32,9 +32,6 @@ scale = Vector2(8, 1)
 
 [node name="PlayerCam" parent="." instance=ExtResource("5_dd7cr")]
 
-[node name="Floor2" parent="." instance=ExtResource("4_ggnet")]
-position = Vector2(665, 501)
-scale = Vector2(2.8, 1)
 [node name="Ramp2" parent="." instance=ExtResource("6_by7xd")]
 position = Vector2(79, -107)
 rotation = 0.336411
