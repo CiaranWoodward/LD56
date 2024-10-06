@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://dfwrg25l15rj2" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="2_p63e7"]
 [ext_resource type="Texture2D" uid="uid://cf87ilpl8eg0n" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_daw2m"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="3_lssys"]
-[ext_resource type="Texture2D" uid="uid://cywyhnm2gd80u" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_ots6x"]
+[ext_resource type="Texture2D" uid="uid://crb1c27006q1i" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_ots6x"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="4_xxkw2"]
-[ext_resource type="Texture2D" uid="uid://bags70hn7qa8k" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_sg3aj"]
-[ext_resource type="Texture2D" uid="uid://gisw26lrol3m" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_l744h"]
-[ext_resource type="Texture2D" uid="uid://dlvfdk5briq6e" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_iudv0"]
-[ext_resource type="Texture2D" uid="uid://yy8fsn65xaft" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_2p4st"]
+[ext_resource type="Texture2D" uid="uid://bdkcjq3dmuvll" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_sg3aj"]
+[ext_resource type="Texture2D" uid="uid://cl4spxadff2df" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_l744h"]
+[ext_resource type="Texture2D" uid="uid://br0nvp0kqad11" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_iudv0"]
+[ext_resource type="Texture2D" uid="uid://beckf3usjnwlb" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_2p4st"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
