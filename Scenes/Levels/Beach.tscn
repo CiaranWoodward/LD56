@@ -1,8 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgd71m5dma7xa"]
+[gd_scene load_steps=27 format=3 uid="uid://dgd71m5dma7xa"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_uv1f7"]
-[ext_resource type="Texture2D" uid="uid://d1mmxgyh855ea" path="res://Graphics/Backgrounds/Beach/Wavey0000.png" id="2_gg8x0"]
+[ext_resource type="Texture2D" uid="uid://dnqd6v7aac6ud" path="res://Graphics/Backgrounds/Textured0000.png" id="2_i1syh"]
+[ext_resource type="Texture2D" uid="uid://c8vol8o24olgq" path="res://Graphics/Backgrounds/Clouds/10000.png" id="3_717fg"]
+[ext_resource type="Texture2D" uid="uid://daxxp6588h1pp" path="res://Graphics/Backgrounds/Beach/Sand0000.png" id="3_kcvk3"]
+[ext_resource type="Texture2D" uid="uid://n7fvrmx4qgti" path="res://Graphics/Backgrounds/Beach/Mound0000.png" id="3_mkrhw"]
+[ext_resource type="Texture2D" uid="uid://dxcrf8wxkwgup" path="res://Graphics/Backgrounds/Clouds/20000.png" id="4_xjsdv"]
+[ext_resource type="Texture2D" uid="uid://dlbnly7fsat2l" path="res://Graphics/Backgrounds/Clouds/30000.png" id="5_3lw4p"]
+[ext_resource type="Texture2D" uid="uid://ic1qgbw8eufv" path="res://Graphics/Backgrounds/Clouds/40000.png" id="6_ya484"]
+[ext_resource type="Texture2D" uid="uid://dolvgbrby3cu2" path="res://Graphics/Backgrounds/Clouds/50000.png" id="7_im6hc"]
+[ext_resource type="Texture2D" uid="uid://bkcts6h0m2odr" path="res://Graphics/Backgrounds/Clouds/60000.png" id="8_khh26"]
 [ext_resource type="Texture2D" uid="uid://dbna387j80yh6" path="res://Graphics/Backgrounds/Beach/PalmTrunk0000.png" id="9_nvq82"]
+[ext_resource type="Texture2D" uid="uid://btu3qdevkh18u" path="res://Graphics/Backgrounds/Clouds/70000.png" id="9_ti8oc"]
 [ext_resource type="Texture2D" uid="uid://xt4tlh3pke77" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="10_6fo6m"]
 [ext_resource type="Texture2D" uid="uid://dy3532vp4onxd" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_ikby1"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="10_j2pt5"]
@@ -17,99 +26,294 @@
 [ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="15_04pmy"]
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="16_wch2f"]
 
+[sub_resource type="Gradient" id="Gradient_qi3vk"]
+offsets = PackedFloat32Array(0.266667, 0.806667)
+colors = PackedColorArray(0.678589, 0.778589, 0.851563, 0.819608, 0.67451, 0.788235, 0.835294, 0.752941)
+
 [node name="Beach" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Colour" type="Sprite2D" parent="Background"]
-self_modulate = Color(0.600845, 0.815913, 0.910156, 1)
-position = Vector2(1250, 280)
-scale = Vector2(549.6, 160)
+self_modulate = Color(0.345764, 0.702885, 0.859375, 1)
+position = Vector2(617.5, 165.5)
+scale = Vector2(646.65, 169.75)
 texture = ExtResource("1_uv1f7")
+
+[node name="Fog" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.508575, 0.723323, 0.789063, 0.211765)
+position = Vector2(619.5, -409.5)
+scale = Vector2(6.7224, 2.09722)
+texture = ExtResource("2_i1syh")
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(2, 1.4)
 scroll_offset = Vector2(-132, 89)
 
-[node name="Back" type="Parallax2D" parent="Background"]
+[node name="Cloud1" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("3_717fg")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud2" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("4_xjsdv")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud3" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("5_3lw4p")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud4" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("6_ya484")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud5" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("7_im6hc")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud6" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("8_khh26")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Cloud7" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-6473, -188)
+amount = 4
+lifetime = 60.0
+preprocess = 100.0
+texture = ExtResource("9_ti8oc")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_qi3vk")
+
+[node name="Mid3" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.2, 1.097)
+scroll_scale = Vector2(1.4, 1.278)
+scroll_offset = Vector2(660, 696)
+
+[node name="Mound0001" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.75, 0.665955, 0.117188, 1)
+position = Vector2(4180, -25)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_mkrhw")
+
+[node name="PalmTrunk5" type="Sprite2D" parent="Background/Mid3/Mound0001"]
+self_modulate = Color(0.785156, 0.591122, 0.0705414, 1)
+position = Vector2(6.25016, -87.5)
+rotation = -3.14159
+scale = Vector2(0.25, -0.25)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Mid3/Mound0001/PalmTrunk5"]
+self_modulate = Color(0.164077, 0.675781, 0.0316772, 0.964706)
+texture = ExtResource("10_6fo6m")
+
+[node name="PalmTrunk4" type="Sprite2D" parent="Background/Mid3/Mound0001"]
+self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
+position = Vector2(-33.3332, -91.6667)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Mid3/Mound0001/PalmTrunk4"]
+self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
+texture = ExtResource("10_6fo6m")
+
+[node name="TextureRect3" type="TextureRect" parent="Background/Mid3"]
+self_modulate = Color(0.242462, 0.494125, 0.886719, 1)
+offset_left = -23610.0
+offset_top = -243.0
+offset_right = 22232.0
+offset_bottom = 187.0
+texture = ExtResource("3_kcvk3")
+stretch_mode = 1
+
+[node name="Mid4" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.2, 1.06)
+scroll_offset = Vector2(620, 730)
+
+[node name="TextureRect3" type="TextureRect" parent="Background/Mid4"]
+self_modulate = Color(0.29541, 0.515709, 0.859375, 1)
+offset_left = -24062.0
+offset_top = -292.0
+offset_right = 20375.0
+offset_bottom = 138.0
+texture = ExtResource("3_kcvk3")
+stretch_mode = 1
+
+[node name="Mound0000" type="Sprite2D" parent="Background/Mid4"]
+self_modulate = Color(0.75, 0.665955, 0.117188, 1)
+position = Vector2(-3451.67, 0)
+texture = ExtResource("3_mkrhw")
+
+[node name="PalmTrunk4" type="Sprite2D" parent="Background/Mid4/Mound0000"]
+self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
+position = Vector2(15, -101.667)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Mid4/Mound0000/PalmTrunk4"]
+self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
+texture = ExtResource("10_6fo6m")
+
+[node name="PalmTrunk5" type="Sprite2D" parent="Background/Mid4/Mound0000"]
+self_modulate = Color(0.785156, 0.591122, 0.0705414, 1)
+position = Vector2(-38.333, -86.6666)
+rotation = 3.14159
+scale = Vector2(0.25, -0.25)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Mid4/Mound0000/PalmTrunk5"]
+self_modulate = Color(0.164077, 0.675781, 0.0316772, 0.964706)
+texture = ExtResource("10_6fo6m")
+
+[node name="Mid2" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.16, 1.04)
 scroll_offset = Vector2(928, 760)
 
-[node name="Sea" type="Sprite2D" parent="Background/Back"]
-self_modulate = Color(0.421326, 0.663779, 0.921875, 1)
-position = Vector2(-101.667, 2645)
-scale = Vector2(-7.55971, 5.919)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sea2" type="Sprite2D" parent="Background/Back"]
-self_modulate = Color(0.421326, 0.663779, 0.921875, 1)
-position = Vector2(-5987.78, -200.379)
-rotation = 3.14159
-scale = Vector2(12.5995, -9.865)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sea3" type="Sprite2D" parent="Background/Back"]
-self_modulate = Color(0.421326, 0.663779, 0.921875, 1)
-position = Vector2(-111.117, -200.379)
-rotation = 3.14159
-scale = Vector2(12.5995, -9.865)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sea4" type="Sprite2D" parent="Background/Back"]
-self_modulate = Color(0.421326, 0.663779, 0.921875, 1)
-position = Vector2(5823.88, -200.379)
-rotation = 3.14159
-scale = Vector2(12.5995, -9.865)
-texture = ExtResource("2_gg8x0")
+[node name="TextureRect3" type="TextureRect" parent="Background/Mid2"]
+self_modulate = Color(0.419525, 0.611178, 0.910156, 1)
+offset_left = -24278.0
+offset_top = -292.0
+offset_right = 21425.0
+offset_bottom = 138.0
+texture = ExtResource("3_kcvk3")
+stretch_mode = 1
 
 [node name="Mid" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.14, 1.04)
+scroll_scale = Vector2(1.14, 1.03)
 scroll_offset = Vector2(928, 760)
 
-[node name="Sand" type="Sprite2D" parent="Background/Mid"]
-self_modulate = Color(0.921875, 0.843664, 0.421326, 1)
-position = Vector2(960, 2481.67)
-scale = Vector2(10.0443, 5.91856)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sand2" type="Sprite2D" parent="Background/Mid"]
-self_modulate = Color(0.921875, 0.843664, 0.421326, 1)
-position = Vector2(-5950, -145)
-scale = Vector2(16.7405, 9.86427)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sand3" type="Sprite2D" parent="Background/Mid"]
-self_modulate = Color(0.921875, 0.843664, 0.421326, 1)
-position = Vector2(1811.67, -145)
-scale = Vector2(16.7405, 9.86427)
-texture = ExtResource("2_gg8x0")
-
-[node name="Sand4" type="Sprite2D" parent="Background/Mid"]
-self_modulate = Color(0.921875, 0.843664, 0.421326, 1)
-position = Vector2(9323.33, -145)
-scale = Vector2(16.7405, 9.86427)
-texture = ExtResource("2_gg8x0")
+[node name="TextureRect3" type="TextureRect" parent="Background/Mid"]
+self_modulate = Color(0.910156, 0.833495, 0.419525, 1)
+offset_left = -24432.0
+offset_top = -235.0
+offset_right = 21393.0
+offset_bottom = 195.0
+texture = ExtResource("3_kcvk3")
+stretch_mode = 1
 
 [node name="Fore" type="Parallax2D" parent="Background"]
 scroll_offset = Vector2(928, 760)
 
 [node name="PalmTrunk" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
-position = Vector2(171, -70)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1148, -56)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("9_nvq82")
 
 [node name="Leaves" type="Sprite2D" parent="Background/Fore/PalmTrunk"]
 self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
 texture = ExtResource("10_6fo6m")
 
+[node name="PalmTrunk2" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
+position = Vector2(1381, -69)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Fore/PalmTrunk2"]
+self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
+texture = ExtResource("10_6fo6m")
+
+[node name="PalmTrunk3" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
+position = Vector2(-792, -70)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_nvq82")
+
+[node name="Leaves" type="Sprite2D" parent="Background/Fore/PalmTrunk3"]
+self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
+texture = ExtResource("10_6fo6m")
+
 [node name="Bench" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.65625, 0.41288, 0.0999756, 1)
-position = Vector2(-268, -26)
+position = Vector2(1263, -26)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_ikby1")
+
+[node name="Bench2" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.65625, 0.41288, 0.0999756, 1)
+position = Vector2(75, -24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_ikby1")
+
+[node name="Colour2" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.909804, 0.831373, 0.419608, 1)
+position = Vector2(621, 1765)
+scale = Vector2(646.3, 99.5)
+texture = ExtResource("1_uv1f7")
 
 [node name="Player" parent="." instance=ExtResource("11_bc2k6")]
 position = Vector2(36, 293)
