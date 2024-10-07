@@ -14,7 +14,8 @@ func play_random_trick(speed: float):
 			trick_list.remove_at(i)
 	
 	#Play random trick:
-	$"../../Audio".play_trick()
+	if is_instance_valid($"../../Audio"):
+		$"../../Audio".play_trick()
 	$Tricks.play(trick_list[rng.randi_range(0,len(trick_list)-1)],-1,speed)
 
 #Check whether animation is currently playing:			

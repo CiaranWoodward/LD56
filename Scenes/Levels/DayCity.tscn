@@ -398,8 +398,8 @@ position = Vector2(0, 48)
 position = Vector2(128, 48)
 
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(-1496, 1060)
-points = PackedVector2Array(40, 26, -34, -29, -85, -112, -123, -222, -133, -332, -136, -583)
+position = Vector2(-1483, 1056)
+points = PackedVector2Array(1059, -515, 969, -375, 828, -285, 680, -233, 497, -190, 290, -173)
 texture = ExtResource("18_ldnrl")
 
 [node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
