@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var BOUNCINESS = 0.5
 @export var PUSH_MAX_SPEED = 1200
 @export var PUSH_ACCELERATION = 4
+@export var BRAKE_DECELERATION = 20
 @export var GRIND_SHAKE = 0.4
 
 @export var TARGET_SPEED = 1150
@@ -36,6 +37,8 @@ var acceleration = 0
 var acceleration_penalty : float = 0
 var acceleration_penalty_time : float = 0
 var speed = 20
+var currently_braking = false
+var ignore_brakes : bool = false
 var on_floor = false
 var quarter_pipe_direction = 0
 var temp_ignore_bodies : Array = []
@@ -171,7 +174,16 @@ func _physics_process(delta: float) -> void:
 		speed = MAX_SPEED
 	speed = speed + acceleration
 	
+	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_RAMP:
+		if Input.is_action_pressed("Brake") and not ignore_brakes:
+			handle_braking()
+		
+		if Input.is_action_just_released("Brake"):
+			currently_braking = false
+			ignore_brakes = false
+	
 	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL or player_state == PLAYER_STATE.ON_RAMP:
+		
 		if Input.is_action_just_pressed("jump"):
 			force_leave()
 			anim_sm.start("JumpUp")
@@ -394,6 +406,28 @@ func handle_on_ramp_player_state(overlaps : Array):
 			
 
 #endregion RAMP
+
+#region Braking
+
+func handle_braking() -> void:
+	currently_braking = true
+	speed -= BRAKE_DECELERATION
+	var twenty_degrees_in_radians = 20 * (PI/180)
+	$Visual.rotation = $Visual.rotation - (sign(direction.x) * twenty_degrees_in_radians)
+	
+	anim_sm.start("Grind")
+	
+	if (speed <= 0):
+		direction.x *= -1
+		$Visual.scale.x = -1
+		speed = 1
+		currently_braking = false
+		ignore_brakes = true
+
+func is_braking() -> bool:
+	return currently_braking
+
+#endregion Braking
 
 #Transition to next level:
 func quarterpipe_fast() :
