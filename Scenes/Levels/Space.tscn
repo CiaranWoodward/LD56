@@ -329,7 +329,6 @@ texture = ExtResource("5_887q6")
 
 [node name="Player" parent="." instance=ExtResource("6_r5cvl")]
 position = Vector2(716, 390)
-JUMP_VELOCITY = -400.0
 MAX_SPEED = 800
 JUMP_TIME = 0.8
 

@@ -109,7 +109,6 @@ texture = ExtResource("10_ikby1")
 
 [node name="Player" parent="." instance=ExtResource("11_bc2k6")]
 position = Vector2(36, 293)
-JUMP_VELOCITY = -400.0
 MAX_SPEED = 400
 
 [node name="PlayerCam" parent="." instance=ExtResource("14_cws6f")]
