@@ -59,7 +59,7 @@ animations = [{
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Colour" type="Sprite2D" parent="Background"]
-self_modulate = Color(0.556641, 0.781036, 0.890625, 1)
+self_modulate = Color(0.703125, 1, 0.993042, 0.533333)
 position = Vector2(125.25, 685.5)
 scale = Vector2(562.675, 265.15)
 texture = ExtResource("1_4b74k")

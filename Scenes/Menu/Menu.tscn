@@ -30,8 +30,8 @@ grow_vertical = 2
 theme = ExtResource("1_18511")
 script = ExtResource("2_nixsr")
 hud_scene = ExtResource("3_o3fk2")
-levels = Array[PackedScene]([ExtResource("5_nl8nq"), ExtResource("4_i0bk0"), ExtResource("6_0ywym"), ExtResource("7_ivgyr"), ExtResource("8_bb7h8")])
 canvas = NodePath("Canvas")
+levels = Array[PackedScene]([ExtResource("5_nl8nq"), ExtResource("4_i0bk0"), ExtResource("6_0ywym"), ExtResource("7_ivgyr"), ExtResource("8_bb7h8")])
 inventory = NodePath("Canvas/Panel/MenuContainer/Inventory")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
