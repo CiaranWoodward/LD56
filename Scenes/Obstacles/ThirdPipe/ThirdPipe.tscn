@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu3wmxgl2ruv2"]
+
+[ext_resource type="Script" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.gd" id="1_sry6s"]
+[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="2_wil7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2tgy"]
+size = Vector2(128, 22.435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnkuc"]
+size = Vector2(118.5, 75.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy2yw"]
+size = Vector2(196, 91)
+
+[node name="ThirdPipe" type="StaticBody2D"]
+collision_layer = 6
+script = ExtResource("1_sry6s")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(1, 0.167969)
+texture = ExtResource("2_wil7u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
+position = Vector2(-88, -53)
+rotation = 0.960271
+scale = Vector2(1, 0.167969)
+texture = ExtResource("2_wil7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.217525)
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-88, -53)
+rotation = 0.988805
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="Centre" type="Marker2D" parent="."]
+position = Vector2(65, -201)
+
+[node name="Exit1" type="Marker2D" parent="."]
+position = Vector2(-108, -113)
+rotation = -2.10875
+
+[node name="Exit2" type="Marker2D" parent="."]
+position = Vector2(64, -12)
+
+[node name="MaxBounds" type="Area2D" parent="."]
+collision_layer = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaxBounds"]
+position = Vector2(-70, -73)
+shape = SubResource("RectangleShape2D_rnkuc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MaxBounds"]
+position = Vector2(-19, -30.5)
+shape = SubResource("RectangleShape2D_wy2yw")

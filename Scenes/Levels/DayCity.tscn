@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=20 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="15_yqcn7"]
 [ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="16_t3fwn"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
+[ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="18_gefmh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -417,11 +418,6 @@ points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 28
 position = Vector2(407, 586)
 points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269, -396)
 
-[node name="GrindRail7" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(-1922, 602)
-points = PackedVector2Array(-21, 25, 77, -24, 143, -81, 169, -121)
-snap_to_from_floor = true
-
 [node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(2320, 562)
 points = PackedVector2Array(28, 55, -29, 20, -77, -15)
@@ -453,3 +449,7 @@ position = Vector2(1629, 623)
 
 [node name="Floor77" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1757, 623)
+
+[node name="ThirdPipe" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(-1856, 579)
+rotation = -0.975571

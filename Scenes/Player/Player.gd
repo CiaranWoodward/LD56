@@ -21,6 +21,7 @@ enum PLAYER_STATE {
 	IN_QPIPE_AIR_TRICKS,
 	ON_FLOOR,
 	ON_QUARTER_PIPE,
+	ON_THIRD_PIPE,
 	ON_GRIND_RAIL,
 	ON_RAMP
 }
@@ -86,7 +87,28 @@ func _physics_process(delta: float) -> void:
 		elif max_bounds not in aoe.get_overlapping_areas():
 			direction = current_movement_direction()
 			force_leave()
-			
+	
+	# I copy-pasted this from quarter_pipe with slight mods (sorry)
+	if player_state == PLAYER_STATE.ON_THIRD_PIPE:
+		var c : Vector2 = current_scenery.get_pipe_centre()
+		var tangent_angle = c.angle_to_point(self.global_position) + PI/2.0
+		direction.x = cos(tangent_angle)
+		direction.y = sin(tangent_angle)
+		direction = direction.normalized() * quarter_pipe_direction
+		var pipe_centre = current_scenery.get_pipe_centre()
+		global_position = (global_position - pipe_centre).normalized() * current_scenery.get_radius() + pipe_centre
+		var exit_vec : Vector2 = current_scenery.get_exit_vector(quarter_pipe_direction, current_movement_direction())
+		$Visual.rotation = direction.angle()
+		$Visual.scale.x = 1
+		$Visual.scale.y = -quarter_pipe_direction
+		var max_bounds : Area2D = current_scenery.get_max_bounds()
+		
+		if ! exit_vec.is_zero_approx():
+			direction = exit_vec
+			force_leave()
+		elif max_bounds not in aoe.get_overlapping_areas():
+			direction = current_movement_direction()
+			force_leave()
 	
 	if player_state == PLAYER_STATE.ON_GRIND_RAIL:
 		if current_scenery in overlaps:
@@ -144,6 +166,9 @@ func _physics_process(delta: float) -> void:
 		if overlap is QuarterPipe && can_change_player_state(PLAYER_STATE.ON_QUARTER_PIPE, overlap):
 			force_leave()
 			join_quarter_pipe(overlap)
+		if overlap is ThirdPipe && can_change_player_state(PLAYER_STATE.ON_THIRD_PIPE, overlap):
+			force_leave()
+			join_third_pipe(overlap)
 		elif overlap is GrindRailBody && can_change_player_state(PLAYER_STATE.ON_GRIND_RAIL, overlap):
 				force_leave()
 				join_grind_rail(overlap)
@@ -250,6 +275,8 @@ func force_leave():
 			leave_floor()
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			leave_quarter_pipe()
+		PLAYER_STATE.ON_THIRD_PIPE:
+			leave_third_pipe()
 		PLAYER_STATE.ON_RAMP:
 			leave_ramp()
 		PLAYER_STATE.IN_AIR:
@@ -274,6 +301,8 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 				#print("Grind dot: " + str(dot))
 				return dot > 0.5
 		PLAYER_STATE.ON_QUARTER_PIPE:
+			return true
+		PLAYER_STATE.ON_THIRD_PIPE:
 			return true
 		PLAYER_STATE.IN_AIR:
 			return true
@@ -304,7 +333,6 @@ func leave_quarter_pipe():
 			quarterpipe_fast()
 		elif speed > 500:
 			quarterpipe_slow()
-		
 
 func join_quarter_pipe(qpipe : QuarterPipe):
 	quarter_pipe_direction = qpipe.get_direction(global_position, current_movement_direction())
@@ -312,6 +340,20 @@ func join_quarter_pipe(qpipe : QuarterPipe):
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
 	qpipe.add_collision_exception_with(self)
+
+func leave_third_pipe():
+	var pipe : ThirdPipe = current_scenery
+	#pipe.remove_collision_exception_with(self)
+	change_player_state(PLAYER_STATE.IN_AIR)
+	temp_ignore_bodies.append(current_scenery)
+	current_scenery = null
+
+func join_third_pipe(pipe : ThirdPipe):
+	quarter_pipe_direction = pipe.get_direction(global_position, current_movement_direction())
+	speed *= pipe.get_speed_component_at_entrance(global_position, current_movement_direction())
+	change_player_state(PLAYER_STATE.ON_THIRD_PIPE)
+	current_scenery = pipe
+	pipe.add_collision_exception_with(self)
 
 func leave_floor():
 	change_player_state(PLAYER_STATE.IN_AIR)
