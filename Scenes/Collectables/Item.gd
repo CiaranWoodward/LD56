@@ -20,7 +20,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	on_item_collected()
 
 func on_item_collected() -> void:
-d 	_menu.add_item(self)
+	_menu.add_item(self)
 	
 func on_item_collected_visual_queue() -> void:
 	$Visuals/Sparkles.emitting = true

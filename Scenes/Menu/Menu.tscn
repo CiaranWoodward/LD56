@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c3cnbqus82uqp" path="res://Scenes/Menu/EndGameScreen/EndGameScreen.tscn" id="15_6p7re"]
 [ext_resource type="PackedScene" uid="uid://cv4vg4eh1ijji" path="res://Scenes/Menu/Inventory/Inventory.tscn" id="16_6gj8n"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("views", "canvas", "inventory") groups=["Menu"]]
+[node name="Menu" type="Control" node_paths=PackedStringArray("canvas", "inventory") groups=["Menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,10 +29,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_18511")
 script = ExtResource("2_nixsr")
-views = [NodePath("Canvas/Panel/MenuContainer/Start"), NodePath("Canvas/Panel/MenuContainer/Settings"), NodePath("Canvas/Panel/MenuContainer/Controls"), NodePath("Canvas/Panel/MenuContainer/Credits"), NodePath("Canvas/Panel/MenuContainer/NextLevel"), NodePath("Canvas/Panel/MenuContainer/EndGameScreen"), NodePath("Canvas/Panel/MenuContainer/Inventory")]
 hud_scene = ExtResource("3_o3fk2")
-canvas = NodePath("Canvas")
 levels = Array[PackedScene]([ExtResource("5_nl8nq"), ExtResource("4_i0bk0"), ExtResource("6_0ywym"), ExtResource("7_ivgyr"), ExtResource("8_bb7h8")])
+canvas = NodePath("Canvas")
 inventory = NodePath("Canvas/Panel/MenuContainer/Inventory")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
