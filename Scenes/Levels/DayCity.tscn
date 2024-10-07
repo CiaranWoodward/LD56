@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=26 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="20_yyixd"]
 [ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="21_cvv0s"]
 [ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="22_il6w7"]
+[ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="24_ej1wv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -123,7 +124,7 @@ position = Vector2(198, 449)
 position = Vector2(-2461, 623)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("12_h8b6l")]
-position = Vector2(2811, 486)
+position = Vector2(2811, 488)
 rotation = -1.5708
 
 [node name="Floor" parent="." instance=ExtResource("13_cqdl6")]
@@ -228,12 +229,6 @@ position = Vector2(2543, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("14_7rrp2")]
 
-[node name="Floor9" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1423, 1093)
-
-[node name="Floor10" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1297, 1093)
-
 [node name="Floor41" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-205, 860)
 
@@ -252,47 +247,13 @@ position = Vector2(303, 860)
 [node name="Floor46" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(431, 860)
 
-[node name="Floor47" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-331, 1313)
-
-[node name="Floor48" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-205, 1313)
-
-[node name="Floor49" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-77, 1313)
-
 [node name="Floor50" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(50, 1313)
-
-[node name="Floor51" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(177, 1313)
-
-[node name="Floor52" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(303, 1313)
-
-[node name="Floor53" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(431, 1313)
-
-[node name="Floor54" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(558, 1313)
-
-[node name="Floor11" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1169, 1093)
+position = Vector2(115, 1317)
+width = 1400.0
 
 [node name="Floor12" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1042, 1093)
-
-[node name="Floor13" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-915, 1093)
-
-[node name="Floor14" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-789, 1093)
-
-[node name="Floor15" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-661, 1093)
-
-[node name="Floor16" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-534, 1093)
+position = Vector2(-986, 1094)
+width = 1000.0
 
 [node name="Floor17" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(866, 1093)
@@ -330,11 +291,6 @@ position = Vector2(450, 689)
 [node name="Crate" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-235, 817)
 
-[node name="Icon" type="Sprite2D" parent="Crate"]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(349, -65)
-texture = ExtResource("16_t3fwn")
-
 [node name="Crate2" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-235, 752)
 
@@ -351,7 +307,7 @@ texture = ExtResource("16_t3fwn")
 position = Vector2(1501, -73)
 
 [node name="Floor64" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1628, -73)
+position = Vector2(1182, 44)
 
 [node name="Floor65" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-778, -171)
@@ -368,9 +324,6 @@ position = Vector2(-979, 0)
 [node name="Floor61" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1247, -171)
 
-[node name="Floor62" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1374, -171)
-
 [node name="Icon3" type="Sprite2D" parent="."]
 modulate = Color(0.0156863, 0, 1, 1)
 position = Vector2(359, -545)
@@ -379,23 +332,15 @@ texture = ExtResource("16_t3fwn")
 [node name="Floor78" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-1055, 623)
 
-[node name="Floor80" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1692, 488)
-
 [node name="Floor79" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-1183, 623)
 
 [node name="Crate9" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-1438, 575)
 
-[node name="Floor69" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(-126, 48)
-
 [node name="Floor70" parent="Crate9" instance=ExtResource("13_cqdl6")]
 position = Vector2(0, 48)
-
-[node name="Floor71" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(128, 48)
+width = 400.0
 
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1483, 1056)
@@ -407,28 +352,18 @@ position = Vector2(-404, 1278)
 
 [node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-402, 1273)
-points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -77, -189)
+points = PackedVector2Array(41, 36, -18, -7, -55, -62, -83, -127, -97, -233)
 texture = ExtResource("18_ldnrl")
+snap_to_from_floor = true
 
 [node name="GrindRail4" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(624, 1281)
-points = PackedVector2Array(-39, 25, 40, -2, 104, -49, 146, -113, 173, -163, 182, -201)
-
-[node name="GrindRail5" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(1808, 1071)
-points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 295, -450, 307, -528)
+points = PackedVector2Array(-39, 25, 40, -2, 104, -49, 146, -113, 179, -166, 204, -227)
+snap_to_from_floor = true
 
 [node name="GrindRail6" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(407, 586)
 points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269, -396)
-
-[node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(2320, 562)
-points = PackedVector2Array(28, 55, -29, 20, -77, -15)
-texture = ExtResource("18_ldnrl")
-
-[node name="Floor69" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(2178, 549)
 
 [node name="Floor71" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-929, 623)
@@ -440,20 +375,9 @@ points = PackedVector2Array(128, 56, 321, -16, 492, -40, 682, -60, 870, -70, 103
 [node name="Floor72" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1121, 623)
 
-[node name="Floor73" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1249, 623)
-
-[node name="Floor74" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1376, 623)
-
-[node name="Floor75" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1503, 623)
-
-[node name="Floor76" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1629, 623)
-
 [node name="Floor77" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1757, 623)
+position = Vector2(1647, 623)
+width = 1000.0
 
 [node name="ThirdPipe" parent="." instance=ExtResource("18_gefmh")]
 position = Vector2(-1819, 541)
@@ -461,16 +385,48 @@ rotation = -1.26911
 ramp_angle_degrees = 80
 
 [node name="Wall" parent="." instance=ExtResource("19_poi3t")]
-position = Vector2(-1818, 614)
+position = Vector2(-1808, 563)
+
+[node name="HatPickup" parent="." instance=ExtResource("21_cvv0s")]
+position = Vector2(120, 771)
+scale = Vector2(0.462995, 0.462995)
+hat_name = "beanie"
 
 [node name="Casset" parent="." instance=ExtResource("20_yyixd")]
-position = Vector2(-773, 586)
+position = Vector2(-1149, 1026)
 scale = Vector2(0.462995, 0.462995)
 cassette_name = "lore 1"
 
-[node name="HatPickup" parent="Casset" instance=ExtResource("21_cvv0s")]
-position = Vector2(302.379, -4.3197)
-hat_name = "beanie"
-
 [node name="LevelFloor" parent="." instance=ExtResource("22_il6w7")]
 position = Vector2(-8, 1625)
+
+[node name="ThirdPipe2" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(-1551, 1104)
+radius = 500
+ramp_angle_degrees = 80
+
+[node name="Ramp" parent="." instance=ExtResource("24_ej1wv")]
+position = Vector2(2359, 560)
+rotation = 0.369738
+width = 300.0
+
+[node name="Ramp2" parent="." instance=ExtResource("24_ej1wv")]
+position = Vector2(1821, 414)
+rotation = 0.19172
+width = 300.0
+
+[node name="Wall2" parent="." instance=ExtResource("19_poi3t")]
+position = Vector2(2243, 578)
+height = 110.0
+
+[node name="ThirdPipe3" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(1991, 1000)
+rotation = -1.5708
+radius = 150
+ramp_angle_degrees = 90
+
+[node name="ThirdPipe4" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(1886, 762)
+rotation = -3.14159
+radius = 150
+ramp_angle_degrees = 90

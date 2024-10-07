@@ -68,7 +68,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
 	acceleration = 0
-		
+	
 	if player_state == PLAYER_STATE.IN_AIR:
 		if Input.is_action_just_pressed("jump") and quarterpipe_tricks == 0:
 			get_tree().call_group('QTE',"start_qte",1,3,TRICK_POINTS,false)
@@ -351,12 +351,10 @@ func change_player_state(new_state: PLAYER_STATE):
 	if new_state != PLAYER_STATE.IN_AIR :
 		landed.emit()
 		print("Boosting: " + str(trick_speed_boost))
-		speed = speed + trick_speed_boost		
+		speed = speed + trick_speed_boost
 		trick_speed_boost = 0
 		
 	if new_state == PLAYER_STATE.IN_AIR :
-		
-		
 		quarterpipe_tricks = 0
 		$Audio.stop_rolling()
 	
