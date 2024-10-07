@@ -32,7 +32,6 @@ script = ExtResource("1_lpkv8")
 
 [node name="Sprite2D" parent="Visuals" instance=ExtResource("2_vcyc1")]
 position = Vector2(-0.999997, 0.999995)
-scale = Vector2(1, 1)
 
 [node name="Sparkles" type="GPUParticles2D" parent="Visuals"]
 emitting = false

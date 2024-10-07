@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dipefgsqeqev1"]
+[gd_scene load_steps=61 format=3 uid="uid://dipefgsqeqev1"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player_body.gd" id="1_11pm2"]
 [ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_7wypc"]
