@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=24 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="18_gefmh"]
 [ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="19_poi3t"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="20_yyixd"]
+[ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="21_cvv0s"]
 [ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="22_il6w7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
@@ -460,7 +461,11 @@ position = Vector2(-1818, 614)
 [node name="Casset" parent="." instance=ExtResource("20_yyixd")]
 position = Vector2(-773, 586)
 scale = Vector2(0.462995, 0.462995)
-cassette_name = "lore-1"
+cassette_name = "lore 1"
+
+[node name="HatPickup" parent="Casset" instance=ExtResource("21_cvv0s")]
+position = Vector2(302.379, -4.3197)
+hat_name = "beanie"
 
 [node name="LevelFloor" parent="." instance=ExtResource("22_il6w7")]
 position = Vector2(-8, 1625)

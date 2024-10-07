@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_fakoy"]
 [ext_resource type="Script" path="res://Scenes/Menu/Inventory/inventory.gd" id="2_uu24j"]
-[ext_resource type="Script" path="res://Scenes/Menu/Settings/music_select.gd" id="3_ugdrq"]
+[ext_resource type="PackedScene" uid="uid://dipefgsqeqev1" path="res://Scenes/Player/PlayerBody.tscn" id="3_anp3f"]
 [ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="4_57uok"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("_hats", "_cassettes")]
@@ -38,6 +38,14 @@ text = "Inventory"
 fit_content = true
 autowrap_mode = 0
 
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="PlayerBody" parent="VBoxContainer/Panel" instance=ExtResource("3_anp3f")]
+position = Vector2(250, 93)
+scale = Vector2(2, 2)
+
 [node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
 layout_mode = 2
@@ -48,10 +56,6 @@ fit_content = true
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 1
-popup/item_0/text = "None"
-script = ExtResource("3_ugdrq")
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false

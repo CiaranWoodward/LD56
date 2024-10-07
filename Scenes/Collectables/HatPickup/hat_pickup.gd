@@ -1,17 +1,16 @@
-class_name Cassette
+class_name HatPickup
 extends Item
 
-@export var cassette_name: String
-
-var _radio: GlobalRadio
+@export var hat_name: String
 
 func get_type() -> String:
-	return "cassette"
+	return "hat"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	_radio = get_tree().root.get_node("Radio")
+	var art: Hats = $"Visuals/Sprite2D"
+	art.set_variant(hat_name)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,4 +19,3 @@ func _process(delta: float) -> void:
 func on_item_collected() -> void:
 	super.on_item_collected()
 	super.on_item_collected_visual_queue()
-	_radio.play_cassette(cassette_name)

@@ -8,7 +8,7 @@
 _data = [Vector2(0, 0.804119), 0.0, 0.0, 0, 0, Vector2(0.230089, 1), 0.0, 0.0, 0, 0, Vector2(0.525074, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_4xxkh"]
+[sub_resource type="CurveTexture" id="CurveTexture_yfvkh"]
 curve = SubResource("Curve_wfnn6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_35d6f"]
@@ -20,7 +20,7 @@ initial_velocity_max = 205.37
 radial_velocity_min = 268.95
 radial_velocity_max = 454.77
 gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_4xxkh")
+alpha_curve = SubResource("CurveTexture_yfvkh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2eqj"]
 size = Vector2(129, 83)

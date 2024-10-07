@@ -21,11 +21,11 @@ func _ready() -> void:
 	
 	_cassettes = {
 		"advert": load("res://Audio/Cassettes/skateboard advert.ogg"),
-		"lore-1": load("res://Audio/Cassettes/hawk explanation.ogg"),
-		"lore-2": load("res://Audio/Cassettes/hawk uplifting.ogg"),
-		"news-1": load("res://Audio/Cassettes/news broadcast 1.ogg"),
-		"news-2": load("res://Audio/Cassettes/news broadcast 2.ogg"),
-		"news-3": load("res://Audio/Cassettes/news broadcast 3.ogg")
+		"lore 1": load("res://Audio/Cassettes/hawk explanation.ogg"),
+		"lore 2": load("res://Audio/Cassettes/hawk uplifting.ogg"),
+		"news 1": load("res://Audio/Cassettes/news broadcast 1.ogg"),
+		"news 2": load("res://Audio/Cassettes/news broadcast 2.ogg"),
+		"news 3": load("res://Audio/Cassettes/news broadcast 3.ogg")
 	}
 	
 	_music_player = $GlobalMusic

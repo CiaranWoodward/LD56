@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dipefgsqeqev1"]
+[gd_scene load_steps=58 format=3 uid="uid://dipefgsqeqev1"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player_body.gd" id="1_11pm2"]
 [ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_7wypc"]
@@ -9,11 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://da67hm031qskw" path="res://Graphics/TinyHawk/Head0000.png" id="7_wvp88"]
 [ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="8_05f04"]
 [ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="9_aafto"]
-[ext_resource type="Texture2D" uid="uid://bofhg2ypk33lt" path="res://Graphics/Collectables/Headphones0000.png" id="10_f6ert"]
-[ext_resource type="Texture2D" uid="uid://bd8wqtu7xcno3" path="res://Graphics/Collectables/Beanie0000.png" id="11_fbxvg"]
-[ext_resource type="Texture2D" uid="uid://c0wi5cr8jb1uq" path="res://Graphics/Collectables/Bowler0000.png" id="12_deprs"]
-[ext_resource type="Texture2D" uid="uid://tq25m120rac1" path="res://Graphics/Collectables/Cap0000.png" id="13_7qcdq"]
-[ext_resource type="Texture2D" uid="uid://dfwhhlk2aqv84" path="res://Graphics/Collectables/Headset0000.png" id="14_a8oa3"]
+[ext_resource type="PackedScene" uid="uid://caxmtw0apuc40" path="res://Scenes/Player/Hats.tscn" id="10_st7bx"]
 [ext_resource type="Texture2D" uid="uid://b4myvw6uec57x" path="res://Graphics/TinyHawk/Body0000.png" id="15_hk5ow"]
 [ext_resource type="Texture2D" uid="uid://bwsj4rb6fobsk" path="res://Graphics/TinyHawk/RightArm0000.png" id="16_xb7k3"]
 [ext_resource type="Texture2D" uid="uid://gfgmy2ref0dt" path="res://Graphics/TinyHawk/RightLeg0000.png" id="17_bw4t2"]
@@ -28,29 +24,6 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="Gradient" id="Gradient_1bdl4"]
 offsets = PackedFloat32Array(0, 0.273333, 0.713333, 1)
 colors = PackedColorArray(1, 0.890625, 0, 1, 0.958584, 0.680589, 0.151426, 1, 0.914063, 0.4548, 0.314209, 1, 0.941406, 0.220642, 0, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fsttl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_f6ert")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_fbxvg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_deprs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_7qcdq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_a8oa3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_dvs6j"]
 resource_name = "Braking"
@@ -2197,10 +2170,7 @@ self_modulate = Color(0.878906, 0.761962, 0.130463, 1)
 position = Vector2(-15.3182, 53.2727)
 texture = ExtResource("9_aafto")
 
-[node name="Hats" type="AnimatedSprite2D" parent="TinyHawk/Shirt/Head"]
-self_modulate = Color(0.628906, 0.0654526, 0.02211, 1)
-position = Vector2(-32.5186, -75.825)
-sprite_frames = SubResource("SpriteFrames_fsttl")
+[node name="Hats" parent="TinyHawk/Shirt/Head" instance=ExtResource("10_st7bx")]
 
 [node name="Body" type="Sprite2D" parent="TinyHawk/Shirt"]
 show_behind_parent = true
@@ -2244,6 +2214,7 @@ libraries = {
 
 [node name="TrickSuccess" type="CPUParticles2D" parent="Tricks"]
 position = Vector2(7, -5)
+emitting = false
 lifetime = 0.4
 explosiveness = 0.8
 texture = ExtResource("20_4ja6q")

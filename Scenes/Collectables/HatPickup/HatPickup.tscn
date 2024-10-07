@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8r5aexisrsnp"]
+
+[ext_resource type="Script" path="res://Scenes/Collectables/HatPickup/hat_pickup.gd" id="1_lpkv8"]
+[ext_resource type="PackedScene" uid="uid://caxmtw0apuc40" path="res://Scenes/Player/Hats.tscn" id="2_vcyc1"]
+[ext_resource type="Texture2D" uid="uid://b03xxsq66x0dq" path="res://Graphics/EnvironmentEffects/Stars.png" id="3_5qhtv"]
+
+[sub_resource type="Curve" id="Curve_srjs3"]
+_data = [Vector2(0, 0.804119), 0.0, 0.0, 0, 0, Vector2(0.230089, 1), 0.0, 0.0, 0, 0, Vector2(0.525074, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xxkh"]
+curve = SubResource("Curve_srjs3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_slva7"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 114.91
+initial_velocity_max = 205.37
+radial_velocity_min = 268.95
+radial_velocity_max = 454.77
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_4xxkh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq24g"]
+size = Vector2(116, 114)
+
+[node name="HatPickup" type="Node2D"]
+script = ExtResource("1_lpkv8")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" parent="Visuals" instance=ExtResource("2_vcyc1")]
+position = Vector2(-0.999997, 0.999995)
+scale = Vector2(1, 1)
+
+[node name="Sparkles" type="GPUParticles2D" parent="Visuals"]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_slva7")
+texture = ExtResource("3_5qhtv")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, 2)
+shape = SubResource("RectangleShape2D_aq24g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

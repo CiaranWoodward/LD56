@@ -130,6 +130,8 @@ func add_item(item):
 	_level_item_count += 1
 	if item.get_type() == "cassette":
 		inventory._add_cassette(item)
+	elif item.get_type() == "hat":
+		inventory._add_hat(item)
 			
 func add_score(delta_score: int):
 	_level_score += delta_score * _multipliers[_multiplier]
