@@ -1,3 +1,10 @@
+## [1.14.3](https://github.com/CiaranWoodward/LD56/compare/v1.14.2...v1.14.3) (2024-10-07)
+
+
+### Bug Fixes
+
+* control menu ([f640591](https://github.com/CiaranWoodward/LD56/commit/f6405916ebb71c65b79d4662aea078211ac7513e))
+
 ## [1.14.2](https://github.com/CiaranWoodward/LD56/compare/v1.14.1...v1.14.2) (2024-10-07)
 
 
