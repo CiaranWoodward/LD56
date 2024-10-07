@@ -477,7 +477,7 @@ func handle_on_ramp_player_state(overlaps : Array):
 	if dot_product < 0:
 		direction_modifier = -1
 	
-	speed = abs(dot_product) * speed
+	#speed = abs(dot_product) * speed
 	
 	direction = Vector2.from_angle(ramp_angle)
 	direction = direction.normalized() * direction_modifier

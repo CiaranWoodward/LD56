@@ -1335,7 +1335,7 @@ advance_mode = 2
 advance_expression = "get_player().is_pushing()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5u7nd"]
-switch_mode = 1
+switch_mode = 2
 advance_mode = 2
 advance_expression = "!get_player().is_pushing()"
 
@@ -2243,7 +2243,6 @@ libraries = {
 autoplay = "Push"
 
 [node name="MovementState" type="AnimationTree" parent="."]
-active = false
 tree_root = SubResource("AnimationNodeStateMachine_miva2")
 anim_player = NodePath("../Movement")
 script = ExtResource("19_7a3ou")

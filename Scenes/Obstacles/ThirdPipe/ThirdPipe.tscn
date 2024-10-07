@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="2_p7y7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52w1c"]
-size = Vector2(209, 149.618)
+size = Vector2(209, 159.518)
 
 [node name="ThirdPipe" type="StaticBody2D"]
 collision_layer = 6
@@ -16,7 +16,7 @@ ramp_angle_degrees = 70
 [node name="Line2D" type="Line2D" parent="Visuals"]
 modulate = Color(0.979455, 0.377414, 0.48438, 1)
 texture_repeat = 3
-points = PackedVector2Array(65, -1, 30.2704, -4.03845, -3.40403, -13.0615, -35, -27.7949, -63.5575, -47.7911, -88.2089, -72.4425, -108.205, -101, -122.939, -132.596)
+points = PackedVector2Array(65, -10, 30.2704, -13.0384, -3.40403, -22.0615, -35, -36.7949, -63.5575, -56.7911, -88.2089, -81.4425, -108.205, -110, -122.939, -141.596)
 width = 20.0
 texture = ExtResource("2_p7y7d")
 texture_mode = 1
@@ -24,10 +24,10 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Centre" type="Marker2D" parent="."]
-position = Vector2(65, -201)
+position = Vector2(65, -210)
 
 [node name="Exit1" type="Marker2D" parent="."]
-position = Vector2(-113.542, -136.016)
+position = Vector2(-113.542, -145.016)
 rotation = -1.91986
 
 [node name="Exit2" type="Marker2D" parent="."]
@@ -37,5 +37,5 @@ position = Vector2(64, -12)
 collision_layer = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MaxBounds"]
-position = Vector2(-30, -68.0081)
+position = Vector2(-30, -72.5081)
 shape = SubResource("RectangleShape2D_52w1c")
