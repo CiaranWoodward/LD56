@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://k70w3kl1vafx"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/Cassette/Cassette.gd" id="1_utsyp"]
-[ext_resource type="Texture2D" uid="uid://bcel3wergtm8n" path="res://Graphics/Collectables/Casset.png" id="1_xi6xs"]
-[ext_resource type="Texture2D" uid="uid://c7ntqw3jn0m56" path="res://Graphics/EnvironmentEffects/Stars.png" id="3_ifoeo"]
+[ext_resource type="Texture2D" uid="uid://csow3kvmh3ycn" path="res://Graphics/Collectables/Casset.png" id="1_xi6xs"]
+[ext_resource type="Texture2D" uid="uid://b03xxsq66x0dq" path="res://Graphics/EnvironmentEffects/Stars.png" id="3_ifoeo"]
 
 [sub_resource type="Curve" id="Curve_wfnn6"]
 _data = [Vector2(0, 0.804119), 0.0, 0.0, 0, 0, Vector2(0.230089, 1), 0.0, 0.0, 0, 0, Vector2(0.525074, 0), 0.0, 0.0, 0, 0]

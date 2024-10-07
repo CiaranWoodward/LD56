@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/CiaranWoodward/LD56/compare/v1.12.0...v1.13.0) (2024-10-07)
+
+
+### Features
+
+* cassette inventory ([888a7fd](https://github.com/CiaranWoodward/LD56/commit/888a7fd6edbb08d89df888793d3b9ba46469b784))
+* cassettes play when picked up ([7715a87](https://github.com/CiaranWoodward/LD56/commit/7715a87dd3b77b8932d4a88af0989976d21c80cc))
+
 # [1.12.0](https://github.com/CiaranWoodward/LD56/compare/v1.11.2...v1.12.0) (2024-10-07)
 
 

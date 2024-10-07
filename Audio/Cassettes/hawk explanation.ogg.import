@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfw6t4du7tvxu"
+path="res://.godot/imported/hawk explanation.ogg-f8a6769f75ab2dbac69e8745760a943d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Cassettes/hawk explanation.ogg"
+dest_files=["res://.godot/imported/hawk explanation.ogg-f8a6769f75ab2dbac69e8745760a943d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
