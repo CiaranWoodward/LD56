@@ -12,6 +12,9 @@ extends CharacterBody2D
 @export var GRIND_SHAKE = 0.4
 
 @export var TARGET_SPEED = 1150
+@export var TRICK_POINTS = 5
+@export var TRICK_PENALTY = 10
+@export var TRICK_SPEED_MOD = 10
 
 @onready var aoe = $AreaOfEffect
 @onready var anim_sm : AnimationNodeStateMachinePlayback = $Visual/PlayerBody/MovementState["parameters/playback"]
@@ -41,6 +44,7 @@ var jump_over_timeout : Tween
 var grind_rotation_tween : Tween
 
 var quarterpipe_tricks : int = 0
+var trick_speed_boost  : int = 0
 
 var ascension : bool = 0 # My people need me
 
@@ -57,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		
 	if player_state == PLAYER_STATE.IN_AIR:
 		if Input.is_action_just_pressed("jump") and quarterpipe_tricks == 0:
-			get_tree().call_group('QTE',"start_qte",1,3,false)
+			get_tree().call_group('QTE',"start_qte",1,3,TRICK_POINTS,false)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
 	else:
@@ -280,6 +284,7 @@ func change_player_state(new_state: PLAYER_STATE):
 	#Fail any in-progress tricks on landing:
 	if player_state == PLAYER_STATE.IN_AIR :
 		landed.emit()
+		quarterpipe_tricks = 0
 		
 	player_state = new_state
 
@@ -297,6 +302,13 @@ func leave_quarter_pipe():
 			quarterpipe_fast()
 		elif speed > 500:
 			quarterpipe_slow()
+			
+	#Exiting quarterpipe horizontally:
+	if current_movement_direction().y >= 0 :
+		print("Boosting: " + str(trick_speed_boost))
+		speed = speed + trick_speed_boost		
+		trick_speed_boost = 0
+		
 		
 
 func join_quarter_pipe(qpipe : QuarterPipe):
@@ -412,7 +424,7 @@ func quarterpipe_slow() :
 	get_tree().call_group('Camera',"cam_zoom",3,3,0.5)
 	
 	#Start first QTE
-	get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,8,true)
+	get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,8,(3-quarterpipe_tricks)*TRICK_POINTS,true)
 
 
 func quarterpipe_trick() :
@@ -420,17 +432,23 @@ func quarterpipe_trick() :
 	if quarterpipe_tricks != 0 :
 		quarterpipe_tricks -= 1
 		#Next trick:
-		get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,12,true)
-		#print("tricks: " + str(quarterpipe_tricks))
+		get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,12,(3-quarterpipe_tricks)*TRICK_POINTS,true)
+		print("tricks: " + str(quarterpipe_tricks))
 	else :
 		tween.tween_property(Engine,"time_scale",1, 0.75)
 		get_tree().call_group('Camera',"cam_rotate",0,0.5)
 		get_tree().call_group('Camera',"cam_zoom",1,1,0.5)
 	
 	
-func _on_qte_trick_failed() -> void:
+func _on_qte_trick_failed(penalty : bool) -> void:
+	if penalty == true :
+		trick_speed_boost = trick_speed_boost - TRICK_PENALTY
+		print("Total boost to apply: " + str(trick_speed_boost))
 	quarterpipe_trick()
 	
 
 func _on_qte_trick_passed(trickpoints: Variant) -> void:
+	print("trickpoints = " + str(trickpoints))
+	trick_speed_boost = trick_speed_boost + (trickpoints * TRICK_SPEED_MOD)
+	print("Total boost to apply: " + str(trick_speed_boost))
 	quarterpipe_trick()

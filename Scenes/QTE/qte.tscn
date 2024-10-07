@@ -11,4 +11,7 @@ script = ExtResource("1_xpnk6")
 process_callback = 0
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 3
+
 [connection signal="timeout" from="TimerQTE" to="." method="_on_timer_qte_timeout"]

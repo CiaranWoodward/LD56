@@ -8,6 +8,9 @@ extends Node2D
 
 @export var anim_speed : float = 3
 
+const PASS_SOUNDS = ["res://Audio/Voice/Oh Wow, Look at him go.wav","res://Audio/Voice/Rad.wav","res://Audio/Voice/Right on.wav","res://Audio/Voice/Sick.wav"]
+const FAIL_SOUNDS = ["res://Audio/Voice/What is tiny doing.wav","res://Audio/Voice/boo.wav","res://Audio/Voice/lame.wav"]
+
 #Possible keys required:
 var qte_keys = ["W","A","S","D"]
 var current_key    : String
@@ -19,6 +22,8 @@ var landed         : bool = true
 var trick_combo    : bool = false
 var trick_points   : int  = 0
 
+var rng  := RandomNumberGenerator.new()
+
 signal trick_failed
 signal trick_passed(trick_points)
 	
@@ -29,21 +34,23 @@ func _on_player_prompt_set_texture(path) -> void:
 #End QTE on timeout:
 func _on_timer_qte_timeout() -> void:
 	#print("timed out!")
+	$Sprite2D.visible = false
 	end_qte()
 	
 #Start new QTE, pass in time to complete
-func start_qte(time : float, speed : float, combo: bool) :
+func start_qte(time : float, speed : float, points : int, combo: bool) :
 	anim_speed = speed
 	#Calculate score for success:
-	trick_points = (2.1-time)*10
+	trick_points = points
+	print("points: " + str(points))
 	trick_combo  = combo
+	var tween = create_tween()
 	
 	#print("qte_active = " + str(qte_active))
 	#print("anim_running = " + str(anim_running))
 	#print("already_failed = " + str(already_failed))
 	#print("combo = " + str(combo)) 
 	if !qte_active and !anim_running and !already_failed :
-		var rng  := RandomNumberGenerator.new()
 		#print("Starting!")
 		#Position prompt randomly around player:
 		var x : int = rng.randi_range(min_dist_x,max_dist_x)
@@ -59,11 +66,12 @@ func start_qte(time : float, speed : float, combo: bool) :
 		#Load prompt sprite:
 		$Sprite2D.texture = load("res://Graphics/Prompts/Prompt_" + current_key + ".png")
 		$Sprite2D.visible = true
+		tween.tween_property($Sprite2D,"self_modulate:a",0, time).from(1)
 		#print("sprite loaded")
 		
 		#Prompt user for key, start countdown, enable checking for input
 		qte_active = true
-		#print("Press " + current_key + "!")
+		print("Press " + current_key + "!")
 		$TimerQTE.start(time)
 		#print("timer started")
 	
@@ -76,14 +84,17 @@ func end_qte(passed: bool = false) :
 	if qte_active :
 		qte_active = false
 		if passed :
-			#print("QTE PASSED!\n")
+			print("QTE PASSED!\n")
 			anim_running = true
 			get_tree().call_group('Animation',"play_random_trick",anim_speed)
 		else :
-			#print("QTE FAILED\n")
+			print("QTE FAILED\n")
 			already_failed = !trick_combo
-			emit_signal("trick_failed")
-			#print("Trick failed!")
+			trick_sound(FAIL_SOUNDS)
+			if trick_combo == false :
+				get_tree().call_group('Menu',"reset_multiplier")
+			emit_signal("trick_failed",trick_combo)
+			print("Trick failed!")
 			
 			
 	
@@ -103,12 +114,16 @@ func _on_tricks_animation_finished(anim_name: StringName) -> void:
 	if anim_running ==  true :
 		anim_running = false
 		emit_signal("trick_passed",trick_points)
+		get_tree().call_group('Menu',"add_score",trick_points)
+		get_tree().call_group('Menu',"increase_multiplier")
+		trick_sound(PASS_SOUNDS)
 		print("Trick passed!")
+		
 		
 
 
 func _on_player_landed() -> void:
-	#print("landed!")
+	print("landed!")
 	landed = true
 	already_failed = false
 	if qte_active :
@@ -116,7 +131,16 @@ func _on_player_landed() -> void:
 		
 	if anim_running :
 		anim_running = false
-		emit_signal("trick_failed")
-		#print("Trick failed!")
+		if trick_combo == false :
+			get_tree().call_group('Menu',"reset_multiplier")
+		emit_signal("trick_failed",trick_combo)
+		print("Trick failed!")
 		
+		
+func trick_sound(sound_list) :
+	var sound
+	sound = sound_list[rng.randi_range(0,len(sound_list)-1)]
+	$AudioStreamPlayer.set_stream(load(sound))
+	$AudioStreamPlayer.play()
+	
 	
