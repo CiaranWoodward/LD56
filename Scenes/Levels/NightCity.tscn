@@ -1,23 +1,35 @@
-[gd_scene load_steps=20 format=3 uid="uid://dfuyy8rwyohaq"]
+[gd_scene load_steps=29 format=3 uid="uid://dfuyy8rwyohaq"]
 
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="1_bvapr"]
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_dm26d"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="1_dxhsa"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="2_4m4oa"]
 [ext_resource type="Texture2D" uid="uid://cvmk5vjysqf86" path="res://Graphics/Backgrounds/NightCity/Lamp0000.png" id="2_38wpo"]
+[ext_resource type="Texture2D" uid="uid://dnqd6v7aac6ud" path="res://Graphics/Backgrounds/Textured0000.png" id="2_ajdwn"]
 [ext_resource type="Texture2D" uid="uid://3j87422ooa00" path="res://Graphics/Backgrounds/NightCity/Building20000.png" id="2_p63e7"]
+[ext_resource type="Texture2D" uid="uid://c8vol8o24olgq" path="res://Graphics/Backgrounds/Clouds/10000.png" id="3_0v3tf"]
 [ext_resource type="Texture2D" uid="uid://dd7kxdam4vewm" path="res://Graphics/Backgrounds/NightCity/Building1Light10000.png" id="3_daw2m"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="3_lssys"]
+[ext_resource type="Texture2D" uid="uid://dxcrf8wxkwgup" path="res://Graphics/Backgrounds/Clouds/20000.png" id="4_kkcvj"]
 [ext_resource type="Texture2D" uid="uid://cr5f14qd4p843" path="res://Graphics/Backgrounds/NightCity/Building1Light20000.png" id="4_ots6x"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="4_xxkw2"]
+[ext_resource type="Texture2D" uid="uid://dlbnly7fsat2l" path="res://Graphics/Backgrounds/Clouds/30000.png" id="5_o624w"]
 [ext_resource type="Texture2D" uid="uid://cd5x4w1fnrooe" path="res://Graphics/Backgrounds/NightCity/Building1Light30000.png" id="5_sg3aj"]
+[ext_resource type="Texture2D" uid="uid://ic1qgbw8eufv" path="res://Graphics/Backgrounds/Clouds/40000.png" id="6_4mrpr"]
+[ext_resource type="Texture2D" uid="uid://dolvgbrby3cu2" path="res://Graphics/Backgrounds/Clouds/50000.png" id="7_01ico"]
 [ext_resource type="Texture2D" uid="uid://8gurxtkfh88h" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_l744h"]
+[ext_resource type="Texture2D" uid="uid://bkcts6h0m2odr" path="res://Graphics/Backgrounds/Clouds/60000.png" id="8_yexb5"]
 [ext_resource type="Texture2D" uid="uid://bkkrkadqbtjpe" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_iudv0"]
+[ext_resource type="Texture2D" uid="uid://btu3qdevkh18u" path="res://Graphics/Backgrounds/Clouds/70000.png" id="9_l6fdf"]
 [ext_resource type="Texture2D" uid="uid://dy3532vp4onxd" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_2p4st"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="11_42fov"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="13_xngg7"]
 [ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="17_vvcjy"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="18_iqt28"]
+
+[sub_resource type="Gradient" id="Gradient_vs70b"]
+offsets = PackedFloat32Array(0.266667, 0.806667)
+colors = PackedColorArray(0.678589, 0.778589, 0.851563, 0.819608, 0.67451, 0.788235, 0.835294, 0.752941)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -42,12 +54,118 @@ animations = [{
 
 [node name="Colour" type="Sprite2D" parent="Background"]
 self_modulate = Color(0.00732422, 0.056591, 0.1875, 1)
-position = Vector2(764.5, 168)
-scale = Vector2(177.45, 98.6)
+position = Vector2(3661.5, -97)
+scale = Vector2(611.75, 72.1)
 texture = ExtResource("1_dm26d")
 
-[node name="Sky" type="Parallax2D" parent="Background"]
+[node name="Colour3" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.558594, 0.558594, 0.558594, 0.117647)
+position = Vector2(3676.63, -98.5875)
+scale = Vector2(-6.38321, 1.3189)
+texture = ExtResource("2_ajdwn")
+
+[node name="Sky2" type="Parallax2D" parent="Background"]
+modulate = Color(0.417551, 0.370056, 0.503906, 0.854902)
 scroll_scale = Vector2(2, 1.4)
+scroll_offset = Vector2(-2681, -341)
+
+[node name="Cloud1" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("3_0v3tf")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud2" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("4_kkcvj")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud3" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("5_o624w")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud4" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("6_4mrpr")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud5" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("7_01ico")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud6" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("8_yexb5")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
+
+[node name="Cloud7" type="CPUParticles2D" parent="Background/Sky2"]
+position = Vector2(-6473, -188)
+lifetime = 180.0
+preprocess = 180.0
+texture = ExtResource("9_l6fdf")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+color_initial_ramp = SubResource("Gradient_vs70b")
 
 [node name="Back" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
@@ -73,6 +191,3009 @@ self_modulate = Color(0.546875, 0.516748, 0.414429, 1)
 sprite_frames = SubResource("SpriteFrames_mjboo")
 frame = 2
 
+[node name="Mid2" type="Parallax2D" parent="Background"]
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.2, 1.04)
+scroll_offset = Vector2(1051, 424)
+
+[node name="Building" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-121.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building2" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(85, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building2"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building3" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(483.333, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building3"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building4" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(696.667, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building4"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building7" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-305, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building7"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building5" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(273.333, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building5"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building6" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(273.333, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building6"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building8" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1186.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building8"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building9" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-980, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building9"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building10" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-581.667, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building10"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building11" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-368.333, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building11"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building12" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1370, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building12"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building13" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building13"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building14" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building14"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building15" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(836.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building15"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building16" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1043.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building16"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building17" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(1441.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building17"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building18" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1655, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building18"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building19" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(653.334, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building19"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building20" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building20"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building21" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building21"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building22" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2003.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building22"]
+self_modulate = Color(0.828125, 0.727976, 0.388184, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building23" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2210, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building23"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building24" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2608.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building24"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building25" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2821.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building25"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building26" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1820, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building26"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building27" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building27"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building28" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building28"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building29" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3578.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building29"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building30" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3785, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building30"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building31" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(4183.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building31"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building32" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4396.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building32"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building33" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3395, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building33"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building34" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building34"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building35" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building35"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building36" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2765, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building36"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building37" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2971.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building37"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building38" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3370, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building38"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building39" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3583.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building39"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building40" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2581.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building40"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building41" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building41"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building42" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building42"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building43" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4531.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building43"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building44" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4738.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building44"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building45" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5136.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building45"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building46" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5350, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building46"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building47" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4348.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building47"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building48" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building48"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building49" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building49"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building50" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5423.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building50"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building51" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building51"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building52" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6028.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building52"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building53" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6241.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building53"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building54" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5240, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building54"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building55" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building55"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building56" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building56"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building57" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5743.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building57"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building58" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(5950, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building58"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building59" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6348.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building59"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building60" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6561.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building60"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building61" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5560, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building61"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building62" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building62"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building63" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building63"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building64" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6601.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building64"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building65" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6808.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building65"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building66" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(7206.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building66"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building67" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7420, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building67"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building68" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6418.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building68"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building69" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6996.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building69"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building70" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6996.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building70"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building71" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7756.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building71"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building72" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7963.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building72"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building73" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8361.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building73"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building74" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8575, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building74"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building75" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7573.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building75"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building76" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(8151.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building76"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building77" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8151.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building77"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building78" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8883.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building78"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building79" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9090, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building79"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building80" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9488.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building80"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building81" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9701.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building81"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building82" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8700, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building82"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building83" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building83"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building84" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building84"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building85" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9993.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building85"]
+self_modulate = Color(0.734375, 0.70961, 0.547913, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building86" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10200, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building86"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building87" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10598.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building87"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building88" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10811.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building88"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building89" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9810, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building89"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building90" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building90"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building91" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building91"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building92" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11108.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building92"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building93" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11315, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building93"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building94" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11713.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building94"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building95" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11926.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building95"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building96" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10925, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building96"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building97" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building97"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building98" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building98"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building99" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(12218.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building99"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building100" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12425, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building100"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building101" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12823.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building101"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building102" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13036.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building102"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building103" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12035, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building103"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building104" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12613.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building104"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building105" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12613.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building105"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building106" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13165, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building106"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building107" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13371.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building107"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building108" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13770, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building108"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building109" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13983.3, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building109"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building110" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12981.7, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building110"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building111" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building111"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building112" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building112"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building113" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14246.7, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building113"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building114" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14453.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building114"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building115" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14851.7, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building115"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building116" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(15065, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building116"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building117" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14063.3, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building117"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building118" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building118"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building119" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building119"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building120" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2103.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building120"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building121" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1896.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building121"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building122" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1498.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building122"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building123" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1285, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building123"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building124" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2286.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building124"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building125" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building125"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building126" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building126"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building127" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3263.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building127"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building128" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3056.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building128"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building129" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2658.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building129"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building130" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2445, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building130"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building131" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(-3446.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building131"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building132" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building132"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building133" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building133"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building134" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4431.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building134"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building135" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4225, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building135"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building136" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3826.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building136"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building137" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3613.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building137"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building138" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4615, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building138"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building139" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building139"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building140" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building140"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building141" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5223.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building141"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building142" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5016.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building142"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building143" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4618.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building143"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building144" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4405, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building144"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building145" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5406.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building145"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building146" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building146"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building147" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building147"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building148" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6025, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building148"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building149" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building149"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building150" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5420, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building150"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building151" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5206.66, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building151"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building152" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6208.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building152"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building153" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building153"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building154" type="Sprite2D" parent="Background/Mid2"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid2/Building154"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Mid3" type="Parallax2D" parent="Background"]
+modulate = Color(0.601563, 0.601563, 0.601563, 1)
+scale = Vector2(0.6, 0.6)
+scroll_scale = Vector2(1.18, 1.04)
+scroll_offset = Vector2(1165, 525)
+
+[node name="Building" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-121.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building2" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(85, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building2"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building3" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(483.333, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building3"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building4" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(696.667, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building4"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building7" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-305, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building7"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building5" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(273.333, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building5"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building6" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(273.333, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building6"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building8" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1186.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building8"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building9" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-980, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building9"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building10" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(-581.667, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building10"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building11" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-368.333, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building11"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building12" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1370, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building12"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building13" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building13"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building14" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building14"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building15" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(836.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building15"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building16" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1043.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building16"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building17" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1441.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building17"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building18" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1655, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building18"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building19" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(653.334, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building19"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building20" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building20"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building21" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building21"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building22" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2003.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building22"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building23" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2210, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building23"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building24" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2608.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building24"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building25" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2821.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building25"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building26" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1820, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building26"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building27" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building27"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building28" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building28"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building29" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3578.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building29"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building30" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3785, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building30"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building31" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4183.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building31"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building32" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4396.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building32"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building33" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3395, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building33"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building34" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building34"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building35" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building35"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building36" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2765, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building36"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building37" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2971.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building37"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building38" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3370, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building38"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building39" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3583.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building39"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building40" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2581.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building40"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building41" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building41"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building42" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building42"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building43" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(4531.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building43"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building44" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4738.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building44"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building45" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5136.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building45"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building46" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5350, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building46"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building47" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4348.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building47"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building48" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building48"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building49" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building49"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building50" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5423.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building50"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building51" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building51"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building52" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6028.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building52"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building53" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6241.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building53"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building54" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5240, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building54"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building55" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building55"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building56" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building56"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building57" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5743.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building57"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building58" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5950, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building58"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building59" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(6348.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building59"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building60" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6561.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building60"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building61" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5560, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building61"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building62" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building62"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building63" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building63"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building64" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6601.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building64"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building65" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6808.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building65"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building66" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7206.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building66"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building67" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7420, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building67"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building68" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6418.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building68"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building69" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6996.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building69"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building70" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6996.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building70"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building71" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7756.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building71"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building72" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(7963.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building72"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building73" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8361.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building73"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building74" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8575, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building74"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building75" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7573.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building75"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building76" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8151.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building76"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building77" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8151.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building77"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building78" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8883.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building78"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building79" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9090, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building79"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building80" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9488.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building80"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building81" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9701.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building81"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building82" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8700, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building82"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building83" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building83"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building84" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building84"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building85" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9993.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building85"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building86" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10200, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building86"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building87" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10598.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building87"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building88" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10811.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building88"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building89" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9810, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building89"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building90" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building90"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building91" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building91"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building92" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11108.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building92"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building93" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11315, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building93"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building94" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11713.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building94"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building95" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11926.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building95"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building96" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10925, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building96"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building97" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building97"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building98" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building98"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building99" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12218.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building99"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building100" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12425, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building100"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building101" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12823.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building101"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building102" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13036.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building102"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building103" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12035, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building103"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building104" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12613.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building104"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building105" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12613.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building105"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building106" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13165, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building106"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building107" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13371.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building107"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building108" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13770, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building108"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building109" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13983.3, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building109"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building110" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12981.7, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building110"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building111" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building111"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building112" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building112"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building113" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14246.7, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building113"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building114" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14453.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building114"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building115" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14851.7, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building115"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building116" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(15065, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building116"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building117" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14063.3, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building117"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building118" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building118"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building119" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building119"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building120" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2103.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building120"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building121" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1896.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building121"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building122" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1498.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building122"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building123" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1285, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building123"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building124" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2286.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building124"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building125" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building125"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building126" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building126"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building127" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3263.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building127"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building128" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3056.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building128"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building129" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2658.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building129"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building130" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2445, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building130"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building131" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3446.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building131"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building132" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building132"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building133" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building133"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building134" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4431.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building134"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building135" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4225, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building135"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building136" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3826.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building136"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building137" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3613.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building137"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building138" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4615, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building138"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building139" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building139"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building140" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building140"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building141" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5223.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building141"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building142" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5016.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building142"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building143" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4618.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building143"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building144" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4405, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building144"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building145" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5406.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building145"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building146" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building146"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building147" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building147"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building148" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6025, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building148"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building149" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building149"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building150" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5420, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building150"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building151" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5206.66, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building151"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building152" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6208.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building152"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building153" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building153"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building154" type="Sprite2D" parent="Background/Mid3"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid3/Building154"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
 [node name="Mid" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.14, 1.04)
@@ -80,10 +3201,1497 @@ scroll_offset = Vector2(866, 621)
 
 [node name="Building" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
-position = Vector2(-309.167, -141.667)
-texture = ExtResource("2_p63e7")
+position = Vector2(-121.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
 
 [node name="Lights" type="Sprite2D" parent="Background/Mid/Building"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building2" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(85, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building2"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building3" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(483.333, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building3"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building4" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(696.667, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building4"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building7" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-305, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building7"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building5" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(273.333, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building5"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building6" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(273.333, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building6"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building8" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1186.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building8"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building9" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-980, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building9"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building10" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-581.667, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building10"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building11" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-368.333, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building11"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building12" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1370, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building12"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building13" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building13"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building14" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-791.667, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building14"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building15" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(836.667, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building15"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building16" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1043.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building16"]
+self_modulate = Color(0.800781, 0.707499, 0.391006, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building17" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1441.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building17"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building18" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1655, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building18"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building19" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(653.334, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building19"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building20" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building20"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building21" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1231.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building21"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building22" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2003.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building22"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building23" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2210, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building23"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building24" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2608.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building24"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building25" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2821.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building25"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building26" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(1820, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building26"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building27" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building27"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building28" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2398.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building28"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building29" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3578.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building29"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building30" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3785, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building30"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building31" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4183.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building31"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building32" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4396.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building32"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building33" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3395, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building33"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building34" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building34"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building35" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3973.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building35"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building36" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2765, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building36"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building37" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2971.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building37"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building38" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3370, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building38"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building39" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3583.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building39"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building40" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(2581.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building40"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building41" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building41"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building42" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(3160, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building42"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building43" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4531.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building43"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building44" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4738.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building44"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building45" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5136.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building45"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building46" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5350, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building46"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building47" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4348.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building47"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building48" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building48"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building49" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(4926.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building49"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building50" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5423.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building50"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building51" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building51"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building52" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6028.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building52"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building53" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6241.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building53"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building54" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5240, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building54"]
+self_modulate = Color(0.742929, 0.746094, 0.340988, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building55" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building55"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building56" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5818.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building56"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building57" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5743.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building57"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building58" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5950, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building58"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building59" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6348.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building59"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building60" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6561.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building60"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building61" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(5560, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building61"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building62" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building62"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building63" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6138.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building63"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building64" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6601.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building64"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building65" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6808.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building65"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building66" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(7206.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building66"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building67" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7420, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building67"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building68" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6418.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building68"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building69" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(6996.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building69"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building70" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(6996.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building70"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building71" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7756.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building71"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building72" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7963.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building72"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building73" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8361.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building73"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building74" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8575, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building74"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building75" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(7573.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building75"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building76" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8151.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building76"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building77" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8151.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building77"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building78" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8883.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building78"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building79" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9090, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building79"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building80" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9488.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building80"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building81" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9701.67, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building81"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building82" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(8700, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building82"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building83" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building83"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building84" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9278.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building84"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building85" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9993.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building85"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building86" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10200, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building86"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building87" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(10598.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building87"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building88" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10811.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building88"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building89" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(9810, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building89"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building90" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building90"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building91" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10388.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building91"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building92" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11108.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building92"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building93" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11315, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building93"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building94" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11713.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building94"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building95" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11926.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building95"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building96" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(10925, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building96"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building97" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building97"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building98" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(11503.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building98"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building99" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12218.3, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building99"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building100" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12425, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building100"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building101" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12823.3, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building101"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building102" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13036.7, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building102"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building103" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12035, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building103"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building104" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(12613.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building104"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building105" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12613.3, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building105"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building106" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13165, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building106"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building107" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13371.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building107"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building108" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13770, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building108"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building109" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13983.3, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building109"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building110" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(12981.7, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building110"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building111" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building111"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building112" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(13560, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building112"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building113" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14246.7, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building113"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building114" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14453.3, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building114"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building115" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14851.7, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building115"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building116" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(15065, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building116"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building117" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14063.3, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building117"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building118" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building118"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building119" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(14641.7, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building119"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building120" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2103.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building120"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building121" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1896.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building121"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building122" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1498.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building122"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building123" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1285, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building123"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building124" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2286.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building124"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building125" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building125"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building126" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-1708.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building126"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building127" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.417969, 0.417969, 0.417969, 1)
+position = Vector2(-3263.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building127"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building128" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3056.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building128"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building129" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(-2658.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building129"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building130" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2445, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building130"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building131" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.269531, 0.269531, 0.269531, 1)
+position = Vector2(-3446.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building131"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building132" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building132"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building133" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-2868.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building133"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building134" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4431.67, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building134"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building135" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4225, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building135"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building136" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3826.67, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building136"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building137" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-3613.33, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building137"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building138" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4615, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building138"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building139" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building139"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building140" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4036.67, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building140"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building141" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5223.33, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building141"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building142" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5016.67, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building142"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building143" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4618.33, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building143"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building144" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4405, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building144"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building145" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5406.67, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building145"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building146" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building146"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building147" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-4828.33, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building147"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building148" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6025, -206.667)
+scale = Vector2(1, 1.28431)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building148"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("3_daw2m")
+
+[node name="Building149" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5818.33, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building149"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building150" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5420, -235)
+scale = Vector2(1, 1.54902)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building150"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("4_ots6x")
+
+[node name="Building151" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5206.66, -164.167)
+scale = Vector2(1, 1.13235)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building151"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building152" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-6208.33, -218.333)
+scale = Vector2(-0.808511, 1.33788)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building152"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("7_l744h")
+
+[node name="Building153" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -141.667)
+texture = ExtResource("1_bvapr")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building153"]
+self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
+texture = ExtResource("5_sg3aj")
+
+[node name="Building154" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.253906, 0.253906, 0.253906, 1)
+position = Vector2(-5630, -403.333)
+scale = Vector2(1, 0.720587)
+texture = ExtResource("2_p63e7")
+
+[node name="Lights" type="Sprite2D" parent="Background/Mid/Building154"]
 self_modulate = Color(0.640625, 0.550049, 0.242737, 1)
 texture = ExtResource("7_l744h")
 
@@ -106,6 +4714,46 @@ self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
 position = Vector2(86.5, -30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_2p4st")
+
+[node name="Lamp2" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
+position = Vector2(2376, -53)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_38wpo")
+
+[node name="Light" type="Sprite2D" parent="Background/Fore/Lamp2"]
+self_modulate = Color(1, 0.792157, 0.0862745, 0.964706)
+show_behind_parent = true
+texture = ExtResource("9_iudv0")
+
+[node name="Bench2" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
+position = Vector2(2310, -30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_2p4st")
+
+[node name="Lamp3" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.390625, 0.390625, 0.390625, 1)
+position = Vector2(4878, -176)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_38wpo")
+
+[node name="Light" type="Sprite2D" parent="Background/Fore/Lamp3"]
+self_modulate = Color(1, 0.792157, 0.0862745, 0.964706)
+show_behind_parent = true
+texture = ExtResource("9_iudv0")
+
+[node name="Bench3" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.273438, 0.183716, 0.0683594, 1)
+position = Vector2(3687, -207)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_2p4st")
+
+[node name="Colour2" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.0856934, 0.0911007, 0.105469, 1)
+position = Vector2(3662.5, 1339)
+scale = Vector2(609.35, 72.1)
+texture = ExtResource("1_dm26d")
 
 [node name="Crate" parent="Background" instance=ExtResource("11_42fov")]
 position = Vector2(816, 582)
