@@ -12,9 +12,9 @@ const PASS_SOUNDS = ["res://Audio/Voice/Oh Wow, Look at him go.wav","res://Audio
 const FAIL_SOUNDS = ["res://Audio/Voice/What is tiny doing.wav","res://Audio/Voice/boo.wav","res://Audio/Voice/lame.wav"]
 
 #Possible keys required:
-var qte_keys = ["W","A","S","D"]
-var current_key    : String
-var prev_key       : String
+var qte_keys = ["UP","RIGHT","DOWN","LEFT"]
+var current_key    : int
+var prev_key       : int
 var qte_active     : bool = false
 var anim_running   : bool = false
 var already_failed : bool = false
@@ -51,29 +51,33 @@ func start_qte(time : float, speed : float, points : int, combo: bool) :
 	#print("already_failed = " + str(already_failed))
 	#print("combo = " + str(combo)) 
 	if !qte_active and !anim_running and !already_failed :
-		#print("Starting!")
-		#Position prompt randomly around player:
-		var x : int = rng.randi_range(min_dist_x,max_dist_x)
-		var y : int = rng.randi_range(min_dist_y,max_dist_y)
-		position = Vector2(x,y)
-		
-		#Randomly select key, one reroll to reduce repeats
-		current_key = qte_keys[rng.randi_range(0,3)]
-		if current_key == prev_key :
-			current_key = qte_keys[rng.randi_range(0,3)]
-		prev_key = current_key
+		if trick_combo == true :
+			#print("Starting!")
+			#Position prompt randomly around player:
+			var x : int = rng.randi_range(min_dist_x,max_dist_x)
+			var y : int = rng.randi_range(min_dist_y,max_dist_y)
+			position = Vector2(x,y)
 			
-		#Load prompt sprite:
-		$Sprite2D.texture = load("res://Graphics/Prompts/Prompt_" + current_key + ".png")
-		$Sprite2D.visible = true
-		tween.tween_property($Sprite2D,"self_modulate:a",0, time).from(1)
-		#print("sprite loaded")
-		
-		#Prompt user for key, start countdown, enable checking for input
-		qte_active = true
-		print("Press " + current_key + "!")
-		$TimerQTE.start(time)
-		#print("timer started")
+			#Randomly select key, one reroll to reduce repeats
+			current_key = rng.randi_range(0,3)
+			if current_key == prev_key :
+				current_key = rng.randi_range(0,3)
+			prev_key = current_key
+				
+			#Load prompt sprite:
+			$Sprite2D.texture = load("res://Graphics/Prompts/prompt_arrow_" + str(current_key) + ".png")
+			$Sprite2D.visible = true
+			tween.tween_property($Sprite2D,"self_modulate:a",0, time).from(1)
+			#print("sprite loaded")
+			
+			#Prompt user for key, start countdown, enable checking for input
+			qte_active = true
+			print("Press " + qte_keys[current_key] + "!")
+			$TimerQTE.start(time)
+			#print("timer started")
+		else :
+			anim_running = true
+			get_tree().call_group('Animation',"play_random_trick",anim_speed)
 	
 	
 #Disable checking for input and signal result:
@@ -101,10 +105,10 @@ func end_qte(passed: bool = false) :
 #End QTE on input, check result:
 func _input(event) :
 	if qte_active and Input.is_anything_pressed() :
-		if event.is_action_pressed(current_key) :
+		if event.is_action_pressed(qte_keys[current_key]) :
 			#print("Correct key!")
 			end_qte(true)
-		else :
+		elif  !event.is_action_pressed("jump") :
 			#print("Wrong key!")
 			end_qte()
 
@@ -134,6 +138,7 @@ func _on_player_landed() -> void:
 		if trick_combo == false :
 			get_tree().call_group('Menu',"reset_multiplier")
 		emit_signal("trick_failed",trick_combo)
+		trick_sound(FAIL_SOUNDS)
 		print("Trick failed!")
 		
 		
