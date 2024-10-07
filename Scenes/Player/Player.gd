@@ -2,14 +2,18 @@ class_name Player
 
 extends CharacterBody2D
 
-@export var JUMP_VELOCITY = -300.0
+@export var JUMP_INITIAL_VELOCITY = -800.0
+@export var JUMP_FINAL_VELOCITY = -200.0
 
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
 @export var BOUNCINESS = 0.5
-@export var PUSH_MAX_SPEED = 1200
+@export var PUSH_MAX_SPEED = 400
 @export var PUSH_ACCELERATION = 4
 @export var GRIND_SHAKE = 0.4
+@export var WILE_E_COYOTE_TIME = 0.3
+@export var WILE_E_COYOTE_Y_THRESHOLD = -0.2
+@export var GRIND_THRESHOLD = 0.4
 
 @export var TARGET_SPEED = 1150
 
@@ -38,6 +42,7 @@ var on_floor = false
 var quarter_pipe_direction = 0
 var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
+var jumping : bool = false
 var jump_over_timeout : Tween
 var grind_rotation_tween : Tween
 
@@ -61,6 +66,9 @@ func _physics_process(delta: float) -> void:
 			get_tree().call_group('QTE',"start_qte",1,3,false)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
+			if gravity_effect.y < JUMP_FINAL_VELOCITY:
+				#Double gravity while trying to stop jumping but still rising fast
+				gravity_effect += get_gravity() * delta
 	else:
 		gravity_effect = Vector2.ZERO
 	
@@ -122,6 +130,7 @@ func _physics_process(delta: float) -> void:
 				direction = newdir
 				global_position = newpos
 				var yscale = sign(direction.x)
+				if yscale == 0: yscale = 1
 				rotate_to(direction.angle(), yscale != $Visual.scale.y)
 				$Visual.scale.x = 1
 				$Visual.scale.y = yscale
@@ -141,11 +150,13 @@ func _physics_process(delta: float) -> void:
 			acceleration = acceleration_penalty * current_scenery.acceleration_factor
 			velocity.y = 0
 			direction.y = 0
-			direction.x = sign(direction.x)
+			var dirx = sign(direction.x)
+			if dirx == 0: dirx = 1
+			direction.x = dirx
 			set_global_position(Vector2(global_position.x, current_scenery.floor_y()))
 			$Visual.rotation = 0
 			$Visual.scale.y = 1
-			$Visual.scale.x = sign(direction.x)
+			$Visual.scale.x = dirx
 		else:
 			force_leave()
 			
@@ -184,7 +195,9 @@ func _physics_process(delta: float) -> void:
 				join_ramp(overlap)
 			else:
 				maybe_bounce(delta)
-				
+		elif overlap is Wall:
+			maybe_bounce(delta)
+
 	if is_pushing():
 		acceleration = max(acceleration, PUSH_ACCELERATION)
 
@@ -197,12 +210,12 @@ func _physics_process(delta: float) -> void:
 			force_leave()
 			anim_sm.start("JumpUp")
 			temp_ignore_bodies = overlaps
-			gravity_effect.y = JUMP_VELOCITY
-			gravity_disabled = true
-			jump_over_timeout = get_tree().create_tween()
-			jump_over_timeout.tween_property(self, "gravity_disabled", false, JUMP_TIME)
+			gravity_effect.y = JUMP_INITIAL_VELOCITY
+			disable_gravity(JUMP_TIME)
+			jump_over_timeout.parallel().tween_property(self, "gravity_effect", Vector2(0, JUMP_FINAL_VELOCITY), JUMP_TIME).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+			jumping = true
 	
-	if Input.is_action_just_released("jump"):
+	if Input.is_action_just_released("jump") && jumping:
 		cancel_jump()
 	
 	var prev_velocity = velocity
@@ -218,7 +231,12 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta, false)
 	if collision:
 		direction = direction.slide(collision.get_normal()).normalized()
-	
+
+func disable_gravity(jump_time: float):
+	gravity_disabled = true
+	jump_over_timeout = get_tree().create_tween()
+	jump_over_timeout.tween_property(self, "gravity_disabled", false, jump_time)
+	print("Disabled gravity for " + str(jump_time))
 
 func rotate_to(rot, instant=false):
 	if instant:
@@ -253,6 +271,7 @@ func maybe_bounce(delta : float):
 		#print("bounce")
 
 func cancel_jump():
+	jumping = false
 	if gravity_disabled:
 		jump_over_timeout.stop()
 		gravity_disabled = false
@@ -299,7 +318,7 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 				var new_direction = rail.get_current_direction_and_position(global_position, prev_direction)[0]
 				var dot = new_direction.dot(prev_direction)
 				#print("Grind dot: " + str(dot))
-				return dot > 0.5
+				return dot > GRIND_THRESHOLD
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			return true
 		PLAYER_STATE.ON_THIRD_PIPE:
@@ -347,6 +366,8 @@ func leave_third_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
 	temp_ignore_bodies.append(current_scenery)
 	current_scenery = null
+	if current_movement_direction().y < WILE_E_COYOTE_Y_THRESHOLD:
+		disable_gravity(WILE_E_COYOTE_TIME)
 
 func join_third_pipe(pipe : ThirdPipe):
 	quarter_pipe_direction = pipe.get_direction(global_position, current_movement_direction())
@@ -400,6 +421,8 @@ func leave_ramp():
 
 func handle_on_ramp_player_state(overlaps : Array):
 	if current_scenery not in overlaps:
+		if current_movement_direction().y < WILE_E_COYOTE_Y_THRESHOLD:
+			disable_gravity(WILE_E_COYOTE_TIME)
 		force_leave()
 		return
 	
