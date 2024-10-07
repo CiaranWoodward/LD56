@@ -105,7 +105,7 @@ clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
-text = "Jump/Trick"
+text = "Jump / Trick"
 fit_content = true
 autowrap_mode = 0
 
@@ -123,7 +123,7 @@ clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
-text = "Brake/Reverse"
+text = "Brake / Reverse"
 fit_content = true
 autowrap_mode = 0
 
@@ -147,7 +147,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 13
-text = "SPACE"
+text = "SPACE (HOLD)"
 fit_content = true
 autowrap_mode = 0
 
@@ -167,7 +167,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 13
-text = "S"
+text = "S / DOWN (HOLD)"
 fit_content = true
 autowrap_mode = 0
 
