@@ -3069,7 +3069,7 @@ position = Vector2(-404, 1278)
 
 [node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-402, 1273)
-points = PackedVector2Array(41, 36, -18, -7, -55, -62, -83, -127, -97, -233)
+points = PackedVector2Array(41, 36, -18, -7, -55, -62, -91, -125, -129, -200)
 texture = ExtResource("18_ldnrl")
 snap_to_from_floor = true
 

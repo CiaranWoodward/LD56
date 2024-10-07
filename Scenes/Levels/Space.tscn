@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://re5m0rlasar4"]
+[gd_scene load_steps=21 format=3 uid="uid://re5m0rlasar4"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
 [ext_resource type="Texture2D" uid="uid://bfixj1dkuanlw" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_kqimf"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="8_t6xko"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_hkaia"]
+[ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="12_lfs66"]
+[ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="14_6xhsk"]
+[ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="15_vosw8"]
+[ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="16_00l54"]
+[ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="17_mjmu3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
 animations = [{
@@ -327,14 +332,49 @@ position = Vector2(-268, -26)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_887q6")
 
+[node name="Ramp" parent="Background" instance=ExtResource("14_6xhsk")]
+position = Vector2(-2294, 646)
+rotation = 0.200119
+acceleration_factor = 1
+width = 500.0
+
+[node name="ThirdPipe" parent="Background" instance=ExtResource("15_vosw8")]
+position = Vector2(-2739, 637)
+rotation = -0.654486
+radius = 500
+ramp_angle_degrees = 40
+
+[node name="ThirdPipe2" parent="Background" instance=ExtResource("15_vosw8")]
+position = Vector2(2150, 269)
+rotation = -1.53589
+radius = 250
+ramp_angle_degrees = 80
+
+[node name="ThirdPipe3" parent="Background" instance=ExtResource("15_vosw8")]
+position = Vector2(2328, 457)
+rotation = 0.139626
+radius = 250
+ramp_angle_degrees = 80
+
+[node name="Casset" parent="Background" instance=ExtResource("12_lfs66")]
+position = Vector2(517, -811)
+rotation = -0.689405
+scale = Vector2(0.5, 0.5)
+
 [node name="Player" parent="." instance=ExtResource("6_r5cvl")]
-position = Vector2(1501, -680)
-MAX_SPEED = 800
+position = Vector2(774, -1084)
+MAX_SPEED = 2200
 JUMP_TIME = 0.8
+PUSH_MAX_SPEED = 600
+TARGET_SPEED = 2000
 
 [node name="QuarterPipe" parent="." instance=ExtResource("7_kqimf")]
 position = Vector2(-4245, -114)
 radius = 1000
+
+[node name="GrindRail2" parent="." instance=ExtResource("16_00l54")]
+position = Vector2(-1754, 167)
+points = PackedVector2Array(111, 265, 390, 211, 692, 135, 1058, -4, 1343, -194)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("7_kqimf")]
 position = Vector2(6030, -248)
@@ -350,7 +390,39 @@ width = 10000.0
 [node name="LowGravity" type="Area2D" parent="."]
 position = Vector2(671, 1471)
 gravity_space_override = 3
-gravity = 800.0
+gravity = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LowGravity"]
 shape = SubResource("WorldBoundaryShape2D_4sdku")
+
+[node name="Ramp" parent="." instance=ExtResource("14_6xhsk")]
+position = Vector2(679, -880)
+rotation = -0.71733
+acceleration_factor = 1
+width = 500.0
+
+[node name="ThirdPipe" parent="." instance=ExtResource("15_vosw8")]
+position = Vector2(269, -475)
+rotation = -0.776354
+collision_layer = 4
+ramp_angle_degrees = 90
+
+[node name="ThirdPipe2" parent="." instance=ExtResource("15_vosw8")]
+position = Vector2(-50, -588)
+rotation = 0.763872
+collision_layer = 4
+ramp_angle_degrees = 90
+
+[node name="ThirdPipe3" parent="." instance=ExtResource("15_vosw8")]
+position = Vector2(59, -907)
+rotation = -3.93952
+collision_layer = 4
+ramp_angle_degrees = 90
+
+[node name="GrindRail" parent="." instance=ExtResource("16_00l54")]
+position = Vector2(522, -646)
+points = PackedVector2Array(-217, 109, -39, -71)
+
+[node name="HatPickup" parent="." instance=ExtResource("17_mjmu3")]
+position = Vector2(-177, -236)
+hat_name = "cap"

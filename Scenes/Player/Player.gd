@@ -400,7 +400,7 @@ func leave_third_pipe():
 
 func join_third_pipe(pipe : ThirdPipe):
 	quarter_pipe_direction = pipe.get_direction(global_position, current_movement_direction())
-	speed *= pipe.get_speed_component_at_entrance(global_position, current_movement_direction())
+	#speed *= pipe.get_speed_component_at_entrance(global_position, current_movement_direction()) #buggy
 	change_player_state(PLAYER_STATE.ON_THIRD_PIPE)
 	current_scenery = pipe
 	pipe.add_collision_exception_with(self)
