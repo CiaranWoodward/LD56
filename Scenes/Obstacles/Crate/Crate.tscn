@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://wux6mw25ik3a"]
 
 [ext_resource type="Script" path="res://Scenes/Obstacles/Crate/crate.gd" id="1_bbwor"]
-[ext_resource type="Texture2D" uid="uid://m3s4svfml53d" path="res://Graphics/Scenery/TNT.png" id="2_fiwig"]
+[ext_resource type="Texture2D" uid="uid://cv1c8ytqcuput" path="res://Graphics/Backgrounds/TNT0000.png" id="2_x02ug"]
 [ext_resource type="Texture2D" uid="uid://cpb4liwqu2xgp" path="res://Graphics/EnvironmentEffects/SmokeParticle.png" id="3_aamy5"]
 [ext_resource type="Texture2D" uid="uid://tac0wp4khas0" path="res://Graphics/EnvironmentEffects/FireParticle.png" id="4_vbpcf"]
 [ext_resource type="AudioStream" uid="uid://dvnwj24a8l36t" path="res://Audio/Board/explode.wav" id="5_ifxn1"]
@@ -91,9 +91,10 @@ script = ExtResource("1_bbwor")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0.601563, 0.106588, 0.0822449, 1)
 position = Vector2(0.25, 2.75)
-scale = Vector2(0.3175, 0.3075)
-texture = ExtResource("2_fiwig")
+scale = Vector2(0.154727, 0.149853)
+texture = ExtResource("2_x02ug")
 
 [node name="Particles" type="Node2D" parent="Visuals"]
 
