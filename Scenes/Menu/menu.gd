@@ -9,6 +9,8 @@ extends Control
 
 @export var levels: Array[PackedScene]
 
+@export var inventory: Inventory
+
 const _multipliers: Array[float] = [1, 1.25, 1.5, 2, 4, 6, 10]
 
 var _active_level: Node
@@ -103,9 +105,6 @@ func _get_view() -> String:
 			return view.name
 	return ""
 	
-func is_in_game() -> bool:
-	return is_instance_valid(_active_level) and not is_game_complete()
-	
 func change_view(name: String) -> void:
 	if name == "":
 		canvas.hide()
@@ -121,11 +120,16 @@ func change_view(name: String) -> void:
 #### Game Controls
 ####
 
+func is_in_game() -> bool:
+	return is_instance_valid(_active_level) and not is_game_complete()
+
 func update_speed(value: int):
 	_hud._set_speed(String.num(value / 40))
 	
-func add_item():
+func add_item(item):
 	_level_item_count += 1
+	if item.get_type() == "cassette":
+		inventory._add_cassette(item)
 			
 func add_score(delta_score: int):
 	_level_score += delta_score * _multipliers[_multiplier]
