@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/CiaranWoodward/LD56/compare/v1.14.0...v1.14.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* being able to pick up stuff on restart ([4d0b30c](https://github.com/CiaranWoodward/LD56/commit/4d0b30caf5a8ec7be34a4fc8489b870e6c458882))
+
 # [1.14.0](https://github.com/CiaranWoodward/LD56/compare/v1.13.0...v1.14.0) (2024-10-07)
 
 
