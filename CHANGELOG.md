@@ -1,3 +1,12 @@
+## [1.11.2](https://github.com/CiaranWoodward/LD56/compare/v1.11.1...v1.11.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* fix beach rail not allowing snap from floor ([5bbfd4d](https://github.com/CiaranWoodward/LD56/commit/5bbfd4d0fd72493cec3544991f7eba7300ea185c))
+* getting stuck in scenery (I hope) ([93a4e6d](https://github.com/CiaranWoodward/LD56/commit/93a4e6db947d1106f7af80b621c2ce907bbfbd04))
+* Prevent visual spinning when snapping to grind rail ([4899787](https://github.com/CiaranWoodward/LD56/commit/48997875558337abc786a47bb3e7ed8a569ff36d))
+
 ## [1.11.1](https://github.com/CiaranWoodward/LD56/compare/v1.11.0...v1.11.1) (2024-10-06)
 
 
