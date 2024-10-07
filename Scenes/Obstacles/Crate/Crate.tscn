@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://wux6mw25ik3a"]
 
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_2afxr"]
 [ext_resource type="Script" path="res://Scenes/Obstacles/Crate/crate.gd" id="1_bbwor"]
+[ext_resource type="Texture2D" uid="uid://m3s4svfml53d" path="res://Graphics/Scenery/TNT.png" id="2_fiwig"]
 [ext_resource type="Texture2D" uid="uid://cpb4liwqu2xgp" path="res://Graphics/EnvironmentEffects/SmokeParticle.png" id="3_aamy5"]
 [ext_resource type="Texture2D" uid="uid://tac0wp4khas0" path="res://Graphics/EnvironmentEffects/FireParticle.png" id="4_vbpcf"]
 [ext_resource type="AudioStream" uid="uid://dvnwj24a8l36t" path="res://Audio/Board/explode.wav" id="5_ifxn1"]
@@ -91,9 +91,9 @@ script = ExtResource("1_bbwor")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_2afxr")
+position = Vector2(0.25, 2.75)
+scale = Vector2(0.3175, 0.3075)
+texture = ExtResource("2_fiwig")
 
 [node name="Particles" type="Node2D" parent="Visuals"]
 
@@ -123,7 +123,7 @@ trail_lifetime = 0.1
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_fmjuf")
 one_way_collision_margin = 35.0
 

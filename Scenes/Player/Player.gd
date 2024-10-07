@@ -377,7 +377,7 @@ func leave_quarter_pipe():
 		#print("speed = " + str(speed))
 		if speed >= TARGET_SPEED:
 			quarterpipe_fast()
-		elif speed > 500:
+		elif speed > 400:
 			quarterpipe_slow()
 		
 		

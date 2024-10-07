@@ -1,3 +1,17 @@
+## [1.14.2](https://github.com/CiaranWoodward/LD56/compare/v1.14.1...v1.14.2) (2024-10-07)
+
+
+### Bug Fixes
+
+* added tnt art ([dc57556](https://github.com/CiaranWoodward/LD56/commit/dc575569092b96c4b42841be517710ab0a733156))
+
+## [1.14.1](https://github.com/CiaranWoodward/LD56/compare/v1.14.0...v1.14.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* being able to pick up stuff on restart ([4d0b30c](https://github.com/CiaranWoodward/LD56/commit/4d0b30caf5a8ec7be34a4fc8489b870e6c458882))
+
 # [1.14.0](https://github.com/CiaranWoodward/LD56/compare/v1.13.0...v1.14.0) (2024-10-07)
 
 
