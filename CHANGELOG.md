@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/CiaranWoodward/LD56/compare/v1.14.3...v1.15.0) (2024-10-07)
+
+
+### Features
+
+* new audio on each level ([b161934](https://github.com/CiaranWoodward/LD56/commit/b16193476b128812e2379e64c7ac979d866b6ecb))
+
 ## [1.14.3](https://github.com/CiaranWoodward/LD56/compare/v1.14.2...v1.14.3) (2024-10-07)
 
 
