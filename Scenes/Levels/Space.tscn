@@ -1,13 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://re5m0rlasar4"]
+[gd_scene load_steps=18 format=3 uid="uid://re5m0rlasar4"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
 [ext_resource type="Texture2D" uid="uid://bfixj1dkuanlw" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
-[ext_resource type="Texture2D" uid="uid://bmr7ghesjhw62" path="res://Graphics/Backgrounds/Space/Star20000.png" id="3_45c6g"]
-[ext_resource type="Texture2D" uid="uid://dbna387j80yh6" path="res://Graphics/Backgrounds/Beach/PalmTrunk0000.png" id="3_st2be"]
-[ext_resource type="Texture2D" uid="uid://d3q8llky73crj" path="res://Graphics/Backgrounds/Space/Star30000.png" id="4_2wm04"]
-[ext_resource type="Texture2D" uid="uid://xt4tlh3pke77" path="res://Graphics/Backgrounds/Beach/PalmLeaves0000.png" id="4_wjedg"]
-[ext_resource type="Texture2D" uid="uid://pcgfgwd4s1gv" path="res://Graphics/Backgrounds/Space/Star40000.png" id="5_6eri6"]
-[ext_resource type="Texture2D" uid="uid://dy3532vp4onxd" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="5_887q6"]
+[ext_resource type="Texture2D" uid="uid://curv5ejocmkm2" path="res://Graphics/Backgrounds/Space/StarField0000.png" id="2_l2p42"]
 [ext_resource type="Texture2D" uid="uid://drro6xpfplwwm" path="res://Graphics/Backgrounds/Space/Moon0000.png" id="6_kn3vc"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_r5cvl"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_kqimf"]
@@ -19,25 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="16_00l54"]
 [ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="17_mjmu3"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_b3uuo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_45c6g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_2wm04")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_6eri6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Curve" id="Curve_ckag1"]
+_data = [Vector2(0, 0.340659), 0.0, 0.741948, 0, 0, Vector2(0.505618, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.95604, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_gio1u"]
+offsets = PackedFloat32Array(0, 0.186667, 0.786667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_m73u2"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.984375, 0.75, 1, 1, 1, 1, 1, 0.765625, 0.972534, 1, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4sdku"]
 
@@ -47,242 +34,43 @@ animations = [{
 
 [node name="Colour" type="Sprite2D" parent="Background"]
 self_modulate = Color(0.0389557, 0.0479625, 0.269531, 1)
-position = Vector2(764.5, 168)
-scale = Vector2(177.45, 98.6)
+position = Vector2(479.5, -39)
+scale = Vector2(790.35, 378.7)
 texture = ExtResource("1_5f2ok")
+
+[node name="Colour2" type="Sprite2D" parent="Background"]
+self_modulate = Color(0.865402, 0.706787, 0.9375, 0.929412)
+position = Vector2(470.5, -69.5005)
+scale = Vector2(8.26198, 7.05463)
+texture = ExtResource("2_l2p42")
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scale = Vector2(0.5, 0.5)
 scroll_scale = Vector2(1.2, 1.12)
 scroll_offset = Vector2(566, 137)
 
-[node name="Star6" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(-132, 526)
-rotation = -0.194518
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star7" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(3144.59, 506.594)
-rotation = 0.635958
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star8" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1978.59, 26.5943)
-rotation = -0.694985
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star9" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(618, -152)
-rotation = 0.501172
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star10" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(2066, 476)
-rotation = -3.12238
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star11" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(662, 416)
-rotation = -2.2919
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star12" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1862, 926)
-rotation = -3.62284
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star13" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(-390, 1044)
-rotation = -2.42669
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star14" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(-720.317, -158.364)
-rotation = 0.482802
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star15" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(2556.28, -177.77)
-rotation = 1.31328
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star16" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1390.28, -657.77)
-rotation = -0.0176654
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star17" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(29.6832, -836.364)
-rotation = 1.17849
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star18" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1477.68, -208.364)
-rotation = -2.44506
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star19" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(73.6827, -268.364)
-rotation = -1.61458
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star20" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1273.68, 241.636)
-rotation = -2.94552
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star21" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(-978.317, 359.636)
-rotation = -1.74937
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star22" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1583.68, -314.364)
-rotation = 0.482802
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star23" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(3606, 160)
-rotation = 1.31328
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star24" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(3110, -476)
-rotation = -0.0176654
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star25" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1870, -610)
-rotation = 1.17849
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star26" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(3005.87, -132.858)
-rotation = -2.44506
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star27" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(2377.68, -424.364)
-rotation = -1.61458
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star28" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(3462, 696)
-rotation = -2.94552
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star29" type="AnimatedSprite2D" parent="Background/Sky"]
-position = Vector2(1325.68, 203.636)
-rotation = -1.74937
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Back" type="Parallax2D" parent="Background"]
-scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.16, 1.06)
-scroll_offset = Vector2(866, 621)
-
-[node name="Star" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-1247.34, -972.343)
-rotation = 0.0847506
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star2" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(575.991, -852.343)
-rotation = 0.270786
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star3" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-172.343, -1022.34)
-rotation = -0.543997
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star4" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(1255.99, -205.676)
-rotation = -0.232239
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star5" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-309.009, -464.009)
-rotation = 0.67182
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star6" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-2305, -1170)
-rotation = 2.08817
-scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-
-[node name="Star7" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(1756.67, -398.333)
-rotation = 2.2742
-scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 1
-
-[node name="Star8" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-1978.33, -421.667)
-rotation = 1.45942
-scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 2
-
-[node name="Star9" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(33.3335, -680)
-rotation = 1.77118
-scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_w46wd")
-frame = 3
-
-[node name="Star10" type="AnimatedSprite2D" parent="Background/Back"]
-position = Vector2(-990, -918.333)
-rotation = 2.67524
-scale = Vector2(1.4, 1.4)
-sprite_frames = SubResource("SpriteFrames_w46wd")
+[node name="Sparkle" type="CPUParticles2D" parent="Background/Sky"]
+position = Vector2(-888, -3380)
+scale = Vector2(1.2, 1.2)
+amount = 20
+lifetime = 0.8
+texture = ExtResource("2_b3uuo")
+emission_shape = 3
+emission_rect_extents = Vector2(12000, 3000)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 250.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ckag1")
+color_ramp = SubResource("Gradient_gio1u")
+color_initial_ramp = SubResource("Gradient_m73u2")
 
 [node name="Mid" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
@@ -291,46 +79,198 @@ scroll_offset = Vector2(866, 621)
 
 [node name="Moon" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
-position = Vector2(-1360, -66.6667)
+position = Vector2(-13179, -66.6667)
 scale = Vector2(2.72108, 2.65064)
 texture = ExtResource("6_kn3vc")
 
 [node name="Moon2" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
-position = Vector2(-995, -71.6667)
+position = Vector2(-12814, -71.6667)
 scale = Vector2(-2.721, 2.651)
 texture = ExtResource("6_kn3vc")
 
 [node name="Moon3" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
-position = Vector2(118.333, -68.3333)
+position = Vector2(-11700.7, -68.3333)
 scale = Vector2(-2.721, 2.651)
 texture = ExtResource("6_kn3vc")
 
 [node name="Moon4" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
-position = Vector2(1283.33, -66.6667)
+position = Vector2(-10535.7, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon5" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-9597.35, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon6" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-9232.35, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon7" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-8119.02, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon8" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-6954.02, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon9" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-6630.68, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon10" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-6265.68, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon11" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-5152.35, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon12" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-3987.35, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon13" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-4147.35, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon14" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-3782.35, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon15" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-2669.02, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon16" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-1504.02, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon17" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-429.015, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon18" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(-64.0161, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon19" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(1049.32, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon20" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(2214.31, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon21" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(2527.65, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon22" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(2892.65, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon23" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(4005.98, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon24" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(5170.98, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon25" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(6067.65, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon26" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(6432.65, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon27" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(7545.98, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon28" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(8710.98, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon29" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(9254.32, -66.6667)
+scale = Vector2(2.72108, 2.65064)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon30" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(9619.32, -71.6667)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon31" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(10732.6, -68.3333)
+scale = Vector2(-2.721, 2.651)
+texture = ExtResource("6_kn3vc")
+
+[node name="Moon32" type="Sprite2D" parent="Background/Mid"]
+self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
+position = Vector2(11897.6, -66.6667)
 scale = Vector2(2.72108, 2.65064)
 texture = ExtResource("6_kn3vc")
 
 [node name="Fore" type="Parallax2D" parent="Background"]
 scroll_offset = Vector2(866, 621)
-
-[node name="PalmTrunk" type="Sprite2D" parent="Background/Fore"]
-self_modulate = Color(0.785156, 0.623299, 0.193222, 1)
-position = Vector2(171, -70)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_st2be")
-
-[node name="Leaves" type="Sprite2D" parent="Background/Fore/PalmTrunk"]
-self_modulate = Color(0.231373, 0.792157, 0.0862745, 0.964706)
-texture = ExtResource("4_wjedg")
-
-[node name="Bench" type="Sprite2D" parent="Background/Fore"]
-self_modulate = Color(0.65625, 0.41288, 0.0999756, 1)
-position = Vector2(-268, -26)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_887q6")
 
 [node name="Ramp" parent="Background" instance=ExtResource("14_6xhsk")]
 position = Vector2(-2294, 646)
