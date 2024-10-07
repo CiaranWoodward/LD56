@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var BOUNCINESS = 0.5
 @export var PUSH_MAX_SPEED = 400
 @export var PUSH_ACCELERATION = 4
+@export var GRIND_SHAKE = 0.4
 
 @onready var aoe = $AreaOfEffect
 @onready var anim_sm : AnimationNodeStateMachinePlayback = $Visual/PlayerBody/MovementState["parameters/playback"]
@@ -298,6 +299,7 @@ func leave_grind_rail():
 	self.collision_layer = 1
 	self.collision_mask = 2
 	grind_rotation_tween.kill()
+	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", -GRIND_SHAKE)
 
 func join_grind_rail(grb : GrindRailBody):
 	anim_sm.start("Grind")
@@ -305,6 +307,7 @@ func join_grind_rail(grb : GrindRailBody):
 	current_scenery = grb
 	self.collision_layer = 0
 	self.collision_mask = 0
+	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", GRIND_SHAKE)
 
 func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:
