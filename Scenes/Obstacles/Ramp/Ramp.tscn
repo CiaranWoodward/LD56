@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://djjqx2qman0bw"]
 
 [ext_resource type="Script" path="res://Scenes/Obstacles/Ramp/Ramp.gd" id="1_dcpha"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="2_blgx6"]
+[ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="2_x8nva"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ntt0"]
-size = Vector2(494.731, 103.039)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg3py"]
+size = Vector2(128, 20)
 
 [node name="Ramp" type="StaticBody2D"]
 collision_layer = 6
@@ -12,15 +12,20 @@ script = ExtResource("1_dcpha")
 
 [node name="Visuals" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, -3)
-scale = Vector2(3.92188, 0.828125)
-texture = ExtResource("2_blgx6")
+[node name="Line2D" type="Line2D" parent="Visuals"]
+modulate = Color(0.652551, 0.429661, 0.205605, 1)
+texture_repeat = 3
+points = PackedVector2Array(-64, 0, 64, 0)
+width = 20.0
+texture = ExtResource("2_x8nva")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="MiddleTop" type="Marker2D" parent="."]
-position = Vector2(2, -54)
+position = Vector2(0, -10)
 rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.48049)
-shape = SubResource("RectangleShape2D_6ntt0")
+position = Vector2(0, 1.90735e-06)
+shape = SubResource("RectangleShape2D_xg3py")
