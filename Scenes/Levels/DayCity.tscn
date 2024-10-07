@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=34 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_cqdl6"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="15_yqcn7"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="16_t3fwn"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="18_gefmh"]
 [ext_resource type="Texture2D" uid="uid://bdfnjlf4advmk" path="res://Graphics/Scenery/RailFlip.png" id="18_ldnrl"]
@@ -2841,6 +2840,7 @@ texture = ExtResource("1_4b74k")
 
 [node name="Player" parent="." instance=ExtResource("11_wk11u")]
 position = Vector2(198, 449)
+BOUNCINESS = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
 position = Vector2(-2461, 623)
@@ -2879,17 +2879,9 @@ position = Vector2(804, 172)
 [node name="Floor60" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(931, 172)
 
-[node name="Floor57" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1057, 243)
-
-[node name="Floor57" parent="Floor57" instance=ExtResource("13_cqdl6")]
-position = Vector2(254, 98)
-
-[node name="Floor58" parent="Floor57" instance=ExtResource("13_cqdl6")]
-position = Vector2(381, 98)
-
 [node name="Floor58" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(1184, 243)
+position = Vector2(1315, 375)
+width = 256.0
 
 [node name="Floor7" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(2416, 623)
@@ -3019,12 +3011,6 @@ position = Vector2(-235, 752)
 [node name="Crate3" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-238, 689)
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(5.53504e-06, 0.745541, 0.367021, 1)
-position = Vector2(23, 587.5)
-scale = Vector2(1, 0.289063)
-texture = ExtResource("16_t3fwn")
-
 [node name="Floor63" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1501, -73)
 
@@ -3102,7 +3088,8 @@ rotation = -1.26911
 ramp_angle_degrees = 80
 
 [node name="Wall" parent="." instance=ExtResource("19_poi3t")]
-position = Vector2(-1808, 563)
+position = Vector2(-1805, 563)
+height = 100.0
 
 [node name="HatPickup" parent="." instance=ExtResource("21_cvv0s")]
 position = Vector2(120, 771)
@@ -3145,6 +3132,7 @@ ramp_angle_degrees = 90
 [node name="ThirdPipe4" parent="." instance=ExtResource("18_gefmh")]
 position = Vector2(1886, 762)
 rotation = -3.14159
+collision_layer = 4
 radius = 150
 ramp_angle_degrees = 90
 
@@ -3152,3 +3140,7 @@ ramp_angle_degrees = 90
 position = Vector2(297, -434)
 scale = Vector2(0.462995, 0.462995)
 hat_name = "fedora"
+
+[node name="Ramp3" parent="." instance=ExtResource("24_ej1wv")]
+position = Vector2(-785, 490)
+rotation = 0.29217

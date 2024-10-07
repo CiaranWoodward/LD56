@@ -4755,57 +4755,6 @@ position = Vector2(3662.5, 1339)
 scale = Vector2(609.35, 72.1)
 texture = ExtResource("1_dm26d")
 
-[node name="Crate" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(816, 582)
-
-[node name="Crate2" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(1402, 583)
-
-[node name="Crate3" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(2421, 582)
-
-[node name="Crate4" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(2816, 587)
-
-[node name="Crate5" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(3550, 584)
-
-[node name="Crate6" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(4216, 583)
-
-[node name="Crate7" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(4865, 584)
-
-[node name="Crate8" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(5584, 583)
-
-[node name="Crate9" parent="Background" instance=ExtResource("11_42fov")]
-position = Vector2(6103, 583)
-
-[node name="Floor" parent="Background" instance=ExtResource("3_lssys")]
-position = Vector2(1910, 449)
-acceleration_factor = 5
-width = 400.0
-
-[node name="Floor2" parent="Background" instance=ExtResource("3_lssys")]
-position = Vector2(3193, 453)
-acceleration_factor = 5
-width = 400.0
-
-[node name="Floor3" parent="Background" instance=ExtResource("3_lssys")]
-position = Vector2(4554, 444)
-acceleration_factor = 5
-width = 400.0
-
-[node name="Floor4" parent="Background" instance=ExtResource("3_lssys")]
-position = Vector2(5563, 498)
-acceleration_factor = 5
-width = 400.0
-
-[node name="GrindRail" parent="Background" instance=ExtResource("13_xngg7")]
-position = Vector2(2483, 288)
-points = PackedVector2Array(-221, 66, 93, -48, 326, -217, 513, -422)
-
 [node name="Player" parent="." instance=ExtResource("1_dxhsa")]
 position = Vector2(514, 446)
 MAX_SPEED = 2000
@@ -4816,12 +4765,78 @@ TARGET_SPEED = 1700
 position = Vector2(234, 313)
 radius = 500
 
+[node name="Crate" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(816, 582)
+
+[node name="Crate2" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(1402, 583)
+
+[node name="Crate3" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(2421, 582)
+
+[node name="Crate4" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(2816, 587)
+
+[node name="Crate5" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(3550, 584)
+
+[node name="Crate6" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(4216, 583)
+
+[node name="Crate7" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(4865, 584)
+
+[node name="Crate8" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(5584, 583)
+
+[node name="Crate9" parent="." instance=ExtResource("11_42fov")]
+modulate = Color(0.419608, 0.905882, 1, 1)
+position = Vector2(6103, 583)
+
+[node name="Floor" parent="." instance=ExtResource("3_lssys")]
+modulate = Color(0.0263907, 0.454927, 0.808067, 1)
+position = Vector2(1910, 449)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor2" parent="." instance=ExtResource("3_lssys")]
+modulate = Color(0.0263907, 0.454927, 0.808067, 1)
+position = Vector2(3193, 453)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor3" parent="." instance=ExtResource("3_lssys")]
+modulate = Color(0.0263907, 0.454927, 0.808067, 1)
+position = Vector2(4554, 444)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor5" parent="." instance=ExtResource("3_lssys")]
+modulate = Color(0.0263907, 0.454927, 0.808067, 1)
+position = Vector2(5563, 498)
+acceleration_factor = 5
+width = 400.0
+
+[node name="GrindRail" parent="." instance=ExtResource("13_xngg7")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(2483, 288)
+points = PackedVector2Array(-221, 66, 93, -48, 326, -217, 513, -422)
+
 [node name="QuarterPipe2" parent="." instance=ExtResource("2_4m4oa")]
 position = Vector2(6497, 178)
 rotation = -1.5708
 radius = 500
 
 [node name="Floor4" parent="." instance=ExtResource("3_lssys")]
+modulate = Color(0.0263907, 0.454927, 0.808067, 1)
 position = Vector2(3298, 622)
 width = 6000.0
 
