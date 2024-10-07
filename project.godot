@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot-with-actions-starter"
-config/version="1.8.0"
+config/version="1.11.2"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -69,10 +69,11 @@ Trick={
 
 2d_physics/layer_1="Player"
 3d_physics/layer_1="Player"
-2d_physics/layer_2="Scenery"
+2d_physics/layer_2="SolidScenery"
 3d_physics/layer_2="Scenery"
 2d_physics/layer_3="Obstacles"
 3d_physics/layer_3="Obstacles"
+2d_physics/layer_4="Collectables"
 
 [physics]
 

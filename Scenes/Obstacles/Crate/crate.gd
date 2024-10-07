@@ -21,6 +21,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.decelerate(deceleration_factor, acceleration_penalty, acceleration_penalty_time)
 	
+	get_tree().call_group("Camera", "screen_shake_add_trauma", 2)
+	
 	$Visuals/Particles/SmokeParticles.emitting = true
 	$Visuals/Particles/FireParticles.emitting = true
 	

@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://wux6mw25ik3a"]
 
-[ext_resource type="Texture2D" uid="uid://be5a5cdgmln0" path="res://icon.svg" id="1_2afxr"]
+[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_2afxr"]
 [ext_resource type="Script" path="res://Scenes/Obstacles/Crate/crate.gd" id="1_bbwor"]
-[ext_resource type="Texture2D" uid="uid://dleovie5jwsls" path="res://Graphics/EnvironmentEffects/SmokeParticle.png" id="3_aamy5"]
-[ext_resource type="Texture2D" uid="uid://dkpvp53hpjhfu" path="res://Graphics/EnvironmentEffects/FireParticle.png" id="4_vbpcf"]
+[ext_resource type="Texture2D" uid="uid://cpb4liwqu2xgp" path="res://Graphics/EnvironmentEffects/SmokeParticle.png" id="3_aamy5"]
+[ext_resource type="Texture2D" uid="uid://tac0wp4khas0" path="res://Graphics/EnvironmentEffects/FireParticle.png" id="4_vbpcf"]
 
 [sub_resource type="Curve" id="Curve_qdg24"]
 _data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(0.196617, 1), 0.0, 0.0, 0, 0, Vector2(0.43129, 0.932558), 0.0, 0.0, 0, 0, Vector2(0.642706, 0.793023), 0.0, 0.0, 0, 0, Vector2(0.968288, 0), 0.0, 0.0, 0, 0]
@@ -28,8 +28,6 @@ curve = SubResource("Curve_opl6k")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7iel1"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(10, 10, 1)
-emission_shape = 3
-emission_box_extents = Vector3(10, 10, 1)
 angle_min = -45.0
 angle_max = 45.0
 spread = 90.0
@@ -58,8 +56,6 @@ turbulence_noise_scale = 11.0
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gr7mf"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(10, 10, 1)
-emission_shape = 3
-emission_box_extents = Vector3(10, 10, 1)
 angle_min = -45.0
 angle_max = 45.0
 spread = 90.0

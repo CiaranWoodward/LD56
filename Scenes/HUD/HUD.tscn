@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyahl5jeqxd7l"]
+[gd_scene load_steps=5 format=3 uid="uid://cyahl5jeqxd7l"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_y8u6a"]
 [ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="2_i837b"]
+[ext_resource type="Script" path="res://Scenes/HUD/debug.gd" id="3_u3ttm"]
+[ext_resource type="Script" path="res://Scenes/Menu/button_fx.gd" id="4_h5tu6"]
 
 [node name="Hud" type="Control" node_paths=PackedStringArray("speed", "level_name", "score", "multiplier", "canvas")]
 layout_mode = 3
@@ -68,3 +70,52 @@ size_flags_vertical = 0
 text = "x1.5"
 fit_content = true
 autowrap_mode = 0
+
+[node name="Debug" type="VBoxContainer" parent="HUDCanvas/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("3_u3ttm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Debug"
+fit_content = true
+autowrap_mode = 0
+
+[node name="DebugAddItem" type="Button" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "add_item"
+script = ExtResource("4_h5tu6")
+
+[node name="DebugAddMult" type="Button" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "add_mult"
+script = ExtResource("4_h5tu6")
+
+[node name="DebugResetMult" type="Button" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "reset_mult"
+script = ExtResource("4_h5tu6")
+
+[node name="DebugAddScore" type="Button" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "add_score"
+script = ExtResource("4_h5tu6")
+
+[node name="DebugNextLevel" type="Button" parent="HUDCanvas/MarginContainer/Debug"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "complete_level"
+script = ExtResource("4_h5tu6")
