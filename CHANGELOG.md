@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/CiaranWoodward/LD56/compare/v1.13.0...v1.14.0) (2024-10-07)
+
+
+### Features
+
+* hats pickup ([c06a67f](https://github.com/CiaranWoodward/LD56/commit/c06a67f655415356c28510ccd2c505a47162ab81))
+
 # [1.13.0](https://github.com/CiaranWoodward/LD56/compare/v1.12.0...v1.13.0) (2024-10-07)
 
 
