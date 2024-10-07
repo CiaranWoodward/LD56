@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bxpfeeq68no0n"
+path="res://.godot/imported/news broadcast 1.ogg-d0551a9fb0d41e621bf9e06d02be3e63.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Cassettes/news broadcast 1.ogg"
+dest_files=["res://.godot/imported/news broadcast 1.ogg-d0551a9fb0d41e621bf9e06d02be3e63.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

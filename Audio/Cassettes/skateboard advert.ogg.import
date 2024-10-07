@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c45ed6mffbqgd"
+path="res://.godot/imported/skateboard advert.ogg-a85337822947147ededcc7d5a29529ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Cassettes/skateboard advert.ogg"
+dest_files=["res://.godot/imported/skateboard advert.ogg-a85337822947147ededcc7d5a29529ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
