@@ -324,11 +324,6 @@ position = Vector2(-979, 0)
 [node name="Floor61" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1247, -171)
 
-[node name="Icon3" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(359, -545)
-texture = ExtResource("16_t3fwn")
-
 [node name="Floor78" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-1055, 623)
 
@@ -344,7 +339,7 @@ width = 400.0
 
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1483, 1056)
-points = PackedVector2Array(1059, -515, 969, -375, 828, -285, 680, -233, 497, -190, 290, -173)
+points = PackedVector2Array(1059, -515, 969, -375, 828, -285, 680, -233, 489, -189, 290, -173)
 texture = ExtResource("18_ldnrl")
 
 [node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
@@ -398,7 +393,7 @@ scale = Vector2(0.462995, 0.462995)
 cassette_name = "lore 1"
 
 [node name="LevelFloor" parent="." instance=ExtResource("22_il6w7")]
-position = Vector2(-8, 1625)
+position = Vector2(115, 1332)
 
 [node name="ThirdPipe2" parent="." instance=ExtResource("18_gefmh")]
 position = Vector2(-1551, 1104)
@@ -430,3 +425,8 @@ position = Vector2(1886, 762)
 rotation = -3.14159
 radius = 150
 ramp_angle_degrees = 90
+
+[node name="HatPickup2" parent="." instance=ExtResource("21_cvv0s")]
+position = Vector2(297, -434)
+scale = Vector2(0.462995, 0.462995)
+hat_name = "fedora"
