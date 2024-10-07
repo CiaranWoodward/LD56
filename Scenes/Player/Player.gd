@@ -68,7 +68,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
 	acceleration = 0
-		
 	if player_state == PLAYER_STATE.IN_AIR:
 		if Input.is_action_just_pressed("jump") and quarterpipe_tricks == 0:
 			get_tree().call_group('QTE',"start_qte",1,3,TRICK_POINTS,false)
@@ -372,6 +371,8 @@ func leave_quarter_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
 	temp_ignore_bodies.append(current_scenery)
 	current_scenery = null
+	if current_movement_direction().y < WILE_E_COYOTE_Y_THRESHOLD:
+		disable_gravity(3*WILE_E_COYOTE_TIME)
 	
 	#Launching up from quarterpipe:
 	if current_movement_direction().y < 0 :
