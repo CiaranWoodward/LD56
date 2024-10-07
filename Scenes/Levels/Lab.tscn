@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://np06hy4g0w3n"]
+[gd_scene load_steps=26 format=3 uid="uid://np06hy4g0w3n"]
 
 [ext_resource type="Texture2D" uid="uid://b601c1mqc5w55" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cbd1loxd2q2ir" path="res://Graphics/Backgrounds/Lab/Blue10000.png" id="3_o2xwc"]
 [ext_resource type="Texture2D" uid="uid://c8pi2pcgog82x" path="res://Graphics/Backgrounds/Lab/Blue20000.png" id="4_q1t5g"]
 [ext_resource type="Texture2D" uid="uid://b8nx5ebs4tibl" path="res://Graphics/Backgrounds/Lab/Jar10000.png" id="6_dnkhh"]
+[ext_resource type="Texture2D" uid="uid://kain8nafb2r" path="res://Graphics/Backgrounds/Lab/Vat0000.png" id="6_fge7g"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_om1mj"]
 [ext_resource type="Texture2D" uid="uid://bufokqij7twi3" path="res://Graphics/Backgrounds/Lab/Jar20000.png" id="7_35j14"]
+[ext_resource type="Texture2D" uid="uid://d01k4xswrj2r" path="res://Graphics/Backgrounds/Lab/VatFill0000.png" id="7_r8ccx"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_u3a6o"]
 [ext_resource type="Texture2D" uid="uid://ukexrxxyrw0o" path="res://Graphics/Backgrounds/Lab/Jar30000.png" id="8_2ra4m"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="8_kfcxw"]
@@ -21,6 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="20_pkv4p"]
 [ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="21_geut8"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="21_l4yvt"]
+
+[sub_resource type="Gradient" id="Gradient_sx1sj"]
+offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l76o0"]
 animations = [{
@@ -42,127 +48,373 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_sx1sj"]
-offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
 [node name="Lab" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Wall" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(2, 1.4)
+scroll_scale = Vector2(1.1, 1.4)
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Background/Wall"]
 self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
-offset_left = -687.0
-offset_top = -292.0
-offset_right = 2750.0
-offset_bottom = 1099.0
+offset_left = -2059.0
+offset_top = -1294.0
+offset_right = 5118.0
+offset_bottom = 2653.0
 texture = ExtResource("1_8jwel")
 stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
-[node name="TextureRect3" type="TextureRect" parent="Background/Wall"]
-self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
-offset_left = -687.0
-offset_top = -292.0
-offset_right = 2750.0
-offset_bottom = 1099.0
-texture = ExtResource("1_8jwel")
-stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Background/Wall"]
-self_modulate = Color(0.855469, 0.855469, 0.855469, 1)
-offset_left = -690.0
-offset_top = -296.0
-offset_right = 2747.0
-offset_bottom = 1095.0
+self_modulate = Color(0.699219, 0.699219, 0.699219, 1)
+offset_left = -2062.0
+offset_top = -1297.0
+offset_right = 5115.0
+offset_bottom = 2650.0
 texture = ExtResource("2_q2xds")
 stretch_mode = 1
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
-[node name="Blue10000" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(561, 16)
+[node name="Blue10000" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2623, 1313)
 texture = ExtResource("3_o2xwc")
-metadata/_edit_lock_ = true
 
-[node name="Blue10001" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(46, 351)
+[node name="Blue10001" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2108, 1648)
 rotation = 1.5708
 texture = ExtResource("3_o2xwc")
-metadata/_edit_lock_ = true
 
-[node name="Blue10002" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(1403, 621)
+[node name="Blue10002" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3465, 1918)
 rotation = 1.5708
 texture = ExtResource("3_o2xwc")
-metadata/_edit_lock_ = true
 
-[node name="Blue20000" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(964, 518)
+[node name="Blue20000" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3026, 1815)
 texture = ExtResource("4_q1t5g")
-metadata/_edit_lock_ = true
 
-[node name="Blue20001" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(1443, 46)
+[node name="Blue20001" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3505, 1343)
 rotation = 3.14159
 texture = ExtResource("4_q1t5g")
-metadata/_edit_lock_ = true
 
-[node name="Blue20002" type="Sprite2D" parent="Background/Wall"]
-position = Vector2(-465, 478)
+[node name="Blue20002" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1597, 1775)
 rotation = 3.14159
 texture = ExtResource("4_q1t5g")
-metadata/_edit_lock_ = true
 
-[node name="Back" type="Parallax2D" parent="Background"]
-scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.16, 1.06)
-scroll_offset = Vector2(866, 621)
-metadata/_edit_lock_ = true
+[node name="Blue10003" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5215, 2745)
+texture = ExtResource("3_o2xwc")
 
-[node name="Mid" type="Parallax2D" parent="Background"]
-scale = Vector2(0.6, 0.6)
-scroll_scale = Vector2(1.14, 1.04)
-scroll_offset = Vector2(866, 621)
-metadata/_edit_lock_ = true
+[node name="Blue10004" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4700, 3080)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
 
-[node name="Floor" type="Sprite2D" parent="Background/Mid"]
-self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
-position = Vector2(181.667, 60)
-scale = Vector2(292.5, 10.67)
-texture = ExtResource("1_528hh")
-metadata/_edit_lock_ = true
+[node name="Blue10005" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6057, 3350)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
 
-[node name="Table" type="Sprite2D" parent="Background/Mid/Floor"]
+[node name="Blue20003" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5618, 3247)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20004" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6097, 2775)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20005" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4189, 3207)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10006" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3551, 2193)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10007" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3036, 2528)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10008" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4393, 2798)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20006" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3954, 2695)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20007" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4433, 2223)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20008" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2525, 2655)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10009" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2183, 2889)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10010" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1668, 3224)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10011" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3025, 3494)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20009" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3618, 3527)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20010" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3065, 2919)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20011" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1157, 3351)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10012" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1111, 2257)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10013" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(596.001, 2592)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10014" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1953, 2862)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20012" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1514, 2759)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20013" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1993, 2287)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20014" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(85.0006, 2719)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10015" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(423.001, 337)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10016" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1796, 1216)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10017" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1265, 942)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20015" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(826.001, 839)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20016" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(1305, 367)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20017" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(397, 1343)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10018" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5919, 209)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10019" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5404, 544)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10020" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6761, 814)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20018" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6322, 711)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20019" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6801, 239)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20020" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4893, 671)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10021" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6863, 1041)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10022" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6348, 1376)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10023" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(833, 3238)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20021" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6642, 3455)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20022" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5497, 1255)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20023" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5837, 1503)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10024" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3351, 377)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10025" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2836, 712)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10026" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4329, 1358)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20024" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(3754, 879)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20025" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4233, 407)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20026" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(2325, 839)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue10027" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5943, 1857)
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10028" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(5428, 2192)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue10029" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6785, 2462)
+rotation = 1.5708
+texture = ExtResource("3_o2xwc")
+
+[node name="Blue20027" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6346, 2359)
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20028" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(6825, 1887)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Blue20029" type="Sprite2D" parent="Background/Wall/TextureRect2"]
+position = Vector2(4917, 2319)
+rotation = 3.14159
+texture = ExtResource("4_q1t5g")
+
+[node name="Fore" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(2067, 621)
+
+[node name="Table3" type="Sprite2D" parent="Background/Fore"]
 self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
-position = Vector2(-1.37251, -13.8238)
-scale = Vector2(0.0513533, 0.382693)
+position = Vector2(-294.25, -633)
+scale = Vector2(10.825, 2.4)
 texture = ExtResource("1_528hh")
-metadata/_edit_lock_ = true
 
-[node name="Tabletop" type="Sprite2D" parent="Background/Mid/Floor"]
+[node name="Tabletop" type="Sprite2D" parent="Background/Fore/Table3"]
 self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
-position = Vector2(-1.37322, -16.792)
-scale = Vector2(0.0514245, 0.10157)
+position = Vector2(-0.0138397, -8.95833)
+scale = Vector2(1.00139, 1.0625)
 texture = ExtResource("1_528hh")
-metadata/_edit_lock_ = true
 
-[node name="Jar" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
-self_modulate = Color(0.400146, 0.6875, 0.660561, 1)
-position = Vector2(-32.9086, -74.5829)
-scale = Vector2(0.1, 1.397)
+[node name="Jar5" type="Sprite2D" parent="Background/Fore/Table3"]
+self_modulate = Color(0.707031, 0.707031, 0.707031, 1)
+position = Vector2(-0.346404, -47.9167)
+scale = Vector2(0.0461893, 0.209583)
+texture = ExtResource("6_fge7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Fore/Table3/Jar5"]
+self_modulate = Color(0.226563, 0.818726, 1, 1)
+show_behind_parent = true
+texture = ExtResource("7_r8ccx")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table3/Jar5"]
+show_behind_parent = true
+position = Vector2(0, 172.962)
+amount = 20
+lifetime = 6.0
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(100, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="Table" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
+position = Vector2(-701, 367)
+scale = Vector2(18.85, 3.2)
+texture = ExtResource("1_528hh")
+
+[node name="Tabletop" type="Sprite2D" parent="Background/Fore/Table"]
+self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
+position = Vector2(-0.0138397, -7.75607)
+scale = Vector2(1.00139, 0.265409)
+texture = ExtResource("1_528hh")
+
+[node name="Jar" type="AnimatedSprite2D" parent="Background/Fore/Table"]
+self_modulate = Color(0.351028, 0.839844, 0.794018, 1)
+position = Vector2(-6.7374, -22.1875)
+scale = Vector2(0.0478779, 0.283875)
 sprite_frames = SubResource("SpriteFrames_l76o0")
-metadata/_edit_lock_ = true
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Mid/Floor/Tabletop/Jar"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table/Jar"]
 position = Vector2(3.8147e-05, 35.2267)
 amount = 6
 lifetime = 2.2
@@ -177,36 +429,290 @@ color = Color(1, 1, 1, 0.521569)
 color_ramp = SubResource("Gradient_sx1sj")
 metadata/_edit_lock_ = true
 
-[node name="Jar2" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
-self_modulate = Color(0.771945, 0.431671, 0.800781, 1)
-position = Vector2(-18.9474, -68.4314)
-scale = Vector2(0.1, 1.397)
+[node name="Jar2" type="AnimatedSprite2D" parent="Background/Fore/Table"]
+self_modulate = Color(1, 0.476563, 0.979553, 1)
+position = Vector2(3.60743, -20)
+scale = Vector2(0.0478779, 0.283875)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table/Jar2"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
 metadata/_edit_lock_ = true
 
-[node name="Jar3" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
-self_modulate = Color(0.953125, 0.703907, 0.383484, 1)
-position = Vector2(-3.76732, -103.802)
-scale = Vector2(0.1, 1.397)
-sprite_frames = SubResource("SpriteFrames_l76o0")
-frame = 2
-metadata/_edit_lock_ = true
-
-[node name="Jar4" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
-self_modulate = Color(0.287464, 0.882813, 0.282776, 1)
-position = Vector2(10.6371, -89.9616)
-scale = Vector2(0.1, 1.397)
+[node name="Jar3" type="AnimatedSprite2D" parent="Background/Fore/Table"]
+self_modulate = Color(0.484375, 0.613281, 1, 1)
+position = Vector2(1.27321, -16.25)
+scale = Vector2(0.0273493, 0.162158)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table/Jar3"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
 metadata/_edit_lock_ = true
 
-[node name="Fore" type="Parallax2D" parent="Background"]
-scroll_offset = Vector2(2067, 621)
+[node name="Table4" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
+position = Vector2(-2233.25, 373.5)
+scale = Vector2(7.87501, 1.95)
+texture = ExtResource("1_528hh")
+
+[node name="Tabletop" type="Sprite2D" parent="Background/Fore/Table4"]
+self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
+position = Vector2(-0.0138397, -13.4484)
+scale = Vector2(1.00139, 0.834644)
+texture = ExtResource("1_528hh")
+
+[node name="Jar2" type="AnimatedSprite2D" parent="Background/Fore/Table4"]
+self_modulate = Color(1, 0.942749, 0.476563, 1)
+position = Vector2(-3.65079, -32.5641)
+scale = Vector2(0.114603, 0.465846)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table4/Jar2"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+metadata/_edit_lock_ = true
+
+[node name="Jar3" type="AnimatedSprite2D" parent="Background/Fore/Table4"]
+self_modulate = Color(1, 0.484375, 0.967773, 1)
+position = Vector2(1.93651, -24.359)
+scale = Vector2(0.0654648, 0.266106)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table4/Jar3"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+metadata/_edit_lock_ = true
+
+[node name="Table2" type="Sprite2D" parent="Background/Fore"]
+self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
+position = Vector2(-645, -287)
+scale = Vector2(18.85, 3.2)
+texture = ExtResource("1_528hh")
+
+[node name="Tabletop" type="Sprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
+position = Vector2(-0.0138397, -7.75607)
+scale = Vector2(1.00139, 0.265409)
+texture = ExtResource("1_528hh")
+
+[node name="Jar" type="AnimatedSprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(0.507169, 0.430115, 0.949219, 1)
+position = Vector2(-5.57028, -27.1875)
+scale = Vector2(0.0478779, 0.283875)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table2/Jar"]
+position = Vector2(-38.7811, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Background/Fore/Table2/Jar"]
+position = Vector2(-1.108, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Background/Fore/Table2/Jar"]
+position = Vector2(38.7812, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="Jar5" type="AnimatedSprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(0.497398, 0.863281, 0.485596, 1)
+position = Vector2(-87.3209, 68.4375)
+scale = Vector2(0.0478779, 0.283875)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table2/Jar5"]
+position = Vector2(-38.7811, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Background/Fore/Table2/Jar5"]
+position = Vector2(-1.108, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Background/Fore/Table2/Jar5"]
+position = Vector2(38.7812, 57.2434)
+lifetime = 4.0
+lifetime_randomness = 0.1
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+
+[node name="Jar2" type="AnimatedSprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(1, 0.709656, 0.476563, 1)
+position = Vector2(7.0557, -25.3125)
+scale = Vector2(0.0478779, 0.283875)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table2/Jar2"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+metadata/_edit_lock_ = true
+
+[node name="Jar3" type="AnimatedSprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(0.484375, 0.806641, 1, 1)
+position = Vector2(8.01061, -16.5625)
+scale = Vector2(0.0273493, 0.162158)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table2/Jar3"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
+metadata/_edit_lock_ = true
+
+[node name="Jar4" type="AnimatedSprite2D" parent="Background/Fore/Table2"]
+self_modulate = Color(0.657593, 1, 0.484375, 1)
+position = Vector2(1.96287, -14.0625)
+scale = Vector2(0.0273493, 0.162158)
+sprite_frames = SubResource("SpriteFrames_l76o0")
+frame = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Fore/Table2/Jar4"]
+position = Vector2(3.8147e-05, 35.2267)
+amount = 6
+lifetime = 2.2
+local_coords = true
+texture = ExtResource("10_77vyl")
+emission_shape = 3
+emission_rect_extents = Vector2(20, 5)
+gravity = Vector2(0, -15)
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 1, 0.521569)
+color_ramp = SubResource("Gradient_sx1sj")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("6_om1mj")]
 position = Vector2(-397, 498)
+
+[node name="Ramp" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(660, 663)
+rotation = 0.581195
+scale = Vector2(1, 1)
+width = 140.0
 
 [node name="QuarterPipe" parent="." instance=ExtResource("7_u3a6o")]
 position = Vector2(-600, 623)
@@ -385,10 +891,6 @@ position = Vector2(1059, 694)
 [node name="Floor2" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(1727, 1021)
 width = 4000.0
-
-[node name="Ramp" parent="." instance=ExtResource("17_2nn55")]
-position = Vector2(663, 664)
-rotation = 0.581195
 
 [node name="QuarterPipe3" parent="." instance=ExtResource("7_u3a6o")]
 position = Vector2(3935, 887)

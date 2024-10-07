@@ -3,17 +3,17 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/Floor/Floor.gd" id="1_8y1np"]
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="3_jiikj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsimy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nia6"]
 size = Vector2(128, 20)
 
 [node name="Floor" type="StaticBody2D"]
+modulate = Color(0.630039, 0.383389, 0.172419, 1)
 collision_layer = 6
 script = ExtResource("1_8y1np")
 
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Line2D" type="Line2D" parent="Visuals"]
-modulate = Color(0.652551, 0.429661, 0.205605, 1)
 texture_repeat = 3
 points = PackedVector2Array(-64, 0, 64, 0)
 width = 20.0
@@ -21,7 +21,7 @@ texture = ExtResource("3_jiikj")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lsimy")
+shape = SubResource("RectangleShape2D_6nia6")
 
 [node name="Top" type="Marker2D" parent="."]
 position = Vector2(0, -10)
