@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.gd" id="1_sry6s"]
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="2_p7y7d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vdc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52w1c"]
 size = Vector2(209, 149.618)
 
 [node name="ThirdPipe" type="StaticBody2D"]
@@ -38,4 +38,4 @@ collision_layer = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MaxBounds"]
 position = Vector2(-30, -68.0081)
-shape = SubResource("RectangleShape2D_q4vdc")
+shape = SubResource("RectangleShape2D_52w1c")
