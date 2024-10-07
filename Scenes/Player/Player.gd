@@ -570,3 +570,7 @@ func _on_qte_trick_passed(trickpoints: Variant) -> void:
 	trick_speed_boost = trick_speed_boost + (trickpoints * TRICK_SPEED_MOD)
 	print("Total boost to apply: " + str(trick_speed_boost))
 	quarterpipe_trick()
+
+
+func _on_level_floor_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

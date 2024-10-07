@@ -159,6 +159,16 @@ func restart_level():
 		reset_multiplier()
 		un_pause()
 
+func restart_level_from_game():
+	if is_instance_valid(_active_level) and is_instance_valid(_active_scene):
+		get_tree().root.remove_child(_active_level)
+		_active_level = _active_scene.instantiate()
+		_player = _active_level.find_child("Player")
+		_level_item_count = 0
+		reset_score()
+		reset_multiplier()
+		get_tree().root.add_child(_active_level)
+
 func complete_level():
 	_level += 1
 	if is_game_complete():
