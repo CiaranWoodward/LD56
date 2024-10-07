@@ -63,6 +63,7 @@ signal landed
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
 	grind_rotation_tween = get_tree().create_tween()
+	$Visual/PlayerBody/Tricks.animation_finished.connect(func(anim_name): $QTE._on_tricks_animation_finished(anim_name))
 
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
