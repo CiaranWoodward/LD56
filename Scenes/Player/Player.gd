@@ -91,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	if player_state == PLAYER_STATE.ON_GRIND_RAIL:
 		if current_scenery in overlaps:
 			var grail : GrindRail = current_scenery.get_parent()
-			var newparams = grail.get_current_direction_and_position(global_position, direction)
+			var newparams = grail.get_current_direction_and_position(global_position, current_movement_direction())
 			var newdir = newparams[0]
 			var newpos = newparams[1]
 			if newdir == Vector2.ZERO:
@@ -190,7 +190,10 @@ func _physics_process(delta: float) -> void:
 		temp_ignore_bodies.clear()
 	
 	#position = position + velocity * delta
-	move_and_collide(velocity * delta, false)
+	var collision = move_and_collide(velocity * delta, false)
+	if collision:
+		direction = direction.slide(collision.get_normal()).normalized()
+	
 
 func rotate_to(rot, instant=false):
 	if instant:
@@ -265,7 +268,11 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 		PLAYER_STATE.ON_GRIND_RAIL:
 			var rail : GrindRail = overlap.get_parent()
 			if player_state == PLAYER_STATE.IN_AIR or (player_state == PLAYER_STATE.ON_FLOOR && rail.snap_to_from_floor):
-				return rail.get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
+				var prev_direction = current_movement_direction()
+				var new_direction = rail.get_current_direction_and_position(global_position, prev_direction)[0]
+				var dot = new_direction.dot(prev_direction)
+				#print("Grind dot: " + str(dot))
+				return dot > 0.5
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			return true
 		PLAYER_STATE.IN_AIR:
