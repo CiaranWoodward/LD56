@@ -1,22 +1,13 @@
 extends Item
 
-@export var audio_file : AudioStreamOggVorbis
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-
+	super._ready()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is not Player:
-		return
-	on_item_collected()
+	super._ready()
 	
 func on_item_collected() -> void:
+	super.on_item_collected()
 	on_item_collected_visual_queue()
-	
-	var menu : Menu = get_tree().root.get_node("Menu")
-	menu.add_item()

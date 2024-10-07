@@ -1,22 +1,22 @@
 extends Item
 
-@export var audio_file : AudioStreamWAV
+@export var cassette_name: String
+
+var _radio: GlobalRadio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	super._ready()
+	_radio = get_tree().root.get_node("Radio")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is not Player:
-		return
-	on_item_collected()
+	super._ready()
+	
+func _on_preview() -> void:
+	_radio.play_cassette(cassette_name)
 
 func on_item_collected() -> void:
+	super.on_item_collected()
 	on_item_collected_visual_queue()
-	
-	var menu : Menu = get_tree().root.get_node("Menu")
-	menu.add_item()
+	_radio.play_cassette(cassette_name)

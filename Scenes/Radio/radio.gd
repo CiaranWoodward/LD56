@@ -17,10 +17,12 @@ func _ready() -> void:
 	}
 	
 	_cassettes = {
-		"advert": load("res://Audio/Cassettes/skateboard advert.wav"),
-		"lore": load("res://Audio/Cassettes/hawk explanation.wav"),
-		"news": load("res://Audio/Cassettes/news broadcast.wav"),
-		"intro": load("res://Audio/Cassettes/intro whole thing.wav")
+		"advert": load("res://Audio/Cassettes/skateboard advert.ogg"),
+		"lore-1": load("res://Audio/Cassettes/hawk explanation.ogg"),
+		"lore-2": load("res://Audio/Cassettes/hawk uplifting.ogg"),
+		"news-1": load("res://Audio/Cassettes/news broadcast 1.ogg"),
+		"news-2": load("res://Audio/Cassettes/news broadcast 2.ogg"),
+		"news-3": load("res://Audio/Cassettes/news broadcast 3.ogg")
 	}
 	
 	_music_player = $GlobalMusic
@@ -47,10 +49,13 @@ func play_cassette(track: String) -> void:
 	_music_player.finished.disconnect(_loop)
 	var position = _music_player.get_playback_position()
 	_music_player.stop()
+	var old_bus = _music_player.bus
+	_music_player.bus = "Voice"
 	var old_stream = _music_player.stream
 	_music_player.stream = _cassettes[track]
 	_music_player.finished.connect(func(): 
 		_music_player.stop()
+		_music_player.bus = old_bus
 		_music_player.stream = old_stream
 		_music_player.play(position)
 	)

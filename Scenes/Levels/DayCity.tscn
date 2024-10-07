@@ -461,6 +461,7 @@ position = Vector2(-1818, 614)
 [node name="Casset" parent="." instance=ExtResource("20_yyixd")]
 position = Vector2(-773, 586)
 scale = Vector2(0.462995, 0.462995)
+cassette_name = "lore-1"
 
 [node name="MP3Player" parent="." instance=ExtResource("21_odm06")]
 position = Vector2(-603, 575)

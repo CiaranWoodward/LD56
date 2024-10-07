@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://chkn3noiq16or"]
 
 [ext_resource type="Script" path="res://Scenes/Collectables/MP3Player/mp3_player.gd" id="1_7jty8"]
-[ext_resource type="Texture2D" uid="uid://c7ntqw3jn0m56" path="res://Graphics/EnvironmentEffects/Stars.png" id="1_vkvqf"]
-[ext_resource type="Texture2D" uid="uid://bcc34ipr1nh2p" path="res://Graphics/Collectables/MP3_Player.png" id="2_4l7uj"]
+[ext_resource type="Texture2D" uid="uid://b03xxsq66x0dq" path="res://Graphics/EnvironmentEffects/Stars.png" id="1_vkvqf"]
+[ext_resource type="Texture2D" uid="uid://dsepoqe2fr5x6" path="res://Graphics/Collectables/MP3_Player.png" id="2_4l7uj"]
 
 [sub_resource type="Curve" id="Curve_pixiq"]
 _data = [Vector2(0, 0.804119), 0.0, 0.0, 0, 0, Vector2(0.230089, 1), 0.0, 0.0, 0, 0, Vector2(0.525074, 0), 0.0, 0.0, 0, 0]
