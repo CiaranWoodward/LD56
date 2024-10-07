@@ -22,6 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.decelerate(deceleration_factor, acceleration_penalty, acceleration_penalty_time)
 	
 	get_tree().call_group("Camera", "screen_shake_add_trauma", 2)
+	get_tree().call_group('Menu',"reset_multiplier")
 	
 	$Visuals/Particles/SmokeParticles.emitting = true
 	$Visuals/Particles/FireParticles.emitting = true

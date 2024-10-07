@@ -415,3 +415,6 @@ position = Vector2(-2640, 766)
 position = Vector2(-2013, 736)
 points = PackedVector2Array(-98, 28, 9, 13, 80, -26, 116, -78, 155, -25, 205, 12, 306, 28)
 snap_to_from_floor = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1506, 756)

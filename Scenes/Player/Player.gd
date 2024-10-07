@@ -94,9 +94,6 @@ func _physics_process(delta: float) -> void:
 		var max_bounds : Area2D = current_scenery.get_max_bounds()
 		
 		if ! exit_vec.is_zero_approx():
-			if speed < 500 && exit_vec.y < -0.5:
-				quarter_pipe_direction *= -1
-			else:
 				direction = exit_vec
 				force_leave()
 		elif max_bounds not in aoe.get_overlapping_areas():
@@ -349,11 +346,15 @@ func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	
 	#Fail any in-progress tricks on landing:
-	if new_state == PLAYER_STATE.IN_AIR :
+	
+	if new_state != PLAYER_STATE.IN_AIR :
 		landed.emit()
 		print("Boosting: " + str(trick_speed_boost))
 		speed = speed + trick_speed_boost		
 		trick_speed_boost = 0
+		
+	if new_state == PLAYER_STATE.IN_AIR :
+		
 		
 		quarterpipe_tricks = 0
 		$Audio.stop_rolling()

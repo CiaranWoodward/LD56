@@ -15,6 +15,9 @@ extends Camera2D
 
 @onready var screen_shake_start_position = position
 @onready var screen_shake_noise = FastNoiseLite.new()
+
+@onready var cam_floor_offset := 0
+
 var screen_shake_noise_y = 0
 
 var screen_shake_childhood_trauma = 0.0 # Base level of trauma
@@ -77,3 +80,6 @@ func _shake(delta: float):
 	screen_shake_rotation_offset = screen_shake_max_roll * amt * screen_shake_noise.get_noise_2d(0,screen_shake_noise_y)
 	screen_shake_offset.x = screen_shake_max_offset.x * amt * screen_shake_noise.get_noise_2d(1000,screen_shake_noise_y)
 	screen_shake_offset.y = screen_shake_max_offset.y * amt * screen_shake_noise.get_noise_2d(2000,screen_shake_noise_y)
+
+func cam_floor(position) :
+	limit_bottom = position+cam_floor_offset
