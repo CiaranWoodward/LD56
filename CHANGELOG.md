@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/CiaranWoodward/LD56/compare/v1.11.2...v1.12.0) (2024-10-07)
+
+
+### Features
+
+* Add third-pipes as ramp option ([7caeb18](https://github.com/CiaranWoodward/LD56/commit/7caeb18147b8dd931f8e6967f3fa9251bf990216))
+
 ## [1.11.2](https://github.com/CiaranWoodward/LD56/compare/v1.11.1...v1.11.2) (2024-10-07)
 
 
