@@ -32,3 +32,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	t.tween_interval(0.8)
 	t.tween_callback(queue_free)
 	
+	$Explode.pitch_scale = randf_range(0.9, 1.1)
+	$Explode.play()
+	

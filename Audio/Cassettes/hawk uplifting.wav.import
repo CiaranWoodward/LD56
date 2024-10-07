@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3p5in2ybd0rv"
+path="res://.godot/imported/hawk uplifting.wav-c1262027c0f6fed3becccc1c2ab2ad71.sample"
+
+[deps]
+
+source_file="res://Audio/Cassettes/hawk uplifting.wav"
+dest_files=["res://.godot/imported/hawk uplifting.wav-c1262027c0f6fed3becccc1c2ab2ad71.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

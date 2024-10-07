@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5mkaroaglwhq"
+path="res://.godot/imported/hawk noise.wav-242a46fcce9ffff21ce6bf3bda72e9fe.sample"
+
+[deps]
+
+source_file="res://Audio/Voice/hawk noise.wav"
+dest_files=["res://.godot/imported/hawk noise.wav-242a46fcce9ffff21ce6bf3bda72e9fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
