@@ -10,6 +10,7 @@ var _menu: Menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = OS.is_debug_build()
 	_menu = get_tree().root.get_node("Menu")
 	_add_mult = $DebugAddMult
 	_reset_mult = $DebugResetMult

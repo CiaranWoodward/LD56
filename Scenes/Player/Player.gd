@@ -7,8 +7,12 @@ extends CharacterBody2D
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
 @export var BOUNCINESS = 0.5
+@export var PUSH_MAX_SPEED = 400
+@export var PUSH_ACCELERATION = 4
+@export var GRIND_SHAKE = 0.4
 
 @onready var aoe = $AreaOfEffect
+@onready var anim_sm : AnimationNodeStateMachinePlayback = $Visual/PlayerBody/MovementState["parameters/playback"]
 
 enum PLAYER_STATE {
 	IN_AIR,
@@ -32,11 +36,13 @@ var quarter_pipe_direction = 0
 var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
+var grind_rotation_tween : Tween
 
 signal landed
 
 func _ready() -> void:
 	jump_over_timeout = get_tree().create_tween()
+	grind_rotation_tween = get_tree().create_tween()
 
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
@@ -85,10 +91,17 @@ func _physics_process(delta: float) -> void:
 			else:
 				direction = newdir
 				global_position = newpos
+				var yscale = sign(direction.x)
+				rotate_to(direction.angle(), yscale != $Visual.scale.y)
+				$Visual.scale.x = 1
+				$Visual.scale.y = yscale
 		else:
 			force_leave()
 	
 	if player_state == PLAYER_STATE.ON_FLOOR:
+		var best_floor = _find_closest_floor(overlaps)
+		if is_instance_valid(best_floor):
+			current_scenery = best_floor
 		if current_scenery in overlaps:
 			if (acceleration_penalty_time > 0):
 				acceleration_penalty_time -= delta
@@ -138,14 +151,18 @@ func _physics_process(delta: float) -> void:
 				join_ramp(overlap)
 			else:
 				maybe_bounce(delta)
-			
+				
+	if is_pushing():
+		acceleration = max(acceleration, PUSH_ACCELERATION)
+
 	if speed > MAX_SPEED:
 		speed = MAX_SPEED
 	speed = speed + acceleration
 	
-	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL:
+	if player_state == PLAYER_STATE.ON_FLOOR or player_state == PLAYER_STATE.ON_GRIND_RAIL or player_state == PLAYER_STATE.ON_RAMP:
 		if Input.is_action_just_pressed("jump"):
 			force_leave()
+			anim_sm.start("JumpUp")
 			temp_ignore_bodies = overlaps
 			gravity_effect.y = JUMP_VELOCITY
 			gravity_disabled = true
@@ -160,9 +177,30 @@ func _physics_process(delta: float) -> void:
 	if player_state == PLAYER_STATE.IN_AIR && (sign(prev_velocity.y) < sign(velocity.y)):
 		temp_ignore_bodies.clear()
 	
-	position = position + velocity * delta
-	#move_and_collide(velocity * delta, false)
-	
+	#position = position + velocity * delta
+	move_and_collide(velocity * delta, false)
+
+func rotate_to(rot, instant=false):
+	if instant:
+		grind_rotation_tween.kill()
+		$Visual.rotation = rot
+	else:
+		grind_rotation_tween = get_tree().create_tween()
+		rot = lerp_angle($Visual.rotation, rot, 1)
+		grind_rotation_tween.tween_property($Visual, "rotation", rot, 0.1)
+
+func _find_closest_floor(overlaps : Array):
+	var best_distance_sq = INF
+	var best_floor = null
+	for overlap in overlaps:
+		if overlap is Floor:
+			if overlap.floor_y() < global_position.y:
+				continue
+			var dsq = global_position.distance_squared_to(overlap.global_position)
+			if dsq < best_distance_sq:
+				best_distance_sq = dsq
+				best_floor = overlap
+	return best_floor
 
 func maybe_bounce(delta : float):
 	var collision = move_and_collide(velocity * delta, true)
@@ -178,6 +216,15 @@ func cancel_jump():
 	if gravity_disabled:
 		jump_over_timeout.stop()
 		gravity_disabled = false
+
+func is_pushing() -> bool:
+	return speed < PUSH_MAX_SPEED && player_state != PLAYER_STATE.IN_AIR
+
+func is_grinding() -> bool:
+	return player_state == PLAYER_STATE.ON_GRIND_RAIL
+
+func is_in_air() -> bool:
+	return player_state == PLAYER_STATE.IN_AIR
 
 func current_movement_direction():
 	return velocity.normalized()
@@ -204,8 +251,9 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 		PLAYER_STATE.ON_FLOOR:
 			return player_state == PLAYER_STATE.IN_AIR
 		PLAYER_STATE.ON_GRIND_RAIL:
-			if player_state == PLAYER_STATE.IN_AIR:
-				return overlap.get_parent().get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
+			var rail : GrindRail = overlap.get_parent()
+			if player_state == PLAYER_STATE.IN_AIR or (player_state == PLAYER_STATE.ON_FLOOR && rail.snap_to_from_floor):
+				return rail.get_current_direction_and_position(global_position, direction)[0] != Vector2.ZERO
 		PLAYER_STATE.ON_QUARTER_PIPE:
 			return true
 		PLAYER_STATE.IN_AIR:
@@ -215,7 +263,7 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 	return false
 
 func change_player_state(new_state: PLAYER_STATE):
-	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	
 	#Fail any in-progress tricks on landing:
 	if player_state == PLAYER_STATE.IN_AIR :
@@ -223,8 +271,9 @@ func change_player_state(new_state: PLAYER_STATE):
 		
 	player_state = new_state
 
-
 func leave_quarter_pipe():
+	var qpipe : QuarterPipe = current_scenery
+	#qpipe.remove_collision_exception_with(self)
 	change_player_state(PLAYER_STATE.IN_AIR)
 	temp_ignore_bodies.append(current_scenery)
 	current_scenery = null
@@ -234,6 +283,7 @@ func join_quarter_pipe(qpipe : QuarterPipe):
 	speed *= qpipe.get_speed_component_at_entrance(global_position, current_movement_direction())
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
+	qpipe.add_collision_exception_with(self)
 
 func leave_floor():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -246,10 +296,18 @@ func join_floor(floor : Floor):
 func leave_grind_rail():
 	change_player_state(PLAYER_STATE.IN_AIR)
 	current_scenery = null
+	self.collision_layer = 1
+	self.collision_mask = 2
+	grind_rotation_tween.kill()
+	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", -GRIND_SHAKE)
 
 func join_grind_rail(grb : GrindRailBody):
+	anim_sm.start("Grind")
 	change_player_state(PLAYER_STATE.ON_GRIND_RAIL)
 	current_scenery = grb
+	self.collision_layer = 0
+	self.collision_mask = 0
+	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", GRIND_SHAKE)
 
 func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:

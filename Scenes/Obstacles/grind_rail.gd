@@ -1,6 +1,9 @@
 class_name GrindRail
 extends Line2D
 
+# If this is false, you need to jump before you can grind on it
+@export var snap_to_from_floor = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var prev_point = Vector2.INF
