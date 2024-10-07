@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 @export var TARGET_SPEED = 1150
 @export var TRICK_POINTS = 5
-@export var TRICK_PENALTY = 10
+@export var TRICK_PENALTY = 50
 @export var TRICK_SPEED_MOD = 10
 
 @onready var aoe = $AreaOfEffect
@@ -351,6 +351,10 @@ func change_player_state(new_state: PLAYER_STATE):
 	#Fail any in-progress tricks on landing:
 	if player_state == PLAYER_STATE.IN_AIR :
 		landed.emit()
+		print("Boosting: " + str(trick_speed_boost))
+		speed = speed + trick_speed_boost		
+		trick_speed_boost = 0
+		
 		quarterpipe_tricks = 0
 		
 	player_state = new_state
@@ -369,12 +373,6 @@ func leave_quarter_pipe():
 			quarterpipe_fast()
 		elif speed > 500:
 			quarterpipe_slow()
-		
-	#Exiting quarterpipe horizontally:
-	if current_movement_direction().y >= 0 :
-		print("Boosting: " + str(trick_speed_boost))
-		speed = speed + trick_speed_boost		
-		trick_speed_boost = 0
 		
 		
 func join_quarter_pipe(qpipe : QuarterPipe):
@@ -546,9 +544,9 @@ func quarterpipe_trick() :
 		get_tree().call_group('Camera',"cam_zoom",1,1,0.5)
 	
 	
-func _on_qte_trick_failed(penalty : bool) -> void:
-	if penalty == true :
-		trick_speed_boost = trick_speed_boost - TRICK_PENALTY
+func _on_qte_trick_failed(combo : bool) -> void:
+	if combo == false :
+		trick_speed_boost = 0 - TRICK_PENALTY
 		print("Total boost to apply: " + str(trick_speed_boost))
 	quarterpipe_trick()
 	
