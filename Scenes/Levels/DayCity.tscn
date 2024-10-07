@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=25 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="16_t3fwn"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="18_gefmh"]
+[ext_resource type="Texture2D" uid="uid://bdfnjlf4advmk" path="res://Graphics/Scenery/RailFlip.png" id="18_ldnrl"]
 [ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="19_poi3t"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="20_yyixd"]
 [ext_resource type="PackedScene" uid="uid://chkn3noiq16or" path="res://Scenes/Collectables/MP3Player/MP3Player.tscn" id="21_odm06"]
@@ -399,6 +400,7 @@ position = Vector2(128, 48)
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1496, 1060)
 points = PackedVector2Array(40, 26, -34, -29, -85, -112, -123, -222, -133, -332, -136, -583)
+texture = ExtResource("18_ldnrl")
 
 [node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-404, 1278)
@@ -406,6 +408,7 @@ position = Vector2(-404, 1278)
 [node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-402, 1273)
 points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -77, -189)
+texture = ExtResource("18_ldnrl")
 
 [node name="GrindRail4" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(624, 1281)
@@ -422,6 +425,7 @@ points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269
 [node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(2320, 562)
 points = PackedVector2Array(28, 55, -29, 20, -77, -15)
+texture = ExtResource("18_ldnrl")
 
 [node name="Floor69" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(2178, 549)

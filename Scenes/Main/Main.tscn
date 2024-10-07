@@ -55,3 +55,5 @@ scale = Vector2(1.38914, 0.700315)
 [node name="Casset" parent="." instance=ExtResource("7_3ci2k")]
 position = Vector2(750, 511)
 scale = Vector2(0.384492, 0.384492)
+
+[node name="Line2D" type="Line2D" parent="."]

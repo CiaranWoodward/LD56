@@ -2,6 +2,7 @@ class_name Floor
 extends StaticBody2D
 
 @export var acceleration_factor = 0
+@export var width = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
