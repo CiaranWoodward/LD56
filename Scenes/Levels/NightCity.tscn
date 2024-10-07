@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfuyy8rwyohaq"]
+[gd_scene load_steps=20 format=3 uid="uid://dfuyy8rwyohaq"]
 
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="1_bvapr"]
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_dm26d"]
@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://8gurxtkfh88h" path="res://Graphics/Backgrounds/NightCity/Building2Light10000.png" id="7_l744h"]
 [ext_resource type="Texture2D" uid="uid://bkkrkadqbtjpe" path="res://Graphics/Backgrounds/NightCity/LampLight0000.png" id="9_iudv0"]
 [ext_resource type="Texture2D" uid="uid://dy3532vp4onxd" path="res://Graphics/Backgrounds/NightCity/Bench0000.png" id="10_2p4st"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="15_ej4wt"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="11_42fov"]
+[ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="13_xngg7"]
+[ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="17_vvcjy"]
+[ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="18_iqt28"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
 animations = [{
@@ -104,43 +107,84 @@ position = Vector2(86.5, -30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_2p4st")
 
+[node name="Crate" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(816, 582)
+
+[node name="Crate2" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(1402, 583)
+
+[node name="Crate3" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(2421, 582)
+
+[node name="Crate4" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(2816, 587)
+
+[node name="Crate5" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(3550, 584)
+
+[node name="Crate6" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(4216, 583)
+
+[node name="Crate7" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(4865, 584)
+
+[node name="Crate8" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(5584, 583)
+
+[node name="Crate9" parent="Background" instance=ExtResource("11_42fov")]
+position = Vector2(6103, 583)
+
+[node name="Floor" parent="Background" instance=ExtResource("3_lssys")]
+position = Vector2(1910, 449)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor2" parent="Background" instance=ExtResource("3_lssys")]
+position = Vector2(3193, 453)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor3" parent="Background" instance=ExtResource("3_lssys")]
+position = Vector2(4554, 444)
+acceleration_factor = 5
+width = 400.0
+
+[node name="Floor4" parent="Background" instance=ExtResource("3_lssys")]
+position = Vector2(5563, 498)
+acceleration_factor = 5
+width = 400.0
+
+[node name="GrindRail" parent="Background" instance=ExtResource("13_xngg7")]
+position = Vector2(2483, 288)
+points = PackedVector2Array(-221, 66, 93, -48, 326, -217, 513, -422)
+
 [node name="Player" parent="." instance=ExtResource("1_dxhsa")]
 position = Vector2(514, 446)
+MAX_SPEED = 2000
+PUSH_MAX_SPEED = 600
+TARGET_SPEED = 1700
 
 [node name="QuarterPipe" parent="." instance=ExtResource("2_4m4oa")]
-position = Vector2(233, 623)
+position = Vector2(234, 313)
+radius = 500
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("2_4m4oa")]
-position = Vector2(1516, 486)
+position = Vector2(6497, 178)
 rotation = -1.5708
-
-[node name="Floor" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(359, 623)
-
-[node name="Floor2" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(485, 623)
-
-[node name="Floor3" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(613, 623)
+radius = 500
 
 [node name="Floor4" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(740, 623)
-
-[node name="Floor5" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(867, 623)
-
-[node name="Floor6" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(993, 623)
-
-[node name="Floor7" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(1121, 623)
-
-[node name="Floor8" parent="." instance=ExtResource("3_lssys")]
-position = Vector2(1248, 623)
+position = Vector2(3298, 622)
+width = 6000.0
 
 [node name="PlayerCam" parent="." instance=ExtResource("4_xxkw2")]
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(349, -65)
-texture = ExtResource("15_ej4wt")
+[node name="HatPickup" parent="." instance=ExtResource("17_vvcjy")]
+position = Vector2(3042, -210)
+scale = Vector2(0.462995, 0.462995)
+hat_name = "headphones"
+
+[node name="Casset" parent="." instance=ExtResource("18_iqt28")]
+position = Vector2(3192, 378)
+scale = Vector2(0.5, 0.5)
+cassette_name = "news 2"

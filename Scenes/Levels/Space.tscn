@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://re5m0rlasar4"]
+[gd_scene load_steps=16 format=3 uid="uid://re5m0rlasar4"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_5f2ok"]
 [ext_resource type="Texture2D" uid="uid://bfixj1dkuanlw" path="res://Graphics/Backgrounds/Space/Star10000.png" id="2_b3uuo"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_kqimf"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="8_t6xko"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_hkaia"]
-[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="14_qs5ab"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="15_4jl8s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w46wd"]
 animations = [{
@@ -35,6 +33,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4sdku"]
 
 [node name="Space" type="Node2D"]
 
@@ -328,102 +328,29 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_887q6")
 
 [node name="Player" parent="." instance=ExtResource("6_r5cvl")]
-position = Vector2(716, 390)
+position = Vector2(1501, -680)
 MAX_SPEED = 800
 JUMP_TIME = 0.8
 
 [node name="QuarterPipe" parent="." instance=ExtResource("7_kqimf")]
-position = Vector2(-1046, 623)
+position = Vector2(-4245, -114)
+radius = 1000
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("7_kqimf")]
-position = Vector2(1516, 486)
+position = Vector2(6030, -248)
 rotation = -1.5708
+radius = 1000
 
 [node name="Floor" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(-154, 685)
-
-[node name="Floor2" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(485, 623)
-
-[node name="Floor" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-1403, 0)
-
-[node name="Floor2" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-764, 62)
-
-[node name="Floor9" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-1275, 0)
-
-[node name="Floor10" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-1146, 0)
-
-[node name="Floor11" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-1018, 0)
-
-[node name="Floor12" parent="Floor2" instance=ExtResource("8_t6xko")]
-position = Vector2(-890, 62)
-
-[node name="Crate" parent="Floor2" instance=ExtResource("14_qs5ab")]
-position = Vector2(-511, -133)
-
-[node name="Floor3" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(613, 623)
-
-[node name="Floor4" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(740, 623)
-
-[node name="Floor5" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(867, 623)
-
-[node name="Floor6" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(993, 623)
-
-[node name="Floor7" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(1121, 623)
-
-[node name="Floor8" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(1248, 623)
+position = Vector2(829, 697)
+width = 10000.0
 
 [node name="PlayerCam" parent="." instance=ExtResource("9_hkaia")]
 
-[node name="Crate" parent="." instance=ExtResource("14_qs5ab")]
-position = Vector2(993, 583)
+[node name="LowGravity" type="Area2D" parent="."]
+position = Vector2(671, 1471)
+gravity_space_override = 3
+gravity = 800.0
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(721.5, 439.5)
-scale = Vector2(0.773438, 0.773438)
-texture = ExtResource("15_4jl8s")
-
-[node name="Floor9" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(-26, 685)
-
-[node name="Floor10" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(103, 685)
-
-[node name="Floor11" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(231, 623)
-
-[node name="Floor12" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(359, 623)
-
-[node name="Floor13" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(-306, 526)
-
-[node name="Floor14" parent="." instance=ExtResource("8_t6xko")]
-position = Vector2(-174, 526)
-
-[node name="Floor13" parent="Floor14" instance=ExtResource("8_t6xko")]
-position = Vector2(697, -128)
-
-[node name="Floor14" parent="Floor14" instance=ExtResource("8_t6xko")]
-position = Vector2(306, -128)
-
-[node name="Floor15" parent="Floor14" instance=ExtResource("8_t6xko")]
-position = Vector2(132, 0)
-
-[node name="Floor13" parent="Floor14/Floor15" instance=ExtResource("8_t6xko")]
-position = Vector2(437, -129)
-
-[node name="Floor14" parent="Floor14/Floor15" instance=ExtResource("8_t6xko")]
-position = Vector2(306, -128)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowGravity"]
+shape = SubResource("WorldBoundaryShape2D_4sdku")

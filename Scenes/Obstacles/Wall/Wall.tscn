@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/Wall/Wall.gd" id="1_gvo5m"]
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="3_nuajm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhhau"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2umu8"]
 size = Vector2(20, 128)
 
 [node name="Wall" type="StaticBody2D"]
@@ -21,7 +21,7 @@ texture = ExtResource("3_nuajm")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xhhau")
+shape = SubResource("RectangleShape2D_2umu8")
 
 [node name="Top" type="Marker2D" parent="."]
 position = Vector2(0, -10)
