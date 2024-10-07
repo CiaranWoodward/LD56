@@ -3,15 +3,15 @@ extends Node2D
 
 var _menu: Menu
 
+func get_type() -> String:
+	return ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_menu = get_tree().root.get_node("Menu")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
-func _on_preview() -> void:
 	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -20,7 +20,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	on_item_collected()
 
 func on_item_collected() -> void:
-	_menu.add_item()
+	_menu.add_item(self)
 	
 func on_item_collected_visual_queue() -> void:
 	$Visuals/Sparkles.emitting = true

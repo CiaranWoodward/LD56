@@ -1,8 +1,12 @@
+class_name Cassette
 extends Item
 
 @export var cassette_name: String
 
 var _radio: GlobalRadio
+
+func get_type() -> String:
+	return "cassette"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,9 +16,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	super._ready()
-	
-func _on_preview() -> void:
-	_radio.play_cassette(cassette_name)
 
 func on_item_collected() -> void:
 	super.on_item_collected()

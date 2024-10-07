@@ -7,8 +7,11 @@ var _cassettes: Dictionary
 
 var _music_player: AudioStreamPlayer
 
+var _is_playing_cassette
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_is_playing_cassette = false
 	_tracks = {
 		"rock": load("res://Audio/Music/bacground-rock.ogg"),
 		"lofi": load("res://Audio/Music/low-fi-rock.ogg"),
@@ -44,8 +47,13 @@ func play_music(track: String) -> void:
 	_music_player.stream = _tracks[track]
 	_music_player.play(0)
 	
+func is_playing_cassette():
+	return _is_playing_cassette
+	
+	
 func play_cassette(track: String) -> void:
 	assert(track in _cassettes)
+	_is_playing_cassette = true
 	_music_player.finished.disconnect(_loop)
 	var position = _music_player.get_playback_position()
 	_music_player.stop()
@@ -58,6 +66,7 @@ func play_cassette(track: String) -> void:
 		_music_player.bus = old_bus
 		_music_player.stream = old_stream
 		_music_player.play(position)
+		_is_playing_cassette = false
 	)
 	_music_player.play(0)
 	
