@@ -121,11 +121,10 @@ func _on_tricks_animation_finished(anim_name: StringName) -> void:
 		get_tree().call_group('Menu',"add_score",trick_points)
 		get_tree().call_group('Menu',"increase_multiplier")
 		trick_sound(PASS_SOUNDS)
+		get_tree().call_group('Animation',"emit_particles")
 		print("Trick passed!")
 		
 		
-
-
 func _on_player_landed() -> void:
 	print("landed!")
 	landed = true
