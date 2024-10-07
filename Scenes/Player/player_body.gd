@@ -1,7 +1,7 @@
 extends Node2D
 
 #Play a random trick animation
-func play_random_trick():
+func play_random_trick(speed: float):
 	
 	var rng  := RandomNumberGenerator.new()
 	
@@ -14,7 +14,8 @@ func play_random_trick():
 			trick_list.remove_at(i)
 	
 	#Play random trick:
-	$Tricks.play(trick_list[rng.randi_range(0,len(trick_list)-1)])
+	$"../../Audio".play_trick()
+	$Tricks.play(trick_list[rng.randi_range(0,len(trick_list)-1)],-1,speed)
 
 #Check whether animation is currently playing:			
 func animation_status() :

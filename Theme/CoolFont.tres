@@ -13,6 +13,10 @@ char_settings = {
 "advance": 8,
 "offset": Vector2(0, 0)
 },
+"+-": {
+"advance": 0,
+"offset": Vector2(0, 4)
+},
 "yqpgj": {
 "advance": 0,
 "offset": Vector2(0, 8)
@@ -33,7 +37,7 @@ preview_chars = "The quick Brown Fox jumped over the lazy dog
 
 Tiny Hawk Pro-Skater
 
-01234567890.,#/():\"! hello ciaran
+01234567890.,#/():\"! hello ciaran Game+
 
 Hi nay do you like my font?"
 
@@ -371,7 +375,7 @@ cache/0/16/0/glyphs/95/size = Vector2(17, 32)
 cache/0/16/0/glyphs/95/uv_rect = Rect2(136, 224, 17, 32)
 cache/0/16/0/glyphs/95/texture_idx = 0
 cache/0/16/0/glyphs/45/advance = Vector2(15, 0)
-cache/0/16/0/glyphs/45/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/45/offset = Vector2(0, 4)
 cache/0/16/0/glyphs/45/size = Vector2(13, 32)
 cache/0/16/0/glyphs/45/uv_rect = Rect2(170, 224, 13, 32)
 cache/0/16/0/glyphs/45/texture_idx = 0
@@ -436,7 +440,7 @@ cache/0/16/0/glyphs/57/size = Vector2(17, 32)
 cache/0/16/0/glyphs/57/uv_rect = Rect2(40, 288, 17, 32)
 cache/0/16/0/glyphs/57/texture_idx = 0
 cache/0/16/0/glyphs/43/advance = Vector2(17, 0)
-cache/0/16/0/glyphs/43/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/43/offset = Vector2(0, 4)
 cache/0/16/0/glyphs/43/size = Vector2(15, 32)
 cache/0/16/0/glyphs/43/uv_rect = Rect2(73, 288, 15, 32)
 cache/0/16/0/glyphs/43/texture_idx = 0

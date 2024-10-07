@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7r1xj1ofs50n"]
+
+[ext_resource type="Script" path="res://Scenes/Obstacles/grind_rail.gd" id="1_edyra"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/GrindRailBody.gd" id="2_inxqj"]
+
+[node name="GrindRail" type="Line2D"]
+script = ExtResource("1_edyra")
+
+[node name="GrindRailBody" type="StaticBody2D" parent="."]
+collision_layer = 4
+script = ExtResource("2_inxqj")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvtl63tbiye8d"
+path="res://.godot/imported/Big Leagues.wav-777e40068fd9a751be27c11fa1ee2bc4.sample"
+
+[deps]
+
+source_file="res://Audio/Voice/Big Leagues.wav"
+dest_files=["res://.godot/imported/Big Leagues.wav-777e40068fd9a751be27c11fa1ee2bc4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

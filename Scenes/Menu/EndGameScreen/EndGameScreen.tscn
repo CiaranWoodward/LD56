@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3cnbqus82uqp"]
+
+[ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_83wph"]
+[ext_resource type="Script" path="res://Scenes/Menu/EndGameScreen/score_table.gd" id="2_5qvvf"]
+[ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="3_dfekw"]
+
+[node name="EndGameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_83wph")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Leaderboard"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Table" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_5qvvf")
+
+[node name="Name" type="VBoxContainer" parent="VBoxContainer/Table"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="TinyHawkName" type="RichTextLabel" parent="VBoxContainer/Table/Name"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 13
+text = "Tiny Hawk"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Score" type="VBoxContainer" parent="VBoxContainer/Table"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TinyHawkScore" type="RichTextLabel" parent="VBoxContainer/Table/Score"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 13
+text = "0"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "New Game+"
+script = ExtResource("3_dfekw")
+target_view = "Credits"

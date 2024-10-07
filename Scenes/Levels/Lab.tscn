@@ -1,19 +1,23 @@
-[gd_scene load_steps=17 format=3 uid="uid://np06hy4g0w3n"]
+[gd_scene load_steps=21 format=3 uid="uid://np06hy4g0w3n"]
 
-[ext_resource type="Texture2D" uid="uid://bf0xr3t2v0d4n" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
-[ext_resource type="Texture2D" uid="uid://bnjannhs5bl5e" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
-[ext_resource type="Texture2D" uid="uid://c4lon20cfa6id" path="res://Graphics/Backgrounds/Lab/WallLine0000.png" id="2_q2xds"]
-[ext_resource type="Texture2D" uid="uid://4wmrin2cr41a" path="res://Graphics/Backgrounds/Lab/Blue10000.png" id="3_o2xwc"]
-[ext_resource type="Texture2D" uid="uid://5aj3pfbha2il" path="res://Graphics/Backgrounds/Lab/Blue20000.png" id="4_q1t5g"]
-[ext_resource type="Texture2D" uid="uid://cs1d7gp0a7vb4" path="res://Graphics/Backgrounds/Lab/Jar10000.png" id="6_dnkhh"]
+[ext_resource type="Texture2D" uid="uid://b601c1mqc5w55" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
+[ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
+[ext_resource type="Texture2D" uid="uid://dr3sytymmn71d" path="res://Graphics/Backgrounds/Lab/WallLine0000.png" id="2_q2xds"]
+[ext_resource type="Texture2D" uid="uid://cbd1loxd2q2ir" path="res://Graphics/Backgrounds/Lab/Blue10000.png" id="3_o2xwc"]
+[ext_resource type="Texture2D" uid="uid://c8pi2pcgog82x" path="res://Graphics/Backgrounds/Lab/Blue20000.png" id="4_q1t5g"]
+[ext_resource type="Texture2D" uid="uid://b8nx5ebs4tibl" path="res://Graphics/Backgrounds/Lab/Jar10000.png" id="6_dnkhh"]
 [ext_resource type="PackedScene" uid="uid://cthymyo21gwdv" path="res://Scenes/Player/Player.tscn" id="6_om1mj"]
-[ext_resource type="Texture2D" uid="uid://bp26074x3pucc" path="res://Graphics/Backgrounds/Lab/Jar20000.png" id="7_35j14"]
-[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe.tscn" id="7_u3a6o"]
-[ext_resource type="Texture2D" uid="uid://bgnh1ck3bugvo" path="res://Graphics/Backgrounds/Lab/Jar30000.png" id="8_2ra4m"]
-[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor.tscn" id="8_kfcxw"]
+[ext_resource type="Texture2D" uid="uid://bufokqij7twi3" path="res://Graphics/Backgrounds/Lab/Jar20000.png" id="7_35j14"]
+[ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="7_u3a6o"]
+[ext_resource type="Texture2D" uid="uid://ukexrxxyrw0o" path="res://Graphics/Backgrounds/Lab/Jar30000.png" id="8_2ra4m"]
+[ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="8_kfcxw"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="9_j4p03"]
-[ext_resource type="Texture2D" uid="uid://b83nh5w1uib40" path="res://Graphics/Backgrounds/Lab/Jar40000.png" id="9_qv0yt"]
-[ext_resource type="Texture2D" uid="uid://d2godk0pjnr8w" path="res://Graphics/Backgrounds/Particles/Circle0000.png" id="10_77vyl"]
+[ext_resource type="Texture2D" uid="uid://cb4dgqqmme4mn" path="res://Graphics/Backgrounds/Lab/Jar40000.png" id="9_qv0yt"]
+[ext_resource type="Texture2D" uid="uid://bxrgv6w87qdqn" path="res://Graphics/Backgrounds/Particles/Circle0000.png" id="10_77vyl"]
+[ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="12_ggm48"]
+[ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="16_4mdg0"]
+[ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="17_2nn55"]
+[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="18_khroi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l76o0"]
 animations = [{
@@ -39,12 +43,14 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.106667, 0.88, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Beach" type="Node2D"]
+[node name="Lab" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Wall" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(2, 1.4)
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Background/Wall"]
 self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
@@ -54,6 +60,8 @@ offset_right = 2750.0
 offset_bottom = 1099.0
 texture = ExtResource("1_8jwel")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Wall"]
 self_modulate = Color(0.9375, 0.9375, 0.9375, 1)
@@ -63,6 +71,8 @@ offset_right = 2750.0
 offset_bottom = 1099.0
 texture = ExtResource("1_8jwel")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Background/Wall"]
 self_modulate = Color(0.855469, 0.855469, 0.855469, 1)
@@ -72,71 +82,85 @@ offset_right = 2747.0
 offset_bottom = 1095.0
 texture = ExtResource("2_q2xds")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Blue10000" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(561, 16)
 texture = ExtResource("3_o2xwc")
+metadata/_edit_lock_ = true
 
 [node name="Blue10001" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(46, 351)
 rotation = 1.5708
 texture = ExtResource("3_o2xwc")
+metadata/_edit_lock_ = true
 
 [node name="Blue10002" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(1403, 621)
 rotation = 1.5708
 texture = ExtResource("3_o2xwc")
+metadata/_edit_lock_ = true
 
 [node name="Blue20000" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(964, 518)
 texture = ExtResource("4_q1t5g")
+metadata/_edit_lock_ = true
 
 [node name="Blue20001" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(1443, 46)
 rotation = 3.14159
 texture = ExtResource("4_q1t5g")
+metadata/_edit_lock_ = true
 
 [node name="Blue20002" type="Sprite2D" parent="Background/Wall"]
 position = Vector2(-465, 478)
 rotation = 3.14159
 texture = ExtResource("4_q1t5g")
+metadata/_edit_lock_ = true
 
 [node name="Back" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.16, 1.06)
 scroll_offset = Vector2(866, 621)
+metadata/_edit_lock_ = true
 
 [node name="Mid" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.14, 1.04)
 scroll_offset = Vector2(866, 621)
+metadata/_edit_lock_ = true
 
 [node name="Floor" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
 position = Vector2(181.667, 60)
 scale = Vector2(292.5, 10.67)
 texture = ExtResource("1_528hh")
+metadata/_edit_lock_ = true
 
 [node name="Table" type="Sprite2D" parent="Background/Mid/Floor"]
 self_modulate = Color(0.503906, 0.503906, 0.503906, 1)
 position = Vector2(-1.37251, -13.8238)
 scale = Vector2(0.0513533, 0.382693)
 texture = ExtResource("1_528hh")
+metadata/_edit_lock_ = true
 
 [node name="Tabletop" type="Sprite2D" parent="Background/Mid/Floor"]
 self_modulate = Color(0.796875, 0.796875, 0.796875, 1)
 position = Vector2(-1.37322, -16.792)
 scale = Vector2(0.0514245, 0.10157)
 texture = ExtResource("1_528hh")
+metadata/_edit_lock_ = true
 
 [node name="Jar" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.400146, 0.6875, 0.660561, 1)
 position = Vector2(-32.9086, -74.5829)
 scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
+metadata/_edit_lock_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Mid/Floor/Tabletop/Jar"]
-position = Vector2(-3.47827e-05, 36.3275)
+position = Vector2(3.8147e-05, 35.2267)
 amount = 6
 lifetime = 2.2
 local_coords = true
@@ -148,6 +172,7 @@ scale_amount_min = 0.1
 scale_amount_max = 0.4
 color = Color(1, 1, 1, 0.521569)
 color_ramp = SubResource("Gradient_sx1sj")
+metadata/_edit_lock_ = true
 
 [node name="Jar2" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.771945, 0.431671, 0.800781, 1)
@@ -155,6 +180,7 @@ position = Vector2(-18.9474, -68.4314)
 scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 1
+metadata/_edit_lock_ = true
 
 [node name="Jar3" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.953125, 0.703907, 0.383484, 1)
@@ -162,6 +188,7 @@ position = Vector2(-3.76732, -103.802)
 scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 2
+metadata/_edit_lock_ = true
 
 [node name="Jar4" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.287464, 0.882813, 0.282776, 1)
@@ -169,42 +196,936 @@ position = Vector2(10.6371, -89.9616)
 scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
 frame = 3
+metadata/_edit_lock_ = true
 
 [node name="Fore" type="Parallax2D" parent="Background"]
-scroll_offset = Vector2(866, 621)
+scroll_offset = Vector2(2067, 621)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("6_om1mj")]
-position = Vector2(514, 446)
+position = Vector2(-397, 498)
 
-[node name="QuarterPipe" parent="." instance=ExtResource("7_u3a6o")]
-position = Vector2(233, 623)
+[node name="Crate2" parent="." instance=ExtResource("12_ggm48")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(842, 328)
+deceleration_factor = 100
+acceleration_penalty = 1.0
+acceleration_penalty_time = 1
 
-[node name="QuarterPipe2" parent="." instance=ExtResource("7_u3a6o")]
-position = Vector2(1516, 486)
+[node name="QuarterPipe" parent="Crate2" instance=ExtResource("7_u3a6o")]
+position = Vector2(-1442, 295)
+
+[node name="QuarterPipe2" parent="Crate2" instance=ExtResource("7_u3a6o")]
+position = Vector2(1875, 158)
 rotation = -1.5708
 
-[node name="Floor" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(359, 623)
+[node name="Floor" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(-1316, 295)
 
-[node name="Floor2" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(485, 623)
+[node name="Floor2" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(-1190, 295)
 
-[node name="Floor3" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(613, 623)
+[node name="Floor3" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(-1062, 295)
+
+[node name="Floor5" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1226, 295)
+
+[node name="Floor6" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1352, 295)
+
+[node name="Floor7" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1480, 295)
+
+[node name="Floor8" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1607, 295)
+
+[node name="Floor26" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1226, 295)
+
+[node name="Floor27" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1352, 295)
+
+[node name="Floor28" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1480, 295)
+
+[node name="Floor29" parent="Crate2" instance=ExtResource("8_kfcxw")]
+position = Vector2(1607, 295)
 
 [node name="Floor4" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(740, 623)
-
-[node name="Floor5" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(867, 623)
-
-[node name="Floor6" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(993, 623)
-
-[node name="Floor7" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1121, 623)
-
-[node name="Floor8" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1248, 623)
+position = Vector2(1941, 623)
 
 [node name="PlayerCam" parent="." instance=ExtResource("9_j4p03")]
+
+[node name="Floor12" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3388, 1328.67)
+
+[node name="Crate5" parent="." instance=ExtResource("12_ggm48")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(1174, 1053)
+deceleration_factor = 100
+acceleration_penalty = 1.0
+acceleration_penalty_time = 1
+
+[node name="QuarterPipe3" parent="Crate5" instance=ExtResource("7_u3a6o")]
+position = Vector2(-2984, 275.672)
+
+[node name="QuarterPipe4" parent="Crate5" instance=ExtResource("7_u3a6o")]
+position = Vector2(2990, 138.672)
+rotation = -1.5708
+
+[node name="Floor9" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(-2858, 275.672)
+
+[node name="Floor10" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(-2732, 275.672)
+
+[node name="Floor11" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(-2604, 275.672)
+
+[node name="Floor13" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(2341, 275.672)
+
+[node name="Floor14" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(2467, 275.672)
+
+[node name="Floor15" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(2595, 275.672)
+
+[node name="Floor16" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(2722, 275.672)
+
+[node name="Floor71" parent="Crate5" instance=ExtResource("8_kfcxw")]
+position = Vector2(-2476, 276)
+
+[node name="QuarterPipe5" parent="." instance=ExtResource("7_u3a6o")]
+position = Vector2(-3249, 2766.67)
+
+[node name="QuarterPipe6" parent="." instance=ExtResource("7_u3a6o")]
+position = Vector2(5519, 2630)
+rotation = -1.5708
+
+[node name="Floor17" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-3123, 2766.67)
+
+[node name="Floor18" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-2997, 2766.67)
+
+[node name="Floor19" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-2869, 2766.67)
+
+[node name="Floor20" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-2742, 2766.67)
+
+[node name="Floor21" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(4870, 2767)
+
+[node name="Floor22" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(4996, 2767)
+
+[node name="Floor23" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(5124, 2767)
+
+[node name="Floor24" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(5251, 2767)
+
+[node name="Floor25" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1941, 623)
+
+[node name="Floor30" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1306, 623)
+
+[node name="Floor31" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1433, 623)
+
+[node name="Floor32" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1559, 623)
+
+[node name="Floor33" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1687, 623)
+
+[node name="Floor34" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1814, 623)
+
+[node name="Floor35" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(671, 712)
+
+[node name="Floor36" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(798, 712)
+
+[node name="Floor37" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(924, 712)
+
+[node name="Floor38" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1052, 712)
+
+[node name="Floor39" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1179, 712)
+
+[node name="Floor40" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(36, 623)
+
+[node name="Floor41" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(163, 623)
+
+[node name="Floor42" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(289, 623)
+
+[node name="Floor43" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(417, 623)
+
+[node name="Floor44" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(544, 623)
+
+[node name="Floor45" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-91.9999, 623)
+
+[node name="Crate" parent="." instance=ExtResource("12_ggm48")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(6, 578)
+deceleration_factor = 100
+acceleration_penalty = 1.0
+acceleration_penalty_time = 1
+
+[node name="Floor46" parent="Crate" instance=ExtResource("8_kfcxw")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(273, -81)
+scale = Vector2(0.397568, 13.282)
+
+[node name="Fore12" type="Parallax2D" parent="."]
+scroll_offset = Vector2(1856, 370)
+
+[node name="Fore13" type="Parallax2D" parent="."]
+scroll_offset = Vector2(1220, 370)
+
+[node name="Floor51" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(643, 264)
+
+[node name="Floor54" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1095, 372)
+
+[node name="Floor55" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1222, 372)
+
+[node name="Floor56" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1348, 372)
+
+[node name="Floor57" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1476, 372)
+
+[node name="Floor59" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(460, 372)
+
+[node name="Floor60" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(587, 372)
+
+[node name="Floor61" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(713, 372)
+
+[node name="Floor62" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(841, 372)
+
+[node name="Floor63" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(968, 372)
+
+[node name="Floor64" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(333, 372)
+
+[node name="Floor52" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(968, 196)
+
+[node name="Floor53" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1248, 264)
+
+[node name="GrindRail" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(1926, 334)
+
+[node name="GrindRail2" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(1676, 343)
+points = PackedVector2Array(29, 2, 119, 63, 178, 102, 268, 159, 314, 190)
+
+[node name="Floor48" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1052, 533)
+
+[node name="Floor49" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(798, 533)
+
+[node name="Ramp" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(643, 660)
+rotation = 0.785397
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp2" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(1203, 658)
+rotation = -0.785397
+scale = Vector2(0.223383, 0.153333)
+
+[node name="Floor46" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-667, 1329)
+
+[node name="Floor47" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-540, 1329)
+
+[node name="Floor50" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-414, 1329)
+
+[node name="Floor58" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-286, 1329)
+
+[node name="Floor65" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-159, 1329)
+
+[node name="Floor66" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-667, 1329)
+
+[node name="Floor67" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-540, 1329)
+
+[node name="Floor68" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-414, 1329)
+
+[node name="Floor69" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-286, 1329)
+
+[node name="Floor70" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-159, 1329)
+
+[node name="Floor72" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1175, 1329)
+
+[node name="Floor73" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1049, 1329)
+
+[node name="Floor74" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-921, 1329)
+
+[node name="Floor75" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-794, 1329)
+
+[node name="Floor76" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(603, 1329)
+
+[node name="Floor77" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(730, 1329)
+
+[node name="Floor78" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(856, 1429)
+
+[node name="Floor79" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(984, 1429)
+
+[node name="Floor80" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1111, 1429)
+
+[node name="Floor82" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(730, 1329)
+
+[node name="Floor83" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(856, 1429)
+
+[node name="Floor84" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(984, 1429)
+
+[node name="Floor85" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1111, 1429)
+
+[node name="Floor86" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-32, 1329)
+
+[node name="Floor87" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(95, 1329)
+
+[node name="Floor88" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(221, 1329)
+
+[node name="Floor89" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(349, 1329)
+
+[node name="Floor90" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(476, 1329)
+
+[node name="Floor91" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1869, 1329)
+
+[node name="Floor92" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1996, 1329)
+
+[node name="Floor93" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2122, 1329)
+
+[node name="Floor95" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2377, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor96" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1869, 1329)
+
+[node name="Floor97" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1996, 1329)
+
+[node name="Floor98" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2122, 1329)
+
+[node name="Floor99" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2250, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor101" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1234, 1429)
+
+[node name="Floor102" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1361, 1429)
+
+[node name="Floor103" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1487, 1429)
+
+[node name="Floor104" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1615, 1329)
+
+[node name="Floor105" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1742, 1329)
+
+[node name="Floor106" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2757, 1187)
+scale = Vector2(1, 5.5)
+
+[node name="Floor107" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2884, 1187)
+scale = Vector2(1, 5.5)
+
+[node name="Floor108" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3010, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor109" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3138, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor110" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3265, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor111" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2757, 1187)
+scale = Vector2(1, 5.5)
+
+[node name="Floor112" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2884, 1187)
+scale = Vector2(1, 5.5)
+
+[node name="Floor113" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3010, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor114" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3138, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor115" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3265, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor116" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2122, 1329)
+
+[node name="Floor119" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2503, 1278)
+scale = Vector2(1, 5.5)
+
+[node name="Floor120" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2630, 1187)
+scale = Vector2(1, 5.5)
+
+[node name="Floor121" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1593, 372)
+
+[node name="Floor100" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(984, 1329)
+acceleration_factor = 40
+
+[node name="Floor117" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1111, 1329)
+acceleration_factor = 40
+
+[node name="Floor122" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(984, 1329)
+acceleration_factor = 40
+
+[node name="Floor123" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1111, 1329)
+acceleration_factor = 40
+
+[node name="Floor124" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1234, 1329)
+acceleration_factor = 40
+
+[node name="Floor125" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1361, 1329)
+acceleration_factor = 40
+
+[node name="Floor118" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(984, 1221)
+acceleration_factor = 40
+
+[node name="Floor126" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1111, 1221)
+acceleration_factor = 40
+
+[node name="Floor127" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(984, 1221)
+acceleration_factor = 40
+
+[node name="Floor128" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1111, 1221)
+acceleration_factor = 40
+
+[node name="Floor129" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1234, 1221)
+acceleration_factor = 40
+
+[node name="Floor130" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(1361, 1221)
+acceleration_factor = 40
+
+[node name="Floor131" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(984, 1098)
+
+[node name="Floor132" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1111, 1098)
+
+[node name="Floor133" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(984, 1098)
+
+[node name="Floor134" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1111, 1098)
+
+[node name="Floor135" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1234, 1098)
+
+[node name="Floor136" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1361, 1098)
+
+[node name="Crate3" parent="." instance=ExtResource("12_ggm48")]
+position = Vector2(982, 1386)
+
+[node name="Crate4" parent="." instance=ExtResource("12_ggm48")]
+position = Vector2(1362, 1387)
+
+[node name="Ramp3" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(834, 1368)
+rotation = 0.785397
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp4" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(1503, 1366)
+rotation = -0.785397
+scale = Vector2(0.223383, 0.153333)
+
+[node name="Floor71" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2230, 2767)
+acceleration_factor = 40
+
+[node name="Floor94" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2103, 2767)
+acceleration_factor = 40
+
+[node name="Floor137" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1977, 2767)
+
+[node name="Floor138" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1849, 2767)
+
+[node name="Floor139" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1722, 2767)
+
+[node name="Floor140" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2230, 2767)
+acceleration_factor = 40
+
+[node name="Floor141" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2103, 2767)
+acceleration_factor = 40
+
+[node name="Floor142" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1977, 2767)
+
+[node name="Floor143" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1849, 2767)
+
+[node name="Floor144" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1722, 2767)
+
+[node name="Floor145" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-2612, 2767)
+
+[node name="Floor146" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2484, 2767)
+acceleration_factor = 40
+
+[node name="Floor147" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-2357, 2767)
+acceleration_factor = 40
+
+[node name="Floor148" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-960, 2767)
+
+[node name="Floor149" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-833, 2767)
+
+[node name="Floor150" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-960, 2767)
+
+[node name="Floor151" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-833, 2767)
+
+[node name="Floor152" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-1595, 2767)
+
+[node name="Floor153" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-1468, 2767)
+acceleration_factor = 40
+
+[node name="Floor154" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-1342, 2767)
+acceleration_factor = 40
+
+[node name="Floor155" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-1214, 2767)
+acceleration_factor = 40
+
+[node name="Floor156" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-1087, 2767)
+acceleration_factor = 40
+
+[node name="Floor157" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-450, 2767)
+acceleration_factor = 40
+
+[node name="Floor158" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-323, 2767)
+acceleration_factor = 40
+
+[node name="Floor159" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-197, 2767)
+acceleration_factor = 40
+
+[node name="Floor160" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-69, 2767)
+acceleration_factor = 40
+
+[node name="Floor161" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(58, 2767)
+acceleration_factor = 40
+
+[node name="Floor162" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-450, 2767)
+acceleration_factor = 40
+
+[node name="Floor163" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-323, 2767)
+acceleration_factor = 40
+
+[node name="Floor164" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-197, 2767)
+acceleration_factor = 40
+
+[node name="Floor165" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-69, 2767)
+acceleration_factor = 40
+
+[node name="Floor166" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(58, 2767)
+acceleration_factor = 40
+
+[node name="Floor167" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-704, 2767)
+
+[node name="Floor168" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(-577, 2767)
+
+[node name="Floor169" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(820, 2767)
+
+[node name="Floor170" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(947, 2767)
+
+[node name="Floor171" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(820, 2767)
+
+[node name="Floor172" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(947, 2767)
+
+[node name="Floor173" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(185, 2767)
+
+[node name="Floor174" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(312, 2767)
+
+[node name="Floor175" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(438, 2767)
+
+[node name="Floor176" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(566, 2767)
+
+[node name="Floor177" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(693, 2767)
+
+[node name="Floor26" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1052, 2767)
+
+[node name="Floor178" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1564, 2767.33)
+
+[node name="Floor179" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1691, 2767.33)
+
+[node name="Floor180" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1817, 2767.33)
+
+[node name="Floor181" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1945, 2767.33)
+
+[node name="Floor182" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2072, 2767.33)
+
+[node name="Floor183" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1564, 2767.33)
+
+[node name="Floor184" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1691, 2767.33)
+
+[node name="Floor185" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1817, 2767.33)
+
+[node name="Floor186" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1945, 2767.33)
+
+[node name="Floor187" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2072, 2767.33)
+
+[node name="Floor188" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1182, 2767.33)
+
+[node name="Floor189" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1310, 2767.33)
+
+[node name="Floor190" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(1437, 2767.33)
+
+[node name="Floor191" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2834, 2767.33)
+
+[node name="Floor192" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2961, 2767.33)
+
+[node name="Floor193" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2834, 2767.33)
+
+[node name="Floor194" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2961, 2767.33)
+
+[node name="Floor195" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2199, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor196" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2326, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor197" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2452, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor198" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(2580, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor199" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(2707, 2767.33)
+
+[node name="Floor200" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3344, 2767.33)
+
+[node name="Floor201" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3471, 2767.33)
+
+[node name="Floor202" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3597, 2767.33)
+
+[node name="Floor203" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3725, 2767.33)
+
+[node name="Floor204" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3852, 2767.33)
+
+[node name="Floor205" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(3344, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor206" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(3471, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor207" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(3597, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor208" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3725, 2767.33)
+
+[node name="Floor209" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3852, 2767.33)
+
+[node name="Floor210" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3090, 2767.33)
+
+[node name="Floor211" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(3217, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor212" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(4614, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor213" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(4741, 2767.33)
+
+[node name="Floor214" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(4614, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor215" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(4741, 2767.33)
+
+[node name="Floor216" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(3979, 2767.33)
+
+[node name="Floor217" parent="." instance=ExtResource("8_kfcxw")]
+position = Vector2(4106, 2767.33)
+
+[node name="Floor218" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(4232, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor219" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(4360, 2767.33)
+acceleration_factor = 40
+
+[node name="Floor220" parent="." instance=ExtResource("8_kfcxw")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(4487, 2767.33)
+acceleration_factor = 40
+
+[node name="Ramp5" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2526, 894)
+rotation = 0.785397
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp6" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2563, 805)
+rotation = 1.57079
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp7" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2527, 717)
+rotation = 2.35619
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp8" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2439, 680)
+rotation = 3.14159
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp9" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2341, 680)
+rotation = 3.14159
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp10" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2252, 717)
+rotation = 3.92699
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp11" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2216, 807)
+rotation = 4.71238
+scale = Vector2(0.195097, 0.153333)
+
+[node name="Ramp12" parent="." instance=ExtResource("17_2nn55")]
+position = Vector2(-2252, 897)
+rotation = 5.49778
+scale = Vector2(0.195097, 0.153333)
+
+[node name="GrindRail3" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(-2447, 1046)
+points = PackedVector2Array(-27, 16, 59, -44, 135, 17)
+
+[node name="GrindRail4" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(712, 2697)
+points = PackedVector2Array(-84, 64, 61, -43, 256, -233, 354, -407, 432, -240, 606, -24, 767, 71)
+
+[node name="GrindRail5" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(-93, 1245)
+points = PackedVector2Array(80, -46, 132, -98, 160, -194, 154, -282, 96, -322, 28, -342, -48, -346, -104, -340, -158, -332, -200, -302, -220, -248, -226, -200, -216, -150, -192, -118, -162, -86, -138, -64, -118, -38)
+
+[node name="GrindRail6" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(600, 1250)
+points = PackedVector2Array(-50, 11, 25, -23, 88, -81, 131, -144)
+
+[node name="GrindRail7" parent="." instance=ExtResource("16_4mdg0")]
+position = Vector2(933, 1577)
+points = PackedVector2Array(857, -321, 777, -365, 715, -413, 672, -468)
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(0.0156863, 0, 1, 1)
+position = Vector2(967, 88)
+texture = ExtResource("18_khroi")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+modulate = Color(0.0156863, 0, 1, 1)
+position = Vector2(1086, 2005)
+texture = ExtResource("18_khroi")

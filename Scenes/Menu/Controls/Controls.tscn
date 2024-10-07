@@ -29,8 +29,10 @@ grow_vertical = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Controls"
 fit_content = true
+autowrap_mode = 0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
 layout_mode = 2

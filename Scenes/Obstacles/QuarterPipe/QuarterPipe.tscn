@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcayb63x24w31"]
+
+[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="1_vmmvv"]
+[ext_resource type="Script" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.gd" id="1_w0m7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2tgy"]
+size = Vector2(128, 22.435)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnkuc"]
+size = Vector2(118.5, 174.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy2yw"]
+size = Vector2(196, 91)
+
+[node name="QuarterPipe" type="StaticBody2D"]
+collision_layer = 6
+script = ExtResource("1_w0m7h")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Visuals"]
+position = Vector2(-96, -42)
+rotation = 0.785398
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Visuals"]
+position = Vector2(-136, -141)
+rotation = 1.5708
+scale = Vector2(1, 0.167969)
+texture = ExtResource("1_vmmvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.217525)
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-96, -41)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-136, -141)
+rotation = 1.57393
+shape = SubResource("RectangleShape2D_s2tgy")
+
+[node name="Centre" type="Marker2D" parent="."]
+position = Vector2(65, -201)
+
+[node name="Exit1" type="Marker2D" parent="."]
+position = Vector2(-125, -205)
+rotation = -1.5708
+
+[node name="Exit2" type="Marker2D" parent="."]
+position = Vector2(64, -12)
+
+[node name="MaxBounds" type="Area2D" parent="."]
+collision_layer = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaxBounds"]
+position = Vector2(-104, -133)
+shape = SubResource("RectangleShape2D_rnkuc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MaxBounds"]
+position = Vector2(-19, -30.5)
+shape = SubResource("RectangleShape2D_wy2yw")

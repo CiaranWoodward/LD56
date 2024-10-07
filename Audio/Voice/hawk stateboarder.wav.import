@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3bg7032ac23m"
+path="res://.godot/imported/hawk stateboarder.wav-c5daa9116f42cafd381dd5c6d61a5557.sample"
+
+[deps]
+
+source_file="res://Audio/Voice/hawk stateboarder.wav"
+dest_files=["res://.godot/imported/hawk stateboarder.wav-c5daa9116f42cafd381dd5c6d61a5557.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
