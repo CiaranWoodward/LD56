@@ -10,67 +10,73 @@ layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_fakoy")
 script = ExtResource("2_uu24j")
-_hats = NodePath("VBoxContainer/OptionButton")
-_cassettes = NodePath("VBoxContainer/GridContainer")
+_hats = NodePath("PanelContainer/MarginContainer/VBoxContainer/OptionButton")
+_cassettes = NodePath("PanelContainer/MarginContainer/VBoxContainer/GridContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -8.0
-offset_right = 250.0
-offset_bottom = 8.0
+offset_left = -284.0
+offset_top = -207.0
+offset_right = 284.0
+offset_bottom = 207.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Inventory"
+text = "Find collectables to unlock more!"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Panel" type="Panel" parent="VBoxContainer"]
+[node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="PlayerBody" parent="VBoxContainer/Panel" instance=ExtResource("3_anp3f")]
+[node name="PlayerBody" parent="PanelContainer/MarginContainer/VBoxContainer/Panel" instance=ExtResource("3_anp3f")]
 position = Vector2(250, 93)
 scale = Vector2(2, 2)
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Hat"
 fit_content = true
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel7" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Cassettes"
 fit_content = true
 
-[node name="GridContainer" type="HFlowContainer" parent="VBoxContainer"]
+[node name="GridContainer" type="HFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
 script = ExtResource("4_57uok")

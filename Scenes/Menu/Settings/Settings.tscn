@@ -11,8 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_yoess")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,15 +19,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -8.0
+offset_top = -188.0
 offset_right = 250.0
-offset_bottom = 8.0
+offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -36,14 +42,14 @@ text = "Audio"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Track"
 fit_content = true
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 selected = 0
@@ -57,14 +63,14 @@ popup/item_3/text = "Ambient"
 popup/item_3/id = 3
 script = ExtResource("2_vjgai")
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Music"
 fit_content = true
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel4"]
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/RichTextLabel4"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -80,19 +86,19 @@ focus_mode = 0
 script = ExtResource("2_rxao2")
 bus_name = "Music"
 
-[node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
 bus_name = "Music"
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Voice"
 fit_content = true
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel5"]
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/RichTextLabel5"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -108,19 +114,19 @@ focus_mode = 0
 script = ExtResource("2_rxao2")
 bus_name = "Voice"
 
-[node name="VoiceVolume" type="HSlider" parent="VBoxContainer"]
+[node name="VoiceVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
 bus_name = "Voice"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "Effects"
 fit_content = true
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel2"]
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/RichTextLabel2"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -136,19 +142,19 @@ focus_mode = 0
 script = ExtResource("2_rxao2")
 bus_name = "Effects"
 
-[node name="EffectsVolume" type="HSlider" parent="VBoxContainer"]
+[node name="EffectsVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
 bus_name = "Effects"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 13
 text = "UI"
 fit_content = true
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/RichTextLabel3"]
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/RichTextLabel3"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -164,15 +170,15 @@ focus_mode = 0
 script = ExtResource("2_rxao2")
 bus_name = "UI"
 
-[node name="UIVolume" type="HSlider" parent="VBoxContainer"]
+[node name="UIVolume" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_vy60x")
 bus_name = "UI"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
 script = ExtResource("2_cuo8u")

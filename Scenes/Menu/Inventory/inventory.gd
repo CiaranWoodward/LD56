@@ -18,6 +18,8 @@ var hat = "none"
 
 var _radio: GlobalRadio
 
+var collected_items: Array[String] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_radio = get_tree().root.get_node("Radio")
@@ -53,6 +55,7 @@ func _add_hat(picked_up: HatPickup):
 	_hats.set_item_disabled(index, false)
 	_hats.select(index)
 	hat = picked_up.hat_name
+	collected_items.append(picked_up.hat_name)
 	
 func _add_cassette(cassette: Cassette):
 	var button = Button.new()
@@ -60,3 +63,4 @@ func _add_cassette(cassette: Cassette):
 	var cassette_name = cassette.cassette_name
 	button.pressed.connect(func(): _radio.play_cassette(cassette_name))
 	_cassettes.add_child(button)
+	collected_items.append(cassette_name)

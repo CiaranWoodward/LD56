@@ -13,39 +13,45 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7a08x")
 script = ExtResource("2_roq4n")
-level_score = NodePath("VBoxContainer/HSplitContainer/VBoxContainer2/LevelScore")
-total_score = NodePath("VBoxContainer/HSplitContainer/VBoxContainer2/TotalScore")
-items_found = NodePath("VBoxContainer/HSplitContainer/VBoxContainer2/ItemsFound")
+level_score = NodePath("PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2/LevelScore")
+total_score = NodePath("PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2/TotalScore")
+items_found = NodePath("PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2/ItemsFound")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -216.0
+offset_top = -107.0
+offset_right = 216.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Level Complete"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -54,7 +60,7 @@ text = "Items Found"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -63,7 +69,7 @@ text = "Level Score"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -72,13 +78,13 @@ text = "Total Score"
 fit_content = true
 autowrap_mode = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ItemsFound" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="ItemsFound" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -88,7 +94,7 @@ text = "2"
 fit_content = true
 autowrap_mode = 0
 
-[node name="LevelScore" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="LevelScore" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -98,7 +104,7 @@ text = "12345"
 fit_content = true
 autowrap_mode = 0
 
-[node name="TotalScore" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="TotalScore" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -108,10 +114,10 @@ text = "1234567"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LevelButton" type="Button" parent="VBoxContainer"]
+[node name="LevelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Next Level"
 script = ExtResource("2_u6bv0")

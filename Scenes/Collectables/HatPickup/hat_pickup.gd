@@ -15,6 +15,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	super._process(delta)
+	
+func has_been_collected() -> bool:
+	return _inventory.collected_items.any(func(item): return item == hat_name)
 
 func on_item_collected() -> void:
 	super.on_item_collected()

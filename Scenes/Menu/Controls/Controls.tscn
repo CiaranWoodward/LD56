@@ -12,21 +12,80 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_67rgj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -206.0
-offset_top = -93.0
-offset_right = 206.0
-offset_bottom = 93.0
+offset_left = -252.0
+offset_top = -250.5
+offset_right = 252.0
+offset_bottom = 250.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "How to Win!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "1. Complete tricks to increase speed"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "2. Pick up collectables!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "3. Reach the target speed of the level"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "4. Jump up quarter pipe"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "5. Win the level"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "6. Repeat!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -34,32 +93,41 @@ text = "Controls"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
-text = "Movement"
+text = "Jump/Trick"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/normal_font_size = 13
-text = "Jump"
+text = "Quicktime Tricks"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer"]
+[node name="RichTextLabel7" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 13
+text = "Brake/Reverse"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -68,33 +136,42 @@ text = "Pause"
 fit_content = true
 autowrap_mode = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HSplitContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 13
-text = "WASD"
+text = "SPACE"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 13
-text = "W or SPACE"
+text = "WASD / ARROWS"
 fit_content = true
 autowrap_mode = 0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer/HSplitContainer/VBoxContainer2"]
+[node name="RichTextLabel7" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 13
+text = "S"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -104,11 +181,11 @@ text = "ESCAPE"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Back"
+text = "Continue"
 script = ExtResource("2_m0eim")
 target_view = "Start"

@@ -160,6 +160,7 @@ func restart_level():
 	if is_instance_valid(_active_level) and is_instance_valid(_active_scene):
 		_active_level = _active_scene.instantiate()
 		_player = _active_level.find_child("Player")
+		_hud._set_target(_player.TARGET_SPEED / 40)
 		_level_item_count = 0
 		reset_score()
 		reset_multiplier()

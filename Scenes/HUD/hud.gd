@@ -2,6 +2,7 @@ class_name Hud
 extends Control
 
 @export var speed: RichTextLabel
+@export var target: RichTextLabel
 @export var level_name: RichTextLabel
 @export var score: RichTextLabel
 @export var multiplier: RichTextLabel
@@ -23,6 +24,9 @@ func should_display(value: bool) -> void:
 	
 func _set_speed(value: String) -> void:
 	speed.text = "{0}mph".format([value])
+	
+func _set_target(value: int) -> void:
+	target.text = "Quarterpipe speed to win: {0}mph".format([String.num(value)])
 	
 func _set_level_name(value: Node) -> void:
 	level_name.text = value.name.capitalize()

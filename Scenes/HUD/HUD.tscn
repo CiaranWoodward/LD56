@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyahl5jeqxd7l"]
+[gd_scene load_steps=6 format=3 uid="uid://cyahl5jeqxd7l"]
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_y8u6a"]
 [ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="2_i837b"]
 [ext_resource type="Script" path="res://Scenes/HUD/debug.gd" id="3_u3ttm"]
 [ext_resource type="Script" path="res://Scenes/Menu/button_fx.gd" id="4_h5tu6"]
 
-[node name="Hud" type="Control" node_paths=PackedStringArray("speed", "level_name", "score", "multiplier", "canvas")]
+[sub_resource type="GDScript" id="GDScript_d5p2x"]
+script/source = "extends RichTextLabel
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("speed", "target", "level_name", "score", "multiplier", "canvas")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_y8u6a")
 script = ExtResource("2_i837b")
-speed = NodePath("HUDCanvas/MarginContainer/Speed")
+speed = NodePath("HUDCanvas/MarginContainer/VBoxContainer2/Speed")
+target = NodePath("HUDCanvas/MarginContainer/VBoxContainer2/TargetSpeedHUD")
 level_name = NodePath("HUDCanvas/MarginContainer/LevelName")
 score = NodePath("HUDCanvas/MarginContainer/VBoxContainer/Score")
 multiplier = NodePath("HUDCanvas/MarginContainer/VBoxContainer/Multiplier")
@@ -30,7 +44,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_y8u6a")
 
-[node name="Speed" type="RichTextLabel" parent="HUDCanvas/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUDCanvas/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Speed" type="RichTextLabel" parent="HUDCanvas/MarginContainer/VBoxContainer2"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -38,6 +57,13 @@ size_flags_vertical = 8
 text = "123kph"
 fit_content = true
 autowrap_mode = 0
+
+[node name="TargetSpeedHUD" type="RichTextLabel" parent="HUDCanvas/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Quarterpipe speed to win: 1234kph"
+fit_content = true
+autowrap_mode = 0
+script = SubResource("GDScript_d5p2x")
 
 [node name="LevelName" type="RichTextLabel" parent="HUDCanvas/MarginContainer"]
 clip_contents = false

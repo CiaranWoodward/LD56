@@ -13,36 +13,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_83wph")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -216.0
+offset_top = -75.0
+offset_right = 216.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Leaderboard"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Table" type="HSplitContainer" parent="VBoxContainer"]
+[node name="Table" type="HSplitContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_5qvvf")
 
-[node name="Name" type="VBoxContainer" parent="VBoxContainer/Table"]
+[node name="Name" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Table"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="TinyHawkName" type="RichTextLabel" parent="VBoxContainer/Table/Name"]
+[node name="TinyHawkName" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Table/Name"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -51,13 +57,13 @@ text = "Tiny Hawk"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Score" type="VBoxContainer" parent="VBoxContainer/Table"]
+[node name="Score" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Table"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TinyHawkScore" type="RichTextLabel" parent="VBoxContainer/Table/Score"]
+[node name="TinyHawkScore" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Table/Score"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -67,10 +73,10 @@ text = "0"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "New Game+"
 script = ExtResource("3_dfekw")
