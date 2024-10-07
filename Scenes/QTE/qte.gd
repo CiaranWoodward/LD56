@@ -28,7 +28,7 @@ func _on_player_prompt_set_texture(path) -> void:
 	
 #End QTE on timeout:
 func _on_timer_qte_timeout() -> void:
-	print("timed out!")
+	#print("timed out!")
 	end_qte()
 	
 #Start new QTE, pass in time to complete
@@ -38,13 +38,13 @@ func start_qte(time : float, speed : float, combo: bool) :
 	trick_points = (2.1-time)*10
 	trick_combo  = combo
 	
-	print("qte_active = " + str(qte_active))
-	print("anim_running = " + str(anim_running))
-	print("already_failed = " + str(already_failed))
-	print("combo = " + str(combo)) 
+	#print("qte_active = " + str(qte_active))
+	#print("anim_running = " + str(anim_running))
+	#print("already_failed = " + str(already_failed))
+	#print("combo = " + str(combo)) 
 	if !qte_active and !anim_running and !already_failed :
 		var rng  := RandomNumberGenerator.new()
-		print("Starting!")
+		#print("Starting!")
 		#Position prompt randomly around player:
 		var x : int = rng.randi_range(min_dist_x,max_dist_x)
 		var y : int = rng.randi_range(min_dist_y,max_dist_y)
@@ -59,31 +59,31 @@ func start_qte(time : float, speed : float, combo: bool) :
 		#Load prompt sprite:
 		$Sprite2D.texture = load("res://Graphics/Prompts/Prompt_" + current_key + ".png")
 		$Sprite2D.visible = true
-		print("sprite loaded")
+		#print("sprite loaded")
 		
 		#Prompt user for key, start countdown, enable checking for input
 		qte_active = true
-		print("Press " + current_key + "!")
+		#print("Press " + current_key + "!")
 		$TimerQTE.start(time)
-		print("timer started")
+		#print("timer started")
 	
 	
 #Disable checking for input and signal result:
 func end_qte(passed: bool = false) :
-	print("ending!")
+	#print("ending!")
 	#Clear Texture
 	$Sprite2D.visible = false
 	if qte_active :
 		qte_active = false
 		if passed :
-			print("QTE PASSED!\n")
+			#print("QTE PASSED!\n")
 			anim_running = true
 			get_tree().call_group('Animation',"play_random_trick",anim_speed)
 		else :
-			print("QTE FAILED\n")
+			#print("QTE FAILED\n")
 			already_failed = !trick_combo
 			emit_signal("trick_failed")
-			print("Trick failed!")
+			#print("Trick failed!")
 			
 			
 	
@@ -91,10 +91,10 @@ func end_qte(passed: bool = false) :
 func _input(event) :
 	if qte_active and Input.is_anything_pressed() :
 		if event.is_action_pressed(current_key) :
-			print("Correct key!")
+			#print("Correct key!")
 			end_qte(true)
 		else :
-			print("Wrong key!")
+			#print("Wrong key!")
 			end_qte()
 
 
@@ -111,13 +111,12 @@ func _on_player_landed() -> void:
 	#print("landed!")
 	landed = true
 	already_failed = false
-	print("landed!")
 	if qte_active :
 		end_qte()
 		
 	if anim_running :
 		anim_running = false
 		emit_signal("trick_failed")
-		print("Trick failed!")
+		#print("Trick failed!")
 		
 	

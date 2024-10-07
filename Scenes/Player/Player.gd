@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var MAX_SPEED = 1200
 @export var JUMP_TIME = 0.6
 @export var BOUNCINESS = 0.5
-@export var PUSH_MAX_SPEED = 400
+@export var PUSH_MAX_SPEED = 1200
 @export var PUSH_ACCELERATION = 4
 @export var GRIND_SHAKE = 0.4
 
@@ -42,6 +42,8 @@ var grind_rotation_tween : Tween
 
 var quarterpipe_tricks : int = 0
 
+var ascension : bool = 0 # My people need me
+
 #Transition in air -> any surface
 signal landed
 
@@ -54,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	acceleration = 0
 		
 	if player_state == PLAYER_STATE.IN_AIR:
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and quarterpipe_tricks == 0:
 			get_tree().call_group('QTE',"start_qte",1,3,false)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
@@ -179,7 +181,11 @@ func _physics_process(delta: float) -> void:
 		cancel_jump()
 	
 	var prev_velocity = velocity
-	velocity = direction * speed + gravity_effect
+	if ascension :
+		velocity = Vector2(0,-200)
+	else :
+		velocity = direction * speed + gravity_effect
+		
 	if player_state == PLAYER_STATE.IN_AIR && (sign(prev_velocity.y) < sign(velocity.y)):
 		temp_ignore_bodies.clear()
 	
@@ -216,7 +222,7 @@ func maybe_bounce(delta : float):
 		speed *= BOUNCINESS
 		if normal.y > 0:
 			gravity_effect.y -= gravity_effect.y * abs(normal.y) * 1.5
-		print("bounce")
+		#print("bounce")
 
 func cancel_jump():
 	if gravity_disabled:
@@ -269,7 +275,7 @@ func can_change_player_state(new_state: PLAYER_STATE, overlap) -> bool:
 	return false
 
 func change_player_state(new_state: PLAYER_STATE):
-	print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
+	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	
 	#Fail any in-progress tricks on landing:
 	if player_state == PLAYER_STATE.IN_AIR :
@@ -286,7 +292,7 @@ func leave_quarter_pipe():
 	
 	#Launching up from quarterpipe:
 	if current_movement_direction().y < 0 :
-		print("speed = " + str(speed))
+		#print("speed = " + str(speed))
 		if speed >= TARGET_SPEED:
 			quarterpipe_fast()
 		elif speed > 500:
@@ -379,7 +385,21 @@ func handle_on_ramp_player_state(overlaps : Array):
 
 #Transition to next level:
 func quarterpipe_fast() :
-	pass
+	var tween = create_tween()
+	tween.tween_property(Engine,"time_scale",0.5, 2).from(1)
+	get_tree().call_group('Camera',"cam_rotate",quarter_pipe_direction*90,0.5)
+	get_tree().call_group('Camera',"cam_zoom",3,3,0.5)
+	get_tree().call_group('Animation',"play_random_trick",1)
+	await get_tree().create_timer(0.85).timeout
+	
+	$"../PlayerCam".cam_frozen = true
+	ascension = true	
+	tween.stop()
+	tween.tween_property(Engine,"time_scale",1, 0.75).from(0.5)
+	
+	await get_tree().create_timer(1.3).timeout
+	get_tree().call_group('Menu',"complete_level")
+	
 	
 #Perform tricks above quarterpipe for speed boost:
 func quarterpipe_slow() :
@@ -389,10 +409,11 @@ func quarterpipe_slow() :
 	#Camera and slomo effects:
 	tween.tween_property(Engine,"time_scale",0.025, 0.75).from(1)
 	get_tree().call_group('Camera',"cam_rotate",quarter_pipe_direction*90,0.5)
-	#get_tree().call_group('Camera',"cam_zoom",3,3,0.5)
+	get_tree().call_group('Camera',"cam_zoom",3,3,0.5)
 	
 	#Start first QTE
 	get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,8,true)
+
 
 func quarterpipe_trick() :
 	var tween = create_tween()
@@ -400,7 +421,7 @@ func quarterpipe_trick() :
 		quarterpipe_tricks -= 1
 		#Next trick:
 		get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,12,true)
-		print("tricks: " + str(quarterpipe_tricks))
+		#print("tricks: " + str(quarterpipe_tricks))
 	else :
 		tween.tween_property(Engine,"time_scale",1, 0.75)
 		get_tree().call_group('Camera',"cam_rotate",0,0.5)

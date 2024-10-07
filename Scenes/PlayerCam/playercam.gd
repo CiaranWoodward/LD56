@@ -7,6 +7,8 @@ extends Camera2D
 @export var smooth_x : float = 0.3
 @export var smooth_y : float = 0.2
 
+@export var cam_frozen : bool = 0 # Freeze camera in position
+
 @export var screen_shake_decay = 0.85  # How quickly the shaking stops [0, 1].
 @export var screen_shake_max_offset = Vector2(20, 20)  # Maximum hor/ver shake in pixels.
 @export var screen_shake_max_roll = 0.03  # Maximum rotation in radians (use sparingly).
@@ -34,10 +36,11 @@ func _ready():
 
 #Linear interpolation in 2 dimensions to smooth camera movement:
 func _physics_process(delta: float) -> void:
-	unshaken_position = Vector2(lerp(position.x, player.position.x, smooth_x), lerp(position.y, player.position.y, smooth_y))
-	_shake(delta)
-	position = unshaken_position + screen_shake_offset
-	rotation_degrees = unshaken_rotation_degrees + rad_to_deg(screen_shake_rotation_offset)
+	if !cam_frozen :
+		unshaken_position = Vector2(lerp(position.x, player.position.x, smooth_x), lerp(position.y, player.position.y, smooth_y))
+		_shake(delta)
+		position = unshaken_position + screen_shake_offset
+		rotation_degrees = unshaken_rotation_degrees + rad_to_deg(screen_shake_rotation_offset)
 
 #Update smoothing coefficients:
 func cam_smooth(x: float, y: float) :
@@ -49,10 +52,12 @@ func cam_zoom(x: float, y: float, rate: float) :
 	var tween = create_tween()
 	tween.tween_property($".","zoom",Vector2(x,y),rate).from(zoom)
 
-#Gradual change of camera angle in degrees
+#Gradual change of camera angle in degrees, rotate QTE prompts to match
 func cam_rotate(angle_degrees: float, rate: float) :
-	var tween = create_tween()
-	tween.tween_property($".","unshaken_rotation_degrees",angle_degrees, rate).from(unshaken_rotation_degrees)
+	var tween1 = create_tween()
+	var tween2 = create_tween()
+	tween1.tween_property($".","unshaken_rotation_degrees",angle_degrees, rate).from(unshaken_rotation_degrees)
+	tween2.tween_property($"../Player/QTE","rotation_degrees",angle_degrees, rate).from(rotation_degrees)
 
 func screen_shake_add_permanant_trauma(amount: float):
 	screen_shake_childhood_trauma = min(screen_shake_childhood_trauma + amount, 0.6)

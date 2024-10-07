@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dw3lbtajd77ta" path="res://Scenes/Menu/NextLevel/NextLevel.tscn" id="9_37ada"]
 [ext_resource type="PackedScene" uid="uid://c3cnbqus82uqp" path="res://Scenes/Menu/EndGameScreen/EndGameScreen.tscn" id="15_6p7re"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("views", "canvas")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("views", "canvas") groups=["Menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
