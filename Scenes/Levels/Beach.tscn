@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgd71m5dma7xa"]
+[gd_scene load_steps=15 format=3 uid="uid://dgd71m5dma7xa"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_uv1f7"]
 [ext_resource type="Texture2D" uid="uid://d1mmxgyh855ea" path="res://Graphics/Backgrounds/Beach/Wavey0000.png" id="2_gg8x0"]
@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="11_xha1w"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="12_tr2xt"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_3wwe0"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="13_u1ae2"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_cws6f"]
+[ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="14_jhw8w"]
+[ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="14_mnfae"]
 
 [node name="Beach" type="Node2D"]
 
@@ -108,8 +109,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_ikby1")
 
 [node name="Player" parent="." instance=ExtResource("11_bc2k6")]
-position = Vector2(36, 293)
-MAX_SPEED = 400
+position = Vector2(-2961, 642)
+MAX_SPEED = 2000
+PUSH_MAX_SPEED = 600
 
 [node name="PlayerCam" parent="." instance=ExtResource("14_cws6f")]
 
@@ -276,16 +278,6 @@ points = PackedVector2Array(104, -262, 176, -199, 266, -144, 384, -101, 494, -79
 position = Vector2(-2387, -474)
 points = PackedVector2Array(104, -262, 176, -199, 242, -160, 266, -144, 384, -101, 494, -79)
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(2211, 530)
-texture = ExtResource("13_u1ae2")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(554, 31)
-texture = ExtResource("13_u1ae2")
-
 [node name="Ramp4" parent="." instance=ExtResource("11_xha1w")]
 position = Vector2(3426, 415)
 rotation = 0.523598
@@ -415,3 +407,15 @@ position = Vector2(-2640, 766)
 position = Vector2(-2013, 736)
 points = PackedVector2Array(-98, 28, 9, 13, 80, -26, 116, -78, 155, -25, 205, 12, 306, 28)
 snap_to_from_floor = true
+
+[node name="ThirdPipe" parent="." instance=ExtResource("14_mnfae")]
+position = Vector2(1677, 997)
+scale = Vector2(-2, 1)
+
+[node name="Casset" parent="." instance=ExtResource("14_jhw8w")]
+position = Vector2(491, 33)
+rotation = 0.523598
+
+[node name="Casset2" parent="." instance=ExtResource("14_jhw8w")]
+position = Vector2(2224, 488)
+rotation = -0.523598

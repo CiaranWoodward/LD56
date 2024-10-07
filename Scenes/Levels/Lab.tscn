@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://np06hy4g0w3n"]
+[gd_scene load_steps=22 format=3 uid="uid://np06hy4g0w3n"]
 
 [ext_resource type="Texture2D" uid="uid://b601c1mqc5w55" path="res://Graphics/Backgrounds/Lab/Walls0000.png" id="1_8jwel"]
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_528hh"]
@@ -16,8 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bxrgv6w87qdqn" path="res://Graphics/Backgrounds/Particles/Circle0000.png" id="10_77vyl"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="12_ggm48"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="16_4mdg0"]
+[ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="16_jt0ku"]
 [ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="17_2nn55"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="18_khroi"]
+[ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="18_xrplp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l76o0"]
 animations = [{
@@ -154,10 +155,9 @@ metadata/_edit_lock_ = true
 
 [node name="Jar" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.400146, 0.6875, 0.660561, 1)
-position = Vector2(-32.9086, -74.5829)
+position = Vector2(-97.0637, 752.79)
 scale = Vector2(0.1, 1.397)
 sprite_frames = SubResource("SpriteFrames_l76o0")
-metadata/_edit_lock_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Mid/Floor/Tabletop/Jar"]
 position = Vector2(3.8147e-05, 35.2267)
@@ -172,7 +172,6 @@ scale_amount_min = 0.1
 scale_amount_max = 0.4
 color = Color(1, 1, 1, 0.521569)
 color_ramp = SubResource("Gradient_sx1sj")
-metadata/_edit_lock_ = true
 
 [node name="Jar2" type="AnimatedSprite2D" parent="Background/Mid/Floor/Tabletop"]
 self_modulate = Color(0.771945, 0.431671, 0.800781, 1)
@@ -204,6 +203,8 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("6_om1mj")]
 position = Vector2(-397, 498)
+MAX_SPEED = 2000
+PUSH_MAX_SPEED = 600
 
 [node name="Crate2" parent="." instance=ExtResource("12_ggm48")]
 modulate = Color(1, 0, 0, 1)
@@ -377,20 +378,31 @@ position = Vector2(417, 623)
 [node name="Floor44" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(544, 623)
 
+[node name="Wall" parent="." instance=ExtResource("16_jt0ku")]
+position = Vector2(2194, 1287)
+
+[node name="Wall2" parent="." instance=ExtResource("16_jt0ku")]
+position = Vector2(2573, 1197)
+
+[node name="Wall3" parent="." instance=ExtResource("16_jt0ku")]
+position = Vector2(2939, 1197)
+
+[node name="Wall4" parent="." instance=ExtResource("16_jt0ku")]
+position = Vector2(3319, 1287)
+
 [node name="Floor45" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-91.9999, 623)
 
 [node name="Crate" parent="." instance=ExtResource("12_ggm48")]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(6, 578)
+position = Vector2(-185, 578)
 deceleration_factor = 100
 acceleration_penalty = 1.0
 acceleration_penalty_time = 1
 
-[node name="Floor46" parent="Crate" instance=ExtResource("8_kfcxw")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(273, -81)
-scale = Vector2(0.397568, 13.282)
+[node name="Wall5" parent="Crate" instance=ExtResource("16_jt0ku")]
+position = Vector2(632, -87)
+scale = Vector2(1.85499, 2.09061)
 
 [node name="Fore12" type="Parallax2D" parent="."]
 scroll_offset = Vector2(1856, 370)
@@ -642,62 +654,62 @@ position = Vector2(1593, 372)
 [node name="Floor100" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(984, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor117" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1111, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor122" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(984, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor123" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1111, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor124" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1234, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor125" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1361, 1329)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor118" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(984, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor126" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1111, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor127" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(984, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor128" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1111, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor129" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1234, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor130" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(1361, 1221)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor131" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(984, 1098)
@@ -736,12 +748,12 @@ scale = Vector2(0.223383, 0.153333)
 [node name="Floor71" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2230, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor94" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2103, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor137" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-1977, 2767)
@@ -755,12 +767,12 @@ position = Vector2(-1722, 2767)
 [node name="Floor140" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2230, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor141" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2103, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor142" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-1977, 2767)
@@ -777,12 +789,12 @@ position = Vector2(-2612, 2767)
 [node name="Floor146" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2484, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor147" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-2357, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor148" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-960, 2767)
@@ -802,72 +814,72 @@ position = Vector2(-1595, 2767)
 [node name="Floor153" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-1468, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor154" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-1342, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor155" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-1214, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor156" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-1087, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor157" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-450, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor158" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-323, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor159" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-197, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor160" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-69, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor161" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(58, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor162" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-450, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor163" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-323, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor164" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-197, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor165" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-69, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor166" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(58, 2767)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor167" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-704, 2767)
@@ -959,34 +971,37 @@ position = Vector2(2961, 2767.33)
 [node name="Floor195" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(2199, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor196" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(2326, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor197" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(2452, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor198" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(2580, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor199" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(2707, 2767.33)
 
 [node name="Floor200" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(3344, 2767.33)
+acceleration_factor = 10
 
 [node name="Floor201" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(3471, 2767.33)
+acceleration_factor = 10
 
 [node name="Floor202" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(3597, 2767.33)
+acceleration_factor = 10
 
 [node name="Floor203" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(3725, 2767.33)
@@ -997,17 +1012,17 @@ position = Vector2(3852, 2767.33)
 [node name="Floor205" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(3344, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor206" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(3471, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor207" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(3597, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor208" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(3725, 2767.33)
@@ -1021,12 +1036,12 @@ position = Vector2(3090, 2767.33)
 [node name="Floor211" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(3217, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor212" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(4614, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor213" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(4741, 2767.33)
@@ -1034,7 +1049,7 @@ position = Vector2(4741, 2767.33)
 [node name="Floor214" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(4614, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor215" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(4741, 2767.33)
@@ -1048,17 +1063,17 @@ position = Vector2(4106, 2767.33)
 [node name="Floor218" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(4232, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor219" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(4360, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor220" parent="." instance=ExtResource("8_kfcxw")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(4487, 2767.33)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Ramp5" parent="." instance=ExtResource("17_2nn55")]
 position = Vector2(-2526, 894)
@@ -1120,12 +1135,10 @@ points = PackedVector2Array(-50, 11, 25, -23, 88, -81, 131, -144)
 position = Vector2(933, 1577)
 points = PackedVector2Array(857, -321, 777, -365, 715, -413, 672, -468)
 
-[node name="Icon2" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(967, 88)
-texture = ExtResource("18_khroi")
+[node name="Casset" parent="." instance=ExtResource("18_xrplp")]
+position = Vector2(969, 104)
+rotation = -0.448725
 
-[node name="Icon3" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(1086, 2005)
-texture = ExtResource("18_khroi")
+[node name="Casset2" parent="." instance=ExtResource("18_xrplp")]
+position = Vector2(1076, 2171)
+rotation = 0.582582

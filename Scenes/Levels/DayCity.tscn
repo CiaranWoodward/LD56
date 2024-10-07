@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ypgofh7wusvt"]
+[gd_scene load_steps=22 format=3 uid="uid://ypgofh7wusvt"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_4b74k"]
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="2_q3b23"]
@@ -15,12 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_cqdl6"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_7rrp2"]
 [ext_resource type="PackedScene" uid="uid://wux6mw25ik3a" path="res://Scenes/Obstacles/Crate/Crate.tscn" id="15_yqcn7"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="16_t3fwn"]
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="17_ma1y1"]
 [ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="18_gefmh"]
 [ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="19_poi3t"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="20_yyixd"]
-[ext_resource type="PackedScene" uid="uid://chkn3noiq16or" path="res://Scenes/Collectables/MP3Player/MP3Player.tscn" id="21_odm06"]
 [ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="22_il6w7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mjboo"]
@@ -116,7 +114,8 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xhk87")
 
 [node name="Player" parent="." instance=ExtResource("11_wk11u")]
-position = Vector2(198, 449)
+position = Vector2(-2480, 383)
+PUSH_MAX_SPEED = 600
 
 [node name="QuarterPipe" parent="." instance=ExtResource("12_h8b6l")]
 position = Vector2(-2461, 623)
@@ -188,12 +187,12 @@ position = Vector2(-141, 623)
 [node name="Floor30" parent="." instance=ExtResource("13_cqdl6")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-15, 623)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor31" parent="." instance=ExtResource("13_cqdl6")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(113, 623)
-acceleration_factor = 40
+acceleration_factor = 10
 
 [node name="Floor32" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(240, 623)
@@ -329,22 +328,11 @@ position = Vector2(450, 689)
 [node name="Crate" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-235, 817)
 
-[node name="Icon" type="Sprite2D" parent="Crate"]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(349, -65)
-texture = ExtResource("16_t3fwn")
-
 [node name="Crate2" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-235, 752)
 
 [node name="Crate3" parent="." instance=ExtResource("15_yqcn7")]
 position = Vector2(-238, 689)
-
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(5.53504e-06, 0.745541, 0.367021, 1)
-position = Vector2(23, 587.5)
-scale = Vector2(1, 0.289063)
-texture = ExtResource("16_t3fwn")
 
 [node name="Floor63" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1501, -73)
@@ -370,41 +358,40 @@ position = Vector2(1247, -171)
 [node name="Floor62" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(1374, -171)
 
-[node name="Icon3" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(359, -545)
-texture = ExtResource("16_t3fwn")
-
 [node name="Floor78" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-1055, 623)
 
 [node name="Floor80" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(-1692, 488)
+position = Vector2(-1731, 540)
+scale = Vector2(1.42235, 0.773852)
 
 [node name="Floor79" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-1183, 623)
 
 [node name="Crate9" parent="." instance=ExtResource("15_yqcn7")]
-position = Vector2(-1438, 575)
+position = Vector2(-1539, 575)
+deceleration_factor = 0
+acceleration_penalty = 1.0
+acceleration_penalty_time = 1
 
 [node name="Floor69" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(-126, 48)
+position = Vector2(-27, 48)
 
 [node name="Floor70" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(0, 48)
+position = Vector2(99, 48)
 
 [node name="Floor71" parent="Crate9" instance=ExtResource("13_cqdl6")]
-position = Vector2(128, 48)
+position = Vector2(227, 48)
 
 [node name="GrindRail" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-1496, 1060)
-points = PackedVector2Array(40, 26, -34, -29, -85, -112, -123, -222, -133, -332, -136, -583)
+points = PackedVector2Array(40, 26, -34, -29, -85, -112, -123, -222, -133, -332, -142, -517)
 
 [node name="GrindRail2" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(-404, 1278)
 
 [node name="GrindRail3" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(-402, 1273)
+position = Vector2(-865, 1672)
 points = PackedVector2Array(41, 36, -15, 3, -48, -43, -65, -109, -77, -189)
 
 [node name="GrindRail4" parent="." instance=ExtResource("17_ma1y1")]
@@ -413,18 +400,14 @@ points = PackedVector2Array(-39, 25, 40, -2, 104, -49, 146, -113, 173, -163, 182
 
 [node name="GrindRail5" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(1808, 1071)
-points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 295, -450, 307, -528)
+points = PackedVector2Array(-4, 16, 94, -30, 182, -139, 234, -248, 261, -319, 285, -387, 295, -450, 318, -549)
 
 [node name="GrindRail6" parent="." instance=ExtResource("17_ma1y1")]
 position = Vector2(407, 586)
 points = PackedVector2Array(0, 12, 89, -41, 159, -117, 214, -209, 240, -296, 269, -396)
 
-[node name="GrindRail8" parent="." instance=ExtResource("17_ma1y1")]
-position = Vector2(2320, 562)
-points = PackedVector2Array(28, 55, -29, 20, -77, -15)
-
 [node name="Floor69" parent="." instance=ExtResource("13_cqdl6")]
-position = Vector2(2178, 549)
+position = Vector2(2194, 527)
 
 [node name="Floor71" parent="." instance=ExtResource("13_cqdl6")]
 position = Vector2(-929, 623)
@@ -458,13 +441,20 @@ rotation = -0.975571
 [node name="Wall" parent="." instance=ExtResource("19_poi3t")]
 position = Vector2(-1818, 614)
 
-[node name="Casset" parent="." instance=ExtResource("20_yyixd")]
-position = Vector2(-773, 586)
-scale = Vector2(0.462995, 0.462995)
-
-[node name="MP3Player" parent="." instance=ExtResource("21_odm06")]
-position = Vector2(-603, 575)
-scale = Vector2(0.513754, 0.481899)
-
 [node name="LevelFloor" parent="." instance=ExtResource("22_il6w7")]
 position = Vector2(-8, 1625)
+
+[node name="ThirdPipe2" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(2374, 623)
+
+[node name="Casset2" parent="." instance=ExtResource("20_yyixd")]
+position = Vector2(99, 766)
+rotation = -0.523598
+
+[node name="Casset3" parent="." instance=ExtResource("20_yyixd")]
+position = Vector2(286, -476)
+rotation = 0.523598
+
+[node name="ThirdPipe3" parent="." instance=ExtResource("18_gefmh")]
+position = Vector2(-238, 1323)
+scale = Vector2(2.0421, 2.1384)
