@@ -349,9 +349,14 @@ func change_player_state(new_state: PLAYER_STATE):
 	#print("Player: " + PLAYER_STATE.keys()[player_state] + " -> " + PLAYER_STATE.keys()[new_state])
 	
 	#Fail any in-progress tricks on landing:
-	if player_state == PLAYER_STATE.IN_AIR :
+	if new_state == PLAYER_STATE.IN_AIR :
 		landed.emit()
 		quarterpipe_tricks = 0
+		$Audio.stop_rolling()
+	
+	if player_state == PLAYER_STATE.IN_AIR && gravity_effect.y > 10: 
+		if new_state == PLAYER_STATE.ON_FLOOR or new_state == PLAYER_STATE.ON_RAMP or new_state == PLAYER_STATE.ON_THIRD_PIPE or new_state == PLAYER_STATE.ON_QUARTER_PIPE:
+			$Audio.play_landing()
 		
 	player_state = new_state
 
@@ -383,6 +388,7 @@ func join_quarter_pipe(qpipe : QuarterPipe):
 	change_player_state(PLAYER_STATE.ON_QUARTER_PIPE)
 	current_scenery = qpipe
 	qpipe.add_collision_exception_with(self)
+	$Audio.play_rolling(0.7)
 
 func leave_third_pipe():
 	var pipe : ThirdPipe = current_scenery
@@ -399,6 +405,7 @@ func join_third_pipe(pipe : ThirdPipe):
 	change_player_state(PLAYER_STATE.ON_THIRD_PIPE)
 	current_scenery = pipe
 	pipe.add_collision_exception_with(self)
+	$Audio.play_rolling(0.7)
 
 func leave_floor():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -407,6 +414,7 @@ func leave_floor():
 func join_floor(floor : Floor):
 	change_player_state(PLAYER_STATE.ON_FLOOR)
 	current_scenery = floor
+	$Audio.play_rolling(1)
 
 func leave_grind_rail():
 	change_player_state(PLAYER_STATE.IN_AIR)
@@ -415,6 +423,7 @@ func leave_grind_rail():
 	self.collision_mask = 2
 	grind_rotation_tween.kill()
 	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", -GRIND_SHAKE)
+	$Audio.stop_grinding()
 
 func join_grind_rail(grb : GrindRailBody):
 	anim_sm.start("Grind")
@@ -423,6 +432,8 @@ func join_grind_rail(grb : GrindRailBody):
 	self.collision_layer = 0
 	self.collision_mask = 0
 	get_tree().call_group("Camera", "screen_shake_add_permanant_trauma", GRIND_SHAKE)
+	$Audio.stop_rolling()
+	$Audio.play_grinding()
 
 func decelerate(deceleration_factor : int, acceleration_penalty : float, acceleration_penalty_time : float):
 	if speed <= deceleration_factor:
@@ -437,6 +448,7 @@ func decelerate(deceleration_factor : int, acceleration_penalty : float, acceler
 func join_ramp(ramp : Ramp):
 	change_player_state(PLAYER_STATE.ON_RAMP)
 	current_scenery = ramp
+	$Audio.play_rolling(0.7)
 
 func leave_ramp():
 	change_player_state(PLAYER_STATE.IN_AIR)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cthymyo21gwdv"]
+[gd_scene load_steps=72 format=3 uid="uid://cthymyo21gwdv"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_wutsr"]
 [ext_resource type="Texture2D" uid="uid://ci8hodcu5sdf2" path="res://Graphics/TinyHawk/Beak0000.png" id="2_bbahd"]
@@ -16,6 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://usl1ns8nn3n7" path="res://Graphics/TinyHawk/Eye0000.png" id="9_1tw7h"]
 [ext_resource type="Texture2D" uid="uid://d1xdpks62ylp2" path="res://Graphics/TinyHawk/Shirt0000.png" id="9_rwgw3"]
 [ext_resource type="Script" path="res://Scenes/Player/movement_state.gd" id="15_wx3kj"]
+[ext_resource type="AudioStream" uid="uid://dkf28o1yvmbl4" path="res://Audio/Board/rolling.ogg" id="17_jfann"]
+[ext_resource type="Script" path="res://Scenes/Player/Audio.gd" id="17_l4qfl"]
+[ext_resource type="AudioStream" uid="uid://cu5uipld7df8d" path="res://Audio/Board/grinding.ogg" id="19_t3b8f"]
+[ext_resource type="AudioStream" uid="uid://dqx448hhxy3nr" path="res://Audio/Board/grindstart1.wav" id="20_gdns4"]
+[ext_resource type="AudioStream" uid="uid://o6ibwrmfddrv" path="res://Audio/Board/grindstart2.wav" id="21_qdd6x"]
+[ext_resource type="AudioStream" uid="uid://dm4h6xy444jcp" path="res://Audio/Board/grindstart3.wav" id="22_4q2xn"]
+[ext_resource type="AudioStream" uid="uid://dm5ivmkm5x67j" path="res://Audio/Board/trick1.wav" id="23_tm4el"]
+[ext_resource type="AudioStream" uid="uid://cs1kjfqhpfo85" path="res://Audio/Board/trick2.wav" id="24_5g5nx"]
+[ext_resource type="AudioStream" uid="uid://od0quac7kxi4" path="res://Audio/Board/trick3.wav" id="25_oly06"]
+[ext_resource type="AudioStream" uid="uid://brc6dcn1u7w2i" path="res://Audio/Board/landing1.wav" id="26_fxlrd"]
+[ext_resource type="AudioStream" uid="uid://d3x0l3mry4q1b" path="res://Audio/Board/landing2.wav" id="27_wu4s7"]
+[ext_resource type="AudioStream" uid="uid://fgjjtr5brom0" path="res://Audio/Board/landing3.wav" id="28_klp3f"]
+[ext_resource type="AudioStream" uid="uid://b4g8wigxibuu5" path="res://Audio/Board/landing4.wav" id="29_41boh"]
 
 [sub_resource type="Gradient" id="Gradient_ikqfk"]
 offsets = PackedFloat32Array(0, 0.133333, 0.786667, 1)
@@ -1903,6 +1916,77 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
 position = Vector2(5, -55)
 shape = SubResource("CircleShape2D_pjjvf")
+
+[node name="Audio" type="Node2D" parent="."]
+script = ExtResource("17_l4qfl")
+
+[node name="RollingAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("17_jfann")
+volume_db = 1.64
+attenuation = 1e-05
+bus = &"Effects"
+
+[node name="GrindingAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("19_t3b8f")
+volume_db = -2.12
+attenuation = 1e-05
+bus = &"Effects"
+
+[node name="GrindStart" type="Node2D" parent="Audio"]
+
+[node name="Grindstart1" type="AudioStreamPlayer" parent="Audio/GrindStart"]
+stream = ExtResource("20_gdns4")
+volume_db = -5.72
+bus = &"Effects"
+
+[node name="Grindstart2" type="AudioStreamPlayer" parent="Audio/GrindStart"]
+stream = ExtResource("21_qdd6x")
+volume_db = -5.72
+bus = &"Effects"
+
+[node name="Grindstart3" type="AudioStreamPlayer" parent="Audio/GrindStart"]
+stream = ExtResource("22_4q2xn")
+volume_db = -5.72
+bus = &"Effects"
+
+[node name="TrickSound" type="Node2D" parent="Audio"]
+
+[node name="Trick1" type="AudioStreamPlayer" parent="Audio/TrickSound"]
+stream = ExtResource("23_tm4el")
+volume_db = -8.32
+bus = &"Effects"
+
+[node name="Trick2" type="AudioStreamPlayer" parent="Audio/TrickSound"]
+stream = ExtResource("24_5g5nx")
+volume_db = -8.32
+bus = &"Effects"
+
+[node name="Trick3" type="AudioStreamPlayer" parent="Audio/TrickSound"]
+stream = ExtResource("25_oly06")
+volume_db = -8.32
+bus = &"Effects"
+
+[node name="LandSound" type="Node2D" parent="Audio"]
+
+[node name="Landing1" type="AudioStreamPlayer" parent="Audio/LandSound"]
+stream = ExtResource("26_fxlrd")
+volume_db = -9.88
+bus = &"Effects"
+
+[node name="Landing2" type="AudioStreamPlayer" parent="Audio/LandSound"]
+stream = ExtResource("27_wu4s7")
+volume_db = -9.88
+bus = &"Effects"
+
+[node name="Landing3" type="AudioStreamPlayer" parent="Audio/LandSound"]
+stream = ExtResource("28_klp3f")
+volume_db = -9.88
+bus = &"Effects"
+
+[node name="Landing4" type="AudioStreamPlayer" parent="Audio/LandSound"]
+stream = ExtResource("29_41boh")
+volume_db = -9.88
+bus = &"Effects"
 
 [connection signal="landed" from="." to="QTE" method="_on_player_landed"]
 [connection signal="animation_finished" from="Visual/PlayerBody/Tricks" to="QTE" method="_on_tricks_animation_finished"]

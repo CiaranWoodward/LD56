@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kl23roc5id3m"
+path="res://.godot/imported/Right on.wav-562f8b109ab1fc4fd2be3186206b86a2.sample"
+
+[deps]
+
+source_file="res://Audio/Voice/Right on.wav"
+dest_files=["res://.godot/imported/Right on.wav-562f8b109ab1fc4fd2be3186206b86a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
