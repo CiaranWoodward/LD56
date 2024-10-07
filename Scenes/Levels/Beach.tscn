@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgd71m5dma7xa"]
+[gd_scene load_steps=17 format=3 uid="uid://dgd71m5dma7xa"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_uv1f7"]
 [ext_resource type="Texture2D" uid="uid://d1mmxgyh855ea" path="res://Graphics/Backgrounds/Beach/Wavey0000.png" id="2_gg8x0"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_3wwe0"]
 [ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="13_u1ae2"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_cws6f"]
+[ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="14_dcb8q"]
+[ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="15_04pmy"]
+[ext_resource type="PackedScene" uid="uid://bu3wmxgl2ruv2" path="res://Scenes/Obstacles/ThirdPipe/ThirdPipe.tscn" id="16_wch2f"]
 
 [node name="Beach" type="Node2D"]
 
@@ -26,6 +29,7 @@ texture = ExtResource("1_uv1f7")
 
 [node name="Sky" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(2, 1.4)
+scroll_offset = Vector2(-132, 89)
 
 [node name="Back" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
@@ -109,7 +113,7 @@ texture = ExtResource("10_ikby1")
 
 [node name="Player" parent="." instance=ExtResource("11_bc2k6")]
 position = Vector2(36, 293)
-MAX_SPEED = 400
+PUSH_MAX_SPEED = 502
 
 [node name="PlayerCam" parent="." instance=ExtResource("14_cws6f")]
 
@@ -130,74 +134,14 @@ scroll_offset = Vector2(3416, 616)
 position = Vector2(-3147, 766)
 
 [node name="QuarterPipe4" parent="." instance=ExtResource("12_tr2xt")]
-position = Vector2(5134, 629)
+position = Vector2(5119, 630)
 rotation = -1.5708
 
-[node name="Floor9" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2398, 766)
-
-[node name="Floor23" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-28, 766)
-
-[node name="Floor24" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2273, 766)
-
-[node name="Floor25" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(100, 766)
-
-[node name="Floor26" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(229, 766)
-
-[node name="Floor27" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(357, 766)
-
-[node name="Floor28" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2147, 766)
-
 [node name="Crate2" parent="." instance=ExtResource("10_j2pt5")]
-position = Vector2(742, 713)
+position = Vector2(571, 725)
 
-[node name="Floor10" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3035, 766)
-
-[node name="Floor11" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3163, 766)
-
-[node name="Floor12" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3290, 766)
-
-[node name="Floor13" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3417, 766)
-
-[node name="Floor14" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3543, 766)
-
-[node name="Floor15" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3671, 766)
-
-[node name="Floor16" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4866, 766)
-
-[node name="Floor17" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2526, 766)
-
-[node name="Floor18" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2655, 766)
-
-[node name="Floor19" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2781, 766)
-
-[node name="Floor20" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2909, 766)
-
-[node name="Floor30" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1317, 333)
-
-[node name="Floor33" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1446, 333)
-
-[node name="Floor31" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1188, 333)
+[node name="Crate3" parent="." instance=ExtResource("10_j2pt5")]
+position = Vector2(-152, 722)
 
 [node name="Back2" type="Parallax2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -212,65 +156,13 @@ scroll_offset = Vector2(1981, 764)
 [node name="Fore2" type="Parallax2D" parent="."]
 scroll_offset = Vector2(1981, 764)
 
-[node name="Floor34" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(741, 766)
-
-[node name="Floor35" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(616, 766)
-
-[node name="Floor36" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(490, 766)
-
-[node name="Floor37" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1378, 766)
-
-[node name="Floor38" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1506, 766)
-
-[node name="Floor39" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1633, 766)
-
-[node name="Floor40" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1760, 766)
-
-[node name="Floor41" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1889, 766)
-
-[node name="Floor42" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(2018, 766)
-
-[node name="Floor44" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(869, 766)
-
-[node name="Floor45" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(998, 766)
-
-[node name="Floor46" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1124, 766)
-
-[node name="Floor47" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(1252, 766)
-
-[node name="Floor54" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(555, 162)
-
-[node name="Floor55" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(684, 162)
-
-[node name="Floor56" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(426, 162)
-
-[node name="Ramp3" parent="." instance=ExtResource("11_xha1w")]
-position = Vector2(3007, 172)
-rotation = 0.523598
-
 [node name="GrindRail" parent="." instance=ExtResource("11_m1u6u")]
 position = Vector2(1643, 711)
 points = PackedVector2Array(0, -79, 162, -129, 311, -202, 431, -275)
 
 [node name="GrindRail3" parent="." instance=ExtResource("11_m1u6u")]
 position = Vector2(2255, 713)
-points = PackedVector2Array(104, -262, 176, -199, 266, -144, 384, -101, 494, -79)
+points = PackedVector2Array(104, -262, 197, -192, 291, -143, 399, -103)
 
 [node name="GrindRail4" parent="GrindRail3" instance=ExtResource("11_m1u6u")]
 position = Vector2(-2387, -474)
@@ -287,8 +179,9 @@ position = Vector2(554, 31)
 texture = ExtResource("13_u1ae2")
 
 [node name="Ramp4" parent="." instance=ExtResource("11_xha1w")]
-position = Vector2(3426, 415)
+position = Vector2(2752, 684)
 rotation = 0.523598
+width = 250.0
 
 [node name="Back3" type="Parallax2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -303,115 +196,33 @@ scroll_offset = Vector2(3416, 764)
 [node name="Fore3" type="Parallax2D" parent="."]
 scroll_offset = Vector2(3416, 764)
 
-[node name="Floor29" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4115, 766)
-
-[node name="Floor57" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4243, 766)
-
-[node name="Floor58" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4370, 766)
-
-[node name="Floor59" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4497, 766)
-
-[node name="Floor60" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4623, 766)
-
-[node name="Floor61" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(4751, 766)
-
-[node name="Floor62" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3735, 766)
-
-[node name="Floor63" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3861, 766)
-
-[node name="Floor64" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(3989, 766)
-
-[node name="Floor65" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-737, 766)
-
-[node name="Floor66" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-609, 766)
-
-[node name="Floor67" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-480, 766)
-
-[node name="Floor68" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-352, 766)
-
-[node name="Floor69" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-93, 766)
-
-[node name="Floor70" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-219, 766)
-
-[node name="Floor71" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2013, 766)
-
-[node name="Floor72" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1884, 766)
-
-[node name="Floor73" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1755, 766)
-
-[node name="Floor74" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1627, 766)
-
 [node name="Crate5" parent="." instance=ExtResource("10_j2pt5")]
-position = Vector2(-1246, 713)
+position = Vector2(-1253, 722)
 
-[node name="Floor75" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1247, 766)
-
-[node name="Floor76" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1372, 766)
-
-[node name="Floor77" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1498, 766)
-
-[node name="Floor78" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-1119, 766)
-
-[node name="Floor79" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-990, 766)
-
-[node name="Floor80" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-864, 766)
-
-[node name="Floor81" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2725, 766)
-
-[node name="Floor82" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2592, 766)
-
-[node name="Floor83" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2464, 766)
-
-[node name="Floor84" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2335, 766)
-
-[node name="Floor85" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2081, 766)
-
-[node name="Floor86" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2207, 766)
-
-[node name="Floor87" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-3025, 766)
-
-[node name="Floor88" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2897, 766)
-
-[node name="Floor89" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2768, 766)
-
-[node name="Floor90" parent="." instance=ExtResource("13_3wwe0")]
-position = Vector2(-2640, 766)
+[node name="Crate6" parent="." instance=ExtResource("10_j2pt5")]
+position = Vector2(-2176, 725)
 
 [node name="GrindRail2" parent="." instance=ExtResource("11_m1u6u")]
-position = Vector2(-2013, 736)
-points = PackedVector2Array(-98, 28, 9, 13, 80, -26, 116, -78, 155, -25, 205, 12, 306, 28)
+position = Vector2(-1945, 716)
+points = PackedVector2Array(-280, -55, 439, -317)
 snap_to_from_floor = true
+
+[node name="Floor" parent="." instance=ExtResource("13_3wwe0")]
+position = Vector2(918, 765)
+width = 8000.0
+
+[node name="LevelFloor" parent="." instance=ExtResource("14_dcb8q")]
+position = Vector2(165, 781)
+
+[node name="Wall" parent="." instance=ExtResource("15_04pmy")]
+position = Vector2(2686, 714)
+height = 120.0
+
+[node name="Floor2" parent="." instance=ExtResource("13_3wwe0")]
+position = Vector2(1614, 342)
+width = 500.0
+
+[node name="ThirdPipe" parent="." instance=ExtResource("16_wch2f")]
+position = Vector2(1300, 353)
+radius = 300
+ramp_angle_degrees = 40

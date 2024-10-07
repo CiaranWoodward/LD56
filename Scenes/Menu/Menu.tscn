@@ -29,7 +29,7 @@ script = ExtResource("2_nixsr")
 views = [NodePath("Canvas/Panel/MenuContainer/Start"), NodePath("Canvas/Panel/MenuContainer/Settings"), NodePath("Canvas/Panel/MenuContainer/Controls"), NodePath("Canvas/Panel/MenuContainer/Credits"), NodePath("Canvas/Panel/MenuContainer/NextLevel"), NodePath("Canvas/Panel/MenuContainer/EndGameScreen"), NodePath("Canvas/Panel/MenuContainer/Inventory")]
 hud_scene = ExtResource("3_o3fk2")
 canvas = NodePath("Canvas")
-levels = Array[PackedScene]([ExtResource("4_i0bk0"), ExtResource("5_nl8nq"), ExtResource("6_0ywym"), ExtResource("7_ivgyr"), ExtResource("8_bb7h8")])
+levels = Array[PackedScene]([ExtResource("5_nl8nq"), ExtResource("4_i0bk0"), ExtResource("6_0ywym"), ExtResource("7_ivgyr"), ExtResource("8_bb7h8")])
 inventory = NodePath("Canvas/Panel/MenuContainer/Inventory")
 
 [node name="Canvas" type="CanvasLayer" parent="."]

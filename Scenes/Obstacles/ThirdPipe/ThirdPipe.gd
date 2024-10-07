@@ -11,14 +11,16 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	gen_arc_points($Centre.position, PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
+	gen_arc_points(PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
 
 func _clear_collision_shapes():
 	for child in get_children():
 		if child is CollisionShape2D:
 			child.queue_free()
 
-func gen_arc_points(center: Vector2, start_angle: float, end_angle: float):
+func gen_arc_points(start_angle: float, end_angle: float):
+	$Centre.position.y = -radius - $Visuals/Line2D.width
+	var center = $Centre.position
 	var visual_radius = radius + $Visuals/Line2D.width/2
 	var points = PackedVector2Array() 
 	var angle_step = (end_angle - start_angle) / (NUM_POINTS - 1)
@@ -43,7 +45,7 @@ func gen_arc_points(center: Vector2, start_angle: float, end_angle: float):
 	$Visuals/Line2D.points = points
 	var new_maxbounds = RectangleShape2D.new()
 	var y_height = -prev_collis.y
-	new_maxbounds.size = Vector2(radius*1.1, (y_height) * 1.1)
+	new_maxbounds.size = Vector2(radius*1.1, (y_height * 1.1))
 	$MaxBounds/CollisionShape2D.shape = new_maxbounds
 	$MaxBounds/CollisionShape2D.position = Vector2(-radius/2 + $Centre.position.x, -y_height/2)
 	$Exit1.position = prev_collis
@@ -51,13 +53,13 @@ func gen_arc_points(center: Vector2, start_angle: float, end_angle: float):
 
 func _set_radius(new_rad):
 	radius = new_rad
-	gen_arc_points($Centre.position, PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
+	gen_arc_points(PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
 
 func _set_ramp_angle(new_ang):
 	ramp_angle_degrees = new_ang
 	if !is_instance_valid($Centre):
 		return
-	gen_arc_points($Centre.position, PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
+	gen_arc_points(PI/2, PI/2 + deg_to_rad(ramp_angle_degrees))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
