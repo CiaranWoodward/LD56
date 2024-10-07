@@ -456,8 +456,9 @@ position = Vector2(1629, 623)
 position = Vector2(1757, 623)
 
 [node name="ThirdPipe" parent="." instance=ExtResource("18_gefmh")]
-position = Vector2(-1856, 579)
-rotation = -0.975571
+position = Vector2(-1819, 541)
+rotation = -1.26911
+ramp_angle_degrees = 80
 
 [node name="Wall" parent="." instance=ExtResource("19_poi3t")]
 position = Vector2(-1818, 614)
