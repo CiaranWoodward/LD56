@@ -42,7 +42,12 @@ func _process(delta: float) -> void:
 	pass
 	
 func play_music(track: String) -> void:
+	if is_playing_cassette():
+		return
+	
 	assert(track in _tracks)
+	if _music_player.stream == _tracks[track]:
+		return
 	_music_player.stop()
 	_music_player.stream = _tracks[track]
 	_music_player.play(0)
@@ -67,7 +72,7 @@ func play_cassette(track: String) -> void:
 		_music_player.stream = old_stream
 		_music_player.play(position)
 		_is_playing_cassette = false
-	)
+	, CONNECT_ONE_SHOT)
 	_music_player.play(0)
 	
 	

@@ -473,7 +473,7 @@ cassette_name = "news 3"
 
 [node name="Casset2" parent="." instance=ExtResource("21_l4yvt")]
 position = Vector2(2910, 273)
-cassette_name = "news 2"
+cassette_name = "news 1"
 
 [node name="HatPickup" parent="." instance=ExtResource("21_geut8")]
 position = Vector2(-900, 228)

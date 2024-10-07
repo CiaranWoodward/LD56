@@ -33,12 +33,28 @@ var _level: int
 
 var _can_pause: bool
 
+var _radio: Radio
+
+var _songs_order = [
+	"rock",
+	"ambient",
+	"sad",
+	"lofi",
+	"ambient",
+	"rock",
+	"ambient",
+	"sad",
+	"lofi",
+	"ambient",
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_can_pause = true
 	_hud = hud_scene.instantiate()
 	add_child(_hud)
 	_hud.should_display(false)
+	_radio = get_tree().root.get_node("Radio")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -81,6 +97,7 @@ func play_level(level: int) -> void:
 	if level == 0:
 		_total_score = 0
 	_level = level
+	_radio.play_music(_songs_order[level])
 	var scene = null
 	if _level >= 0:
 		assert(_level < levels.size())
