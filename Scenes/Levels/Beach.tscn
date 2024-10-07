@@ -415,3 +415,4 @@ position = Vector2(-2640, 766)
 [node name="GrindRail2" parent="." instance=ExtResource("11_m1u6u")]
 position = Vector2(-2013, 736)
 points = PackedVector2Array(-98, 28, 9, 13, 80, -26, 116, -78, 155, -25, 205, 12, 306, 28)
+snap_to_from_floor = true
