@@ -8,6 +8,8 @@ extends CharacterBody2D
 @export var JUMP_TIME = 0.6
 @export var BOUNCINESS = 0.5
 
+@export var TARGET_SPEED = 1150
+
 @onready var aoe = $AreaOfEffect
 
 enum PLAYER_STATE {
@@ -33,6 +35,9 @@ var temp_ignore_bodies : Array = []
 var gravity_disabled : bool = false
 var jump_over_timeout : Tween
 
+var quarterpipe_tricks : int = 0
+
+#Transition in air -> any surface
 signal landed
 
 func _ready() -> void:
@@ -41,10 +46,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var overlaps : Array = aoe.get_overlapping_bodies()
 	acceleration = 0
-	
+		
 	if player_state == PLAYER_STATE.IN_AIR:
 		if Input.is_action_just_pressed("jump"):
-			get_tree().call_group('QTE',"start_qte",1)
+			get_tree().call_group('QTE',"start_qte",1,3,false)
 		if !gravity_disabled:
 			gravity_effect += get_gravity() * delta
 	else:
@@ -73,6 +78,7 @@ func _physics_process(delta: float) -> void:
 		elif max_bounds not in aoe.get_overlapping_areas():
 			direction = current_movement_direction()
 			force_leave()
+			
 	
 	if player_state == PLAYER_STATE.ON_GRIND_RAIL:
 		if current_scenery in overlaps:
@@ -228,6 +234,15 @@ func leave_quarter_pipe():
 	change_player_state(PLAYER_STATE.IN_AIR)
 	temp_ignore_bodies.append(current_scenery)
 	current_scenery = null
+	
+	#Launching up from quarterpipe:
+	if current_movement_direction().y < 0 :
+		print("speed = " + str(speed))
+		if speed >= TARGET_SPEED:
+			quarterpipe_fast()
+		elif speed > 500:
+			quarterpipe_slow()
+		
 
 func join_quarter_pipe(qpipe : QuarterPipe):
 	quarter_pipe_direction = qpipe.get_direction(global_position, current_movement_direction())
@@ -300,5 +315,43 @@ func handle_on_ramp_player_state(overlaps : Array):
 	
 	if current_movement_direction().y > 0:
 		acceleration = ramp.acceleration_factor * (1 + direction.y)
+			
 
 #endregion RAMP
+
+#Transition to next level:
+func quarterpipe_fast() :
+	pass
+	
+#Perform tricks above quarterpipe for speed boost:
+func quarterpipe_slow() :
+	var tween = create_tween()
+	quarterpipe_tricks = 2
+	
+	#Camera and slomo effects:
+	tween.tween_property(Engine,"time_scale",0.025, 0.75).from(1)
+	get_tree().call_group('Camera',"cam_rotate",quarter_pipe_direction*90,0.5)
+	#get_tree().call_group('Camera',"cam_zoom",3,3,0.5)
+	
+	#Start first QTE
+	get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,8,true)
+
+func quarterpipe_trick() :
+	var tween = create_tween()
+	if quarterpipe_tricks != 0 :
+		quarterpipe_tricks -= 1
+		#Next trick:
+		get_tree().call_group('QTE',"start_qte",quarterpipe_tricks*0.8*Engine.time_scale,12,true)
+		print("tricks: " + str(quarterpipe_tricks))
+	else :
+		tween.tween_property(Engine,"time_scale",1, 0.75)
+		get_tree().call_group('Camera',"cam_rotate",0,0.5)
+		get_tree().call_group('Camera',"cam_zoom",1,1,0.5)
+	
+	
+func _on_qte_trick_failed() -> void:
+	quarterpipe_trick()
+	
+
+func _on_qte_trick_passed(trickpoints: Variant) -> void:
+	quarterpipe_trick()

@@ -8,6 +8,7 @@ script = ExtResource("1_xpnk6")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="TimerQTE" type="Timer" parent="."]
+process_callback = 0
 one_shot = true
 
 [connection signal="timeout" from="TimerQTE" to="." method="_on_timer_qte_timeout"]
