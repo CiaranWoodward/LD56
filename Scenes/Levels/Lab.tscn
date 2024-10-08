@@ -717,7 +717,7 @@ width = 140.0
 position = Vector2(-600, 623)
 
 [node name="QuarterPipe4" parent="." instance=ExtResource("7_u3a6o")]
-position = Vector2(2717, 486)
+position = Vector2(2909, 452)
 rotation = -1.5708
 
 [node name="Floor10" parent="." instance=ExtResource("8_kfcxw")]
@@ -729,29 +729,17 @@ position = Vector2(-348, 623)
 [node name="Floor12" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(-220, 623)
 
-[node name="Floor13" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2068, 623)
-
-[node name="Floor14" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2194, 623)
-
-[node name="Floor15" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2322, 623)
-
-[node name="Floor16" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2449, 623)
-
 [node name="Floor27" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2068, 623)
+position = Vector2(2260, 589)
 
 [node name="Floor28" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2194, 623)
+position = Vector2(2386, 589)
 
 [node name="Floor29" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2322, 623)
+position = Vector2(2514, 589)
 
 [node name="Floor39" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(2449, 623)
+position = Vector2(2641, 589)
 
 [node name="Crate2" parent="." instance=ExtResource("12_ggm48")]
 position = Vector2(842, 328)
@@ -759,28 +747,25 @@ deceleration_factor = 100
 acceleration_penalty = 1.0
 acceleration_penalty_time = 1
 
-[node name="Floor4" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1941, 623)
-
 [node name="PlayerCam" parent="." instance=ExtResource("9_j4p03")]
 
 [node name="Floor25" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1941, 623)
+position = Vector2(2133, 589)
 
 [node name="Floor30" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1306, 623)
+position = Vector2(1498, 589)
 
 [node name="Floor31" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1433, 623)
+position = Vector2(1625, 589)
 
 [node name="Floor32" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1559, 623)
+position = Vector2(1751, 589)
 
 [node name="Floor33" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1687, 623)
+position = Vector2(1879, 589)
 
 [node name="Floor34" parent="." instance=ExtResource("8_kfcxw")]
-position = Vector2(1814, 623)
+position = Vector2(2006, 589)
 
 [node name="Floor35" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(671, 712)
@@ -885,7 +870,7 @@ position = Vector2(2754, -125)
 rotation = -1.5708
 
 [node name="LevelFloor" parent="." instance=ExtResource("18_x246d")]
-position = Vector2(1059, 694)
+position = Vector2(1259, 1035)
 
 [node name="Floor2" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(1727, 1021)
@@ -921,7 +906,7 @@ acceleration_factor = 40
 
 [node name="GrindRail" parent="." instance=ExtResource("16_4mdg0")]
 position = Vector2(2191, 54)
-points = PackedVector2Array(554, 214, 1368, 838)
+points = PackedVector2Array(554, 214, 856, 321, 1115, 535, 1368, 838)
 
 [node name="Floor6" parent="." instance=ExtResource("8_kfcxw")]
 position = Vector2(1226, -141)
