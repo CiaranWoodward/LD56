@@ -1,3 +1,12 @@
+## [1.15.3](https://github.com/CiaranWoodward/LD56/compare/v1.15.2...v1.15.3) (2024-10-08)
+
+
+### Bug Fixes
+
+* black lines on beach background; Add alternate key bindings ([aca1c03](https://github.com/CiaranWoodward/LD56/commit/aca1c03e23bb579f23ddacdefc1b02cae07f067b))
+* Duplicate hat, missing cassette ([3b5eca0](https://github.com/CiaranWoodward/LD56/commit/3b5eca03b053fae8e659c19a9a982fa7bfb60240))
+* Using GPU particles which caused web build stutters; Particles going slow-mo on quarter-pipe ([929a7c5](https://github.com/CiaranWoodward/LD56/commit/929a7c52c8088d5c0c4d8809dba1c121aeb3559b))
+
 ## [1.15.2](https://github.com/CiaranWoodward/LD56/compare/v1.15.1...v1.15.2) (2024-10-08)
 
 
