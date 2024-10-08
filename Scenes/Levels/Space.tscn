@@ -27,7 +27,8 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(1, 0.984375, 0.75, 1, 1, 1, 1, 1, 0.765625, 0.972534, 1, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4sdku"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4286"]
+size = Vector2(12517, 3689)
 
 [node name="Space" type="Node2D"]
 
@@ -76,7 +77,7 @@ color_initial_ramp = SubResource("Gradient_m73u2")
 [node name="Mid" type="Parallax2D" parent="Background"]
 scale = Vector2(0.6, 0.6)
 scroll_scale = Vector2(1.1, 1.01)
-scroll_offset = Vector2(866, 621)
+scroll_offset = Vector2(887, 634)
 
 [node name="Moon" type="Sprite2D" parent="Background/Mid"]
 self_modulate = Color(0.691406, 0.691406, 0.691406, 1)
@@ -319,7 +320,7 @@ position = Vector2(-1754, 167)
 points = PackedVector2Array(111, 265, 390, 211, 692, 135, 1058, -4, 1343, -194)
 
 [node name="QuarterPipe2" parent="." instance=ExtResource("7_kqimf")]
-position = Vector2(6030, -248)
+position = Vector2(6027, -250)
 rotation = -1.5708
 radius = 1000
 
@@ -331,11 +332,13 @@ width = 10000.0
 
 [node name="LowGravity" type="Area2D" parent="."]
 position = Vector2(671, 1471)
+collision_layer = 4
 gravity_space_override = 3
-gravity = 300.0
+gravity = 986.754
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LowGravity"]
-shape = SubResource("WorldBoundaryShape2D_4sdku")
+position = Vector2(172.5, -1834.5)
+shape = SubResource("RectangleShape2D_g4286")
 
 [node name="Ramp" parent="." instance=ExtResource("14_6xhsk")]
 position = Vector2(679, -880)
