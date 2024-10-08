@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://gxnf4sc5fv02" path="res://Theme/Theme.tres" id="1_fakoy"]
 [ext_resource type="Script" path="res://Scenes/Menu/Inventory/inventory.gd" id="2_uu24j"]
-[ext_resource type="PackedScene" uid="uid://dipefgsqeqev1" path="res://Scenes/Player/PlayerBody.tscn" id="3_anp3f"]
+[ext_resource type="PackedScene" uid="uid://cpi1eioy8kh7x" path="res://Scenes/Player/PlayerBody.tscn" id="3_anp3f"]
 [ext_resource type="Script" path="res://Scenes/Menu/navigation_button.gd" id="4_57uok"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("_hats", "_cassettes")]
