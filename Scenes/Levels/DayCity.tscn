@@ -3099,7 +3099,7 @@ hat_name = "beanie"
 [node name="Casset" parent="." instance=ExtResource("20_yyixd")]
 position = Vector2(-1149, 1026)
 scale = Vector2(0.462995, 0.462995)
-cassette_name = "lore 1"
+cassette_name = "lore 2"
 
 [node name="LevelFloor" parent="." instance=ExtResource("22_il6w7")]
 position = Vector2(115, 1332)

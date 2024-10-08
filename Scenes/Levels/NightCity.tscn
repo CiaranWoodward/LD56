@@ -4846,7 +4846,7 @@ width = 6000.0
 [node name="HatPickup" parent="." instance=ExtResource("17_vvcjy")]
 position = Vector2(3042, -210)
 scale = Vector2(0.462995, 0.462995)
-hat_name = "headphones"
+hat_name = "headset"
 
 [node name="Casset" parent="." instance=ExtResource("18_iqt28")]
 position = Vector2(3192, 378)
