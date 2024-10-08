@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/Floor/Floor.gd" id="1_8y1np"]
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="3_jiikj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp7qk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx65a"]
 size = Vector2(128, 20)
 
 [node name="Floor" type="StaticBody2D"]
@@ -21,7 +21,7 @@ texture = ExtResource("3_jiikj")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rp7qk")
+shape = SubResource("RectangleShape2D_wx65a")
 
 [node name="Top" type="Marker2D" parent="."]
 position = Vector2(0, -10)

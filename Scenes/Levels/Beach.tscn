@@ -161,7 +161,7 @@ scroll_offset = Vector2(660, 696)
 
 [node name="Mound0001" type="Sprite2D" parent="Background/Mid3"]
 self_modulate = Color(0.75, 0.665955, 0.117188, 1)
-position = Vector2(4180, -25)
+position = Vector2(2941.67, -45)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_mkrhw")
 
@@ -188,8 +188,9 @@ texture = ExtResource("10_6fo6m")
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Mid3"]
 self_modulate = Color(0.242462, 0.494125, 0.886719, 1)
+texture_repeat = 3
 offset_left = -23610.0
-offset_top = -243.0
+offset_top = -239.0
 offset_right = 22232.0
 offset_bottom = 187.0
 texture = ExtResource("3_kcvk3")
@@ -202,8 +203,9 @@ scroll_offset = Vector2(620, 730)
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Mid4"]
 self_modulate = Color(0.29541, 0.515709, 0.859375, 1)
+texture_repeat = 3
 offset_left = -24062.0
-offset_top = -292.0
+offset_top = -288.0
 offset_right = 20375.0
 offset_bottom = 138.0
 texture = ExtResource("3_kcvk3")
@@ -211,7 +213,7 @@ stretch_mode = 1
 
 [node name="Mound0000" type="Sprite2D" parent="Background/Mid4"]
 self_modulate = Color(0.75, 0.665955, 0.117188, 1)
-position = Vector2(-3451.67, 0)
+position = Vector2(-3421.67, -56.6667)
 texture = ExtResource("3_mkrhw")
 
 [node name="PalmTrunk4" type="Sprite2D" parent="Background/Mid4/Mound0000"]
@@ -242,8 +244,9 @@ scroll_offset = Vector2(928, 760)
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Mid2"]
 self_modulate = Color(0.419525, 0.611178, 0.910156, 1)
+texture_repeat = 3
 offset_left = -24278.0
-offset_top = -292.0
+offset_top = -288.0
 offset_right = 21425.0
 offset_bottom = 138.0
 texture = ExtResource("3_kcvk3")
@@ -256,8 +259,10 @@ scroll_offset = Vector2(928, 760)
 
 [node name="TextureRect3" type="TextureRect" parent="Background/Mid"]
 self_modulate = Color(0.910156, 0.833495, 0.419525, 1)
+texture_filter = 6
+texture_repeat = 1
 offset_left = -24432.0
-offset_top = -235.0
+offset_top = -231.0
 offset_right = 21393.0
 offset_bottom = 195.0
 texture = ExtResource("3_kcvk3")

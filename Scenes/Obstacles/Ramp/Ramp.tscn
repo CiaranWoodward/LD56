@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Obstacles/Ramp/Ramp.gd" id="1_dcpha"]
 [ext_resource type="Texture2D" uid="uid://cw682pe68uaqp" path="res://Graphics/Scenery/Ramp.png" id="2_x8nva"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffqym"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw57o"]
 size = Vector2(128, 20)
 
 [node name="Ramp" type="StaticBody2D"]
@@ -28,4 +28,4 @@ rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.90735e-06)
-shape = SubResource("RectangleShape2D_ffqym")
+shape = SubResource("RectangleShape2D_fw57o")
