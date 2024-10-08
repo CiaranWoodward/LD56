@@ -24,6 +24,7 @@ func animation_status() :
 	return status
 	
 func emit_particles() :
+	$Board/TrickSuccess.speed_scale = 1 / Engine.time_scale
 	$Board/TrickSuccess.emitting = true
 
 	
