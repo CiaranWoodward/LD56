@@ -72,6 +72,7 @@ func play_cassette(track: String) -> void:
 		_music_player.stream = old_stream
 		_music_player.play(position)
 		_is_playing_cassette = false
+		_music_player.finished.connect(_loop)
 	, CONNECT_ONE_SHOT)
 	_music_player.play(0)
 	

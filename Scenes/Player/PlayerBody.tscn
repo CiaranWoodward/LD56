@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dipefgsqeqev1"]
+[gd_scene load_steps=61 format=3 uid="uid://cpi1eioy8kh7x"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player_body.gd" id="1_11pm2"]
 [ext_resource type="Texture2D" uid="uid://dnoryd5hmfao3" path="res://Graphics/TinyHawk/Board0000.png" id="2_7wypc"]
@@ -16,6 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://dr7o4v01o4dod" path="res://Graphics/TinyHawk/LeftLeg0000.png" id="18_ls6n4"]
 [ext_resource type="Script" path="res://Scenes/Player/movement_state.gd" id="19_7a3ou"]
 [ext_resource type="Texture2D" uid="uid://bfixj1dkuanlw" path="res://Graphics/Backgrounds/Space/Star10000.png" id="20_4ja6q"]
+
+[sub_resource type="Curve" id="Curve_mfmdr"]
+_data = [Vector2(0, 0.340659), 0.0, 0.741948, 0, 0, Vector2(0.505618, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.95604, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ewggs"]
+offsets = PackedFloat32Array(0, 0.186667, 0.786667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_e0apa"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.9375, 0, 1, 1, 0.953613, 0.84375, 1, 1, 0.81668, 0.3825, 1)
 
 [sub_resource type="Gradient" id="Gradient_ikqfk"]
 offsets = PackedFloat32Array(0, 0.133333, 0.786667, 1)
@@ -2098,18 +2110,6 @@ _data = {
 "RESET": SubResource("Animation_7dl7i")
 }
 
-[sub_resource type="Curve" id="Curve_mfmdr"]
-_data = [Vector2(0, 0.340659), 0.0, 0.741948, 0, 0, Vector2(0.505618, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.95604, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_ewggs"]
-offsets = PackedFloat32Array(0, 0.186667, 0.786667, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_e0apa"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0.9375, 0, 1, 1, 0.953613, 0.84375, 1, 1, 0.81668, 0.3825, 1)
-
 [node name="PlayerBody" type="Node2D" groups=["Animation"]]
 position = Vector2(7, -36)
 script = ExtResource("1_11pm2")
@@ -2120,6 +2120,32 @@ position = Vector2(-2, 32)
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("2_7wypc")
 offset = Vector2(4.54545, -127.273)
+
+[node name="TrickSuccess" type="CPUParticles2D" parent="Board"]
+z_index = 1
+z_as_relative = false
+position = Vector2(7, -10)
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("20_4ja6q")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 250.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_mfmdr")
+color_ramp = SubResource("Gradient_ewggs")
+color_initial_ramp = SubResource("Gradient_e0apa")
 
 [node name="RightWheel" type="Sprite2D" parent="Board"]
 self_modulate = Color(0.467148, 0.706487, 0.761719, 1)
@@ -2223,27 +2249,3 @@ script = ExtResource("19_7a3ou")
 libraries = {
 "": SubResource("AnimationLibrary_drlsj")
 }
-
-[node name="TrickSuccess" type="CPUParticles2D" parent="Tricks"]
-position = Vector2(7, -10)
-emitting = false
-amount = 20
-lifetime = 0.4
-one_shot = true
-explosiveness = 1.0
-texture = ExtResource("20_4ja6q")
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 250.0
-angular_velocity_min = -720.0
-angular_velocity_max = 720.0
-linear_accel_min = -100.0
-linear_accel_max = -100.0
-radial_accel_min = 100.0
-radial_accel_max = 100.0
-scale_amount_min = 0.2
-scale_amount_max = 0.4
-scale_amount_curve = SubResource("Curve_mfmdr")
-color_ramp = SubResource("Gradient_ewggs")
-color_initial_ramp = SubResource("Gradient_e0apa")
