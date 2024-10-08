@@ -19,6 +19,7 @@ func _clear_collision_shapes():
 			child.queue_free()
 
 func gen_arc_points(start_angle: float, end_angle: float):
+	_clear_collision_shapes()
 	$Centre.position.y = -radius - $Visuals/Line2D.width
 	var center = $Centre.position
 	var visual_radius = radius + $Visuals/Line2D.width/2

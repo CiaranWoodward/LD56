@@ -2183,6 +2183,8 @@ position = Vector2(-15.3182, 53.2727)
 texture = ExtResource("9_aafto")
 
 [node name="Hats" parent="TinyHawk/Shirt/Head" instance=ExtResource("10_st7bx")]
+position = Vector2(-30.8013, -76.4315)
+rotation = 0.00427183
 
 [node name="Body" type="Sprite2D" parent="TinyHawk/Shirt"]
 show_behind_parent = true

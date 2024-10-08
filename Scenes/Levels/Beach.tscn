@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dgd71m5dma7xa"]
+[gd_scene load_steps=26 format=3 uid="uid://dgd71m5dma7xa"]
 
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_uv1f7"]
 [ext_resource type="Texture2D" uid="uid://dnqd6v7aac6ud" path="res://Graphics/Backgrounds/Textured0000.png" id="2_i1syh"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://djjqx2qman0bw" path="res://Scenes/Obstacles/Ramp/Ramp.tscn" id="11_xha1w"]
 [ext_resource type="PackedScene" uid="uid://bcayb63x24w31" path="res://Scenes/Obstacles/QuarterPipe/QuarterPipe.tscn" id="12_tr2xt"]
 [ext_resource type="PackedScene" uid="uid://8xk1d2ggg018" path="res://Scenes/Obstacles/Floor/Floor.tscn" id="13_3wwe0"]
-[ext_resource type="Texture2D" uid="uid://bbestxy6h5pp8" path="res://icon.svg" id="13_u1ae2"]
 [ext_resource type="PackedScene" uid="uid://kduju5hwa0i7" path="res://Scenes/PlayerCam/PlayerCam.tscn" id="14_cws6f"]
 [ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="14_dcb8q"]
 [ext_resource type="PackedScene" uid="uid://cm1g57ka7d6ni" path="res://Scenes/Obstacles/Wall/Wall.tscn" id="15_04pmy"]
@@ -372,16 +371,6 @@ points = PackedVector2Array(104, -262, 197, -192, 291, -143, 399, -103)
 position = Vector2(-2387, -474)
 points = PackedVector2Array(104, -262, 176, -199, 242, -160, 266, -144, 384, -101, 494, -79)
 
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(2211, 530)
-texture = ExtResource("13_u1ae2")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-modulate = Color(0.0156863, 0, 1, 1)
-position = Vector2(554, 31)
-texture = ExtResource("13_u1ae2")
-
 [node name="Ramp4" parent="." instance=ExtResource("11_xha1w")]
 position = Vector2(2752, 684)
 rotation = 0.523598
@@ -416,7 +405,7 @@ position = Vector2(918, 765)
 width = 8000.0
 
 [node name="LevelFloor" parent="." instance=ExtResource("14_dcb8q")]
-position = Vector2(165, 781)
+position = Vector2(167, 777)
 
 [node name="Wall" parent="." instance=ExtResource("15_04pmy")]
 position = Vector2(2686, 714)

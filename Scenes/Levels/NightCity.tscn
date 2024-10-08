@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfuyy8rwyohaq"]
+[gd_scene load_steps=30 format=3 uid="uid://dfuyy8rwyohaq"]
 
 [ext_resource type="Texture2D" uid="uid://c6j2jxgkebjji" path="res://Graphics/Backgrounds/NightCity/Building10000.png" id="1_bvapr"]
 [ext_resource type="Texture2D" uid="uid://ci26so3xj20bb" path="res://Graphics/Backgrounds/White0000.png" id="1_dm26d"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b7r1xj1ofs50n" path="res://Scenes/Obstacles/GrindRail.tscn" id="13_xngg7"]
 [ext_resource type="PackedScene" uid="uid://c8r5aexisrsnp" path="res://Scenes/Collectables/HatPickup/HatPickup.tscn" id="17_vvcjy"]
 [ext_resource type="PackedScene" uid="uid://k70w3kl1vafx" path="res://Scenes/Collectables/Cassette/Cassette.tscn" id="18_iqt28"]
+[ext_resource type="PackedScene" uid="uid://dg7whofdhvn8h" path="res://Scenes/Obstacles/LevelFloor/LevelFloor.tscn" id="27_mhnfm"]
 
 [sub_resource type="Gradient" id="Gradient_vs70b"]
 offsets = PackedFloat32Array(0.266667, 0.806667)
@@ -4851,3 +4852,6 @@ hat_name = "headphones"
 position = Vector2(3192, 378)
 scale = Vector2(0.5, 0.5)
 cassette_name = "news 2"
+
+[node name="LevelFloor" parent="." instance=ExtResource("27_mhnfm")]
+position = Vector2(3310, 630)

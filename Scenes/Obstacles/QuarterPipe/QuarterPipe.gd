@@ -18,6 +18,7 @@ func _clear_collision_shapes():
 			child.queue_free()
 
 func gen_arc_points(center: Vector2, start_angle: float, end_angle: float):
+	_clear_collision_shapes()
 	var visual_radius = radius + $Visuals/Line2D.width/2
 	var points = PackedVector2Array() 
 	var angle_step = (end_angle - start_angle) / (NUM_POINTS - 1)

@@ -2833,7 +2833,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_xhk87")
 
 [node name="Colour2" type="Sprite2D" parent="Background"]
-self_modulate = Color(0.320313, 0.320313, 0.320313, 1)
+self_modulate = Color(0.197505, 0.442282, 0.31791, 1)
 position = Vector2(125.25, 1923.5)
 scale = Vector2(562.675, 59.35)
 texture = ExtResource("1_4b74k")

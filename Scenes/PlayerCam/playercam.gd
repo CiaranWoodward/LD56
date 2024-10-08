@@ -16,7 +16,7 @@ extends Camera2D
 @onready var screen_shake_start_position = position
 @onready var screen_shake_noise = FastNoiseLite.new()
 
-@onready var cam_floor_offset := 0
+@onready var cam_floor_offset := -80
 
 var screen_shake_noise_y = 0
 
@@ -35,7 +35,9 @@ func _ready():
 	screen_shake_noise.frequency = 0.15
 	screen_shake_noise.fractal_octaves = 2
 	unshaken_position = position
-	unshaken_rotation_degrees = rotation_degrees
+	unshaken_rotation_degrees = rotation_degrees 
+	#GetViewport().GetVisibleRect().Size
+	cam_floor_offset -= get_viewport_rect().size.y/2
 
 #Linear interpolation in 2 dimensions to smooth camera movement:
 func _physics_process(delta: float) -> void:
