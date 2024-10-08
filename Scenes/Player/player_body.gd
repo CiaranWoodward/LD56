@@ -22,3 +22,8 @@ func play_random_trick(speed: float):
 func animation_status() :
 	var status = $Tricks.is_playing()
 	return status
+	
+func emit_particles() :
+	$Board/TrickSuccess.emitting = true
+
+	
