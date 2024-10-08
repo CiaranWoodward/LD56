@@ -1,3 +1,10 @@
+## [1.15.2](https://github.com/CiaranWoodward/LD56/compare/v1.15.1...v1.15.2) (2024-10-08)
+
+
+### Bug Fixes
+
+* create release ([5ef4504](https://github.com/CiaranWoodward/LD56/commit/5ef4504e8ffd279b5f84e1e612ac1685ee4d648b))
+
 ## [1.15.1](https://github.com/CiaranWoodward/LD56/compare/v1.15.0...v1.15.1) (2024-10-08)
 
 
