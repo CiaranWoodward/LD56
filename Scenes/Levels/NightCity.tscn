@@ -55,14 +55,14 @@ animations = [{
 
 [node name="Colour" type="Sprite2D" parent="Background"]
 self_modulate = Color(0.00732422, 0.056591, 0.1875, 1)
-position = Vector2(3661.5, -97)
-scale = Vector2(611.75, 72.1)
+position = Vector2(3661.5, -933)
+scale = Vector2(611.75, 155.7)
 texture = ExtResource("1_dm26d")
 
 [node name="Colour3" type="Sprite2D" parent="Background"]
 self_modulate = Color(0.558594, 0.558594, 0.558594, 0.117647)
-position = Vector2(3676.63, -98.5875)
-scale = Vector2(-6.38321, 1.3189)
+position = Vector2(3676.63, -913.072)
+scale = Vector2(-6.38321, 2.8272)
 texture = ExtResource("2_ajdwn")
 
 [node name="Sky2" type="Parallax2D" parent="Background"]
