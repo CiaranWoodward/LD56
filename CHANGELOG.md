@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/CiaranWoodward/LD56/compare/v1.15.0...v1.15.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* audio looping ([8468047](https://github.com/CiaranWoodward/LD56/commit/846804745e67fd9e69e52818c5de1639d0ca1c5f))
+
 # [1.15.0](https://github.com/CiaranWoodward/LD56/compare/v1.14.3...v1.15.0) (2024-10-07)
 
 
