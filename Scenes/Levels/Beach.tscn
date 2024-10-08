@@ -405,7 +405,7 @@ position = Vector2(918, 765)
 width = 8000.0
 
 [node name="LevelFloor" parent="." instance=ExtResource("14_dcb8q")]
-position = Vector2(167, 777)
+position = Vector2(168, 775)
 
 [node name="Wall" parent="." instance=ExtResource("15_04pmy")]
 position = Vector2(2686, 714)
